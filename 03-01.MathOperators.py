@@ -46,3 +46,11 @@ numbers[::-1] - #listeyi ters dizer
 10/3    #3.333333 
 #eğer 10//3 dersek ondalıklı kısmı atar tan kısmı yani 3ü gösteir
 -15//4
+
+--------
+#useful functions
+print(min(1, 2, 3, 4, 0, 2, 1))
+print(max([1, 4, 9, 2, 5, 6, 8]))
+print(abs(-99))
+print(abs(42))
+print(sum([1, 2, 3, 4, 5]))
