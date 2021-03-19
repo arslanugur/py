@@ -276,7 +276,6 @@ Arayüzünün Olusturulmasi
 25.28_Uygulama - Blog Tasarimi - 2
 25.29_Uygulama - Blog Tasarimi - 3
 
-
 26. Web Gelistirme - Django
 26.1_Django Kurulumu
      pip install Django==3.1.4
