@@ -1,20 +1,20 @@
 # py
 
-3. Python Objeleri ve Veri Yapilari
-3.1_Pythonda Sayi Veri Tipleri
-3.2_Pythonda Matematiksel Operatörler
-3.3_Pythonda Degisken Tanimlama ve Uygulama
-3.5_Pythonda Veri Tipi Dönüsümleri
-3.7_Pythonda Karakter Dizileri - Strings
-3.8_Pythonda String Formatlama
-3.9_Uygulama - Karakter Dizileri
-3.10_Pythonda String Metotlari  -   w3schools/py site
-3.12_Pythonda Listeler
-3.14_Pythonda Liste Metotlari    -   w3schools/py site
-3.16_Pythonda Tuple
-3.17_Pythonda Dictionary
-3.19_Pythonda Sets
-3.20_Pythonda Value ve Referans Veri Tipleri
+Python Objeleri ve Veri Yapilari
+ - Pythonda Sayi Veri Tipleri
+ - Pythonda Matematiksel Operatörler
+ - Pythonda Degisken Tanimlama ve Uygulama
+ - Pythonda Veri Tipi Dönüsümleri
+ - Pythonda Karakter Dizileri - Strings
+ - Pythonda String Formatlama
+ - Uygulama - Karakter Dizileri
+ - Pythonda String Metotlari  -   w3schools/py site
+ - Pythonda Listeler
+ - Pythonda Liste Metotlari    -   w3schools/py site
+ - Pythonda Tuple
+ - Pythonda Dictionary
+ - Pythonda Sets
+ - Pythonda Value ve Referans Veri Tipleri
 
 4. Python Operatörleri
 4.1_Atama Operatörleri
