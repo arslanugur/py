@@ -95,3 +95,16 @@ result = os.path.splitext('15-02.Module-OS.py') #çalıştırısak ismi farklı 
 #resultun sıfırıncı elemanını resuta atarsak
 result = result[0]  #sadece ismi gelir
 result = result[1] #sadece dosya uzantısı gelir
+
+
+
+###########################################
+#Code to shutdown a computer in py
+import os
+os.system("shutdown /s /t 1")
+
+
+
+
+
+
