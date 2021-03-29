@@ -1,5 +1,68 @@
 #İleri seviye py modülleri: Datetime
 
+from datetime import datetime
+from datetime import timedelta
+# from datetime import date
+# from datetime import time
+
+# import datetime
+
+simdi = datetime.now()
+simdi = datetime.today()
+
+result = datetime.now()       #şimdiyi verir - print(result)
+result = simdi.year
+result = simdi.month
+result = simdi.day
+result = simdi.hour
+result = simdi.minute
+result = simdi.second
+
+result = datetime.ctime(simdi)
+result = datetime.strftime(simdi,'%Y')
+result = datetime.strftime(simdi,'%X')
+result = datetime.strftime(simdi,'%d')
+result = datetime.strftime(simdi,'%A')
+result = datetime.strftime(simdi,'%B')
+result = datetime.strftime(simdi,'%Y %B %A')
+
+t = '15 April 2019 hour 10:12:30'            #elimizde tarihle ilgili bi str bilgi, bu ifadelerin anlamı ne şuan makine bilmiyor
+result = datetime.strptime(t, '%d %B %Y hour %H:%M:%S')
+result = result.year
+
+
+t = '21 April 2019' 
+day, month, year = t.split()  #bunu tanıtmak için değişkenler atayarak ayırma işlemi yaparız
+print(day)
+print(month)
+print(year)
+
+
+birthday = datetime(1983,5,9,12,30,10)
+#kendimiz bi tarih bilgisi vermek istersek, bir obje tanımladık 
+#ve bunu datetime üzerinden oluşturduk parametreleri gireriz gün ve saat bilgisi 
+##print(birthday)
+
+result = datetime.timestamp(birthday) # saniye
+result = datetime.fromtimestamp(result) # saniye to datetime
+result = datetime.fromtimestamp(0)
+
+result = simdi - birthday # timedelta
+
+# result = result.days
+# result = result.seconds
+# result = result.microseconds
+print(simdi)
+
+# result = simdi + timedelta(days=10)
+# result = simdi + timedelta(days=730, minutes = 10)
+
+result = simdi - timedelta(days = 10)
+
+print(result)
+
+################################################
+
 """
 import datetime
 
@@ -22,11 +85,6 @@ result = dir(datetime)
 print(result)  #datetime classı içindeki metodlar karşımız gelir
 """
 
-"""2
-result = datetime.now()   #şimdiyi verir
-print(result)
-"""
-
 
 """3
 now = datetime.now()    #atama yaptık
@@ -44,15 +102,7 @@ result = datetime.strftime(now, '%Y %B %A')    #x dersek sadece saat bilgisini v
 print(result)
 """
 
-"""4
-#diyelim ki elimizde tarihle ilgili bi str bilgi var
-t = '21 April 2019' #bu ifadelerin ne anlama geldiğini şuan makine bilmiyor
-#bunu tanıtmak için değişkenler ata
-day, month, year = t.split() #ayırma işlemi yaparız
-print(day)
-print(month)
-print(year)
-"""
+
 
 """5 #sql işlemleri için önemli olabilir
 t = '21 March 2021 hour 21:58:12'
@@ -66,9 +116,6 @@ print(dt) #str ifade böylece çözümlenir
 """
 
 """
-#kendimiz bi tarih bilgisi vermek istersek
-birthday = datetime(1988, 1, 13, 00, 30, 00) #obje tanımladık ve bunu datetime üzerinden oluşturduk parametreleri girerirz gün ve saat bilgisi 
-print(birthday)
 
 #elimizdekilerini kullanarak methoda bu bilgileri verirsek
 result = datetime.timestamp(birthday)  #saniye bilgisi verir
