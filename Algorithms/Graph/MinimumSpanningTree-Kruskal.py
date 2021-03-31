@@ -11,7 +11,7 @@ def kruskal(num_nodes: int, num_edges: int, edges: List[Tuple[int, int, int]]) -
     ... (2, 1, 1)])
     [(2, 3, 1), (0, 2, 1), (2, 1, 1)]
     """
-    edges = sorted(edges, key=lambda edge: edge[2])
+    edges = sorted(edges, key=lambda edge: edge[2]) #sorted: en küçük kenardan en büyük kenara, değerler olarak sıralanır
 
     parent = list(range(num_nodes))
 
@@ -61,4 +61,16 @@ edge almak için ya ikisi de unvisited olcak ya da birisi unvisited olcak
 bu algo en kısa şekilde dolaşarak tarama yapmayı sağlar -en az maliyetli  yol diyebiliriz - maliyetini sonuçların toplamını alarak yapabiliriz
 iddiası ise bütün düğümleri dolaşan daha kısa maliyetli bir yol bulunamaz. O yol budur der
 ama bir yerden bir yere gitmenin birden fazla yolu varsa eşit maliyetli olabilir
+C de kodlarsak pratikte
+kenarlara sayı verilir x ve y arasındaki edge
+01234567 - edges
+uxvyzstw - nodes
+dönüşüm tablosu kullanarak çevirirsek
+w-v:1
+7-2:1 maliyeti 1
+u-v:2 maliyet 2
+...
+graph - undirected graph yani iki yönlü gidilebiliyor
+        directed graph olsaydı hangisini hangisinden old sırası önemli olurdu
+
 """
