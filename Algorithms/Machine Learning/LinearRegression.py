@@ -6,6 +6,48 @@ as they determine how much our model will be able to make future predictions.
 We try to set the weight of these features, over many iterations, so that they best
 fit our dataset. In this particular code, I had used a CSGO dataset (ADR vs
 Rating). We try to best fit a line through dataset and estimate the parameters.
+
+It is used to estimate real values (cost of houses, number of calls, total sales etc.) based on continuous variable(s). 
+Here, we establish relationship between independent and dependent variables by fitting a best line. 
+This best fit line is known as regression line and represented by a linear equation 
+
+Y = a *X + b
+
+The best way to understand linear regression is to relive this experience of childhood. 
+Let us say, you ask a child in fifth grade to arrange people in his class by increasing order of weight, 
+without asking them their weights! 
+What do you think the child will do? 
+He / she would likely look (visually analyze) at the height and build of people 
+and arrange them using a combination of these visible parameters. 
+This is linear regression in real life! 
+The child has actually figured out that height and build would be correlated to the weight by a relationship, which looks like the equation above.
+
+In this equation:
+Y – Dependent Variable
+a – Slope
+X – Independent variable
+b – Intercept
+These coefficients a and b are derived based on minimizing the sum of squared difference of distance between data points and regression line.
+
+#import library
+#import other necessary libraries like pandas, numpy
+from sklearn import linear_model
+#load train and test datasets
+#identify feature and response variable(s) and values must be numeric and numpy arrays
+x_train = input_variables_values_training_datasets
+y_train = target_variables_values_training_datasets
+x_test = input_variables_values_test_datasets
+#Create linear regression object
+linear = linear_model.LinearRegression()
+#train the model using the training sets and check score
+linear.fit(x_train, y_train)
+linear.score(x_train, y_train)
+#Equation coefficient and intercept
+print('Coefficient: \n', linear.coef_)
+print('Intercept: \n', linear.intercept_)
+#predict output
+predicted = Linear.predict(x_test)
+
 """
 import numpy as np
 import requests
