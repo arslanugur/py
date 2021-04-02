@@ -1,3 +1,13 @@
+'''
+It is a classification method. 
+In the algorithm, we plot each data item 
+as a point in n-dimensional space (where n is number of features you have) 
+with the value of each feature being the value of a particular coordinate.
+For example, if we only had two features like Height and Hair length of an individual, 
+we’d first plot these two variables in two dimensional space 
+where each point has two co-ordinates (these co-ordinates are known as Support Vectors)
+'''
+
 #import Library
 from sklearn import svm
 #Assumed u have, X (predictor) and Y (target) for
