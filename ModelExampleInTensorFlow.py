@@ -70,7 +70,7 @@ tf.summary.scalar('curr_x', x)
 tf.summary.scalar('curr_f', f)
 summaries = tf.summary.merge_all()
 
-#this is ho we log these summaries:
+#this is how we log these summaries:
 s = tf.InteractiveSession()
 summary_writer = tf.summary.FileWriter("logs/1", s.graph)   #run number
 s.run(tf.global_variable_initializer())
@@ -111,4 +111,44 @@ loss = tf.reduce_mean((target - predictions) ** 2)
 #and optimizer:
 optimizer = tf.train.GradientDescentOptimizer(0.1)
 step = optimizer.minimize(loss)
+
+#Gradient Descent:
+s = tf.InteractiveSession()
+s.run(tf.global_variables_initializer())
+for i in range(300):
+	_, curr_loss, curr_weights = s.run(
+		[step, loss, weights], feed_dict = {features: x, target: y}) #filling placeholders
+	if i % 50 == 0:
+		print(curr_loss)
+
+#ground truth weights:
+	[0.11649134, 0.82753164, 0.46924019]
+#found weights:
+	[0.13715988, 0.79555332, 0.47024861]
+
+##MODEL CHECKPOINTS
+#we can save variables' statewith tf.train.Saver:
+s = tf.InteractiveSession()
+saver = tf.train.Saver(tf.trainable_variables())
+s.run(tf.global_variables_initializer())
+for i in range(300):
+	_, curr_loss, curr_weights = s.run(
+		[step, loss, weights], feed_dict = {features: x, target: y})
+	if i % 50 == 0:
+		saver.save(s, "logs/2/model.ckpt", global_step = i)
+		print(curr_loss)
+
+#we can list last checkpoints:
+saver.last_checkpoints
+['logs/2/model.ckpt-50', 'logs/2/model.ckpt-100', 'logs/2/model.ckpt-150', 'logs/2/model.ckpt-200', 'logs/2/model.ckpt-250',]
+
+#we can restore a previous checkpoint like this:
+saver.restore(s, "logs/2/model.ckpt-50")
+
+#only variables' values are restored, which means that u need to define a graph in the same way befor restoring a checkpoint.
+
+##SUMMARY
+#TF has built-in optimizers that do back-propagation automatically
+#TB provides tools for visualizing your training progress
+#TF allows u to checkpoint ur graph to restore its state later (u need to define it in axactly the same way thou) 
 
