@@ -1,8 +1,8 @@
-#dictionary bir liste türüdür
+#dictionary - bir liste türü
 #key - value  -  bi bilgiye ulaşmak için key bilgisini kullanıyoruz
 
-# 41 => kocaeli     temsil ediyor
-# 34 => istanbul
+# 41 => kocaeli    34 => istanbul        temsil ediyor
+
 
 #peki dictionary olmadan liste olarak bu nasıl yapılır
 cities = ['kocaeli', 'istanbul']
@@ -12,35 +12,37 @@ print(plaques[cities.index('istanbul')]) #unutma sıraların birbirine uyması g
 
 #ama iki liste yerine tek bi listeyle
 # print(plaques['istanbul'])  => 34 vermeli
-# yani key bilgisiyle value bilgisine ulaşmak amaç
+#yani amaç, key bilgisiyle value bilgisine ulaşmak
 
-#plaques tekrar tanımlanır ama köşeli değil süslü olarak 
+#DICT ile nasıl yapılır
 #plaques = { 'key' : 'value' } #keye karşılık bi value bilgisi yazdırcaz
-plaques = { 'kocaeli' : 41, 'istanbul' : 34 }
+plaques = { 'kocaeli' : 41, 'istanbul' : 34 } #plaques tekrar tanımlanır ama köşeli değil süslü olarak 
 print(plaques['istanbul'])
 
 plaques['ankara'] = 6 #yeni  value eklersek
 plaques['kocaeli'] = 'new value' #yeni value atadık
 print(plaques)
 
+
+######
 #yeni örnek
-users = {'arslanugur': {
-          'age': 28,
+users = {'Shakespeare': {
+          'age': 30,
           'roles':['user'], 
-          'email': 'a@gmail.com',
-          'address' : 'Aksaray',
+          'email': 'shakespeare@gmail.com',
+          'address' : 'Manchester',
           'phone' : '507'
           },
-         'ugurarslan' : {
-          'age': 30,
+         'Joyce' : {
+          'age': 31,
           'roles':['admin', 'user' ] #web sitesinde rolleri belirtme
           },
          'au' : 26,
          'ua' : 50}    #aynı şekilde süslü parantezle diğer valueler de verilir
 
-print(users['arslanugur'])
-print(users['arslanugur']['phone'])
-print(users['ugurarslan']['roles'][0])
+print(users['Shakespeare'])
+print(users['Shakespeare']['phone'])
+print(users['Joyce']['roles'][0])
 
-#genel olarak yaptığımız şey, saladığımız bilgilere verdiğimiz isim
+#genel olarak yaptığımız şey, salladığımız bilgilere verdiğimiz isim
 
