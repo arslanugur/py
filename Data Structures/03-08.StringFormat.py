@@ -1,20 +1,21 @@
 #string formatlama
-name = "Uğur" #yine değişken tanımlama
-surname = "Arslan"
+
+name = 'Da'
+surname = 'Vinci'
 age = 30
 
-# print("My Name is {} {}".format(name, surname)) 
-# nokta sonrası kullanılabilicek str metodları karşımıza gelir
-#str metodlarından biri: format. format namei süslü parantezin yerine koyar
-#ikinci argümana da surname yazılır. ikinci süslü parantz ile birlikte
-# print("My Name is {0} {1}".format(name, surname)) 
-#0 ve 1 Uğur Arslan 1 ve 0 Arslan Uğur
-#index numaralarını kullanmak yerine bu sefer...
-# print("My Name is {s} {n} and I'm {a} y/o.".format(n = name, s = surname, a = age)) 
-#eğer yukarıdaki gibi age bilgisi tanımlamıyorsan "30" string'i yazar geçersin
+# print('My name is {} {}'.format(name, surname)) #str metodlarından biri: format. format namei süslü parantezin yerine koyar
+# print('My name is {1} {0}'.format(name, surname)) #0 ve 1 Da Vinci 1 ve 0 Vinci Da
+# print('My name is {s} {n}'.format(n=name, s=surname)) #index numaralarını kullanmak yerine bu sefer...
+#eğer yukarıdaki gibi age bilgisi tanımlamıyorsan "30 string'i yazar geçersin
+# print("My name is {} {} and I'm {} years old.".format(name, surname, age))
+# print("My name is {} {} and I'm {} years old.".format(name, name, name))
 
-print(f"My Name is {name} {surname} and I'm {age} y/o.") 
-#f string metodu
+# result = 200 / 700
+# print('the result is {r:1.4}'.format(r=result))
+
+print(f"My name is {name} {surname} and I'm {age} y/o.") #fstring metodu
+
 
 # result = 200 / 700
 # print("the result is {}".format(result))
@@ -24,10 +25,5 @@ print(f"My Name is {name} {surname} and I'm {age} y/o.")
 #1 bilgisi ise o miktarsa karakterlik alan bırakır 3 bilgisi kaç basamak olacağını temsil
 #1 bilgisi sayının kendisini yazdırır
 
-
-
-
 str = '{c}, {b}, {a}'.format(a = 5, b = 9, c = 7)
 print(str)
-
-
