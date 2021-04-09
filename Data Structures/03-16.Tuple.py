@@ -42,10 +42,3 @@ print(tuple.index('Alice'))
 print(list)
 print(tuple)
 
-
-
-print(tuple.count('ayşe'))
-print(tuple.index('ayşe'))
-
-print(list)
-print(tuple)
