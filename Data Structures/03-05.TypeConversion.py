@@ -22,7 +22,6 @@ print(total)
 
 ##################################
 
-#Other examples
 x = 5               #int
 y = 2.5             #float
 name = "Arslan"     #str
