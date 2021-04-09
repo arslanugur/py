@@ -42,8 +42,8 @@ print(result)
 
 # "Hello world" ifadesindeki w harfini "W" ile değiştir
 x = "Hello world"
-result = x[6]
-result = x[0:6] + "WWW"+ x[-4:]
+x = x[6]
+x = x[0:6] + "WWW"+ x[-4:]
 print(x)
 
 #2.yol - replace metodu
