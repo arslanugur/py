@@ -1,16 +1,16 @@
-'''1 
+
 message = 'Hello There. My Name Is Hemingway'.split()     #split-dizi liste yapmak
 print(message)
 print(message[0]) #karşımıza hello index numarasıyla çıkar. Split kullanmazsan sadece H gelir
-'''
 
-'''2
+#############################################
+
 my_list = [1,2,3]
 my_list = ['bir',2, True, 5.6]
 print(my_list) 
-'''
 
-"""3
+#############################################
+
 list1 = ['one','two','three']
 list2 = ['four','five','six']
 
@@ -19,6 +19,7 @@ print(numbers)
 print(len(numbers))     #len metoduyla sayısını öğreniriz
 print(numbers[2])
 
+#############################################
 
 userA = ['Beckett', 30]
 userB = ['Baudelaire', 25]
@@ -38,7 +39,6 @@ print(users[0][0])
 print(users[0][1])
 print(users[1][0])
 print(users[1][1])
-"""
 
 #############################################
 
