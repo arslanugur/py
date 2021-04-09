@@ -29,7 +29,7 @@ print(fruits)  #set()
 
 ############################
 
-myList = [1,3,5,5,2,3,1]     #yeni bi list tanılarsak
+myList = [1,3,5,5,2,3,1]     #yeni bi list tanımlarsak
 print(myList)
 
 #MyList, set constructer aracılığıyla myListe gönderirsek, her bir eleman bir kere yazılacak
