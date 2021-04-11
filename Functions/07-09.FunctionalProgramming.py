@@ -67,8 +67,75 @@ print(Increment(15))
 def Increment(x):
     return x + 1         #tabi bunu yapmak mümkünse bazen mümkün olamıyor
 
+print(Increment(15))
+
 #Özetle, Fonksiyonel Programlama yaparken bir değişkenin değeri değiştirilmemeli. Yani bir fonksiyon kendine ait verileri başka kimseyle paylaşmamalı
 
 ################### THIRD EXAMPLE #########################
+
+dictionary = ["fox", "boss", "orange", "cup", "fury", "toes"]  #kelimeleri içeren bir değişken tanımlanır ve içeriği liste türünde
+
+#şimdi ingilizce kelimeleri çoğul şekline sokacak olan bir fonksiyon yazalım
+def Pluralize(words):                  #words adında bir parametre koyarız
+    for index in range(len(words))     #range sıfırdan bize versin, len kaç tane elemanım varsa
+#çünkü index kullanarak listedeki elemanlara teker teker ulaşıp değiştirecek(Çoğul yapacak), onun için indexini aldım
+        word = words[index]            
+#yani yukarıdaki dictionary listesini yani Pluralize fonksiyonunu, for döngüsüne koymaktansa bu satırda bu şekilde alındı elemanlar, çünkü değiştirmek istiyoruz
+        if word.endswith('s') or word.endswith('x'):   #yani sonu ne ile bitiyorsa    
+            word +=  'es'                              #word'ün sonuna es ekle  #English Grammar
+        elif word.endswith('y'):                       #y ile bitiyorsa y'yi kaldır yerine ies koyacağız
+            word = word[:-1] + "ies"                  
+#Slicing: string'lerde yeni bir string alma yolu
+#yani -1'den ver, sonunu vermemek, sondan bir öncesini ver. (Index hesabına göre) ve sondan bir öncesini ies ile topla
+        else:                                          #hiçbiri değilse 
+            word += "s"                                #word'ün sonuna s ekle, sonuçta ingilizcedeki standard kelimelerimiz
+        
+        words[index] = word
+        #words listemiz oluyor ve word listemizin içindekiyle değiştirilir . index'deki değeri, yeni oluşturduğumuz kelimeyle değiştir
+
+#fonksiyonumuzu çağırırsak
+Pluralize(dictionary)       #Fonksiyonumuzu çağırdık ve argüman olarak dictionary listesini verdik
+print(dictionary)
+#buraya kadar normal işliyor, ama tek bir sorunumuz var side effect
+#eğer dictionary listesini önceki haliyle kullanmak istiyorsak, artık elimizde öyle bir liste yok. Liste artık çoğul şekle girdi, eski tekil liste yok
+#işte bu side effect. Fonksiyon doğru çalışıyor ama side effect'i var. Başka yerdeki değerleri değiştirdi.
+#bunu değiştirmek için boş liste oluşturmak gerekli result adında
+#daha temiz ve ikinci versiyonuyla gösterirsek
+
+
+dictionary = ["fox", "boss", "orange", "cup", "fury", "toes"]
+
+def Pluralize(words):
+    result = list()       #boş listeyi oluşturduk
+    for index in range(len(words))
+        
+        word = words[index]
+
+        if word.endswith('s') or word.endswith('x'):    
+            word +=  'es'
+        elif word.endswith('y'):
+            word = word[:-1] + "ies"                  
+        else: 
+            word += "s"
+            
+        result.append(word) #boş listeyi alırız words[index] = word yerine koyarız. 
+#Artık result adında bir değişken tanımladık, liste formatında, boş şekilde.
+#her defasında ürettiğimiz kelimeyi append ile bu boş listeye atıyoruz.
+#buna fonksiyon dışında da erişebilmek için return etmek lazım
+    return result
+
+result = Pluralize(dictionary) #artık böyle çağırmıyoruz, çünkü side effectli bir fonksiyondu Pluralize(dictionary)
+print(dictionary)        #liste, orijinal şekilde kaldı ve basıldı
+print(result)            #değiştirilmiş yeni liste de bu şekilde basıldı
+
+#Hem amaca uygun sonuç elde edildi, hem de orijinal liste değiştirilmedi
+
+#######################################################
+#py'de fonksiyonlarımızı başka bir fonksiyon içinde de tanımlayabiliriz.. 11:47
+...
+
+
+
+
 
 
