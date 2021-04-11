@@ -1,3 +1,6 @@
+
+Chapter II - OVERVİEW OF STATISTICAL LEARNING
+
 Quiz 2.1 - Introduction to Regression Models Quiz
 In the expression Sales ≈ f(TV, Radio, Newspaper), "Sales" is the: Response
 The variable which you are trying to model is called the response or outcome. 
@@ -23,15 +26,73 @@ Look at the graph given on page 30 of the Chapter 2 lecture slides.
 Which of the following is most likely true of what would happen to the Test Error curve as we move 1/K further above 1?
 It does not make sense to have 1/K > 1
 
-Quiz 2.5 - Introduction to R Quiz
+ - Introduction to R Quiz
 You are doing an analysis in R and need to use the 'summary()' function, but you are not exactly sure how it works. Which of the following commands should you run? (There is more than one correct answer, so any one these will earn the point).
-?summary()
+?summary(), ?summary, help(summary)
+Make sure you always read the documentation so you know what functions do when you use them!
 
-Quiz 2.6 - Chapter 2 Quiz
+ - Chapter 2 Quiz
 For each of the following parts, indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible model.
-The sample size n is extremely large, and the number of predictors p is small:            Flexible is better
+The sample size n is extremely large, and the number of predictors p is small:        Flexible is better
+A flexible model will allow us to take full advantage of our large sample size.
 
-The number of predictors p is extremely large, and the sample size n is small:            Flexible is worse
-The relationship between the predictors and response is highly non-linear:                Flexible is better
-The variance of the error terms, i.e. \sigma^2 = \text{Var}(\epsilon), is extremely high: Flexible is worse
+The number of predictors p is extremely large, and the sample size n is small:        Flexible is worse
+The flexible model will cause overfitting due to our small sample size.
+
+The relationship between the predictors and response is highly non-linear:            Flexible is better
+A flexible model will be necessary to find the nonlinear effect.
+
+The variance of the error terms, i.e. sigma^2 = Var(\epsilon), is extremely high:     Flexible is worse
+A flexible model will cause us to fit too much of the noise in the problem.
+
+########################################################################################################################
+
+CHAPTER III - LINEAR REGRESSION
+
+ - Simple Linear Regression Quiz
+Linear regression important to understand: Linear regression is very extensible and can be used to capture nonlinear effects
+Simple methods can outperform more complex ones if the data are noisy
+Understanding simpler methods sheds light on more complex ones
+The linear model (and every other model) is hardly ever true, but it is an important piece in many more complex methods.
+
+You may want to reread the paragraph on confidence intervals on page 66 of the textbook before trying this queston (the distinctions are subtle). Which of the following are true statements? 
+A 95% confidence interval is a random interval that contains the true parameter 95% of the time
+The true parameter (unknown to me) is 0.5. If I sample data and construct a 95% confidence interval, the interval will contain 0.5 95% of the time.
+Confidence intervals are a "frequentist" concept: the interval, and not the true parameter, is considered random.
+
+ - Hyphotesis Testing and Confidence Invervals Quiz
+We run a linear regression and the slope estimate is 0.5 with estimated standard error of 0.2. What is the largest value of b for which we would NOT reject the null hypothesis that β_1=b? (assume normal approximation to t distribution, and that we are using the 5% significance level for a two-sided test; need two significant digits of accuracy)     ----->   0.892
+The 95% confidence interval β^_1 ± 1.96 S.E.(β^_1) contains all parameter values that would not be rejected at a 5% significance level.
+
+Which of the following indicates a fairly strong relationship between X and Y?  ------>  R^2 = 0.9
+The R2 is the correlation between the two variables and measures how closely they are associated. The p value and t statistic merely measure how strong is the evidence that there is a nonzero association. Even a weak effect can be extremely significant given enough data.
+
+ - Multiple Linear Regression
+Suppose we are interested in learning about a relationship between X_1 and Y, which we would ideally like to interpret as causal.
+The estimate \hat\beta_1 in a linear regression that controls for many variables (that is, a regression with many predictors in addition to X_1) is usually a more reliable measure of a causal relationship than \hat\beta_1 from a univariate regression on X_1.
+False
+
+ - Some important questions
+According to the balance vs ethnicity model, what is the predicted balance for an Asian in the data set? (within 0.01 accuracy)
+512.31 
+
+What is the predicted balance for an African American? (within .01 accuracy)
+531
+
+- Extensions of the linear model
+ 
+ - Linear Regression in R
+ 
+ - Chapter 3 Quiz
+
+########################################################################################################################
+
+CHAPTER IV - CLASSIFICATION
+
+
+
+
+
+
+
 
