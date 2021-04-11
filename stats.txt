@@ -78,11 +78,18 @@ According to the balance vs ethnicity model, what's the predicted balance for an
 
 What is the predicted balance for an African American? (within .01 accuracy) ----> 531
 
-- Extensions of the linear model
- 
+ - Extensions of the linear model
+According to the model for sales vs TV interacted with radio, what is the effect of an additional $1 of radio advertising if TV=$50? (with 4 decimal accuracy)   -----> .0839
+
+What if TV=$250? (with 4 decimal accuracy) ----> .3039
+
  - Linear Regression in R
- 
+What is the difference between lm(y ~ xz) and lm(y ~ I(xz)), when x and z are both numeric variables?
+The second includes only an interaction term for x and z, while the first includes both interaction effects and main effects.
+
  - Chapter 3 Quiz
+Which of the following statements are true?
+In the balance vs. income * student model plotted on slide 44, the estimate of beta3 is negative.
 
 ########################################################################################################################
 
