@@ -71,25 +71,38 @@ The R2 is the correlation between the two variables and measures how closely the
 Suppose we are interested in learning about a relationship between X_1 and Y, which we would ideally like to interpret as causal.
 The estimate \hat\beta_1 in a linear regression that controls for many variables (that is, a regression with many predictors in addition to X_1) is usually a more reliable measure of a causal relationship than \hat\beta_1 from a univariate regression on X_1.
 False
+Adding lots of extra predictors to the model can just as easily muddy the interpretation of β^1 as it can clarify it. One often reads in media reports of academic studies that "the investigators controlled for confounding variables," but be skeptical!
+Causal inference is a difficult and slippery topic, which cannot be answered with observational data alone without additional assumptions.
+
 
  - Some important questions
 According to the balance vs ethnicity model, what's the predicted balance for an Asian in the data set? (within 0.01 accuracy)
 -----> 512.31 
+For an Asian, the predicted balance is the intercept plus the Asian ethnicity effect
+
 
 What is the predicted balance for an African American? (within .01 accuracy) ----> 531
+For an African American, the predicted balance is just the intercept.
+Note that despite the differing predictions, this difference is not statistically significant.
 
  - Extensions of the linear model
 According to the model for sales vs TV interacted with radio, what is the effect of an additional $1 of radio advertising if TV=$50? (with 4 decimal accuracy)   -----> .0839
 
 What if TV=$250? (with 4 decimal accuracy) ----> .3039
+The effect of an additional unit of radio is .0289 plus .0011 times TV.
 
  - Linear Regression in R
 What is the difference between lm(y ~ xz) and lm(y ~ I(xz)), when x and z are both numeric variables?
 The second includes only an interaction term for x and z, while the first includes both interaction effects and main effects.
+An interaction term between a numeric x and z is just the product of x and z. The difference is that in the first model, lm processes the "*" operator between variables and automatically includes main effects, whereas in the latter model, the expression inside the I() function is not parsed as a part of the formula, but rather is simply evaluated.
 
  - Chapter 3 Quiz
 Which of the following statements are true?
 In the balance vs. income * student model plotted on slide 44, the estimate of beta3 is negative.
+We can see that the estimate of beta3 is negative because the slope of the student line is smaller than the slope of the non-student line. That is, being a student diminishes the effect of income on balance.
+The linear model is almost always wrong; however, it is often still useful.
+The F statistic tests the null hypothesis that none of the predictors has any effect. Rejecting that null means concluding that *some* predictor has an effect, not that *all* of them do.
+Positive correlation only means that the univariate regression has a positive correlation. See slide 20 for a counterexample.
 
 ########################################################################################################################
 
