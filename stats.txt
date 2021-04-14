@@ -1,50 +1,4 @@
 
-Chapter II - OVERVİEW OF STATISTICAL LEARNING
-
-Quiz 2.1 - Introduction to Regression Models Quiz
-In the expression Sales ≈ f(TV, Radio, Newspaper), "Sales" is the: Response
-The variable which you are trying to model is called the response or outcome. 
-The other variables are called features, predictors, or independent variables. 
-Together, the collection of features and response values that you will use for fitting form your training data.
-
-Quiz 2.2 - Dimensionality and Structured Models Quiz
-A hypercube with side length 1 in d dimensions is defined to be the set of points (x1, x2, ..., xd) such that 0 <= x_j <= 1 for all j = 1, 2, ..., d. 
-The boundary of the hypercube is defined to be the set of all points such that there exists a j for which 0 <= x_j <= 0.05 or 0.95 <= x_j <= 1 (namely, the boundary is the set of all points that have at least one dimension in the most extreme 10% of possible values). 
-What proportion of the points in a hypercube of dimension 50 are in the boundary? 
-(hint: you may want to calculate the volume of the non-boundary region)
-Please give your answer as a value between 0 and 1 with 3 significant digits. If you think the answer is 50.52%, you should say 0.505:
-The volume of the interior of the hypercube is 0.950 = 0.005. Thus, the volume of the boundary is 1-0.005 = 0.995.
-
-Quiz 2.3 - Model Selection and Bias-Variance Tradeoff Quiz
-A fitted model with more predictors will necessarily have a lower Training Set Error than a model with fewer predictors. :False
-
-Quiz 2.3 - Model Selection and Bias-Variance Tradeoff Quiz
-While doing a homework assignment, you fit a Linear Model to your data set. You are thinking about changing the Linear Model to a Quadratic one. Which of the following is most likely true: Using the Quadratic Model will decrease the Bias of your model.
-
-Quiz 2.4 - Classification Quiz
-Look at the graph given on page 30 of the Chapter 2 lecture slides. 
-Which of the following is most likely true of what would happen to the Test Error curve as we move 1/K further above 1?
-It does not make sense to have 1/K > 1
-
- - Introduction to R Quiz
-You are doing an analysis in R and need to use the 'summary()' function, but you are not exactly sure how it works. Which of the following commands should you run? (There is more than one correct answer, so any one these will earn the point).
-?summary(), ?summary, help(summary)
-Make sure you always read the documentation so you know what functions do when you use them!
-
- - Chapter 2 Quiz
-For each of the following parts, indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible model.
-The sample size n is extremely large, and the number of predictors p is small:        Flexible is better
-A flexible model will allow us to take full advantage of our large sample size.
-
-The number of predictors p is extremely large, and the sample size n is small:        Flexible is worse
-The flexible model will cause overfitting due to our small sample size.
-
-The relationship between the predictors and response is highly non-linear:            Flexible is better
-A flexible model will be necessary to find the nonlinear effect.
-
-The variance of the error terms, i.e. sigma^2 = Var(\epsilon), is extremely high:     Flexible is worse
-A flexible model will cause us to fit too much of the noise in the problem.
-
 ########################################################################################################################
 
 CHAPTER III - LINEAR REGRESSION
@@ -174,9 +128,6 @@ Whether or not a student gets an A is a categorical variables. Thus, we should u
 
 ########################################################################################################################
 
-CHAPTER V - RESAMPLING
-
- - d
 
 
 
