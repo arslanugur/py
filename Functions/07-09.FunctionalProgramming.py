@@ -131,11 +131,95 @@ print(result)            #değiştirilmiş yeni liste de bu şekilde basıldı
 #Hem amaca uygun sonuç elde edildi, hem de orijinal liste değiştirilmedi
 
 #######################################################
-#py'de fonksiyonlarımızı başka bir fonksiyon içinde de tanımlayabiliriz.. 11:47
-...
+#py'de fonksiyonlarımızı başka bir fonksiyon içinde de tanımlayabiliriz.. 
+def HelloWorld(param):
+    def World(world):
+        print(param, world)
+        #peki bunu nasıl çağırırız yani bi fonksiyonun içindeyse fonksiyon nasıl çağrılır
+        return World #ama parantezini koymacağız referansını döncez
+        #ana fonksiyon kendi parametresini de alt fonksiyonun parametresini de kullanıyor
+        
+f = HelloWorld("Hello")
+#bu bize neyi verir, Worldü vermiş oluyor aslında
+#print(f) #göstermek için çalıştırdığımızda bize bu fonksiyonun localinde World diye fonksiyon tanımlı der
+#print(f) yerine
+f("World") #çağırdığımızda çıktısı Hello World olur peki nerden geldi aslında print(param, world) den geldi
+#çağırdığımız zaman aslında f = HelloWorld("Hello") nun returnünü çağırıyoruz returnü de World oluyor yani World çağırmış oluyoruz
+
+#yani paramı HelloWorld fonksiyonundan alıyor - "Hello", "World" ü ise World fonksiyonundan alıyor
+
+#######################################################
+
+#Biz fonksiyonlarımızı py'de listeleri yazabiliriz
+
+def ActionOne(param):
+    print(param)    #aşağıda gelecek olan parametre her neyse onu print eder
+
+    
+def ActionTwo(param):
+    print(param)
+
+#şimdi bu iki fonksiyonu listeye nasıl koyabilirim
+
+myFuncList = [ActionOne, ActionTwo]  
+#bir liste oluşturup parantezsiz olarak fonksiyonlar yazılır
+#yani listemize referanslarını veriyoruz
+#bir id bu fonksiyonu py interpretorında bize ifade ediyor.
+#böylece istediğimiz zaman kullanabiliriz böyle..
+myFuncList[0]("Deneme") #birinci fonksiyonu 0 ile gösteririz, parantez içinde Deneme yazarsak
+#birinci fonksiyonun çalıştırmış oldu. fonksiyonun amacı zaten yazdırmaktı
+#bu yöntem oldukça çok işe yarar
+
+#######################################################
+
+#bazen bir fonksiyonun sonucu, bir fonksiyon olarak dönmesini isteriz
+def SampleFunc(callback):   #yaptığın iş başarılıysa bunu bana dön diyorum yani
+    print("Bazı işler yap")
+    return callback  #eğer yapılabildiyse call back yapsın çağıran fonksiyon sonucu görsün
+
+#callbacki vermek için önce bi callbacki tanımlamak lazım
+def Callback(message):
+    print(message)
+
+#şimdi çağırırsak bunu
+f = SampleFunc(Callback) #Callbackin referansını veriyoruz parantezsiz olarak
+f("Merhaba Dünya") #diye parametre verip çalıştıralım
+#yani bu içerde yaptığımız işi print("bazı  işler yap") bize fonksiyon olarak döndü
+#Biz de ona parametre ismi verip f("Merhaba Dünya")
 
 
+#######################################################
 
+#daha iyi anlaşılması için değişiklikler yaparsak
+def SampleFunc(number, callback1, callback2):
+    if number % 2 = 0:     #çift sayıysa callback1 çağır
+        return callback1 
+    return callback2 #değilse callback2 yap, bu else olarak da yazılabilir tabi
+                     #ama zaten ilk returnde callback olmayacaksa ikinci returna gelecek
 
+def Callback1(number):  #geliyorum buraya numberımı bastır ama iki tane callback var
+    print("1", number)  #hangi fonksiyonda olduğunu görmek için 1 yazarız
+#her biri için farklı fonksiyonlar verebiliriz
+    
+def Callback2(number):
+    print("2", number)    #bu da 2.callbackimiz
+    
+number = 20 #burda da bi number tanımlayalım    
+f = SampleFunc(number, Callback1, Callback2)   #burda verdiğimiz 20 değeri eğer çiftsayıysa bize burda Callback1 ile döner, böylece bir fonksiyona ne yapacağımızı karar vermemizi sağlıyoruz
+f(number)   #çağırma şeklimiz de bu
 
+#f = SampleFunc.. SampleFunc ne yapıyor?
+#bizim için bir karar veriyor
+#20 değerindeki bi sayı için hangi callbacki çalıştırması gerektiğine karar veriyor
+#kararından sonra da ilgili fonksiyonu f(number) çalıştırmış oluyor
+#number'ı başka bir sayı tanımlarsak ona göre de callback değişecek
+#bu kodlama matematiksel işlemlerde ve veri analizlerinde çok faydalı
+#number yerine data seti veriyoruz, data setine göre fonksiyon dönüyor ve ona göre işlem yapıyoruz
+
+#Assignment
+"""
+Programın fibonacci dizisinin toplamını baştan verilen elemana kadar hesaplasın
+fibonacci dizisi - 0,1,1,2,3,5,8,13,21
+"""
+----> çözüm 19:18
 
