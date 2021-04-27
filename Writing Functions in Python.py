@@ -78,7 +78,7 @@ Instructions 1/4
 Copy the following string and add it as the docstring for the function: Count the number of times `letter` appears in `content`.
 Hint: Use a triple-quoted string so that your docstring can span multiple lines.
   
-Code: 
+Code: Crafting a docstring
 # Add a docstring to count_letter()
 def count_letter(content, letter):
   """Count the number of times `letter` appears in `content`."""
@@ -167,7 +167,7 @@ We don't want to call the function (e.g. count_letter()).
 Instead, treat the function as an object (e.g. count_letter.<attribute_name>).
 Try running dir(count_letter) in the shell to see a list of all of the attributes that the function has.
 
-Code:
+Code: Retrieving docstrings
 # Get the docstring with an attribute of count_letter()
 docstring = count_letter.__doc__
 
@@ -188,6 +188,10 @@ docstring = inspect.getdoc(count_letter)
 border = '#' * 28
 print('{}\n{}\n{}'.format(border, docstring, border))
 
+or "return" instead of "print" above
+print(build_tooltip(count_letter))
+print(build_tooltip(range))
+print(build_tooltip(print))
 
 Instructions 3/3
 Use the inspect module again to get the docstring for any function being passed to the build_tooltip() function.
@@ -308,7 +312,7 @@ Notice how
 is only performing operations on df.y1_gpa. 
 So you should be able to pass df.y1_gpa as the column argument to the standardize() function.
   
-Code:
+Code: Extract a function
 def standardize(column):
   """Standardize the values in a column.
 
@@ -354,7 +358,7 @@ def mean_and_median(values):
 Instructions 1/2
 Write the mean() function
 
-Code:
+Code: Split up a function
 def mean(values):
   """Get the mean of a list of values
 
@@ -371,7 +375,7 @@ def mean(values):
 Instructions 2/2
 Write the median() function.
 
-Code:
+Code: Split up a function
 def median(values):
   """Get the median of a list of values
 
@@ -515,7 +519,7 @@ Hint
 Try running add_column(values=range(10)) in the IPython shell multiple times to see why using a mutable value like a DataFrame is a bad idea.
 The value None is an immutable value commonly used in Python to mean "no value".
                         
-Code:
+Code: Best practice for default arguments
 # Use an immutable variable for the default argument 
 def better_add_column(values, df=None):
   """Add a column of `values` to a DataFrame `df`.
@@ -546,15 +550,82 @@ This chapter will show you how to use context managers, as well as how to write 
 """
 
 2.1. Using context managers
-2.1. The number of cats
-2.1. The speed of cats
-2.1. Writing context managers
-2.1. The timer() context manager
-2.1. A read-only open() context manager
-2.1. Advanced topics
-2.1. Context manager use cases
-2.1. Scraping the NASDAQ
-2.1. Changing the working directory
+1. Using context managers
+In this lesson, I'll introduce the concept of context managers and show you how to use these special kinds of functions.
+
+2. What is a context manager?
+A context manager is a type of function that sets up a context for your code to run in, runs your code, and then removes the context. 
+That's not a very helpful definition though, so let me explain with an analogy.
+
+3. A catered party
+Imagine that you are throwing a fancy party, and have hired some caterers to provide refreshments for your guests.
+
+4. A catered party
+Before the party starts, the caterers set up tables with food and drinks.
+
+5. A catered party
+Then you and your friends dance, eat, and have a good time.
+
+6. A catered party
+When the party is done,
+
+7. A catered party
+the caterers clean up the food and remove the tables.
+
+8. Catered party as context
+In this analogy, the caterers are like a context manager. 
+First, they set up a context for your party, which was a room full of food and drinks. 
+Then they let you and your friends do whatever you want. 
+This is like you being able to run your code inside the context manager's context. 
+Finally, when the party is over, the caterers clean up and remove the context that the party happened in.
+
+9. A real-world example
+You may have used code like this before. The "open()" function is a context manager. 
+When you write "with open()", it opens a file that you can read from or write to. 
+Then, it gives control back to your code so that you can perform operations on the file object. 
+In this example, we read the text of the file, store the contents of the file in the variable "text", 
+and store the length of the contents in the variable "length". 
+When the code inside the indented block is done, the "open()" function makes sure that the file is closed before continuing on in the script. 
+The print statement is outside of the context, so by the time it runs the file is closed.
+
+10. Using a context manager
+Any time you use a context manager, it will look like this. The keyword "with" lets Python know that you are trying to enter a context.
+
+11. Using a context manager
+Then you call a function. You can call any function that is built to work as a context manager. 
+In the next lesson, I'll show you how to write your own functions that work this way.
+
+12. Using a context manager
+A context manager can take arguments like any normal function.
+
+13. Using a context manager
+You end the "with" statement with a colon as if you were writing a for loop or an if statement.
+
+14. Using a context manager
+Statements in Python that have an indented block after them, 
+like for loops, if/else statements, function definitions, etc. are called "compound statements". 
+The "with" statement is another type of compound statement. 
+Any code that you want to run inside the context that the context manager created needs to be indented.
+
+15. Using a context manager
+When the indented block is done, the context manager gets a chance to clean up anything that it needs to, 
+like when the "open()" context manager closed the file.
+
+16. Using a context manager
+Some context managers want to return a value that you can use inside the context. 
+By adding "as" and a variable name at the end of the "with" statement, you can assign the returned value to the variable name. 
+We used this ability when calling the "open()" context manager, which returns a file that we can read from or write to. 
+By adding "as my_file" to the "with" statement, we assigned the file to the variable "my_file".
+                        
+2.2. The number of cats
+2.3. The speed of cats
+2.4. Writing context managers
+2.5. The timer() context manager
+2.6. A read-only open() context manager
+2.7. Advanced topics
+2.8. Context manager use cases
+2.9. Scraping the NASDAQ
+2.10. Changing the working directory
 
 
 
@@ -568,18 +639,18 @@ This deep dive into Python internals will set you up to be a superstar Pythonist
 """
 
 3.1. Functions are objects
-3.1. Building a command line data app
-3.1. Reviewing your co-worker's code
-3.1. Returning functions for a math game
-3.1. Scope
-3.1. Understanding scope
-3.1. Modifying variables outside local scope
-3.1. Closures
-3.1. Checking for closure
-3.1. Closures keep your values safe
-3.1. Decorators
-3.1. Using decorator syntax
-3.1. Defining a decorator
+3.2. Building a command line data app
+3.3. Reviewing your co-worker's code
+3.4. Returning functions for a math game
+3.5. Scope
+3.6. Understanding scope
+3.7. Modifying variables outside local scope
+3.8. Closures
+3.9. Checking for closure
+3.10. Closures keep your values safe
+3.11. Decorators
+3.12. Using decorator syntax
+3.13. Defining a decorator
 
 
 
@@ -592,15 +663,15 @@ and how to write decorators that take arguments.
 """
 
 4.1. Real-world examples
-4.1. Print the return type
-4.1. Counter
-4.1. Decorators and metadata
-4.1. Preserving docstrings when decorating functions
-4.1. Measuring decorator overhead
-4.1. Decorators that take arguments
-4.1. Run_n_times()
-4.1. HTML Generator
-4.1. Timeout(): a real world example
-4.1. Tag your functions
-4.1. Check the return type
-4.1. Great job!
+4.2. Print the return type
+4.3. Counter
+4.4. Decorators and metadata
+4.5. Preserving docstrings when decorating functions
+4.6. Measuring decorator overhead
+4.7. Decorators that take arguments
+4.8. Run_n_times()
+4.9. HTML Generator
+4.10. Timeout(): a real world example
+4.11. Tag your functions
+4.12. Check the return type
+4.13. Great job!
