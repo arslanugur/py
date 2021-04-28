@@ -714,24 +714,4 @@ The decorator print_before_and_after() defines a nested function wrapper() that 
 wrapper() adds a little something else to the function call by printing one message before the decorated function is called and another right afterwards. 
 Since print_before_and_after() returns the new wrapper() function, we can use it as a decorator to decorate the multiply() function.
 
-4. More on Decorators
-"""
-Now that you understand how decorators work under the hood, 
-this chapter gives you a bunch of real-world examples of when and how you would write decorators in your own code. 
-You will also learn advanced decorator concepts like how to preserve the metadata of your decorated functions 
-and how to write decorators that take arguments.
-"""
 
-4.1. Real-world examples
-4.2. Print the return type
-4.3. Counter
-4.4. Decorators and metadata
-4.5. Preserving docstrings when decorating functions
-4.6. Measuring decorator overhead
-4.7. Decorators that take arguments
-4.8. Run_n_times()
-4.9. HTML Generator
-4.10. Timeout(): a real world example
-4.11. Tag your functions
-4.12. Check the return type
-4.13. Great job!
