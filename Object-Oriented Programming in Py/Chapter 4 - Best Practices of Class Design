@@ -1,0 +1,15 @@
+4.  Best Practices of Class Design
+"""How do you design classes for inheritance? Does Python have private attributes? Is it possible to control attribute access? 
+You'll find answers to these questions (and more) as you learn class design best practices."""
+
+4.1. Designing for inheritance and polymorphism
+4.2. Polymorphic methods
+4.3. Square and rectangle
+4.4. Managing data access: private attributes
+4.5. Attribute naming conventions
+4.6. Using internal attibutes
+4.7. Properties
+4.8. What do properties do?
+4.9. Create and set properties
+4.10. Read-only properties
+4.11. Congratulations!
