@@ -83,6 +83,7 @@ You have already downloaded a text file, alice.txt, with the entire contents of 
 
 Instructions
 Use the open() context manager to open alice.txt and assign the file to the file variable.
+
 Hint
 Remember the keywords with and as when calling a context manager like open().
                         
@@ -98,6 +99,8 @@ for word in text.split():
 
 print('Lewis Carroll uses the word "cat" {} times'.format(n))
 
+By opening the file using the with open() statement, you were able to read in the text of the file. 
+More importantly, when you were done reading the text, the context manager closed the file for you.
                         
 2.3. The speed of cats
 You're working on a new web service that processes Instagram feeds to identify which pictures contain cats (don't ask why -- it's the internet). 
