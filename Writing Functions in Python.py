@@ -1,7 +1,5 @@
 1. Best Practices
 """
-The goal of this course is to transform you into a Python expert, 
-and so the first chapter starts off with best practices when writing functions. 
 We'll cover docstrings and why they matter and how to know when you need to turn a chunk of code into a function. 
 You will also learn the details of how Python passes arguments to functions, as well as some common gotchas 
 that can cause debugging headaches when calling functions.
@@ -393,7 +391,6 @@ def median(values):
     median = values[midpoint]
   return median
 
-
 1.7. Pass by assignment
 1. Pass by assignment
 The way that Python passes information to functions is different from many other languages. 
@@ -510,7 +507,8 @@ def add_column(values, df=pandas.DataFrame()):
   """
   df['col_{}'.format(len(df.columns))] = values
   return df
-                                    
+
+                       
 Instructions
 Change the default value of df to an immutable value to follow best practices.
 Update the code of the function so that a new DataFrame is created if the caller didn't pass one.
@@ -518,6 +516,7 @@ Update the code of the function so that a new DataFrame is created if the caller
 Hint
 Try running add_column(values=range(10)) in the IPython shell multiple times to see why using a mutable value like a DataFrame is a bad idea.
 The value None is an immutable value commonly used in Python to mean "no value".
+
                         
 Code: Best practice for default arguments
 # Use an immutable variable for the default argument 
@@ -548,6 +547,7 @@ Context managers are a convenient way to provide connections in Python and guara
 that those connections get cleaned up when you are done using them. 
 This chapter will show you how to use context managers, as well as how to write your own.
 """
+
 
 2.1. Using context managers
 1. Using context managers
@@ -618,7 +618,39 @@ We used this ability when calling the "open()" context manager, which returns a 
 By adding "as my_file" to the "with" statement, we assigned the file to the variable "my_file".
                         
 2.2. The number of cats
+You are working on a natural language processing project to determine what makes great writers so great. 
+Your current hypothesis is that great writers talk about cats a lot. 
+To prove it, you want to count the number of times the word "cat" appears in "Alice's Adventures in Wonderland" by Lewis Carroll. 
+You have already downloaded a text file, alice.txt, with the entire contents of this great book.
+
+Instructions
+Use the open() context manager to open alice.txt and assign the file to the file variable.
+Hint
+Remember the keywords with and as when calling a context manager like open().
+                        
+Code:
+# Open "alice.txt" and assign the file to "file"
+with open('alice.txt') as file:
+  text = file.read()
+
+n = 0
+for word in text.split():
+  if word.lower() in ['cat', 'cats']:
+    n += 1
+
+print('Lewis Carroll uses the word "cat" {} times'.format(n))
+
+                        
 2.3. The speed of cats
+You're working on a new web service that processes Instagram feeds to identify which pictures contain cats (don't ask why -- it's the internet). 
+The code that processes the data is slower than you would like it to be, so you are working on tuning it up to run faster. 
+Given an image, image, you have two functions that can process it:
+
+- process_with_numpy(image)
+- process_with_pytorch(image)
+Your colleague wrote a context manager,
+
+                        
 2.4. Writing context managers
 2.5. The timer() context manager
 2.6. A read-only open() context manager
@@ -628,7 +660,13 @@ By adding "as my_file" to the "with" statement, we assigned the file to the vari
 2.10. Changing the working directory
 
 
+Instructions
 
+Hint
+
+Code:
+                        
+                        
 3. Decorators
 """
 Decorators are an extremely powerful concept in Python. 
