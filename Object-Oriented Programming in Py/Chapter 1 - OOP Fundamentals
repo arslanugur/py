@@ -1,0 +1,23 @@
+1. OOP Fundamentals
+"""In this chapter, you'll learn what object-oriented programming (OOP) is, how it differs from procedural-programming, 
+and how it can be applied. You'll then define your own classes, and learn how to create methods, attributes, and constructors."""
+
+1.1. What is OOP?
+1.2. OOP termininology
+1.3. Exploring object interface
+1.4. Class anatomy: attributes and methods
+1.5. Understanding class definitions
+1.6. Create your first class
+1.7. Using attributes in class definition
+1.8. Class anatomy: the __init__ constructor
+1.9. Correct use of __init__
+1.10. Add a class constructor
+1.11. Write a class from scratch
+
+
+
+
+
+
+
+
