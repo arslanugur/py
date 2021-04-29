@@ -551,10 +551,21 @@ or you could keep it as self.created_at, in which case you'll now be accessing t
 
 4.11. Congratulations!
 Overview
-You learned how to think about your code in terms of classes and objects; how to create attributes and methods. You explored inheritance and polymorphism -- two ideas that allows you to leverage and customize existing code in powerful ways. You also learned the distinction between class-level data and instance-level data. What does it mean for two objects to be equal? Turns out, it can mean anything you want, as you learned in chapter 3. You defined custom equality functions, readable string representations, even built your own exceptions. Finally, you learned what makes a relationship between classes suitable for inheritance, how Python handles private vs public data, and how to use properties to manage data access.
+You learned how to think about your code in terms of classes and objects; how to create attributes and methods. 
+You explored inheritance and polymorphism -- two ideas that allows you to leverage and customize existing code in powerful ways. 
+You also learned the distinction between class-level data and instance-level data. What does it mean for two objects to be equal? 
+Turns out, it can mean anything you want, as you learned in chapter 3. 
+You defined custom equality functions, readable string representations, even built your own exceptions. 
+Finally, you learned what makes a relationship between classes suitable for inheritance, 
+how Python handles private vs public data, and how to use properties to manage data access.
 
 3. What's next?
-So, where can you go from here? You could start by expanding your knowledge of functionality available in Python. For example, learn about mix-in classes and multiple inheritance -- a highly debated feature of Python that isn't present in many other object-oriented languages. You could learn how to override more built-in operators, like arithmetic operators, or the length operator; how to customize attribute access even more using special methods; how to create your own iterator classes that you could use to index loops. You could learn about abstract base classes used to create interfaces, or how leverage dataclasses -- a new type of class that is especially suitable for data storage.
+So, where can you go from here? You could start by expanding your knowledge of functionality available in Python. 
+For example, learn about mix-in classes and multiple inheritance -- a highly debated feature of Python 
+that isn't present in many other object-oriented languages. 
+You could learn how to override more built-in operators, like arithmetic operators, or the length operator; 
+how to customize attribute access even more using special methods; how to create your own iterator classes that you could use to index loops. 
+You could learn about abstract base classes used to create interfaces, or how leverage dataclasses -- a new type of class that is especially suitable for data storage.
 
 4. What's next?
 Also consider learning more about object-oriented design, which is based on SOLID principles. 
