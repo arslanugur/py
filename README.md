@@ -35,7 +35,7 @@ Pythonda Döngüler
  - Uygulama - Sayi Tahmin Uygulamasi
  - Uygulama - Asal Sayi Uygulamasi
 
-Functions(/Functions)
+[Functions](/Functions)
  - [Functions and Methods](/Functions/07-01.Functions-n-Methods.py)
  - [Function Usage](/Functions/07-02.FunctionsUsage.py)
  - [Function Parameters](/Functions/07-03.FunctionParameters.py)
