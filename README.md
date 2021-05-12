@@ -48,7 +48,7 @@ Pythonda Fonksiyonlar
  - [Object Oriented Programming - Classes](/Object%20Oriented%20Programming/08-02.OOPClasses.py)
  - [Object Oriented Programming - Methods](/Object%20Oriented%20Programming/08-03.OOPMethods.py)
  - [Object Oriented Programming - Inheritance (Kalıtım)](/Object%20Oriented%20Programming/08-04.OOPInheritance.py)
- - [Object Oriented Programming - Special Methods](/Object%20Oriented%20Programming/08-05.OOPSpecialMethods.py) - [w3schools/py methods](https://www.w3schools.com/python/gloss_python_object_methods.asp)
+ - [Object Oriented Programming - Special Methods](/Object%20Oriented%20Programming/08-05.OOPSpecialMethods.py) - [w3schools/py object methods](https://www.w3schools.com/python/gloss_python_object_methods.asp)
  - [Object Oriented Programming - Demo: Quiz](/Object%20Oriented%20Programming/08-06.OOPQuizDemo.py)
 
 
