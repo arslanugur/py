@@ -221,5 +221,7 @@ f(number)   #çağırma şeklimiz de bu
 Programın fibonacci dizisinin toplamını baştan verilen elemana kadar hesaplasın
 fibonacci dizisi - 0,1,1,2,3,5,8,13,21
 """
-----> çözüm 19:18
+integers = [1, 2, 3, 4, 5]
+
+def Calculate(args);
 
