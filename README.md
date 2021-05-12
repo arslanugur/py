@@ -1,4 +1,4 @@
-# py
+# py 
 
 Python Objeleri ve Veri Yapilari
  - Pythonda Sayi Veri Tipleri
@@ -35,19 +35,19 @@ Pythonda Döngüler
  - Uygulama - Sayi Tahmin Uygulamasi
  - Uygulama - Asal Sayi Uygulamasi
 
-Pythonda Fonksiyonlar
- - Pythonda Metotlar
- - Fonksiyon Kullanimi
- - Fonksiyon Parametreleri
- - Lambda Expressions, Map ve Filter
- - Fonksiyonlarin Kapsami - Global ve Local Degiskenler
- - Uygulama - Bankamatik
+Functions(/Functions)
+ - [Functions and Methods](/Functions/07-01.Functions-n-Methods.py)
+ - [Function Usage](/Functions/07-02.FunctionsUsage.py)
+ - [Function Parameters](/Functions/07-03.FunctionParameters.py)
+ - [Lambda Expressions, Map ve Filter](/Functions/07-05.LambdaExpressions-n-Map-n-Filter.py)
+ - [Function Scope - Global ve Local Variables](/Functions/07-06.FunctionScope.py)
+ - [Function - Demo: ATM](/Functions/07-07.ATMDemo.py)
 
 [Object Oriented Programming](/Object%20Oriented%20Programming) 
  - [Object Oriented Programming](/Object%20Oriented%20Programming/08-01.OOP.py)
  - [Object Oriented Programming - Classes](/Object%20Oriented%20Programming/08-02.OOPClasses.py)
  - [Object Oriented Programming - Methods](/Object%20Oriented%20Programming/08-03.OOPMethods.py)
- - [Object Oriented Programming - Inheritance (Kalıtım)](/Object%20Oriented%20Programming/08-04.OOPInheritance.py)
+ - [Object Oriented Programming - Inheritance](/Object%20Oriented%20Programming/08-04.OOPInheritance.py)
  - [Object Oriented Programming - Special Methods](/Object%20Oriented%20Programming/08-05.OOPSpecialMethods.py) - [w3schools/py object methods](https://www.w3schools.com/python/gloss_python_object_methods.asp)
  - [Object Oriented Programming - Demo: Quiz](/Object%20Oriented%20Programming/08-06.OOPQuizDemo.py)
 
