@@ -40,7 +40,7 @@ Pythonda Döngüler
  - [Function Usage](/Functions/07-02.FunctionsUsage.py)
  - [Function Parameters](/Functions/07-03.FunctionParameters.py)
  - [Lambda Expressions, Map ve Filter](/Functions/07-05.LambdaExpressions-n-Map-n-Filter.py)
- - [Function Scope - Global ve Local Variables](/Functions/07-06.FunctionScope.py)
+ - [Function Scope - Global and Local Variables](/Functions/07-06.FunctionScope.py)
  - [Function - Demo: ATM](/Functions/07-07.ATMDemo.py)
 
 [Object Oriented Programming](/Object%20Oriented%20Programming) 
