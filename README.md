@@ -8,7 +8,7 @@ Python Objeleri ve Veri Yapilari
  - Pythonda Karakter Dizileri - Strings
  - Pythonda String Formatlama
  - Uygulama - Karakter Dizileri
- - Pythonda String Metotlari  -   w3schools/py site
+ - [Py String Methods](/Data%20Structures/03-10.StringMethods.py) [w3schools/py str methods](https://www.w3schools.com/python/python_ref_string.asp)
  - Pythonda Listeler
  - Pythonda Liste Metotlari   -   w3schools/py site
  - Pythonda Tuple
@@ -44,12 +44,12 @@ Pythonda Fonksiyonlar
  - Uygulama - Bankamatik
 
 Python Object Oriented Programming (Nesne Tabanlı Programlama) 
- - Object Oriented Programming
- - Object Oriented Programming - Classes
- - Object Oriented Programming - Methods
- - Object Oriented Programming - Inheritance (Kalıtım)
- - Object Oriented Programming - Special Methods -  w3schools/py site- py special methods list
- - Object Oriented Programming - Quiz Uygulamasi
+ - [Object Oriented Programming]
+ - [Object Oriented Programming - Classes]
+ - [Object Oriented Programming - Methods]
+ - [Object Oriented Programming - Inheritance (Kalıtım)]
+ - [Object Oriented Programming - Special Methods](/Object%20Oriented%20Programming/08-05.OOPSpecialMethods.py) - [w3schools/py methods](https://www.w3schools.com/python/gloss_python_object_methods.asp)
+ - [Object Oriented Programming - Demo: Quiz](/Object%20Oriented%20Programming/08-06.OOPQuizDemo.py)
 
 
 Pythonda Modüller
