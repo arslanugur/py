@@ -44,10 +44,10 @@ Pythonda Fonksiyonlar
  - Uygulama - Bankamatik
 
 Python Object Oriented Programming (Nesne Tabanlı Programlama) 
- - [Object Oriented Programming]
- - [Object Oriented Programming - Classes]
- - [Object Oriented Programming - Methods]
- - [Object Oriented Programming - Inheritance (Kalıtım)]
+ - [Object Oriented Programming](/Object%20Oriented%20Programming/08-01.OOP.py)
+ - [Object Oriented Programming - Classes](/Object%20Oriented%20Programming/08-02.OOPClasses.py)
+ - [Object Oriented Programming - Methods](/Object%20Oriented%20Programming/08-03.OOPMethods.py)
+ - [Object Oriented Programming - Inheritance (Kalıtım)](/Object%20Oriented%20Programming/08-04.OOPInheritance.py)
  - [Object Oriented Programming - Special Methods](/Object%20Oriented%20Programming/08-05.OOPSpecialMethods.py) - [w3schools/py methods](https://www.w3schools.com/python/gloss_python_object_methods.asp)
  - [Object Oriented Programming - Demo: Quiz](/Object%20Oriented%20Programming/08-06.OOPQuizDemo.py)
 
