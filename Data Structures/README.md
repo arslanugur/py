@@ -8,13 +8,13 @@ In this course, we will learn about different Python Data Structures such as str
 
 
 | Working with Strings  | Lists | Dictionaries, Tuples, Sets | User-Defined Data Structures |
-| :-------------------_:|:-----:|:--------------------------:||:---------------------------:|
-| Data Structures       | Lists             | Dictionaries | Introduction| 
-| Strings               | List Operations  | Dictionary Functions| Stack| 
-| Accessing Strings     | List Functions  | Tuples      |  Queue| 
-| String Operations     | List Comprehensions| Tuple Unpacking| Linked List| 
-| Manipulating Strings  | Module Quiz     | Sets|     Graphs  | 
-| Module Quiz           | Demo: Average Word Length| Summary| Module Quiz |
-| Demo: Letter Frequency|                | Module Quiz| Demo: Balanced Parentheses| 
-|                       |                | Demo: Revenue Growth Analysis| 
+| :--------------------:|:-----:|:--------------------------:||:---------------------------:|
+| [Data Structures]       | [Lists]             | [Dictionaries] | [Introduction]| 
+| [Strings]               | [List Operations]  | [Dictionary Functions]| [Stack]| 
+| [Accessing Strings]     | [List Functions]  | [Tuples]      |  [Queue]| 
+| [String Operations]     | [List Comprehensions]| [Tuple Unpacking]| [Linked List]| 
+| [Manipulating Strings]  | [Module Quiz]     | [Sets]|     [Graphs]  | 
+| [Module Quiz]           | [Demo: Average Word Length]| [Summary]| [Module Quiz] |
+| [Demo: Letter Frequency]|                | [Module Quiz]| [Demo: Balanced Parentheses]| 
+|                       |                | [Demo: Revenue Growth Analysis]| 
 
