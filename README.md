@@ -8,7 +8,7 @@ Python Objeleri ve Veri Yapilari
  - Pythonda Karakter Dizileri - Strings
  - Pythonda String Formatlama
  - Uygulama - Karakter Dizileri
- - [Py String Methods](/Data%20Structures/03-10.StringMethods.py) [w3schools/py str methods](https://www.w3schools.com/python/python_ref_string.asp)
+ - [Py String Methods](/Data%20Structures/03-10.StringMethods.py) - [w3schools/py str methods](https://www.w3schools.com/python/python_ref_string.asp)
  - Pythonda Listeler
  - Pythonda Liste Metotlari   -   w3schools/py site
  - Pythonda Tuple
