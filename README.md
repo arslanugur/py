@@ -52,11 +52,11 @@ Pythonda Fonksiyonlar
  - [Object Oriented Programming - Demo: Quiz](/Object%20Oriented%20Programming/08-06.OOPQuizDemo.py)
 
 
-Pythonda Modüller
- - Modül Nedir?
- - Hazir Modül Kullanimi - Math Modülü
- - Hazir Modül Kullanimi - Random Modülü
- - Kendi Modülümüzü Yazalim
+Modules
+ - [What's Module?](/Modules/09-01.Modules.py)
+ - [Ready Module Usage - Math](/Modules/09-02.ReadyModuleUsage-Math.py)
+ - [Ready Module Usage - Random](/Modules/09-03.ReadyModuleUsage-Random.py)
+ - [To Code Your Own Module](/Modules/09-04.ToCodeYourOwnModule-Moodle.py)
 
 
 Pythonda Hata ve Hata Yönetimi
