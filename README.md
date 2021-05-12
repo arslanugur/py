@@ -43,7 +43,7 @@ Pythonda Fonksiyonlar
  - Fonksiyonlarin Kapsami - Global ve Local Degiskenler
  - Uygulama - Bankamatik
 
-[Py Object Oriented Programming (Nesne Tabanlı Programlama)](/Object%20Oriented%20Programming) 
+[Object Oriented Programming](/Object%20Oriented%20Programming) 
  - [Object Oriented Programming](/Object%20Oriented%20Programming/08-01.OOP.py)
  - [Object Oriented Programming - Classes](/Object%20Oriented%20Programming/08-02.OOPClasses.py)
  - [Object Oriented Programming - Methods](/Object%20Oriented%20Programming/08-03.OOPMethods.py)
