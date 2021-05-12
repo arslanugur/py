@@ -42,6 +42,8 @@ Pythonda Döngüler
  - [Lambda Expressions, Map ve Filter](/Functions/07-05.LambdaExpressions-n-Map-n-Filter.py)
  - [Function Scope - Global and Local Variables](/Functions/07-06.FunctionScope.py)
  - [Function - Demo: ATM](/Functions/07-07.ATMDemo.py)
+ - [Useful Functions](/Functions/07-08.UsefulFunctions.py)
+ - [Functional Programming](/Functions/07-09.FunctionalProgramming.py)
 
 [Object Oriented Programming](/Object%20Oriented%20Programming) 
  - [Object Oriented Programming](/Object%20Oriented%20Programming/08-01.OOP.py)
