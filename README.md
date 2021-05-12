@@ -52,7 +52,7 @@ Pythonda Fonksiyonlar
  - [Object Oriented Programming - Demo: Quiz](/Object%20Oriented%20Programming/08-06.OOPQuizDemo.py)
 
 
-Modules
+[Modules](/Modules)
  - [What's Module?](/Modules/09-01.Modules.py)
  - [Ready Module Usage - Math](/Modules/09-02.ReadyModuleUsage-Math.py)
  - [Ready Module Usage - Random](/Modules/09-03.ReadyModuleUsage-Random.py)
