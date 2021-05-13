@@ -1,6 +1,6 @@
 # py 
 
-Python Objeleri ve Veri Yapilari
+[Objects and Data Structures]
  - Pythonda Sayi Veri Tipleri
  - Pythonda Matematiksel Operatörler
  - Pythonda Degisken Tanimlama ve Uygulama
@@ -9,14 +9,14 @@ Python Objeleri ve Veri Yapilari
  - Pythonda String Formatlama
  - Uygulama - Karakter Dizileri
  - [Py String Methods](/Data%20Structures/03-10.StringMethods.py) - [w3schools/py str methods](https://www.w3schools.com/python/python_ref_string.asp)
- - Pythonda Listeler
- - Pythonda Liste Metotlari   -   w3schools/py site
- - Pythonda Tuple
- - Pythonda Dictionary
- - Pythonda Sets
- - Pythonda Value ve Referans Veri Tipleri
+ - [Lists]
+ - [List Methods] - w3schools/py site
+ - [Tuple]
+ - [Dictionary]
+ - [Sets]
+ - Value ve Referans Data Types
 
-Python Operatörleri
+[Operators]()
  - Atama Operatörleri
  - Karsilastirma Operatörleri
  - Mantiksal Operatörler
@@ -26,14 +26,14 @@ Pythonda Kosul Ifadeleri
  - Kosullu Durum Bloklari - If ve Else Bloklari
  - Kosullu Durum Bloklari - If - Elif - Else Bloklari
 
-Pythonda Döngüler
- - Pythonda For Döngüleri
- - Pythonda While Döngüleri
- - Break ve Continue Ifadeleri
- - Döngü Metotlari - range(), enumerate(), zip()
- - Pythonda List Comprehensions
- - Uygulama - Sayi Tahmin Uygulamasi
- - Uygulama - Asal Sayi Uygulamasi
+[Loops]()
+ - [For Loops]()
+ - [While Loops]()
+ - [Break and Continue Statements]()
+ - [Loop Methods - range(), enumerate(), zip()]()
+ - [List Comprehensions]()
+ - [Loops - Demo: Guessing Number]()
+ - [Loops - Demo: Prime Number]()
 
 [Functions](/Functions)
  - [Functions and Methods](/Functions/07-01.Functions-n-Methods.py)
@@ -61,14 +61,14 @@ Pythonda Döngüler
  - [To Code Your Own Module](/Modules/09-04.ToCodeYourOwnModule-Moodle.py)
 
 
-Pythonda Hata ve Hata Yönetimi
+Hata ve Hata Yönetimi
  - Hata ve Hata Yönetimi Nedir?
  - Hata Yönetimi
  - Hata Nesnesi Olusturma
  - Uygulama - Hata ve Hata Yönetimi
 
 
-Pythonda Dosya Yönetimi
+Dosya Yönetimi
  - Pythonda Dosya Açma ve Yazma
  - Pythonda Dosya Okuma
  - Pythonda Dosya Okuma Fonksiyonlari
@@ -76,7 +76,7 @@ Pythonda Dosya Yönetimi
  - Uygulama - Ögrenci Kayit Programi
 
 
-Pythonda Fonksiyonlarin Ileri Seviye Özellikleri
+Fonksiyonların İleri Seviye Özellikleri
  - Pythonda Iç içe Fonksiyon Kullanimi
  - Pythonda Fonksiyondan Fonksiyon Döndürme
  - Pythonda Fonksiyonlari Parametre Olarak Gönderme
@@ -98,7 +98,7 @@ Advanced Python Modules & Web Scraping
  - Py Requests Modülü Demo - Github Api
  - Py Requests Modülü Demo - Film Arsiv Apisi
  - Temel Html Bilgilendirmesi
- - Pythonda BeatifulSoup Modülü
+ - BeatifulSoup Module
  - Web Scraping - BeatifulSoup Modülü - Imdb
  - Web Scraping - BeatifulSoup Modülü - N11
 
