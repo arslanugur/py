@@ -1,4 +1,4 @@
-2. Context Managers
+2. Context Managers #not updated for py v3.10
 """
 If you've ever seen the "with" keyword in Python and wondered what its deal was, then this is the chapter for you! 
 Context managers are a convenient way to provide connections in Python and guarantee 
