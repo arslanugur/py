@@ -51,13 +51,13 @@ cars = {
 bad_dict = {
     [1, 2, 3]: "one two three", 
 }
-'''
+"""
 output:
 Traceback (most recent call last):
   File "file0.py", line 1, in <module>
     bad_dict = {
 TypeError: unhashable type: 'list'
-'''
+"""
 # This means that you can use strings, integers, booleans, and any other immutable type as dictionary keys.
 
 # Another Way:
@@ -67,7 +67,7 @@ bad_dict = {
 # but that's because the tuple is created from the list, and then it's stored as a key. The dict never gets to see the list
 #  the point is to use immutable tuple. You can create it either this way: tuple([1,2,3]) or this way: (1,2,3).
 
-'''
+"""
 A dictionary key must be of a type that is immutable.
 # Immutable (Valid keys): 
 String ""
@@ -80,7 +80,7 @@ Frozenset
 List []
 Dictionary {:}
 Sets {}
-'''
+"""
 
 # Demo: Car Data
 # You are working at a car dealership and store the car data in a dictionary:
@@ -90,10 +90,10 @@ car = {
     'color': 'red'
 } 
 # Your program needs to take the key as input and output the corresponding value.
-'''
+"""
 Sample Input: year
 Sample Output: 2018
-'''
+"""
 # Code:
 car = {
     'brand':'BMW',
@@ -103,9 +103,57 @@ car = {
 }
 
 print(car[input()])
-'''
+"""
 Input: brand
 Output: BMW
-'''
+"""
 
 # DICTIONARY FUNCTIONS
+# To determine whether a key is in a dictionary, you can use in and not in, just as you can for a list.
+# Example:
+nums = {
+    1: "one",
+    2: "two",
+    3: "three",
+}
+print(1 in nums)
+print("three" in nums)
+print(4 not in nums)
+"""
+TRUE
+FALSE
+TRUE
+"""
+
+# to print "Yes" if the key 112 is present in the dictionary named "pairs".
+if 112 in pairs:
+      print("Yes")
+      
+      
+# A useful dictionary function is get. 
+# It does the same thing as indexing, 
+# but if the key is not found in the dictionary it returns another specified value instead.
+# Example:
+pairs = {1: "apple",
+  "orange": [2, 3, 4], 
+  True: False, 
+  12: "True",
+}
+
+print(pairs.get("orange"))
+print(pairs.get(7, 42))
+print(pairs.get(12345, "not found"))
+"""
+[2, 3, 4]
+42
+not found
+"""
+# To determine how many items a dictionary has, use the len() function.
+
+
+# Example:
+fib = {1: 1, 2: 1, 3: 2, 4: 3}
+print(fib.get(4, 0) + fib.get(7, 5))
+# output: 8
+
+
