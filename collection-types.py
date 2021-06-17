@@ -1,4 +1,4 @@
-# INTRO
+## INTRO
 # About Python collection types, lambda functions, generators, decorators, OOP, and much more.
 # To build real-world projects and solve several programming challenges. 
 
@@ -17,7 +17,7 @@ print(res)         # output: 24
 # https://blog.devgenius.io/indexing-vs-slicing-in-python-de01cd99c499#:~:text=What%20are%20Indexing%20and%20Slicing
 
 
-# DICTIONARIES
+## DICTIONARIES
 # Python provides a number of built-in collection types, to store multiple values.
 # Lists are one of these collection types, and they allow you to store indexed values:
 x = ['hi', 'hello', 'welcome']
@@ -108,7 +108,7 @@ Input: brand
 Output: BMW
 """
 
-# DICTIONARY FUNCTIONS
+## DICTIONARY FUNCTIONS
 # To determine whether a key is in a dictionary, you can use in and not in, just as you can for a list.
 # Example:
 nums = {
@@ -213,7 +213,7 @@ print(d.get(3,"animal"))  #output: animal
 
 
 
-# TUPLES
+## TUPLES
 # Tuples are very similar to lists, except that they are immutable (they cannot be changed).
 # Also, they are created using parentheses, rather than square brackets.
 # Example:
@@ -354,4 +354,279 @@ print(tuple[1]) # output: (1, 2, 3)
 # tuple[1] = (1,2,3) 
 # tuple[1][0] = 1
 
-# TUPLE UNPACKING
+## TUPLE UNPACKING
+# Tuple unpacking allows you to assign each item in a collection to a variable.
+# Example:
+numbers = (1, 2, 3)
+a, b, c = numbers
+print(a) # 1
+print(b) # 2
+print(c) # 3
+
+# This can be also used to swap variables by doing a, b = b, a , since b, a 
+# on the right hand side forms the tuple (b, a) which is then unpacked.
+
+# You can also unpack with list: a, b, c = [1, 2, 3]
+
+# Example: to swap two variables.
+x, y = [1, 2]
+x, y = y, x
+# output: 1
+# Firstly, a list can be changed x, y = [1, 2] 
+# x = 1 and y = 2 (The value of x is packed to 1 and y to 2. )
+# x, y is 1 before 2 
+# x, is at index 0, so 1 
+# y, is at index 1, so 2 
+# Remember again list can be changed, so: 
+# If the list x, y = y, x 
+# it means x become y and y = x 
+# so x is now 2 and y is now 1 The question is to give the value of y, so y=1
+
+
+# To swap the value of two variable. There are two four way of doing so
+# First way >>>
+x = 10
+y = 5
+
+temp = x
+x = y
+y = temp
+
+print("value of x is",x) # value of x is 5
+print("value of y is",y) # value of y is 10
+
+# Second way >>>
+x = 20
+y = 15
+
+x = x^y
+y = x^y
+x = x^y
+
+print("value of x is",x) # value of x is 15
+print("value of y is",y) # value of y is 20
+
+# Third way >>>
+x = 30
+y = 25
+
+x,y = y,x
+
+print("value of x is",x) # value of x is 25
+print("value of y is",y) # value of y is 30
+
+# Fourth way >>>
+x = 40
+y = 35
+
+x = x + y
+y = x - y
+x = x - y
+
+print("value of x is",x) # value of x is 35
+print("value of y is",y) # value of y is 40
+
+
+# A variable that is prefaced with an asterisk (*) takes all values 
+# from the collection that are left over from the other variables.
+# Example:
+a, b, *c, d = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(a) # 1
+print(b) # 2
+print(c) # [3, 4, 5, 6, 7, 8]
+print(d) # 9
+# c will get assigned the values 3 to 8.
+
+# Example:
+a, b, c, d, *e, f, g = range(20) # range(20) means 0 to 20 --> 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 
+# a, b, c, d, *e, f, g, = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 
+# hence, a = 0 b = 1 c = 2 d = 3 *e= 4 to 17, f = 18, g = 19 len(e) means length of the e variable 
+
+print(len(e)) # 14
+
+
+## SETS
+# Sets are similar to lists or dictionaries.
+# They are created using curly braces, and are unordered, which means that they can't be indexed.
+
+# Due to the way they're stored, 
+# it's faster to check whether an item is part of a set using the in operator, rather than part of a list.
+
+# Example:
+num_set = {1, 2, 3, 4, 5}
+
+print(3 in num_set) # True
+
+# Sets cannot contain duplicate elements.
+
+"""
+Use sets when: 
+      - You want values to be unique 
+      - When order does not matter Sets: 
+            Unordered, Unindexed but Hashed 
+            To create an empty set: 
+                  >> not_set = { } <-- dictionary
+                  >> my_set = set( ) <-- set
+"""   
+
+# Example: The speed difference for the different collection types is huge. And not only sets are fast for lookups.
+import timeit
+
+mylist = []
+mydict = {}
+mytuple = ()
+myset = {}
+
+num_rounds = 1
+num_size = 2
+
+# create data
+for i in range(num_size):
+	mylist.append(i)
+	mydict[i] = i
+mytuple = tuple(mylist)
+myset = set(mylist)
+
+"""
+Rounds:  1
+Lenght List:  2
+Lenght Dict:  2
+Lenght Tuple:  2
+Lenght Set:  2
+List Time:   2.7995556592941284e-06
+Dict Time:   1.7993152141571045e-06
+Tuple Time:  1.7005950212478638e-06
+Set Time:    1.4994293451309204e-06
+"""
+
+# Every elements in a set are unique and obviously immutable ( but sets are mutable). 
+# The runtime to find any element in a set is O(1) (on an average; 
+# but in the worst case it'll be O(n)), whereas in list, it is O(n). 
+# So to check an element in list ( of n length) python has to do work equal to some factor of n; 
+# but in case of a set it is some constant. 
+# And keep this in mind, new = {} creates an empty dictionary; 
+# to create an empty set you have to use, new = set().
+
+
+# Sets are unordered. Also, Sets are faster, unique, mutable.
+# For example: 
+# If there are 3 elememts, you will get {1, 2, 3} OR {1, 3, 2} OR {2, 1, 3} OR {2, 3, 1} OR {3, 1, 2} Or {3, 2, 1}. 
+# The orders are completely random and unordered. 
+# Therefore, don't be surprised when your set outputs the values in different order.
+
+# Example:
+set_1 = {"a", "b", "a"} 
+set_2 = {"a", "b"} 
+print (set_1 == set_2) # True
+
+# https://en.m.wikipedia.org/wiki/Set_theory
+
+# Example:
+letters = {"a", "b", "c", "d"}
+if "e" not in letters:
+  print(1) # "e" not in letters ---> True, "e" in letters ---> False
+else: 
+  print(2) #output: 1
+
+
+# You can use the add() function to add new items to the set, and remove() to delete a specific element:
+# Example:
+nums = {1, 2, 1, 3, 1, 4, 5, 6}
+print(nums)  # {1, 2, 3, 4, 5, 6}
+nums.add(-7)
+nums.remove(3)
+print(nums) # {1, 2, 4, 5, 6, -7}
+
+# Duplicate elements will automatically get removed from the set. 
+
+# The len() function can be used to return the number of elements of a set.
+
+# Example:
+num1 = {1, 2, 3} 
+num2 = { 1, 4, 5, 6} 
+print(num1.union(num2)) #output: {1, 2, 3, 4, 5, 6}
+
+# https://www.w3schools.com/python/ref_set_add.asp
+# https://www.w3schools.com/PYTHON/ref_set_remove.asp
+
+# Example: to create a set, add the letter "z" to it, and print its length.
+nums = {"a", "b", "c", "d"} # Curly braces mark a set. 
+nums.add("z") # use .add function to add elements. 
+print(len(nums)) # like list, use len to get length.
+
+
+
+# Sets can be combined using mathematical operations.
+# The union operator | combines two sets to form a new one containing items in either.
+# The intersection operator & gets items only in both.
+# The difference operator - gets items in the first set but not in the second.
+# The symmetric difference operator ^ gets items in either set, but not both. 
+
+# Example:
+first = {1, 2, 3, 4, 5, 6}
+second = {4, 5, 6, 7, 8, 9}
+
+print(first | second) # {1, 2, 3, 4, 5, 6, 7, 8, 9}
+print(first & second) # {4, 5, 6}
+print(first - second) # {1, 2, 3}
+print(second - first) # {8, 9, 7}
+print(first ^ second) # {1, 2, 3, 7, 8, 9}
+
+# Sets are great tools for quick filters if you take the time to learn the operators. 
+# Otherwise, you end up iterating through lists constantly
+
+# Example:
+a = {0,1,2,3,4,5,6,7}
+b = {5,6,7,8,9,10}
+
+print(a | b) # {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+# joined and remove commons
+print("\n \n")
+print(a & b) # {5, 6, 7}
+# print commons only
+print("\n \n")
+print(a - b) # {0, 1, 2, 3, 4}
+# remove mutual of b from a and print a
+print("\n \n")
+print(b - a) # {8, 9, 10}
+# remove mutual of a from b and print b
+print("\n \n")
+print(a ^ b) # {0, 1, 2, 3, 4, 8, 9, 10}
+#joined, remove commons and print different
+
+# Set Methods
+a = {1,2,3} 
+b = {2,3,4} 
+
+a.union(b) 
+a.difference(b) 
+a.symmetric_difference(b) 
+a.update(b) 
+a.difference_update(b) 
+a.symmetric_difference_update(b)
+
+"""
+a | b == b | a 
+a & b == b & a 
+a ^ b == b ^ a 
+a - b != b - a
+"""
+
+# Example:
+a = {1, 2, 3}
+b = {0, 3, 4, 5}
+print(a & b) #output: 3 (intersection --> &)
+
+
+
+## LIST COMPREHENSIONS
+
+
+
+
+
+
+
+
+
+
