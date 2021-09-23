@@ -68,4 +68,22 @@ def calculate(a, b):
 calculate(**dictionary)  # output: 13
 
 
+# Trick 7: One-Liners
+# Swap Two Variables
+a, b = b, a
+
+# Palindrome Python One Liner
+phrase.find(phrase[::-1])
+
+# Read a File
+[line.strip() for line in open(filename)]
+
+# Factorial of a Number
+reduce(lambda x,y:x*y, range(1,n+1))
+
+# Fibonacci Sequence
+lambda x: x if x <=1 else fib(x-1) + fib(x-2)
+
+
+
 
