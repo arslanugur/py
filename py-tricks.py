@@ -86,4 +86,15 @@ lambda x: x if x <=1 else fib(x-1) + fib(x-2)
 
 
 
+# Trick 8: f string
+# Stop doing this
+name = "python"
+print("Coding"+ name)
+
+# Do this way
+name = "python"
+print(f"Coding {name}")
+
+#
+
 
