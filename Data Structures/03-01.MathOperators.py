@@ -54,3 +54,13 @@ print(max([1, 4, 9, 2, 5, 6, 8]))
 print(abs(-99))
 print(abs(42))
 print(sum([1, 2, 3, 4, 5]))
+
+
+
+# Multiplication and division in Python are also pretty simple. We use an asterisk * to multiply and a forward slash / to divide. 
+# Using a single slash to divide numbers produces a decimal (or float, as it's known in programming). 
+# Which option is the output of this code?
+print((4 + 8) / 2)    # Output: 6.0
+
+
+
