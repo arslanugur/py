@@ -1,0 +1,218 @@
+01. Basic Concepts
+1.1 Lesson: Welcome to Python!
+1.2 Practice: Your First Program
+2.1 Lesson: Simple Operations
+2.2 Practice: Brain Freeze!
+3.1 Lesson: Floats
+4.1 Lesson: Exponentiation
+5.1 Lesson: Quotient & Remainder
+5.2 Practice: How Many Miles?
+5.3 Practice: Sorting Out
+5.4 Practice: Textbooks for Students
+6.1 Lesson: Module 1 Quiz
+7 Code project: Exponentiation
+
+02. Strings & Variables
+8.1 Lesson: Strings
+8.2 Practice: I Code
+8.3 Practice: Find the bug!
+9.1 Lesson: Newlines
+9.2 Practice: More Lines, More Better
+10.1 Lesson: String Operations
+10.2 Practice: String Operations
+11.1 Lesson: Variables
+12.1 Lesson: Working with Variables
+12.2 Practice: Fun With Exponents
+13.1 Lesson: Taking User Input
+14.1 Lesson: Working with Input
+14.2 Practice: Product Of Integers
+14.3 Practice: Multiple Variables
+15.1 Lesson: In-Place and Walrus Operators
+16.1 Lesson: Module 2 Quiz
+17 Code project: Simple Calculator
+
+03. Control Structures
+18.1 Lesson: Booleans & Comparisons
+19.1 Lesson: if Statements
+19.2 Practice: At The Boiling Point!
+19.3 Practice: Let's Dance
+19.4 Practice: Ice Cream for Everyone!
+20.1 Lesson: else Statements
+20.2 Practice: Club Bouncer Code
+20.3 Practice: To Pythagoras Or Not To Pythagoras
+20.4 Practice: Organized Robot
+20.5 Practice: Depending On Parity
+21.1 Lesson: Boolean Logic
+21.2 Practice: Humidity Level
+21.3 Practice: Store is Closed
+21.4 Practice: Boolean Age Groups
+22.1 Lesson: Multiple Operators & Conditions
+22.2 Practice: Financial Transactions
+22.3 Practice: Tuition Discounts
+23.1 Lesson: Lists
+23.2 Practice: Fruit Vending Machine
+23.3 Practice: Every Third Character
+24.1 Lesson: List Operations
+24.2 Practice: List Operations
+24.3 Practice: Build A Search Engine
+24.4 Practice: Bingo
+25.1 Lesson: List Functions
+25.2 Practice: Queue Management
+25.3 Practice: The middle element
+25.4 Practice: Minimum And Maximum
+26.1 Lesson: while Loops
+26.2 Practice: Let's Do Some Magic
+26.3 Practice: Call It Even
+26.4 Practice: Summing Digits
+26.5 Practice: Infinite Loops
+26.6 Practice: Free Stuff!
+27.1 Lesson: for Loops
+27.2 Practice: Iteration
+28.1 Lesson: Range
+28.2 Practice: Date Picker
+29.1 Lesson: Module 3 Quiz
+30 Code project: FizzBuzz
+
+
+04. Functions & Modules
+31.1 Lesson: Code Reuse
+32.1 Lesson: Functions
+32.2 Practice: Welcome, SoloLearner!
+33.1 Lesson: Function Arguments
+33.2 Practice: Matching passwords
+33.3 Practice: Area Of A Rectangle
+34.1 Lesson: Returning from Functions
+34.2 Practice:  Hashtag Generator
+35.1 Lesson: Comments & Docstrings
+36.1 Lesson: Functions as Objects
+37.1 Lesson: Modules
+37.2 Practice: No Dice? No Problem
+37.3 Practice: Circle Dimensions
+38.1 Lesson: The Standard Library & pip
+39.1 Lesson: Module 4 Quiz
+40 Code project: Celsius to Fahrenheit Converter
+
+
+
+05. Exceptions & Files
+41.1 Lesson: Exceptions
+42.1 Lesson: Exception Handling
+42.2 Practice: Bank card PIN System
+43.1 Lesson: finally
+43.2 Practice: Making Coffee
+44.1 Lesson: Raising Exceptions
+45.1 Lesson: Assertions
+46.1 Lesson: Opening Files
+47.1 Lesson: Reading Files
+47.2 Practice: Getting In Shape
+48.1 Lesson: Writing Files
+48.2 Practice: New Lines
+49.1 Lesson: Working with Files
+50.1 Lesson: Module 5 Quiz
+51 Code project: Book Titles
+
+
+06. More Types
+52.1 Lesson: None
+53.1 Lesson: Dictionaries
+53.2 Practice: Inventory Management
+54.1 Lesson: Dictionary Functions
+54.2 Practice: Library Management
+54.3 Practice: Where's The Book?
+55.1 Lesson: Tuples
+55.2 Practice: Tuples
+56.1 Lesson: List Slices
+56.2 Practice: List Slices
+57.1 Lesson: List Comprehensions
+57.2 Practice: List Of Multiples
+58.1 Lesson: String Formatting
+58.2 Practice: Names And Ages
+59.1 Lesson: Useful Functions
+59.2 Practice: Broken Keyboard
+60.1 Lesson: Text Analyzer
+60.2 Practice: How Many Words?
+61.1 Lesson: Module 6 Quiz
+62 Code project: Longest Word
+
+
+07. Functional Programming
+63.1 Lesson: Functional Programming
+64.1 Lesson: Lambdas
+64.2 Practice: Lambdas
+65.1 Lesson: map & filter
+65.2 Practice: How Old Will They Be?
+65.3 Practice: Filtering
+66.1 Lesson: Generators
+66.2 Practice: Split Generator
+67.1 Lesson: Decorators
+67.2 Practice: Bill Printing
+67.3 Practice: Uppercasing
+68.1 Lesson: Recursion
+68.2 Practice: Fun With Math
+69.1 Lesson: Sets
+69.2 Practice: Commonality
+70.1 Lesson: itertools
+70.2 Practice: Ordering
+71.1 Lesson: Module 7 Quiz
+72 Code project: Fibonacci
+
+
+08. OOP
+73.1 Lesson: Classes
+73.2 Practice: Student Class
+73.3 Practice: Calculating Volume
+74.1 Lesson: Inheritance
+74.2 Practice: Fun with Classes
+75.1 Lesson: Magic Methods & Operator Overloading
+75.2 Practice: Bank Accounts
+76.1 Lesson: Object Lifecycle
+77.1 Lesson: Data Hiding
+77.2 Practice: Making a Deposit
+78.1 Lesson: Class & Static Methods
+78.2 Practice: Static Methods
+79.1 Lesson: Properties
+79.2 Practice: Property Values
+80.1 Lesson: A Simple Game
+81.1 Lesson: Module 8 Quiz
+82 Code project: Juice Maker
+
+
+09. Regular Expressions
+83.1 Lesson: Regular Expressions
+83.2 Practice: Word Games
+83.3 Practice: Always Do Your Best!
+83.4 Practice: Contacts Database
+84.1 Lesson: Simple Metacharacters
+84.2 Practice: Starts With Ends With
+85.1 Lesson: Character Classes
+85.2 Practice: Online Shop Search
+86.1 Lesson: More Metacharacters
+86.2 Practice: Authentication!
+87.1 Lesson: Groups
+88.1 Lesson: Special Sequences
+88.2 Practice: Social Media Pro
+89.1 Lesson: Email Extraction
+90.1 Lesson: Module 9 Quiz
+91 Code project: Phone Number Validator
+
+
+10. Pythonicness & Packaging
+92.1 Lesson: The Zen of Python
+93.1 Lesson: PEP
+94.1 Lesson: More on Function Arguments
+94.2 Practice: Infinite Sum
+94.3 Practice: Egg Sandwich!
+95.1 Lesson: Tuple Unpacking
+96.1 Lesson: Ternary Operator
+96.2 Practice: Give Me My Money
+97.1 Lesson: More on else Statements
+97.2 Practice: Too Young To Ride
+97.3 Practice: Bon Appetit!
+98.1 Lesson: __main__
+99.1 Lesson: Major 3rd-Party Libraries
+100.1 Lesson: Packages
+101.1 Lesson: Packaging for Users
+102.1 Lesson: Module 10 Quiz
+103 Code project: Adding Words
+
+
