@@ -18,11 +18,7 @@ print((3**2)//2)    # 4
 # 13 % 4 = 1, 4 goes three times in 13 and then 1 is left over.
 
 
-# Example:
-# You are offered a choice of either $1.000.000 or $0.01 (one penny) doubled every day for 30 days (the resulting amount is doubled every day). 
-# Task: Write a program to calculate the amount that will result from the doubling to understand which choice results in a larger amount.
-print (0.01*(2**30))
-
+# Examples:
 print(100//42) # 2
 print(20/7)    # 2.8571
 print(20//7)   # 2
