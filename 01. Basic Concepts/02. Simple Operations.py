@@ -30,14 +30,14 @@ Remainder (%) : X%Y  # Description: the remainder of X / Y
 '''
 
 # Examples
-print ("2+5")       # output: 2+5 
-print(2+5)          # output: 7 
+print("2+5")       # output: 2+5 
+print(2+5)         # output: 7 
 print(eval("2+5")) # output: 7
 
 # Examples
-print(1+2+3)        # 6
-print('1+2+3')      # 1+2+3
-print ('1'+'2'+'3') # 123
+print(1+2+3)       # 6
+print('1+2+3')     # 1+2+3
+print('1'+'2'+'3') # 123
 
 # Python also carries out multiplication and division, using an asterisk * to indicate multiplication and a forward slash / to indicate division.
 # Use parentheses to determine which operations are performed first.
