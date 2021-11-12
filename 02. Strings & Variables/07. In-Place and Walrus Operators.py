@@ -61,14 +61,45 @@ print(x)      # aaa
 
 # WALRUS OPERATOR
   # Walrus operator := allows you to assign values to variables within an expression, including variables that do not exist yet.
+  # (Walrus operator ":=" is used to assign bool or values)
   # Let's suppose we want to take an integer from the user, assign it to a variable num and output it:
 num = int(input())
 print(num)
 
   # The walrus operator accomplishes these operations at once: 
+print(num:=int(input())) 
+  
+  # The walrus operator makes code more readable and can be useful in many situations.
+  
+  # Walrus offers a way to accomplish two tasks at once,
+  # assigning a value to a variable, and returning that value,
+  # which can sometimes offer a way to write shorter, more readable code, that may even be more computationally efficient.
+  
+  # to use walrus operator twice
+print( (num1:=int(input())) + (num2:=int(input())) )
+
+  # Example
+(num:= float(input ())) 
+y = num+10.5 
+print(y)
+  # Input:  2.5
+  # Output: 13.0  
+  
+  # to produce code which takes text as input, assigns it to the name variable, and outputs it.
+print(name:= input())
+  
+  
+  # Examples:
+  #  Without Walrus operator 
+num = int(input()) 
+print(num*3) 
+  # Input: 5 
+  # Output: 15 
+  
+  # With Walrus Operator 
+print(num:= int(input())*3)
+  # Input: 10
+  # Output: 30
   
 
-  
-  
-  
   
