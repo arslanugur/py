@@ -78,7 +78,7 @@ print(num:=int(input()))
   # to use walrus operator twice
 print( (num1:=int(input())) + (num2:=int(input())) )
 
-  # Example
+  # Example:
 (num:= float(input ())) 
 y = num+10.5 
 print(y)
