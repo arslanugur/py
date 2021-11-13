@@ -2,7 +2,7 @@ INPUT               METHOD                  OUTPUT
 --------------------------------------------------------------
 "Hello World"       .endswith("by")         False
 "Hello World"       .startswith('Hello')    True
-"hello world"       .capitalize()            "Hello World"
+"hello world"       .capitalize()           "Hello World"
 "13/11/2021"        .split("/")             ["13","11","2021"]
 " Hello "           .strip()                "Hello"
 "Hello A"           .replace("A","B")       "Hello B"
