@@ -101,11 +101,6 @@ print(message.format(name))   # Hello Floyd's song
 # Extras:
 name = 'OtisRedding'
 print(dir(name)) # shows what you can do with that?
-print(help(str)) # descript about str
+print(help(str)) # describes about str
 
 
-
-
-
-  
-  
