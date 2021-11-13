@@ -100,5 +100,65 @@ z=x
 x=input() 
 print(var1) # NameError: name 'z' is not defined
   
-  
+
+
+
+# Calculate tax rate from two gross salaries
+salaryA = 5000
+salaryB = 4000
+tax = 0.27      # tax rate - 27 percent of the salary
+
+print(salaryA - (salaryA * tax))  # better to write the code with defined variables in the memory 
+# print(5000 - (5000 * 0.27))       # troublesome to write this code
+
+print(salaryB - (salaryB * tax))
+# print(4000 - (4000 * 0.27))
+
+
+
+# Rules of variable definition
+  # Example:
+num1 = 10
+print(num1)
+num2 = 15
+print(num2)
+
+  # Example:
+num1 +=20
+print(num1)
+
+age = 30
+AGE = 20
+
+print(age)
+print(AGE)
+
+
+# Example:
+_age = 10
+
+
+
+# Variable Types
+x = 1                   # int
+y = 2.0                 # float
+name = 'arslan'         # string
+isStudent = True        # bool
+
+a = 10       
+b = 20
+print(a + b)
+
+# Merging String
+a = "10"
+b = "20"
+print(a + b) #1020
+
+FirstName = "Axl"
+LastName = " Rose"
+print(FirstName + LastName)
+
+# Assignment all the variables in a row
+a, b, FirstName, isStudent = (1, 2.3, "Rose", True)
+
 
