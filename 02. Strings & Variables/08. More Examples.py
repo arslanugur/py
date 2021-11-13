@@ -59,4 +59,53 @@ name = input()
 print("Welcome, " + name)
 
 
+# Example
+name = "Aretha"
+surname = "Franklin"
+age = 30
+ 
+print("Her name is "+ name + " "+ surname + " and \nI'm "+ str(age) + " y/o.")    
+                                                           # from int to str
+# Second Way 
+greeting = "Her name is "+ name + " "+ surname + " and \nShe is "+ str(age) + " y/o."
+print(greeting)
 
+print(name[0])      # A
+print(greeting[2])  # r
+
+# Example:
+greeting = 'Her name is '+ name + ' '+ surname + ' and \nShe is '+ str(age) + ' years old'
+print(len(greeting)) # There are 52 Characters
+# SECOND WAY
+  # length = len(greeting)
+  # print(length)
+
+# Examples about String Formatting
+print(greeting[length-1]) # to find the last character
+print(greeting[2:5])      # from second index to the fifth index
+print(greeting[3:])       # from third index to the last index
+print(greeting[:15])      # from 0 to 15
+print(greeting[2:40:2])   # from 2 to 40 but takes once in each two characters
+
+
+
+# Example:
+name = 'Floyd\'s song'
+# SECOND WAY
+# message = f'Hello {name}'
+# print(message)   
+message = 'Hello {}'
+print(message.format(name))   # Hello Floyd's song
+
+
+# Extras:
+name = 'OtisRedding'
+print(dir(name)) # shows what you can do with that?
+print(help(str)) # descript about str
+
+
+
+
+
+  
+  
