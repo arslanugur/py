@@ -61,4 +61,3 @@ print("hell ya" * 0)  #
 print("hi" *2 *3)     # hihihihihihi
 print ('hi' *2 **3)   # hihihihihihihihi
 
-
