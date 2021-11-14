@@ -33,7 +33,7 @@ print("I'm " + int(age) + " years old ")
 # The prompt message helps to clarify what input the program is asking for.
 
 
-# Example:
+# Example: Simple Calculator
 # Write a program to take two integers as input and output their sum.
 # Sample Input: 2, 8
 # Sample Output: 10
