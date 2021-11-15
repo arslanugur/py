@@ -17,43 +17,40 @@ b = 3 == 3
 c = a == b 
 print(c)       # True
 
-# Examples:
+# Example:
 print((2==2)+(3==3))  # 2
 
 code = 2==3 
 print(code+(2==2))    # 1 --> booleans are treated as 0 and 1
 
+# Example
+a=str(1==1) 
+print(a)    # True
+b=str(1==2) 
+print(b)    # False
+print(a+b)  # string concatenation --> 'True' + 'False' --> TrueFalse
+print((1==1)+(1==2))    # Py converts each boolean to the int type, where boolean True becomes integer 1 and boolean False becomes integer 0.  
+                        # prints the string form of integer 1
+print(int(1==1))        # prints the string form of integer 1 --> Python automatically converts Print input to string
+
+# Example:
+string = "8" 
+integer = 8 
+print(string == integer)      # False 
+print(int(string) == integer) # True 
+print(string == str(integer)) # True
+
+
+
+# COMPARISON
+  # Another comparison operator, the not equal operator (!=), evaluates to True if the items being compared aren't equal, and False if they are.
+print(1 != 1)                 # False
+print("eleven" != "seven")    # True
+print(2 != 10)                # True
 
 
 
 
 
-a=str(1==1) print(a) b=str(1==2) print(b) print(a+b) print((1==1)+(1==2)) print(int(1==1)) a=str(1==1) The value of a is the string 'True' print(a) Prints True without quotes b=str(1==2) The value of b is the string 'False' print(b) Prints False without quotes print(a+b) Prints the string concatenation 'True' + 'False' i.e. it prints TrueFalse without quoted print((1==1)+(1==2)) When adding booleans, I think Python converts each boolean to the int type, where boolean True becomes integer 1 and boolean False becomes integer 0. So this prints the string form of integer 1 without quotes print(int(1==1)) Prints the string form of integer 1 (I think Python automatically converts Print input to string)
-
-
-
-
-string = "8" integer = 8 print(string == integer) # False print(int(string) == integer) # True print(string == str(integer)) # True
-
-
-
-
-a = true Error 
->>> b = false Error 
->>> a = True True 
->>> b = False False 
->>> a == 1 True 
->>> a == 2 False 
->>> b == 0 True 
->>> print(a) True 
->>> print(b) False 
->>> print(b==False) True 
->>> print(b=False) Error 
->>> print (a+b) 1 
->>> a + b 1 
->>> a + 10 11 
->>> c= a+b==1 
->>> c True 
->>> d= a+b >>> d 1 
 
 
