@@ -48,9 +48,49 @@ print(1 != 1)                 # False
 print("eleven" != "seven")    # True
 print(2 != 10)                # True
 
+  #  "!=" is the opposite of "==" 
+  # "True" != "False" --> # True
+  # "True" != "True"  --> # False
+  
+  # Comparison operators are also called Relational operators.
+ 
+# You can compare strings, floats, and integers to each other. 
+# A string compared to a float or integer will always show as Not Equal, 
+# but a float and integer with the same value will show as Equal: 
+"2" != 2 True 
+3.0 != 3 False 
+    
+# Example:
+# == and is comparison in python explained
+# remember that == means equality
+# but is means identity
+a = 5
+b = 5.0
+print(a == b)     # == compares values so it is true
+print(a is b)     # here it compares values but also type and since one is int and one float the reult is false
+
+# Example: 
+"Trump"=="President"  # False
+pigs == fly           # False
+print(7 != 8)         # False
 
 
+  # Python also has operators that determine whether one number (float or integer) is greater than or smaller than another. 
+  # These operators are > and < respectively.
+print(7 > 5)    # True
+print(10 < 10)  # False
+  # Different numeric types can also be compared, for example, integer and float. 
+  
+  
+a= 1==1   # True
+b= 2!=3   # False
+c= 7>6    # True
+x= a+b+c  # T + F + T
+print(x)  # 3
+  
+  
+  
 
-
+  
 
 
