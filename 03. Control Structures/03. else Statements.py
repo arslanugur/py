@@ -169,6 +169,19 @@ else:
 # both sonic<32 and sonic<39 conditions are true. 
 
 
+# Question Example:
+w = float(input()) 
+h = float(input()) 
+bmi = w/(h**2) 
+if bmi < 18.5: 
+    print (" you are thin!") 
+if 18.5 <= bmi < 25: 
+    print ("you are normal") 
+if 25 <= bmi < 30: 
+    print ("get exercise!") 
+if 30 <= bmi: 
+    print ("you are overweight!")
+
     
 # Question Example:    
 def game(a,b): 
