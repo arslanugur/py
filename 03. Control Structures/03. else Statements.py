@@ -106,6 +106,7 @@ else:
     
     
     
+    
 # ELIF STATEMENTS
     # Multiple if/else statements make the code long and not very readable.
     # The elif (short for else if) statement is a shortcut to use when chaining if and else statements, making the code shorter.
@@ -126,25 +127,75 @@ else:
 # The elif statement is equivalent to an else/if statement. It is used to make the code shorter, more readable, and avoid indentation increase.    
 
 
+# Example:
+num = 7 
+if num == 5: 
+    print("Number is 5") 
+if num == 11: 
+    print("Number is 11") 
+if num == 7: 
+    print("Number is 7") 
+else: 
+    print("Number isn't 5, 11 or 7")
+    
+    # 1. if statement: python uses if statement to run a programme if certain conditions hold 
+    # 2. else statement: python runs else statement when a if stement is false 
+    # 3.elif statement: elif statement is a simple form of else if statement 
+    # and it is followed by a final else block never forget the colon (:) at the end of these statements
+    
+    # 'elif' means 'else if'. It is executed if the 'if' statement is not True. 
+    # But, A 'nested if' is put inside another 'if block' and is executed if the outer 'if' is True.
+
+# Example:
+color = input() 
+if color == 'red': 
+    print(1) 
+elif color == "green":
+    print(2)
+elif color == "black":
+    print(3)
+    
+    
+# Example:
+sonic = 300
+
+if sonic < 390: 
+    print('sonic is getting faster')
+elif sonic < 320: 
+    print('sonic is walking fast') 
+else: 
+    print('sonic is not running now') 
+# when the variable sonic is 300, 
+# both sonic<32 and sonic<39 conditions are true. 
 
 
+    
+# Question Example:    
+def game(a,b): 
+    human = a 
+    comp = b 
+    if human == "rock" and comp == "paper": 
+        human = -1 
+            print(human) 
+        elif human == "rock" and comp == "scissors": 
+        human = +1 
+            print(human) 
+        elif human == "paper" and comp == "rock": 
+        human = +1 
+            print(human) 
+        elif human == "scissors" and comp == "rock": 
+        human = -1 
+            print(human) 
+        elif human == "paper" and comp == "scissors": 
+        human = -1 
+            print(human) 
+        elif human == "scissors" and comp == "paper": 
+        human = +1 
+            print(human) 
+        elif human!= "rock" and human!= "paper" and human!= "scissors": 
+            print("wrong choice, try again")
+        elif comp!= "rock" and comp!= "paper" and comp!= "scissors": 
+            print("network error") 
+        game("scissors","paper")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-        
-        
