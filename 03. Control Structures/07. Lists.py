@@ -84,6 +84,10 @@ words = ["Hello", "world", "!"]
 print(words[0],words[1],words[2])
 
 
+# Example:
+countries =[sudan, Russia,. America] 
+print(countries) 
+    # The result will be sudan Russia America but if you specify it like print(countries[0]) The result will be sudan
 
 
     
@@ -94,5 +98,6 @@ print('I was born in: ' + words[1])
 words[1] = 2018 - int(words[1]) 
 print('Thus, my current age is: ' + str(words[1])) 
 print('I\'m from: ' + words[2]) 
+
 
 
