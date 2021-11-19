@@ -58,6 +58,7 @@ if a < b or b < c and not a < c:
 # a<b or (b<c and a<c)
 # a<b or (b<c and (not a<c))
 
+# Example:
 x = 4
 y = 2                                       # Short Version:
 if not 1 + 1 == y or x == 4 and 7 == 8:     # if False:
