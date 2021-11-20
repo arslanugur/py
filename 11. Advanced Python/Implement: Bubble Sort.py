@@ -157,8 +157,8 @@ def bubble_sort(nlist):
 nlist = [14,46,43,27,57,41,45,21,70]
 bubble_sort(nlist)
 print(nlist)
-
 # [14, 21, 27, 41, 43, 45, 46, 57, 70]
+
 
 # Example:
 def bubble_sort(nlist):
@@ -198,6 +198,41 @@ print(bubsrt([10,3,1,20,5]))
 
 
 
+# Example:
+def bubble_sort(nlist):
+    for passnum in range(len(nlist)-1,0,-1):
+        for j in range(passnum):
+            if nlist[j]>nlist[j+1]:
+                nlist[j], nlist[j+1] = nlist[j+1], nlist[j]
+        print(nlist)
+
+nlist = [14,46,43,27,57,41,45,21,70]
+bubble_sort(nlist)
+# output:
+# [14, 43, 27, 46, 41, 45, 21, 57, 70]
+# [14, 27, 43, 41, 45, 21, 46, 57, 70]
+# [14, 27, 41, 43, 21, 45, 46, 57, 70]
+# [14, 27, 41, 21, 43, 45, 46, 57, 70]
+# [14, 27, 21, 41, 43, 45, 46, 57, 70]
+# [14, 21, 27, 41, 43, 45, 46, 57, 70]
+# [14, 21, 27, 41, 43, 45, 46, 57, 70]
+# [14, 21, 27, 41, 43, 45, 46, 57, 70]
+
+
+# Example:
+def bubbleSort(array):
+    iterations = 0
+    for i in range(len(array)-1, 0, -1):
+        iterations +=1
+        if array[i] < array[i-1]:
+            array[i], array[i-1] = array[i-1], array[i]
+            bubbleSort(array)
+            
+    return array, iterations
+    
+numbers = [14,46,43,27,57,41,45,21,70]
+print(bubbleSort(numbers))
+# ([14, 21, 27, 41, 43, 45, 46, 57, 70], 8)
 
 
 
