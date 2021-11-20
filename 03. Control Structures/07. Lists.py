@@ -9,8 +9,12 @@ words = ["Hello", "world", "!"]
 print(words[0]) # Hello
 print(words[1]) # world
 print(words[2]) # !
-
 # The first list item's index is 0, rather than 1, as might be expected.
+
+# Example:
+message = 'Hello There. My Name Is Hemingway'.split()     #split-dizi liste yapmak
+print(message)      # ['Hello', 'There.', 'My', 'Name', 'Is', 'Hemingway']
+print(message[0])   # Hello         # H (without using Split)
 
 # Example:
 words = ["Hello", "world", "!"] 
@@ -20,12 +24,63 @@ print(words[-1])
 # output: Hello world !
 
 # Example:
-ele1=3          # ELE = Empty List Element
-ele2=4
-subele1=4
-subele2=6
-vec=[ele1,ele2,[subele1,subele2]]
+my_list = [1,2,3]
+my_list = ['one',2, True, 5.6]
+print(my_list) # ['one', 2, True, 5.6]
+
+# Example:
+list1 = ['one','two','three']
+list2 = ['four','five','six']
+
+numbers = list1 + list2
+print(numbers)      # ['one', 'two', 'three', 'four', 'five', 'six']
+print(len(numbers)) # 6    #to learn quantity with len method sayısını öğreniriz
+print(numbers[2])   # three
+
+# Example:
+ele1 = 3          # ELE = Empty List Element
+ele2 = 4
+subele1 = 4
+subele2 = 6
+vec = [ele1,ele2,[subele1,subele2]]
 print(vec[2][1])  # sublist element = 6 --> The second set of square brackets is referring to the 2nd element in the sublist.
+
+
+# Example:
+userA = ['Beckett', 30]
+userB = ['Baudelaire', 25]
+
+#users = userA + userB
+users = [userA, userB]  # to create another new list in this way
+#print(users[1])        # to reach the content of userB
+#print(users[0])        # to reach the content of userB
+print(users)            # been a list element in the list            # [['Beckett', 30], ['Baudelaire', 25]]
+
+a = users[1]
+print(a[0])             # to demonstrate info in the array           # Baudelaire
+print(users[1][0])      # another way to reach the same result       # Baudelaire
+
+print(users[0][0])      # Beckett
+print(users[0][1])      # 30
+print(users[1][0])      # Baudelaire
+print(users[1][1])      # 25
+
+# Example:
+letters = ['x', 'y', 'z']
+letters.insert(1, 'w')
+print(letters[2])           # y
+
+###EXAMPLES
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[2:6])         # [4, 9, 16, 25]                    # between 2.index and 6.index
+
+print(squares[3:8])         # [9, 16, 25, 36, 49]
+print(squares[0:1])         # [0]
+print(squares[1::4])        # [1, 25, 81]                       # skips from values
+print(squares[1:-1])        # [1, 4, 9, 16, 25, 36, 49, 64]     # starts with -1.index from the end, starts with 1.index from the beginning
+
+a = squares[0:2]
+print(a)                    # [0, 1]                            # to print the first two elements
 
 
 
