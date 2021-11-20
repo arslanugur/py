@@ -13,3 +13,26 @@ print(nlist)
 
 # Bubble Sort is used to sort a list of elements, by comparing two adjacent elements and swapping them, if they are not in order
 
+
+# Easier example:
+def bubble_sort(list):
+    for i in range(0, len(list) - 1):
+        for j in range(i + 1, len(list)):
+            if list[i] > list[j]:
+                list[i], list[j] = list[j], list[i]
+    return list
+
+
+
+
+# Bubble Sort
+myList = [8,4,1,3,2,6]
+count = 0
+for i in range(len(myList)-1):
+ for t in range(len(myList)-1):
+         if myList[t]>myList[t+1]:
+             myList[t],myList[t+1] = myList[t+1],myList[t]
+             count += 1
+print(myList,count)
+
+
