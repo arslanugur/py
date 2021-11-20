@@ -179,3 +179,28 @@ print(t)
 # [21, 27, 41, 43, 45, 46, 57, 70, 71]
 # {'sorts': 8, 'swaps': 22}
 
+
+# Example:
+def bubsrt(ul):
+    i = 0
+    corr = 0
+    while i < (len(ul) - 1):
+        if ul[i] > ul[i+1]:
+            ul[i], ul[i+1] = ul[i+1],ul[i]
+            corr +=1
+        i+=1
+    if corr > 0:
+        bubsrt(ul)
+    return ul
+
+print(bubsrt([10,3,1,20,5]))
+# [1, 3, 5, 10, 20]
+
+
+
+
+
+
+
+
+
