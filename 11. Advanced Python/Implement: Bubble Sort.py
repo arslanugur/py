@@ -11,3 +11,5 @@ print(nlist)
 
 # output: [14, 21, 27, 41, 43, 45, 46, 57, 70]
 
+# Bubble Sort is used to sort a list of elements, by comparing two adjacent elements and swapping them, if they are not in order
+
