@@ -18,7 +18,7 @@ else:
   
 # Second Way:  
 fruits = ["apple", "cherry", "banana", "kiwi", "lemon", "pear", "peach", "avocado"] 
-num = int(input()) #your code goes here 
+num = int(input())
 
 if num == 0: 
   print(fruits[0]) 
