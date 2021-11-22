@@ -14,3 +14,4 @@ copy()                clear()           popitem()
 
 
 
+⬛◼🔴
