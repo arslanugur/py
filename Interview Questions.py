@@ -114,3 +114,34 @@ def get_permutations(w):
 print(get_permutations("nan"))  # {'ann', 'nna', 'nan'}
 
 
+# String Triangle
+my_string = "angle"
+x = 0
+
+for i in my_string:
+  x = x + 1
+  print(my_string[0:x])
+  
+for i in my_string:
+  x = x - 1
+  print(my_string[0:x])
+# output:
+# a
+# an
+# ang
+# angl
+# angle
+# angl
+# ang
+# an
+# a
+  
+  
+
+
+
+
+
+
+
+
