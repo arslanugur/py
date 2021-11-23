@@ -74,6 +74,18 @@ calculate(**dictionary)  # output: 13
 # Swap Two Variables
 a, b = b, a
 
+# Trick 8: Assign Value to Multiple Variables in one line
+# Stop doing below
+list1 = ["a", 1, ("c", "d")] 
+a = list1[0] 
+b = list1[1]
+c = list1[2]
+print(a, b, c)  # a 1 ('c', 'd')
+# do better way
+list1 = ["a", 1, ("c", "d")] 
+a, b, c = list1
+print(a, b, c)  # a 1 ('c', 'd')
+
 # Palindrome Python One Liner
 phrase.find(phrase[::-1])
 
