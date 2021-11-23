@@ -34,4 +34,9 @@ print('''I\'ve found Lydia\'s sword. \nIt\'s broken now. \nLuckily, she\'s still
   # Actually, In Python 3, You don't require backslash! Tried! Its showing the same results without it as well!
 
   
+# Format Strings
+age = 22
+txt = "My name is J, and I am {}"
+print(txt.format(age))      # My name is J, and I am 22
+
 
