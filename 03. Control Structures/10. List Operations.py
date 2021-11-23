@@ -177,6 +177,94 @@ nums[1] = 22        # Remember, the first element is always "0"
 print(nums)
 
 
+# Example:
+nums = [10, 9, 8, 7, 6, 5]
+nums[0] = nums[1] - 5
+if 4 in nums:
+  print(nums[3])    # 7
+else:
+  print(nums[4])
+
+
+
+# To check if an item is not in a list, you can use the not operator in one of the following ways:
+nums = [1, 2, 3]
+print(not 4 in nums)    # True
+print(4 not in nums)    # True
+print(not 3 in nums)    # False
+print(3 not in nums)    # False
+
+
+# Example: 
+nums = [1, [4,5], 2, 3] 
+print(4 in nums)        # False
+print(5 in nums)        # False
+print([4,5] in nums)    # True
+print(4 in nums[1]      # True
+
+
+# Example:
+nums = [1, 2, 3, '4'] 
+print(not '4' in nums)  # False
+print(4 not in nums)    # True
+print(not 3 in nums)    # False
+print(3 not in nums)    # False
+      
+
+# Example: to print "Yes" if the list contains 'z':
+letters = ['a', 'b', 'z']
+if "z" in letters:
+  print("Yes")  # Yes
+      
+# Example:
+fruit=input("Enter fruit name: ") 
+basket=["mango","apple","orange"] 
+if not fruit in basket: 
+    print(fruit+" is not in basket") 
+else: 
+    print(fruit+" is in basket") 
+# Enter fruit name: apple
+# apple is in basket
+
+   
+# Example:
+nums = [1, 2, 3]
+x = input("What number would you like to check for?: ") 
+if not int(x) in nums: 
+    print("There is no " + x + " in nums") 
+else: 
+    print("There is a " + x + " in nums!") 
+      
+      
+      
+# Simple Example:
+print("i" in "team")    # False
+print("i" in "win")     # True      # Life Lesson: There's no i in team but there is in win))
+
+
+# Example:
+# Someone stole iPhone in this room filled with 3 people excluding me. 
+# who is culprit? John--Rocky-- Dave? 
+John = ['wallet', 'ring', 'knife', 'pen'] 
+Rocky = ['paper', 'pen', 'Samsung'] 
+Dave = ['cigarette', 'keys', 'wallet', 'iphone'] 
+print('iphone' in John) 
+print('iphone' in Rocky) 
+print('iphone' in Dave)
+
+
+# Example:
+words = "spamegg"
+print("spam" in words)  # True
+print("egg" in words)   # True
+print("meg" in words)   # True
+
+
+# Example: How you can check whether or not a string is a substring of another string.
+list1 = ["robert downey", "tony", "holmes", "stark"]
+print("downey" in list1[0]) # True 
+
+
 # Question Example:
 # you can also add any element to the last of the list of any type by using 
 list.append(element)
@@ -192,21 +280,49 @@ print(fruits) #output [apple, banana, cherry, orange]
 
 # To check if an item is in a list, the in operator can be used.
 # It returns True if the item occurs one or more times in the list, and False if it doesn't. 
-words = ["spam", "egg", "spam", "sausage"]
-print("spam" in words)      # True
-print("egg" in words)       # True
-print("tomato" in words)    # False
+words = ["go", "your", "own", "way", 7]
+print("go" in words)        # True
+print("your" in words)      # True
+print("away" in words)      # False
+print(7 in words)           # True 
+print("7" in words)         # False
 
 # The in operator is also used to determine whether or not a string is a substring of another string.
 
 
+# Example:
+tools = ["wrench","putty knife","jigsaw",["nut","bolt","washer"],"hacksaw"]
+print("washer" in tools[3]) # True
+
+tools = ["wrench","putty knife","jigsaw",["nut","bolt","washer"],"hacksaw"]
+print("washer" in tools) # False
+
+tools = ["wrench","putty knife","jigsaw",["nut","bolt","washer"],"hacksaw"]
+print(tools[2][3:5] in tools[4]) # True                                    # tools[2] = "jigsaw" [3:5] = "saw"
+
+tools = ["wrench","putty knife","jigsaw",["nut","bolt","washer"],"hacksaw"]
+print(tools[2][3:5] in tools) # False
+
+# the function will not search for substrings within the whole list of elements, but it will search within specific elements of the list
+# it is useful to my understanding of the function.
+
+print(tools[3][0:1])    # ['nut']
+print(tools[3][0])      # nut
 
     
-    
-    
-    
-    
-    
-    
-    
-    
+# Example:
+nums = [1, 2, 3, [7, 8]]
+req = int(input("Search: "))
+
+if req in nums:
+    print("Yes")
+elif req in nums[3]:
+    print("In nested list")
+else:
+    print("No")
+# input: 2  output: Yes
+# input: 7  output: In nested list
+# input: 4  output: No
+
+
+
