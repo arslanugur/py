@@ -192,4 +192,8 @@ while(True):
   max = max + 1 # 60
   
   
-  
+# Random Number Generator
+import random
+print(random.randint(1, 10))
+
+
