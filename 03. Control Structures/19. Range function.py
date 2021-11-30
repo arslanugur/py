@@ -151,22 +151,154 @@ print(b)
 # output: range(10, 20, 2) [10, 12, 14, 16, 18]
 
          
-"""
-To be technically clear, here's a snippet taken from the section on ranges in the official Python docs. 
-"The range type represents an immutable sequence of numbers and is commonly used for looping a specific number of times in for loops. 
-class range(stop) 
-class range(start, stop[, step]) 
 
-The arguments to the range constructor must be integers (either built-in int or any object that implements the __index__ special method). 
-If the step argument is omitted, it defaults to 1. 
-If the start argument is omitted, it defaults to 0. 
-If step is zero, ValueError is raised. 
-For a positive step, the contents of a range r are determined by the formula r[i] = start + step*i where i >= 0 and r[i] < stop." 
-So then... The default step is 1. 
-So, the range 3,8 starts at 3, increments by 1 until the value is 1 less than the stop.
-Basically it's like... r=3 while r < 8: print(r) 
-Personally not intuitive imo, neither is starting a range at 0. It's just how it works. 
-"""
+# To be technically clear, here's a snippet taken from the section on ranges in the official Python docs. 
+# The range type represents an immutable sequence of numbers and is commonly used for looping a specific number of times in for loops. 
+# class range(stop) 
+# class range(start, stop[, step]) 
+
+# The arguments to the range constructor must be integers (either built-in int or any object that implements the __index__ special method). 
+# If the step argument is omitted, it defaults to 1. 
+# If the start argument is omitted, it defaults to 0. 
+# If step is zero, ValueError is raised. 
+# For a positive step, the contents of a range r are determined by the formula r[i] = start + step*i where i >= 0 and r[i] < stop." 
+# So then... The default step is 1. 
+# So, the range 3,8 starts at 3, increments by 1 until the value is 1 less than the stop.
+# Basically it's like... r=3 while r < 8: print(r) 
+# Personally not intuitive imo, neither is starting a range at 0. It's just how it works. 
+
+
+
+# RANGE - THE THIRD ARGUMENT      
+# range can have a third argument, which determines the interval of the sequence produced, also called the step. 
+numbers = list(range(5, 20, 2))     # (start, stop, step)
+print(numbers)      # [5, 7, 9, 11, 13, 15, 17, 19]
+         
+# We can also create list of decreasing numbers, using a negative number as the third argument, for example list(range(20, 5, -2)).
+
+
+# If the interval of sequence is negative and the second element is greater than the first: 
+numbers = list(range(0, 10, -2)) 
+print(numbers) # []
+
+# If the interval of sequence is negative but the second element is smaller than the first: 
+numbers = list(range(10, 0, -2)) 
+print(numbers) # [10, 8, 6, 4, 2]  
+
+
+# Example:
+numbers = list(range(5, 20, 4//2)) 
+print(numbers) #  [5,7,9,11,13,15,17,19]
+
+
+# Example:
+numbers = list(range(5, 20, 2)) 
+j=0 
+while j< len(numbers): 
+    if numbers[j]% 3 != 0: 
+        print(numbers[j]) 
+        j+=1 
+        # 5 7
+        # 5 7 11 13 17 19
+
+
+# Example:
+numbers = list(range(5, -5, -2)) 
+print(numbers)  # [5, 3, 1, -1, -3]
+         
+         
+# list(range(A:B:C)), the value of C should be added to A in a way that it gradually reaches B.
+# If A=1 and B=10, C has to be a POSITIVE value. So it can be added to A to reach B.
+# If A=-10 and B=-1, C has to be a POSITIVE value. It's same as the previous case.
+# If A=1 and B=-10, C has to be a NEGATIVE value. Because, it should be added to A to reach B.
+# If A=-1 and B=-10, C has to be a NEGETIVE value. It's same as the previous case.
+
+
+# This is just a way of understanding range() arguments.
+# When range has three arguments, it can be understood in the way for loop has arguments in C, C++, etc: 
+range(5, 20, 2) # Python
+for(int i = 5; i < 20; i += 2)  # some languages         
+# Thus, it can be rewritten as:- 
+range(first_arg, second_arg, third_arg) # in Python 
+for(int i = first_arg, i < second_arg, i += third_arg) # in languages like C, C++
+
+
+
+# If you put the integer greater than the range, it gives the first element as output. 
+nums = list(range(5,20,100))
+print(nums)     # [5] --> The first element will be showcased
+         
+         
+# Example:
+nums = list(range(3, 15, 3))
+print(nums[2])  # 9
+# print(nums)   # [3, 6, 9, 12] <-- created list range 
+                #  0  1  2  3   <-- index
+         
+# for LOOPS and RANGE
+# The for loop is commonly used to repeat some code a certain number of times.
+# This is done by combining for loops with range objects.         
+for i in range(5):
+    print("to write this five times with range")
+#   print(i)
+
+# You don't need to call list on the range object when it is used in a for loop, 
+# because it isn't being indexed, so a list isn't required.
+
+# Example:
+for i in range(10,50,10): 
+    print("Wealth! "+str(i)) 
+    # Wealth! 10 
+    # Wealth! 20 
+    # Wealth! 30 
+    # Wealth! 40
+
+
+# Example:
+for i in range(10): 
+    if i==3: 
+        print("We are skipping 'i' here!") 
+        continue 
+    elif i==8: 
+        print("We are breaking the loop here!") 
+        break 
+    else: 
+        print("Python!",i) 
+# output:
+# Python! 0
+# Python! 1
+# Python! 2
+# We are skipping 'i' here!
+# Python! 4
+# Python! 5
+# Python! 6
+# Python! 7
+# We are breaking the loop here!
+
+
+# Example: loop in loop 
+for i in range(4): 
+    for a in range(4): 
+        if a <= i: 
+            print('*', end=' ') 
+        else: 
+            print(' ', end=' ') 
+print() # output: *       * *     * * *   * * * * 
+     
+
+# Example:
+items = ["A", "B", "C", "D", "E"] 
+n = len(items) 
+for i in range(n):
+    print(str(i + 1) + ". " + items[i]) # output: 1. A 2. B 3. C 4. D 5. E
+
+# Example: to create a for loop that prints only the even values in the range:
+for i in range(0, 20, 2):
+  print(i)  # 0, 2 ... , 18 --> that mean it returns all even numbers in range from 0 to 20
+            # even numbers - numbers which can be devided by 2 without the rest
+            # odd numbers - numbers which can not be devided by 2 without the rest
+for i in range[0,20,3]
+  print(i)  # return will looks like: 0 3 6 9 12 15 18 so it result with either some even and odd numbers
 
 
 
