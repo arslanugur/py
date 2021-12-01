@@ -57,51 +57,49 @@ else:                               # all except the value max. 100 above
     print('you gave a wrong info')  # Range will be maximum 100
 
 
+    
+# Example:
+# Calculate the service time of a vehicle whose traffic release time is taken from the user according to the following information
+# how many days the vehicle has been in traffic?
+# E.g. The difference between 20.11.2010 and the current date should be subtracted as "days" 
+# Query by day --> next subject: datetime module shoul be used for this example
+#  the first maintenance    -> 1. year
+#  the second maintenance   -> 2. year
+#  the third maintenance    -> 3. year
 
-#3 (kullanıcıdan) trafiğe çıkış zmanı alınan bir aracın (araç kaç gündür trafikte)
-#    servis zamanını aşağıdaki bilgilere göre hesaapla 
-#    (eg 20.11.2010 ile şimdinin tarihiyle fark alınır gün olarak çıkartmak gerek)
-#    güne göre sorgulama yapılmalı *datetime modülü ileriki konu
-#  1.bakım -> 1.yıl
-#  2.bakım -> 2.yıl
-#  3.bakım -> 3.yıl
-#  **süre hesabına alınan gün, ay, yıl bilgisine göre gün bazlı hesapla
-#  **datetime modülünü kullanmak gerekir  
-"""
-days = int(input('how many days your vehicle in traffic?: ')) #datetime modülü şimdilik dursun daha sonra katcaz
-#gelen bilginin str olmaması için int çevir
-if days <= 365: #365 günü servis aralığı olarak kabul ederiz
+# Day-based calculation according to the day, month, year information taken into the duration account
+days = int(input('how many days your vehicle in traffic?: '))
+
+if days <= 365:                             # 365 days is accepted as service interval
     print('1st service time')
-elif (days > 365) and (days <= 365 *2): #yani 1 y ile 2 y arasındysa
+elif (days > 365) and (days <= 365 *2):     # if it is between one year and two years
     print('2nd service time')
-elif (days > 365 * 2) and (days <= 365 *3): #yani 2 yıl ile 3 yıl arası
+elif (days > 365 * 2) and (days <= 365 *3): # if it is between two years and three years
     print('3rd service time')
-else: #bunlar haricindeki herbir süre hatalı süre bilgisini göstersin
-    print('error usage in traffic')
+else:                                       # the other inputs will be indicated as wrong info except the conditions above
+    print('error usage duration in traffic')
 
-"""
 
-"""
-#datatime modülüyle yapılırsa
-import datetime #modülü import ediyoruz
+# Example: using datetime module
+import datetime
 
 date = str(input('which date did your vehicle start being in traffic? (2019/8/9): ')) 
-date = date.split('/') #gelecek olan tarih bilgisi split metoduyla slashla ayrılır
-print(date[0]) #yıl
-print(date[1]) #ay
-print(date[2]) #gün ay yıl diye aldık alt altta şekilde ayırdık
-#neden ayırdık? çünkü fark işlemi yapcaz
+date = date.split('/')              # incoming/inputted date information is separated by slash with the split method 
+print(date[0]) # year
+print(date[1]) # month
+print(date[2]) # day                # why separated? because subtraction will be done
 
-today = datetime.datetime.now() #today değişkenine bugünün tarihini almış oluruz
-#print(today) #şuanın tarihini terminale gösterir
-#farkı almak için bi obje hazırlanır
-# trafiğe çıkış şeklinde bi tarih objesi datetime modülüyle hazırla
+today = datetime.datetime.now()     # to get today's date in today variable 
+# print(today)                      # to show today's date
+# An object is prepared to subtract
+# Prepare a date object named entranceTraffic with datetime module 
 entranceTraffic = datetime.datetime(int(date[0]), int(date[1]), int(date[2]))
-minus = today - entranceTraffic #farkını almak için trafiğe çıkışla şimdiki tarih çıkartılır
-#print(minus)
-#minus yani fark değişkeni içinden days bilgisini alman gerekli
-#print(minus.days) #gün bilgisi gelcek ama amacımız bu değil, bunun yerine
-days= minus.days #days objesinin içine alalım yani sadece gün bilgisini alır saati filan değil
+minus = today - entranceTraffic
+# print(minus)
+# minus yani fark değişkeni içinden days bilgisini alman gerekli
+# You need to get 'day information' from minus (subtract variable) 
+# print(minus.days)     # 'day information' will be indicated but it is not the goal
+days = minus.days       # to get into the 'days' object, so it only takes the day information, not the time or anything. 
 #sonrasında koşullu işlemlere geç
 
 if days <= 365:
@@ -112,9 +110,9 @@ elif (days > 365 * 2) and (days <= 365 *3):
     print('3rd service time')
 else: 
     print('error usage in traffic')
-"""
 
-#temiz bi şekilde görmek için
+
+# Clean Example:
 import datetime 
 
 date = str(input('which date did your vehicle start being in traffic? (2019/8/9): ')) 
@@ -133,3 +131,6 @@ elif (days > 365 * 2) and (days <= 365 *3):
     print('3rd service time')
 else: 
     print('error usage in traffic')
+
+
+
