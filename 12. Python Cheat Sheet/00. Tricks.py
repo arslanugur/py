@@ -1,3 +1,4 @@
+# https://www.practicepython.org/
 ###### TRICKS
 # Trick 1: Lambda Function vs. Regular Function
 # This is a regular function
