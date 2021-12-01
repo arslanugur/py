@@ -1,3 +1,9 @@
+# Conditional Statements
+# Conditional statement blocks: if - else
+# Until now, passed from a code block to another block
+# Now, passing with a condition from a code block to another block: true, false
+# to change the way of app
+
 # You can use if statements to run code if a certain condition holds.
 # If an expression evaluates to True, some statements are carried out. Otherwise, they aren't carried out.
 # An if statement looks like this:
@@ -116,5 +122,76 @@ if num > 3:
       print("5")
       if num ==7:
          print("7") # 3
+
+
+# if "username" is wrong, you can send "password id wrong" to the user
+# Purpose: to transmit certain code blocks under certain conditions 
+# Example:
+if 3>2:     # there must be a "true" or "false" value from the conditon
+            # print is used for a certain conditional statement
+    print('welcome back')
+# if 3 > 3  # if it were like that, it wouldn't work
+# if 3 == 3 # 'welcome back'
+# if True   # 'welcome back'
+
+
+# Example:
+isLoggedIn = True   # user logged in?
+if isLoggedIn:
+    print('LoggedIn')
+
+# Second Way
+if isLoggedIn == True:  # true == true
+    print("LoggedIn")   # always to tab once for print
+    
+    
+# Example: Define a variable 
+username = 'chanchan'
+password = '123456'
+isLoggedIn = (username == 'chanchan') and (password == '123456') 
+# two comparisons is done, username equals chanchan?
+# two questions must be true, then operator sends true
+# to generate a value of bool type using operator 
+if isLoggedIn:
+    print('Welcome Home')
+
+
+# Example:
+username = 'arslanugur'
+password = '123456'
+if (username == 'arslanugur') and (password == '123456'):
+    print('Password is confirmed')
+# your info is wrong in if statement, else activates
+else:
+    print('You dont remember your name or number?!')
+
+
+# Example: Which one is wrong?: username or password? What if the user wants to know?
+username = 'arslanugur'
+password = '123456'
+if (username == 'arslanugur'):
+    if (password == '123456'):
+        print('thats it')
+    else: # what if the password is wrong, because if-else blocks is only about password)
+        print('your passed wrong way')
+else:
+    print('You dont remember your name?!')
+# can be easier with the command "elif"
+
+
+# Example:
+temp = -5
+freezing = 0
+raining = False
+snowing = True
+if temp < freezing and (raining == True or snowing == True):
+    print('Bad weather!')
+
+temp = 10
+if temp >= 10:
+    print('Warm')
+if temp >= 20:
+    print('Hot')
+
 
 
