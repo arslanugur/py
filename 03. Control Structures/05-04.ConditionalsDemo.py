@@ -168,7 +168,7 @@ name = input('Name: ')
 kg = float(input('Kilo: ')) #kg/boy ondalıklı da girebilir bu yüzden float
 hg = float(input('Length: ')) #userdan ekran ondalıklı yazması istenir örnek gösterilir
 
-kiloindex = (kg) / (hg**2) #verdiğimiz formül
+kiloindex = (kg) / ((hg**2) / 10000)  #verdiğimiz formül #verdiğimiz formül
 
 if (kiloindex >= 0) and (kiloindex <= 18.9):
     print(f' {name} kilo indeksin: {kiloindex} ve kilo değerlendirmen zayıf.')
