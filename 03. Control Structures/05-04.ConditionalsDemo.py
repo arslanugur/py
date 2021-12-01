@@ -1,39 +1,34 @@
-#1  girilen bi sayının 0-100arasınolup olmadığını kontrol et
-"""
+# Example: Check whether input is between 0-100 or not
 num = float(input('number: '))
 result = (num > 0) and (num <= 100)
 print(f'number is between zero and hundred?: {result}')
-"""
-""" #if bloklu hali
-#bunu ilk gördüğümüzde ifi kullanamıyorduk, şimdi ise olacak
+
+# Example: Check whether input is between 0-100 or not (with the if block)
 num = float(input('number: '))
 if (num > 0) and (num <= 100):
     print('number is between 0 and 100.')
 else:
     print('number is not between 0 and 100.')
 
-"""
 
-#2  girilen bir sayının pozitif çift sayı olup olmadığını kontrol et
-"""
+# Example: Check whether the number input is positive even or not
 num = int(input('number: '))
 result = (num > 0) and (num % 2 == 0)
 print(f'Number is positive and even number? {result}')
-"""
 
-#if bloklu hali
-"""
+# Example: Check whether the number input is positive even or not (with the if block)
 num = int(input('number: '))
 if (num > 0):
-    if num % 2 == 0: #sayı pozifse içerde bi soru daha tru cevabıysa sayı 0dan büyük
+    if num % 2 == 0:
         print(f'{num} is positive and even number.')
     else:
         print(f'{num} is positive but its odd.')
 else:
     print(f'{num} is negative number.')
-#peki ya sayı 0 ya da -2 olursa
-#onu daha sonra incele
-"""
+
+
+
+
 #3  mail ve password bilgileriyle giriş kontrolü yap
 """
 mail = 'arslangmail.com'
@@ -62,6 +57,14 @@ else: #aksi durumda
     print('Mail is wrong')
 """
 
+
+
+
+
+
+
+
+
 #4  girilen üç sayıyı büyüklük olrak karşılaştır
 """
 firstNo = int(input('1st Number: '))
@@ -88,6 +91,9 @@ elif (secondNo > firstNo) and (secondNo > thirdNo):
 elif (thirdNo > firstNo) and (secondNo < thirdNo):
     print(f'{thirdNo} is the biggest number.')
 """
+
+
+
 
 #5 user'dan iki vize (%60) ve bir final (%40) notu olarak ortalama hesapla
 """
