@@ -8,6 +8,52 @@ if x == 5:
 else:             # Notice the colon after the else keyword.
     print("No")
     
+
+# Example:
+x = 10
+y = 20 
+if x > y:
+    print('x is bigger than y')
+else:
+    print('yeah is beggie than x')
+
+
+# Example:
+# what if x and y are the same value, but the code remains the same --> the value in "else"
+# to edit we need to change the operator --> if x >= y:
+# but using the command "elif", would bbe more reasonable
+x = 20
+y = 20 
+if x > y:
+    print('x is bigger than y')
+elif x == y:
+    print('x and y are the same equal') 
+# As the condition numbers increase, we can also increment the "elif" command in the same way to check each condition 
+else:
+    print('y is bigger than x')
+
+
+# Example: input from the user
+x = int(input('x: '))   # coming value from the input turns integer not to be seen as str 
+y = int(input('y: '))
+if x > y:
+    print('x is bigger than y')
+elif x == y:
+    print('x and y are the same equal') 
+else:
+    print('y is bigger than x')
+
+
+# Example: to take a value from the user
+num = int(input('no: '))
+if num > 0:
+    print('number is positive')
+elif num < 0:       # the number is smaller than 0 --> if the number is negative 
+    print('number is negative')
+else:               # for the other statement
+    print('number is null/zero')
+
+    
 # Example:
 x = int(input("Enter a number: "))
 if x == 5:
@@ -18,9 +64,10 @@ else:
     else: 
         if x > 5: 
             print("Greater than 5")
-            
+
+
 # Example:
-n= int(input("Enter a number"))
+n = int(input("Enter a number"))
 if (n>0):
   print("positive")
 elif (n<0): 
@@ -28,6 +75,7 @@ elif (n<0):
 else: 
   print("zero")
   
+
 # Example:
 x = (input("")) 
 print("You are " + x + " years old.") 
@@ -212,3 +260,5 @@ def game(a,b):
         game("scissors","paper")
 
 
+
+  
