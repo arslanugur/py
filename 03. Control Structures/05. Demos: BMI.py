@@ -29,9 +29,8 @@ else:
 
 
 
-#3  mail ve password bilgileriyle giriş kontrolü yap
-"""
-mail = 'arslangmail.com'
+# Example: Check to Login with Mail and Password Information
+mail = 'mail@gmail.com'
 password = '1234'
 
 writtenMail = input('mail: ')
@@ -39,10 +38,9 @@ writtenPass = input('pass: ')
 
 result = (writtenMail == mail) and (writtenPass == password)
 print(f'Entrance is success. {result}')
-"""
-#if hali
-"""
-mail = 'arslan@gmail.com'
+
+# Example: with if statement 
+mail = 'mail@gmail.com'
 password = '1234'
 
 writtenMail = input('mail: ')
@@ -53,20 +51,13 @@ if writtenMail == mail:
         print('Entry is successful.')
     else:
         print('Password is wrong.')
-else: #aksi durumda
+else:
     print('Mail is wrong')
-"""
 
 
 
 
-
-
-
-
-
-#4  girilen üç sayıyı büyüklük olrak karşılaştır
-"""
+# Example: to compare entered three numbers by size 
 firstNo = int(input('1st Number: '))
 secondNo = int(input('2nd Number: '))
 thirdNo = int(input('3rd Number: '))
@@ -77,9 +68,8 @@ result = (secondNo > firstNo) and (secondNo > thirdNo)
 print(f'2nd Number is the biggest number. {result}')
 result = (thirdNo > firstNo) and (secondNo < thirdNo)
 print(f'3rd Number is the biggest number. {result}')
-"""
-#if hali 
-"""
+
+# Example: with if statement 
 firstNo = int(input('1st Number: '))
 secondNo = int(input('2nd Number: '))
 thirdNo = int(input('3rd Number: '))
@@ -90,13 +80,12 @@ elif (secondNo > firstNo) and (secondNo > thirdNo):
     print(f'{secondNo} is the biggest number.')
 elif (thirdNo > firstNo) and (secondNo < thirdNo):
     print(f'{thirdNo} is the biggest number.')
-"""
 
 
 
 
-#5 user'dan iki vize (%60) ve bir final (%40) notu olarak ortalama hesapla
-"""
+
+# Example: Calculate average of two midterm (60%) and one final (40%) grades from user
 visa1 = float(input('visa1: '))
 visa2 = float(input('visa2: '))
 final = float(input('final: '))
@@ -104,30 +93,26 @@ final = float(input('final: '))
 average = ((visa1 + visa2) / 2) * 0.6 + (final * 0.4)
 result = (average >= 50) or (final >= 70)
 print(f'Öğrenci ortalası {average} ve geçme durumu {result}')
-"""
 
-#if hali
-"""
+# Example: with if statement
 visa1 = float(input('visa1: '))
 visa2 = float(input('visa2: '))
 final = float(input('final: '))
 
 average = ((visa1 + visa2) / 2) * 0.6 + (final * 0.4)
-
-#ilk altern
+# First Altern:
 if (average >= 50):
-    if (final >= 50): #bu da başarılıysa tamam
+    if (final >= 50):
         print(f'Öğrenci ortalası {average} ve geçme durumu başarılı')
     else:
         print(f'Öğrenci ortalası {average} ama final notu <50 başarısız')
 else: 
     print(f'Öğrenci ortalası {average} ve geçme durumu ort. yüzünden başarısız')
-#ortalama 50den büyükse final notuna baksın
-"""
+                # if the average is greater than 50, look at the final grade. 
 
-#ikinci altern
-"""
-if (average >= 50): #eğer ortalama 50den büyükse final notuna bakılmadan başarılı
+
+# Second Altern:
+if (average >= 50):     # if the average is greater than 50, successful without looking at the final grade
     print(f'Öğrenci ortalası {average} ve geçme durumu başarılı')
 else:
     if (final >= 70):
@@ -135,48 +120,53 @@ else:
     else:
         print(f'Öğrenci ortalası {average} ve geçme durumu ort. yüzünden başarısız')
 
-"""
 
 
-#6  user'dan ad, kilo, boy bilgileri alıp kilo indeksini hesapla
-#   Formula: (kilo / length root) ->boy uzunluğunun karesi
-#   Aşağıdaki tabloya göre kişi hangi gruba girer
-#   0-18.4      => Zayıf
-#   18.5-24.9   => Normal
-#   25.0-29.9   => Fazla kilolu
-#   30.0-34.9   => Şişman (Obez)
-"""
+# Example: Body Mass Index Calculation (BMI) by inputting name, weight, height
+#    0 - 18.5   -- Thin
+# 18.5 - 24.9   -- Normal
+# 25.0 - 29.9   -- Fat
+# 30.0 - 34.9   -- Obese
+# 35.0          -- Morbid Obese
+
 name = input('Name: ')
-kg = float(input('Kilo: ')) #kg/boy ondalıklı da girebilir bu yüzden float
-hg = float(input('Length: ')) #userdan ekran ondalıklı yazması istenir örnek gösterilir
-#userdan bilgileri aldık
-kiloindex = (kg) / (hg**2) #verdiğimiz formül
+kg = float(input('Weight: '))
+hg = float(input('Length: '))
 
-thin = (kiloindex >= 0) and (kiloindex <= 18.4)
-normal = (kiloindex >= 18.5) and (kiloindex <= 24.9)
-fat = (kiloindex >= 25.0) and (kiloindex <= 29.9)
-obes = (kiloindex >= 30.0) and (kiloindex <= 34.9)
+massindex = (kg) / ((hg**2) / 10000)    # formula
 
-print(f' {name} kilo ideksin: {kiloindex} ve kilo değerlendirmen zayıf {thin}')
-print(f' {name} kilo ideksin: {kiloindex} ve kilo değerlendirmen normal {normal}')
-print(f' {name} kilo ideksin: {kiloindex} ve kilo değerlendirmen şişman {fat}')
-print(f' {name} kilo ideksin: {kiloindex} ve kilo değerlendirmen obez {obes}')
-#herindex için 4 tane mesaj oluyordu ama if bloklarıyla
-"""
-#if hali
+thin = (massindex >= 0) and (massindex <= 18.4)
+normal = (massindex >= 18.5) and (massindex <= 24.9)
+fat = (massindex >= 25.0) and (massindex <= 29.9)
+obese = (massindex >= 30.0) and (massindex <= 34.9)
+morbidobese = (massindex >= 35.0)
+
+print(f' {name} weight index: {massindex} and weight assessment is thin {thin}')
+print(f' {name} weight index: {massindex} and weight assessment is normal {normal}')
+print(f' {name} weight index: {massindex} and weight assessment is fat {fat}')
+print(f' {name} weight index: {massindex} and weight assessment is obese {obese}')
+print(f' {name} weight index: {massindex} and weight assessment is morbidobese {morbidobese}')
+
+
+
+# Example: Body Mass Index Calculation (BMI) with the if statements 
 name = input('Name: ')
-kg = float(input('Kilo: ')) #kg/boy ondalıklı da girebilir bu yüzden float
-hg = float(input('Length: ')) #userdan ekran ondalıklı yazması istenir örnek gösterilir
+kg = float(input('Weight: '))
+hg = float(input('Length: '))
 
-kiloindex = (kg) / ((hg**2) / 10000)  #verdiğimiz formül #verdiğimiz formül
+massindex = (kg) / ((hg**2) / 10000)  # formula
 
-if (kiloindex >= 0) and (kiloindex <= 18.9):
-    print(f' {name} kilo indeksin: {kiloindex} ve kilo değerlendirmen zayıf.')
-elif (kiloindex >= 19.0) and (kiloindex <= 24.9):
-    print(f' {name} kilo indeksin: {kiloindex} ve kilo değerlendirmen normal.')
-elif (kiloindex >= 25.0) and (kiloindex <= 29.9):
-    print(f' {name} kilo indeksin: {kiloindex} ve kilo değerlendirmen şişman.')
-elif (kiloindex >= 30.0) and (kiloindex <= 39.0):
-    print(f' {name} kilo indeksin: {kiloindex} ve kilo değerlendirmen obez.')
+if (massindex >= 0) and (massindex <= 18.4):
+    print(f' {name} weight index: {massindex} and weight assessment is thin.')
+elif (massindex >= 18.5) and (massindex <= 24.9):
+    print(f' {name} weight index: {massindex} and weight assessment is normal.')
+elif (massindex >= 25.0) and (massindex <= 29.9):
+    print(f' {name} weight index: {massindex} and weight assessment is fat.')
+elif (massindex >= 30.0) and (massindex <= 34.9):
+    print(f' {name} weight index: {massindex} and weight assessment is obese.')
+elif (massindex >= 35.0):
+    print(f' {name} weight index: {massindex} and weight assessment is morbid obese.')
 else:
-    print('Bilgiler yanlış.')
+    print('Information is Wrong')
+
+
