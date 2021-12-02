@@ -134,8 +134,79 @@ while y<len(x):
     y+=1    # 12345
 
 
+# for loops can be used for lists
+
+# Example: list without for loop
+numbrs = [1, 2, 3, 4]
+print(num[0])
+print(num[1])
+print(num[2])
+print(num[3])
+
+
+# Example: list with for loop
+numbrs = [1, 2, 3, 4]
+for num in numbrs:
+    print(num)  # to write some code within the scope of the for loop
+                # to throw every element (variable) in the list into "num" and return them in for loop
+for a in numbrs:# The for loop returns, as much as the number of elements of the list 
+    print('from 1 to 4, written the same thing four times')
+
+    
 # Example:
-# Manipulating a view ;)
+names = ['Joseph', 'George', 'Daniel', 'Charles', 'Victor']
+
+for name in names:
+    print(f'My name is {name}')
+
+
+# Example:
+list = [1, 2, 3]
+for var in list:
+    print(var)
+
+
+# Example: What if we print a string expression 
+name = 'Revolution'# each element is treated as an array element 
+for n in name:
+    print(n)        # string is printed one under the other
+
+
+# Example:
+tuple = (1, 2, 3, 4, 5)
+for t in tuple:
+    print(t)
+
+tuple = [(1, 2),(3, 4),(5, 6), (7, 8)] # each list element corresponds to a tuple list 
+for t in tuple:
+    print(t)
+
+tuple = [(1, 2),(3, 4),(5, 6), (7, 8)] 
+for a, b in tuple:
+    print(a) # only corresponds to "a" are printed 
+
+
+# Example: Dictionary List {key : value}
+d = {'k1': 1, 'k2': 2, 'k3': 3} 
+for item in d:
+    print(item) # in this way, only key information comes 
+
+for item in d.items(): # element groups are accessed one by one 
+    print(item)
+
+for key, value in d.items():
+    print(key)
+
+for key, value in d.items():
+    print(key, value)
+
+
+
+
+
+
+# Example:
+# Manipulating a view 
 # I would say that this is useful for the ones having problems with loops.
 
 from string import *
@@ -166,3 +237,5 @@ while 1:
     
 print(f"\n\nPassword - {new}")
 print("\n[Program finished]")
+
+
