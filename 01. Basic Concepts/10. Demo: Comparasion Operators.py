@@ -1,9 +1,8 @@
-# Example: 
-# 1 girilen iki sayıdan hangisi büyük
+# Example: which number is bigger from two numbers?
 numbera = int(input('number a: '))
 numberb = int(input('number b: '))
 
-result = numbera > numberb #true-false gelcek - true olursa a değeri büyük
+result = numbera > numberb # it will be true-false - if the value true, the value  olursa a değeri büyük
 print(f'number a: {numbera} number b: {numberb} den büyük: {result}') 
 #süslü parantez sayı değerini vercek
 #true ya da false değeri kullanıcıya gösterilmez ama
@@ -58,7 +57,5 @@ isMail = email  == girilenMail
 #str başına yanına sonuna girdiğimiz boşluklar strip metoduyla silinir
 isPass = password == girilenPass    #bu sorulara true ya da false gelcek
 print(f'Email bilgisi doğrumu: {isMail} ve parola doğru mu: {isPass} ')
-
-
 
 
