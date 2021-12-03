@@ -1,5 +1,5 @@
-"""
-#1 girilen iki sayıdan hangisi büyük
+# Example: 
+# 1 girilen iki sayıdan hangisi büyük
 numbera = int(input('number a: '))
 numberb = int(input('number b: '))
 
@@ -12,11 +12,11 @@ print(f'number a: {numbera} number b: {numberb} den büyük: {result}')
 """
 #2 kullanıcıdan iki vize (%60) ve bir final (%40) notu al ortalama hesapla
 
-vize1 = float(input('1st visa: '))
-vize2 = float(input('2nd visa: '))
+vize1 = float(input('1st midterm: '))
+vize2 = float(input('2nd midterm: '))
 final = float(input('final: '))
 
-#aldığımız bilgiyi floata çevir çünkü ondalıklı bi sayı da girilebilir
+# aldığımız bilgiyi floata çevir çünkü ondalıklı bi sayı da girilebilir
 
 #3 ortalama 50 ve üstündeyse geçti değilse kaldı yazdır
 #üsteki bilgilerin ortalaması
