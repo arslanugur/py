@@ -29,6 +29,7 @@ print(result)
 # false, false -> false olur
 
 
+
 # Example: using 'not' operator
 x = 5
 result = not(x > 0) # if x is positive, result will be true
@@ -40,6 +41,7 @@ print(result)
 x = 6
 result = ((x > 5) or (x < 10)) and (x % 2 == 0) # we asked three questions. if the first one will run with and/or operators, the second one will run with and operator
 print(result)
+
 
 
 
