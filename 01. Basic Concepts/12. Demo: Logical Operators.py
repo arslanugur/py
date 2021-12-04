@@ -1,20 +1,18 @@
-"""
-#1 girilen bir sayının 0-100 arasında olup olmadığını bul
-#sormamız gereken iki soru 0dan büyük mü 100den küçük mü
+# Example: to check the number inputted is between 0-100
+# we have two questions: number is bigger than 0, smaller than 100
 number = float(input('x = '))
 result = (number > 0) and (number <= 100)
-#iki koşulumuz var her ikisi de doğru olmak zorunda 'and'
+# we have two conditions, both of them must be true with 'and' operator
 print(f'Number is between 0 and 100: {result} ')
 
-"""
-#2 girilen bir sayının poz çift sayı olup olmadığını kontrol et
-#1 ve 2.soruyu bir operator içinde birleştir
-"""
+
+
+# Example: to check the number inputted is even or not?
+# the fisrt and the second question combine with an operator
 number = int(input('x = '))
-result = (number > 0) and (number % 2 == 0) 
-#sayı mod2 = 0 ise çift
+result = (number > 0) and (number % 2 == 0) # if the number will be divided with 2 and modulus = 0, the number is even
 print(f'Is your number both positive and even: {result} ')
-"""
+
 
 """
 #3 mail ve parola bilgileriyle giriş kontrolü yap
