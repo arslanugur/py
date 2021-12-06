@@ -52,10 +52,10 @@ print('a', 'b', 'c', sep='\n')
   # Print("hello, python") 
   # The parameter here is a string (hello, python) 
   # You can do this too: 
-myName = "Arslan" 
+myName = "He" 
 Hobbies =" Coding" 
-Print(myName+ " loves "+ Hobbies) # Output: Arslan loves Coding
+Print(myName+ " loves "+ Hobbies) # Output: He loves Coding
     
-  
+# Comments and Docstrings   
   
   
