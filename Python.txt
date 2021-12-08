@@ -1,7 +1,7 @@
 https://www.tiobe.com/tiobe-index/
 
 01. Basic Concepts
-1.1 Lesson: Welcome to Python!
+1.1 Lesson: Intro, Comments & Docstrings
 1.2 Practice: Your First Program
 2.1 Lesson: Simple Operations
 2.2 Practice: Brain Freeze!
@@ -85,7 +85,6 @@ https://www.tiobe.com/tiobe-index/
 33.3 Practice: Area Of A Rectangle
 34.1 Lesson: Returning from Functions
 34.2 Practice:  Hashtag Generator
-35.1 Lesson: Comments & Docstrings
 36.1 Lesson: Functions as Objects
 37.1 Lesson: Modules
 37.2 Practice: No Dice? No Problem
