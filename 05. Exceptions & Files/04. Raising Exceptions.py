@@ -15,7 +15,7 @@ except Exception:
     print("ERROR!")
 #
 # You can use the raise statement outside the except block
-
+# https://www.quora.com/Can-we-use-a-raise-statement-outside-an-except-block-in-the-Python-language
 
 # Example:
 try:
