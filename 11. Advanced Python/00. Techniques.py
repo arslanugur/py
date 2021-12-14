@@ -111,16 +111,80 @@ x = -1 * a if (a > 0) else a
 print(x)
 
 
+# Triangle Area - 1
+a = float(input("Enter the side length (cm): "))
+h = float(input("Enter the height (cm): "))
+area = a * h / 2
+print("\nTriangle Area (cm²): %0.2f\n"% (area))
+
+# Triangle Area - 2
+import math
+a = eval(input("Enter the first side (cm): "))
+b = eval(input("Enter the second side (cm): "))
+angle = eval(input("Enter the angle between (degree): "))
+area =  a * b * math.sin(math.radians(angle)) / 2
+print("\nTriangle Area (cm²): {:.2f}\n".format(area))
+
+
+# Odd - Even
+a = int(input("Enter an integer: "))
+if (a % 2 == 0):
+  print("\nInteger entered is even.\n")
+else:
+    print("\nInteger entered is odd.\n")
+#
+
+
+# Perfect Divisors
+a = int(input("Positive Integer: "))
+print("%d \nInteger's perfect divisors:"%a)
+for i in range(1, a+1):
+  if (a%i==0):
+    print("%d"%i)
+#
+
+
+# Sums
+n = int(input("Enter positive integer: "))
+t1 = t2 = t3 = 0
+for i in range(1, n+1):
+  t1 += i
+# instead of loop, t1 = sum(range(1, n+1, 1))
+
+for i in range(1, n+1, 2):
+  t2 += i
+# instead of loop, t2 = sum(range(1, n+1, 2))
+
+for i in range(2, n+1, 2):
+  t3 += i
+# instead of loop, t3 = sum(range(2, n+1, 2))
+print("\nSum of numbers from 1 to %d:"%n, t1)  
+print("\nSum of odd numbers from 1 to %d:"%n, t2)
+print("\nSum of numbers from 2 to %d:"%n, t3)
+
+
+# Combination
+f1 = f2 = f3 = 1; n = int(input("n: ")); r = int(input("r: ")) 
+for i in range(1, n+1):
+  f1 *= i
+  if (i <= r):
+    f2 *= i
+  if (i <= n - r):
+    f3 *= i
+# Second Way: f1 = math.factorial(n), f2 = math.factorial(r), f3 = math.factorial(n-r)
+k = f1 / (f2 * f3)
+print("\nResult = %d"% k)
+
+# Combination - 1
+import math
+print("Combination(n, r)\n"); n = int(input("n: ")); r = int(input("r = "))
+f1 = math.factorial(n); f2 = math.factorial(r); f3 = math.factorial(n-r)
+k = f1 / (f2 * f3); print("\nCombination(%d, %d) = %d"% (n, r, k))
 
 
 
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
   
