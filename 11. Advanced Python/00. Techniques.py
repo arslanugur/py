@@ -181,10 +181,49 @@ print("Combination(n, r)\n"); n = int(input("n: ")); r = int(input("r = "))
 f1 = math.factorial(n); f2 = math.factorial(r); f3 = math.factorial(n-r)
 k = f1 / (f2 * f3); print("\nCombination(%d, %d) = %d"% (n, r, k))
 
+# Root of First Order Equation
+print("ax+b=c"); a = eval(input("a coefficient: "))
+b = eval(input("b coefficient: ")); c = eval(input("c coefficient: "))
+x = (c-b) / a
+print("\n%0.2fx+%0.2f=%0.2f root of the equation: %0.3f\n"%(a,b,c,x))
 
 
-  
-  
-  
+# Roots of Quadratic Equation 
+import math
+import cmath
+print("Ax^2+Bx+C = 0"); a = eval(input("A = ")); b = eval(input("B = "))
+c = eval(input("C = ")); d = b**2-4*a*c
+if (d >= 0):
+  x1 = (-b-math.sqrt(d))/(2*a); x2 = (-b+math.sqrt(d)) / (2*a)
+else:
+  x1 = (-b-cmath.sqrt(d))/(2*a); x2 = (-b+cmath.sqrt(d)) / (2*a)
+print("\square: "); print(x1, x2, sep = '\n')
+
+# Generating a Quadratic Polynomial 
+x1 = eval(input("1. square: ")); x2 = eval(input("2. square: "))
+ktop = x1 + x2; kcarp = x1*x2
+if (ktop<0):
+  print("\nx^2+%0.3fx"%-1*ktop, end='')
+else:
+  print("\nx^2-%0.3fx"%ktop,end='')
+if (kcarp<0):
+  print("%0.3f"%kcarp)
+else:
+  print("+%0.3f"%kcarp)
+#
+
+
+# Piecewise Function
+x = eval(input("enter point x: "))
+if (x<0):
+  y = 1
+elif ((0 <= x) & (x <= 2)):
+  y = x
+elif ((2 <= x) & (x <= 4)):
+  y = 3
+else:
+  y = 4-x
+print("At point x = %0.2f, the value of the function = %0.2f\n"%(x, y))
+
   
   
