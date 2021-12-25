@@ -156,12 +156,30 @@ file.write(msg) == len(msg)
 
 
 
+# In the lesson it is mentioned that "The write method returns the number of bytes written to a file, if successful." 
+# so based on that, below is the example, suppose we have a message variable msg = 'abcd' then the length of message variable msg will be: 
+# len(msg) which will be 4 now the write method will return the no. 
+# of bytes written (assuming 1 byte = 1 character) so, amt_written = file.write(msg) will be equal to 4 
+# so, file.write(msg) == len(msg) is true as both are equal to 4
 
 
+# Bytes define length. Assume 1 byte = 1 character. 
 
-https://www.sololearn.com/learning/1073/2447/5058/2
-  
-  
+# Example about Explaination  
+msg = "Hello world!" 
+file = open("newfile.txt", "w") 
+print(file.write(msg)) 
+print(len(msg)) 
+file.close() 
+
+#also try this: 
+msg = "Hello world!" 
+file = open("newfile.txt", "w") 
+if file.write(msg)==len(msg): 
+  print("true") 
+else: 
+  print("false") 
+file.close() #note # 1 bit= 0 or 1 1 byte=1 character and, 1 byte=8 bits
   
   
 
