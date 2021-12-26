@@ -225,5 +225,76 @@ else:
   y = 4-x
 print("At point x = %0.2f, the value of the function = %0.2f\n"%(x, y))
 
-  
-  
+
+# Unit Conversion
+a = eval(input("Enter the length (m): "))
+print("\nConversion\n1 - mm\n2 - cm\n3 - dm\n4 - km\n")
+sec = eval(input("your choice: "));
+if (sec == 1):
+  b = 1000 * a
+elif (sec == 2):
+  b = 100 * a
+elif (sec == 3):
+  b = 10 * a
+elif (sec == 4):
+  b = a / 1000 
+else:
+  b = 0
+print("\nResult: %0.5f"%b)
+
+
+# Ideal Weight
+b = eval(input("Enter your height (cm): "))
+c = int(input("Your Gender [1-Male / 2-Female]: "))
+if (c == 1):
+  ik = 50 + 2.3 * (b/2.54-60);
+else:
+  ik = 45.5 + 2.3 * (b/2.54-60);
+print("\nIdeal Weight (kg): %0.2f"%ik);
+
+
+# Integer Test
+s = eval(input("Enter a number: "))
+if (s == round(s)):
+  print("Integer")
+else:
+  print("Not Integer")
+#
+
+
+# Multiple of 5 
+import math
+s = eval(input("Integer: ")); print(math.floor((s * 2) / 10)* 5));
+
+
+# Sum of Squares
+s = eval(input("Positive Integer: "))
+print("\na - b\n=====")
+for a in range(0, s + 1):
+  for b in range(0, s + 1):
+    if (a**2+b**2==s):
+      print("%d-%d"%(a,b))
+#
+
+
+# Factorial
+def factorial(k):
+  if (k <= 1):
+    return 1
+  else:
+    return k * factorial(k - 1)
+a = int(input("Positive Integer: ")); print("\n%d!=%d"%(a, factorial(a)))
+
+
+# McCarthy 91
+def mc91(k):
+    if (k > 100):
+        return k - 100
+    else:
+        return mc91 (mc91(k + 11))
+n = int(input("Value: "))
+print("\nMcCarthy 91 function value: %d\n"%mc91(n))
+
+
+
+
