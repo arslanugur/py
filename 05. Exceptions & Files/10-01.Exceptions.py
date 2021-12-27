@@ -1,22 +1,21 @@
-#error
+# Error Handling ---- Hata yönetimi
 
-#error handling ---- Hata yönetimi
+# NameError (Unknown Valuable) - Tanımlanmamaış bir değişkeni yazdırmaya çalışmak
+print(a) 
 
-print(a)  #nameerror  - unknown valuable
-#tanımlanmamış bi değişkeni ekrana yazdırmaya çalışma
+# ValueError - Inappropriate function value -- yanlışlıkla str ifadesi var
+int('1a2') 
 
-int('1a2') #valueerror - inappropriate func value
-#yanlşlıkla str bi ifade var
+# ZeroDivisionError - Sıfır ile bölünemez hatası
+print(10/0)
 
-print(10/0) #ZeroDivisionError
-#print ile bir bölme işlemi, ama sayı 0'a bölünemez
-
-print('attemp't)   #syntaxerror
-#yazım yanlışı var
+# SyntaxError - Yazım Yanlışı Hatası
+print('attemp't)
 
 
-#bize gelecek bütün hataları grupşeklinde yönlendirebiliriz
-#tek tek nameerror ya da syntaxerror diye bakmaktansa
+
+#bize gelecek bütün hataları grup şeklinde yönlendirebiliriz
+# tk tek nameerror ya da syntaxerror diye bakmaktansa
 
 #importerror
 #indexerror - range n index number
@@ -24,7 +23,7 @@ print('attemp't)   #syntaxerror
 #gerisine python.org ile builtin exceptions kısmından bakabilirisin
 
 
-"""1
+# Example:
 try: 
     num1 = 7
     num2 = 0
@@ -33,9 +32,9 @@ try:
 except ZeroDivisionError:
     print('An error occurred')
     print('due to zero division')
-"""
 
-"""2
+
+# Example:
 try: 
     variable = 10
     print(variable / 'hello')
@@ -43,9 +42,11 @@ try:
 except ZeroDivisionError:
     print('due to zero division')
 except (ValueError, TypeError):
-    print('An error occurred') #çıktısı
-"""
-"""3
+    print('An error occurred')      #
+
+    
+    
+# Example:
 try:
     print(1)
     assert 2 + 2 == 5
@@ -53,24 +54,25 @@ except AssertionError:
     print(3)
 except:
     print(4)
-"""
 
-"""
+    
+# Example:
 try:
     print(1/0)
-except ZeroDivisionError:
-    raise ValueError    #çıktısı Zero ve Value olur
-"""
+except ZeroDivisionError:   # 
+    raise ValueError        #
 
-"""
+    
+
+# Example:
 try:
     num = 5 / 0
 except:
     print('An error occurred')
     raise
-"""
 
-"""
+
+# Example:
 try:
     print('Hallo')
     print(1 / 0)
@@ -78,40 +80,41 @@ except ZeroDivisionError:
     print('Divided by zero')
 finally:
     print('This code will run no matter what')
-"""
 
-"""
+
+
+# Example:
 try:
-    print(1)
+    print(1)    # 
 except:
     print(2)
 finally:
-    print(3)   #output - 1 and 3
-"""
+    print(3)    #
 
-"""
-print(1)
+
+# Example:
+print(1)            #
 assert 2 + 2 == 4
-print(2)
-assert 1 + 1 == 3
+print(2)            #
+assert 1 + 1 == 3   # AssertionError
 print(3)
-"""
 
-"""
-print(0)
+
+# Example:
+print(0)            #
 assert 'h' != 'w'
-print(1)
-assert False
+print(1)            #
+assert False        # AssertionError
 print(2)
 assert True     
 print(3)
-"""
 
-"""
+
+# Example:
 temp = -10
-assert (temp >= 0), 'Colder than absolute zero!'
-"""
+assert (temp >= 0), 'Colder than absolute zero!'    # AssertionError
 
+# Example:
 def func(x):
     assert x > 0, 'Error'
     print(x)
