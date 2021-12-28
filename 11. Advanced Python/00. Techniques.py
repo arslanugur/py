@@ -297,9 +297,9 @@ print("\nMcCarthy 91 function value: %d\n"%mc91(n))
 
 
 # Hanoi Towers
-def hanoi(n, k, y, h)
+def hanoi(n, k, y, h):
   if (n == 1):
-    print(%d. disk: %s -> %s"%(n, k, h))
+    print("%d. disk: %s -> %s"%(n, k, h))
   else:
     hanoi(n-1, k, h, y); print("%d. disk: %s -> %s"%(n, k, h))
     hanoi(n-1, y, k, h)
@@ -307,14 +307,7 @@ s = int(input("Disk Number: ")); hanoi(s, "Source", "Helper", "Goal")
 
 # 
 
-Mekatronik Mühendisleri
-en temelden arduino 7.seviyeye kadar
-6 ay ayda 2 kere canlı ders 8 v 9 arasında  -- 12 tane canlı yayın
-sertifika edevlet ve CPD sertifikalı
-3270tl 
-1870tl ücretsiz arduino seti
-ödeme planı 2den 12 aya kadar
-sınav - 40 soru 60 dk %50 geçme notu 
+
 
 
 
