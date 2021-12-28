@@ -353,4 +353,41 @@ for i in range(n):
 print("Square Root (2) = %f"%(1+1/t))
 
 
+# Prime Numbers
+print("Prime Numbers in the Specified Range\n")
+n = int(input("Max Limit: ")); print("\n+++ Prime Numbers +++\n");
+for i in range(2, n + 1):
+  s = 0
+  for j in range(1, i + 1):
+    if (i%j==0):
+      s = s + 1
+  if (s == 2):
+    print("%d\t"%i, end = '')
+#
 
+
+
+# Prime Multipliers
+a = int(input("Positive Integer: ")); b = 2
+while (a > 1):
+  if (a % b == 0):
+    print("%d\t"%b, end = ''); a /= b
+  else:
+    b += 1
+#
+
+
+# Perfect Number 
+s = int(input("Integer: ")); t=0
+for i in range(1, s):
+  if (s%i == 0):
+    t += i
+if (s == t):
+  print("Perfect Number")
+else:
+  print("Not Perfect Number")
+#
+
+
+# 
+  
