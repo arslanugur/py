@@ -9,31 +9,34 @@ print("\nHi " + a + "\nYour Age: " + str(age))
 
 
 # Print - 1
-print("abc")
-print('abc')
-print("""abc""")
-print("ab'c")
-print('ab\'c d')
-print("16", "London", "2022", sep = "-")
-print("Imperial College London\nComputer Science. \nLondon\tEngland")
+print("abc")                                            # abc
+print('abc')                                            # abc
+print("""abc""")                                        # abc
+print("ab'c")                                           # ab'c
+print('ab\'c d')                                        # ab'c d
+print("16", "London", "2022", sep = "-")                # 16-London-2022
+print("Imperial College London\nCS. \nLondon\tEngland") # Imperial College London
+                                                        # CS.
+                                                        # Imperial College London
 
+    
 # Print - 2
 a = 99;
 b = 123.4567;
 c = "London"
-print("%d"%a)
-print("%d"%b)
-print("%x"%a)
-print("%10.4o"%a)
-print("%0.2f"%b)
-print("%0.8f"%b)
-print("%10.4e"%b)
-print("%10.4g"%b)
-print(a,b,c)
-print("%d\t%f\t%f"%(a,b,a+b))
-print("%c\t%s\t%d"%(c[0], c, a/3))
-d = "%s code is %d"%(c, 101)
-print(d)
+print("%d"%a)                           # 99
+print("%d"%b)                           # 123
+print("%x"%a)                           # 63
+print("%10.4o"%a)                       #       0143
+print("%0.2f"%b)                        # 123.46
+print("%0.8f"%b)                        # 123.45670000
+print("%10.4e"%b)                       # 1.2346e+02
+print("%10.4g"%b)                       #      123.5
+print(a,b,c)                            # 99 123.4567 London
+print("%d\t%f\t%f"%(a,b,a+b))           # 99	123.456700	222.456700
+print("%c\t%s\t%d"%(c[0], c, a/3))      # L	London	33
+d = "%s code is %d"%(c, 101)            
+print(d)                                # London code is 101
 
 
 # Print - 3
