@@ -305,16 +305,52 @@ def hanoi(n, k, y, h):
     hanoi(n-1, y, k, h)
 s = int(input("Disk Number: ")); hanoi(s, "Source", "Helper", "Goal")
 
-# 
+
+# Cosine
+import math
+angle = eval(input("Angle Value (Degree): "))
+n = int(input("Number of Terms: "))
+t = 1; x = math.radians(angle)
+for i in range(1, n):
+  t += (-1)**i*x**(2*i) / math.factorial(2*i)
+print("\nValue calculated by Series Expansion: %0.5f"%t)
+print("Value calculated by Command: %0.5f"%math.cos(x))
 
 
+# Number Guess Game
+import random
+guess = -1; s = 0; bs = random.randit(1, 99)
+while (guess != bs):
+  guess = int(input("Your Guess: "))
+  s = s + 1
+  if (guess > bs):
+    print("Enter smaller number: \n")
+  if (guess < bs):
+    print("Enter bigger number: \n")
+print("\nYou made %d guesses"%s)  
 
 
+# above e
+import math
+n = int(input("Number of Terms: "))
+x = eval(input("Enter the x value to be calculated: ")); t = 1; f = 1
+for i in range(1, n):
+  f *= i; t += x**i/f
+print("\nx value above e with Series Expansion: %0.5f"%t)
+print("\nx value above e by Command: %0.5f"%math.exp(x))
 
 
+# above e
+print("exp(x) =  lim(1+x/n)^n\n")
+x = eval(input("x: ")); n = eval(input("n: "))
+result = (1 + x / n) ** n; print("\nexp(%f)=%f"%(x, result))
 
-
-
+ 
+# Square Root (2)
+t = 1; n = eval(input("Number of Division: "))
+for i in range(n):
+  t = 2 + 1 / t
+print("Square Root (2) = %f"%(1+1/t))
 
 
 
