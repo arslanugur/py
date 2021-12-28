@@ -26,8 +26,8 @@ print(string)                                                       # Variable a
 print("Variable as float = %f" %(variable))                         # Variable as float = 15.000000
   
 # printing as any string or char after a mark 
-# here i use mayank as a string 
-print ("Variable as printing with special char = %cmayank" %(variable))       # Variable as printing with special char = mayank
+# here i use arslan as a string 
+print ("Variable as printing with special char = %carslan" %(variable))       # Variable as printing with special char = arslan
   
 print("Variable as hexadecimal = %x" %(variable))                   # Variable as hexadecimal = f
 print("Variable as octal = %o" %(variable))                         # Variable as octal = 17
