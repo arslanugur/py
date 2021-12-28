@@ -23,7 +23,7 @@ b = 123.4567;
 c = "London"
 print("%d"%a)
 print("%d"%b)
-print("%X"%a)
+print("%x"%a)
 print("%10.4o"%a)
 print("%0.2f"%b)
 print("%0.8f"%b)
