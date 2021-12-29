@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 #dictionary - bir liste türü
 #key - value  -  bi bilgiye ulaşmak için key bilgisini kullanıyoruz
 
