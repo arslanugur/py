@@ -48,12 +48,30 @@ finally:      # Remember that: finally: is always called, regardless of exceptio
 #
 
 
+# An alternative way of doing this is using with statements. 
+# This creates a temporary variable (often called f), which is only accessible in the indented block of the with statement. 
+# Code:
+with open("filename.txt") as f:
+   print(f.read())
+# The file is automatically closed at the end of the with statement, even if exceptions occur within it.  
 
-https://www.sololearn.com/learning/1073/2448/5060/1
-  
-  
+# this "with", "as" file handling is way more intuitive than the traditional open close
 
-  
+# https://www.python.org/dev/peps/pep-0343/
+# https://docs.python.org/3/reference/compound_stmts.html
+
+# You can also change the 'f' to any name of your desire. 
+# Example:
+# 1. with open("filename.txt") as nice:
+# 2. print(nice.read()) Here i changed the 'f' to 'nice', and used the 'nice' to read the file. 
+# (Remember what 'as' is used for in the module: import math as new)
+   
+# Example: to create a valid with statement, reading the contents of the file.
+with open("test.txt") as f:
+  print(f.read())
+
+
+
 # Example:
 try: f = open("nonexistent.txt") 
   print(f.read()) 
@@ -148,9 +166,49 @@ for book in books:
 
 
 
+# WRITE - READ on CSV files
+# write to a file
+try:
+# w option open file on write mode for editing/creating
+    file = open("newfile.csv", "w")
+    file.write("spam,eggs,ham")
+    print("File created!")
+finally:
+    file.close()
 
+#read that file 
+try:
+# r option open file on read only mode
+    file = open("newfile.csv", "r")
+    print("File is loading...")
+    print("Loaded content : " + file.read())
+    print ("\n") #one line space for easy reading
+    
+finally:
+    file.close()
 
-
+#try to split its content 
+try:
+   f = open("newfile.csv","r")
+   ff = f.read()
+   print ("We read and split it by comma:")
+   print (ff.split(","))
+   print ("\n") #one line space for easy reading  
+   
+finally:
+   f.close()
+   
+   
+#now we are assigning values to a list
+words =ff.split(",")
+print ("Now assigning splitted content to List")   
+#we can use list and print it by loop
+for word in words:
+    print (word)
+#
+      
+      
+      
 
 # Examples: Handling files tests (with different handling of Files and exception)
 # Test 0
@@ -349,13 +407,5 @@ with open("newfile.txt") as f:
        print(line)
     print("Finished")
     
-
-
-
-
-
-
-
-
 
 
