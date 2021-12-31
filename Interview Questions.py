@@ -139,7 +139,7 @@ for i in my_string:
   
 
 
-
+# to write a clean code: https://ufukuzun.wordpress.com/category/clean-code/
 
 
 
