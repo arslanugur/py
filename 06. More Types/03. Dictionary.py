@@ -127,7 +127,6 @@ print(b) # ['do', 're', 'mi', 'fa']
 # hashable = a value that cannot be changed in an object.
 
 
-
 # Python represents all its data as objects. 
 # Some of these objects like lists and dictionaries are mutable, meaning you can change their content without changing their identity. 
 # Other objects like integers, floats, strings and tuples are objects that can not be changed. 
@@ -193,12 +192,6 @@ print(my_dict['1']['3'])      # 6
 
 
 
-************************
-
-
-
-
-
 # Example:
 mydict = {false : 3} 
 print(mydict[false]) # the answer is error 
@@ -210,8 +203,6 @@ false = 1
 mydict = {false : 3} 
 false = 2 
 print(mydict[2]) # the answer is error 
-
-
 
 
 
@@ -233,6 +224,7 @@ mylist = [0,{"d":45,5:[7,8]},7]
 print (mylist[1][5][1])       # 8
                               # Accessing the list in the dictionary in a list.
 
+    
 # Example:
 my_d = { "red": [1, 3, 8], "green": [8, 77, 9], "blue": [45, 67, 8], }
 print(my_d["red"][0])
@@ -341,7 +333,7 @@ print(student) # Updated output will now be: {'name': 'Jane', 'age':25, 'courses
 
 
 
-# ALL ABOUT DICTIONARIES
+# ALL EXAMPLES ABOUT DICTIONARIES
 # Dictionaries map keys to values and store them in an array or collection.
 # The keys must be of a hashable type, which means that they must have a hash value
 # that never changes during the key’s lifetime.
@@ -489,5 +481,6 @@ print(users['Shakespeare'])
 print(users['Shakespeare']['phone'])
 print(users['Joyce']['roles'][0])
 
-#genel olarak yaptığımız şey, salladığımız bilgilere verdiğimiz isim
+# genel olarak yaptığımız şey, salladığımız bilgilere verdiğimiz isim
+
 
