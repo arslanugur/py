@@ -1,3 +1,30 @@
+# Tuples are very similar to lists, except that they are immutable (they cannot be changed).
+# Also, they are created using parentheses, rather than square brackets.
+# Example:
+words = ("spam", "eggs", "sausages",)
+# You can access the values in the tuple with their index, just as you did with lists:
+print(words[0])   # spam
+
+
+# Trying to reassign a value in a tuple causes a TypeError. 
+words = ("spam", "eggs", "sausages",)
+words[1] = "cheese" # TypeError
+
+# Like lists and dictionaries, tuples can be nested within each other.
+
+# tuples are immutable but the content of mutable elements (like lists) inside a tuple can be changed! 
+t = (1, "hungry", ['x' , 'y']) 
+t[0] = 234 # results in a type error because t is immutable 
+
+t = (1, "hungry", ['x' , 'y']) 
+t[2][0] = 'abc' 
+print(t) # output is: (1, "hungry", ['abc' , 'y']) so the content of the list inside the tuple is mutable
+  
+
+
+--------------------
+
+
 #tuple da liste gibi ama biraz farklı
 list = [1, 2, 3]           #liste tanımlanması
 tuple = (1, 'two', 3)      #paranteze gerek yok ama okunabilirlik için kullan
