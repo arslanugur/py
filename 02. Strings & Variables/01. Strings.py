@@ -17,7 +17,8 @@ world = "world"
 helloworld = hello + " " + world 
 print(helloworld)  # hello world
 
-
+# https://docs.python.org/3/library/string.html#format-string-syntax
+  
 # BACKSLASH
   # Some characters can't be directly included in a string. 
   # For instance, double quotes can't be directly included in a double quote string; this would cause it to end prematurely.
