@@ -38,7 +38,28 @@ print(f1) # Apple
 print(f2) # Pear
 print(f3) # Banana
 
-------
+
+# Example:
+words1 = ("spam", "eggs", "sausages",) 
+words2 = ("spaam", "eeggs", "saausages",) 
+print(words1 + words2) # ("spam", "eggs", "sausages", "spaam", "eeggs", "saausages")
+
+# Tuples are unmutable and can be used as keys in dictionaries. 
+# Tuples can help in some cases when you need lists as dictionary keys: just transform lists into tuples.
+
+# Example:
+# If you have tuple as elements in a list, you can convert it to dictionary with one command! 
+lst = [(“a”, 9), (“b”, 8), (“c”, 7), (“d”, 6), (“e”, 5)] 
+dct = dict(lst) 
+print(dct) 
+# The output is: {“a”:9, “b”:8, “c”:7, “d”:6, “e”:5}
+
+# Example:
+words = ("spam", "eggs", "sausages",) 
+words = ("spam", "pop", "sausages",) 
+print(words[1])
+
+
 
 
 #tuple da liste gibi ama biraz farklı
