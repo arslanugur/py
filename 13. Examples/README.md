@@ -1,4 +1,5 @@
 Intro
+
       - [Add Two Numbers](/13.%20Examples/01.%20Add%20Two%20Numbers.py)
       - [Find the Square Root](/13.%20Examples/02.%20Find%20the%20Square%20Root.py)      
       - [Calculate the Area of a Triangle](/13.%20Examples/03.%20Calculate%20the%20Area%20of%20a%20Triangle.py)      
@@ -11,11 +12,13 @@ Intro
 
 
 OOP
+
       - [Get the Class Name of an Instance]()      
-      - [Differentiate Between type() and isinstance()
+      - [Differentiate Between type() and isinstance()]() 
 
 
 Decision Making and Loops
+
       - [Check if a Number is Positive, Negative or 0]()      
       - [Check if a Number is Odd or Even]()      
       - [Check Leap Year]()      
@@ -36,6 +39,7 @@ Decision Making and Loops
 
 
 Functions
+
       - [Display Powers of 2 Using Anonymous Function]()      
       - [Find Numbers Divisible by Another Number]()      
       - [Convert Decimal to Binary, Octal and Hexadecimal]()      
@@ -55,6 +59,7 @@ Functions
 
 
 Native Datatypes
+
       - [Add Two Matrices]()      
       - [Transpose a Matrix]()      
       - [Multiply Two Matrices]()      
@@ -94,6 +99,7 @@ Native Datatypes
 
 
 Files
+
       - [Merge Mails]()      
       - [Find the Size (Resolution) of a Image]()      
       - [Find Hash of File]()      
@@ -112,6 +118,7 @@ Files
 
 
 Advanced
+
       - [Measure the Elapsed Time in Python]()      
       - [Represent enum]()      
       - [Create a Countdown Timer]()      
