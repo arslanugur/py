@@ -20,9 +20,25 @@ t = (1, "hungry", ['x' , 'y'])
 t[2][0] = 'abc' 
 print(t) # output is: (1, "hungry", ['abc' , 'y']) so the content of the list inside the tuple is mutable
   
+# Why use tuples? 
+# Because they require less processing power from Python because they're immutable. 
+# Doesn't make a big diff in small programmes but if you're working on a big project it will improve speed and efficiency. 
+
+# Lists are created with square brackets,           # list = [0, 1, "two"]
+# Dictionaries are created with curly brackets,     # dict = {"keyOne": 0, "keyTwo": 1, "keyThree": "two"}
+# Tuples are created with parentheses.              # tuple = (0, 1, "two")
+
+# https://learnpython31.blogspot.com/2020/07/python-data-types.html
 
 
---------------------
+# Tuples can also be "packed" and "unpacked" which can be very useful for creating variables 
+fruits = ("Apple", "Pear", "Banana") 
+f1, f2, f3 = fruits
+print(f1) # Apple
+print(f2) # Pear
+print(f3) # Banana
+
+------
 
 
 #tuple da liste gibi ama biraz farklı
