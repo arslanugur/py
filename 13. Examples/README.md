@@ -1,5 +1,4 @@
-Intro
-
+|Intro|
       - [Add Two Numbers](/13.%20Examples/01.%20Add%20Two%20Numbers.py)
       - [Find the Square Root](/13.%20Examples/02.%20Find%20the%20Square%20Root.py)      
       - [Calculate the Area of a Triangle](/13.%20Examples/03.%20Calculate%20the%20Area%20of%20a%20Triangle.py)      
