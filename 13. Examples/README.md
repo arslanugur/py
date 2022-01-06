@@ -11,8 +11,8 @@ Intro
 
 
 OOP
-- [Get the Class Name of an Instance]()      
-- [Differentiate Between type() and isinstance()]() 
+- [Get the Class Name of an Instance](/13.%20Examples/10.%20Get%20the%20Class%20Name%20of%20an%20Instance.py)      
+- [Differentiate Between type() and isinstance()](/13.%20Examples/11.%20Differentiate%20Between%20type()%20and%20isinstance().py) 
 
 
 Decision Making and Loops
