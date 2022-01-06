@@ -1,18 +1,27 @@
 Intro
-      - Print Hello world!
       - Add Two Numbers
+      
       - Find the Square Root
+      
       - Calculate the Area of a Triangle
+      
       - Solve Quadratic Equation
+      
       - Swap Two Variables
+      
       - Generate a Random Number
+      
       - Convert Kilometers to Miles
+      
       - Convert Celsius To Fahrenheit
+      
       - Print Output Without a Newline
+      
 
 
 OOP
       - Get the Class Name of an Instance
+      
       - Differentiate Between type() and isinstance()
 
 
