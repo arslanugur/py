@@ -40,6 +40,15 @@ print(f3) # Banana
 
 
 # Example:
+# you can omit the parentheses: 
+words = "spam", "eggs", "sausages" 
+print(words[0]) # Output: spam 
+# You can also assign separate variables: 
+a, b, c = "spam", "eggs", "sausages" 
+print(b) # Output: eggs
+
+
+# Example:
 words1 = ("spam", "eggs", "sausages",) 
 words2 = ("spaam", "eeggs", "saausages",) 
 print(words1 + words2) # ("spam", "eggs", "sausages", "spaam", "eeggs", "saausages")
@@ -52,19 +61,203 @@ print(words1 + words2) # ("spam", "eggs", "sausages", "spaam", "eeggs", "saausag
 lst = [(“a”, 9), (“b”, 8), (“c”, 7), (“d”, 6), (“e”, 5)] 
 dct = dict(lst) 
 print(dct) 
-# The output is: {“a”:9, “b”:8, “c”:7, “d”:6, “e”:5}
+# Output: {“a”:9, “b”:8, “c”:7, “d”:6, “e”:5}
 
 # Example:
 words = ("spam", "eggs", "sausages",) 
 words = ("spam", "pop", "sausages",) 
-print(words[1])
+print(words[1]) # output: pop
+
+
+# Immutable means the value of original memory(RAM) space which referred by an immutable object(number, strings, tuple...) can't be changed, 
+# but the immutable object can be changed by creating a new memory space.
+num = 1
+print(id(num)) # 22862960
+num = 2
+print(id(num)) # 22862948
+a = 1
+b = a
+b += 1
+print(a) 1
+print(b) 2
+# Mutable means the value of original memory space which referred by a mutable object(list, dictionary) can be changed without creating a new memory space, 
+# then the mutable object changes.
+a = [1, 2]
+b = a
+b += [3]
+print(a) [1, 2, 3]
+print(b) [1, 2, 3]
+print(id(a)) # 27814608
+print(id(b)) # 27814608
+
+# List          A= [...,...,...] 
+# Dictionaries  B= {...,...,...} 
+# Tuple         C= (...,...,...)
+# The difference is Mutability between list and tuple! Tuple is enum in C, while list is array in C.
+
+
+# Although tuples' elements can't be reassignd 
+# But you can reassign the tuple itself as a whole
+tupleA = () 
+print(tupleA)
+# output : () 
+tupleA = (1,2,3) 
+print(tupleA) 
+# output : 1,2,3 
+tupleA += (4,5,6) 
+print(tupleA) 
+# output : 1,2,3,4,5,6
+
+
+# Example of nested tuples: 
+tpl1 = ("abc","def") 
+tpl2 = ("123",tpl1,"456") 
+print(tpl1) 
+print(tpl2) # Output: ('abc', 'def') ('123', ('abc', 'def'), '456')
+
+# A tuple is a collection which is ordered and unchangeable
+# In Python tuples are written with round brackets.
+# Example:
+Tuple =("spam","eggs","sausages",) 
+print(Tuple)
+
+
+# Example:
+# Tuple is a kind of sequence normally it is written in parentheses like: t={1,2,3,4,5} in tuple, we can put heterogeneous elements. 
+# In tuple parentheses is not compulsary. list --> mutable, tuple --> immutable
+
+
+# Example: to create a list, dictionary, and tuple:
+list = ["one", "two"]       # describe a list
+dict = {1:"one", 2:"two",}
+tp = ("one", "two")         # no need paranthesis, but use for readability
+                            # tuples use commas. parantheses is just best practice but not needed. 
+                            # Example: 4,4,4 is a tuple. also written as (4,4,4)
+
+# list uses []:-mutable; Array in c++ ,
+# dict uses{}:-mutable; Similar structure in c++ 
+# tup uses():-immutable;Similar to struct
+
+# Tuples can be created without the parentheses, by just separating the values with commas.
+# Example:
+my_tuple = "one", "two", "three"
+print(my_tuple[0])  # one
+
+# An empty tuple is created using an empty parenthesis pair.
+tpl = ()
+# Tuples are faster than lists, but they cannot be changed.
+
+
+# Hint: A function can return more than 1 value by using tuples 
+def f(): 
+  x=12 
+  y=8 
+  return 
+
+x,y z = f() 
+print(z)    # (12,8) 
+print(z[1]) # 8
+
+# https://stackoverflow.com/questions/3489071/in-python-when-to-use-a-dictionary-list-or-set
+# https://www.careerride.com/python-list-vs-tuple-vs-dictionary-vs-set.aspx
+# https://monjurulhabib.wordpress.com/2016/09/22/python-when-to-use-list-vs-tuple-vs-dictionary-vs-set-theory/
+
+# Note that to recognize a tupla with only one item it is needed to add a comma at the end, in other cases (more items) comma is optional. 
+tupl = "Example"
+print(tupl[0]) # print "E" since tupl is a string 
+tupl = Example
+print(tupl[0]) # print "Example" since tupl is a tupla Note also that 'tuple' object does not support item assignment, 
+# but it is possible to change which tuple is assigned to a variable: 
+tupl = "first", "second", tupl[1]="sec                # Error 'tuple' object does not support item assignment 
+tupl = "first", "second", tupl = "one","two","three", # No error
+
+
+# Example:
+print("\nFalse tupla, 1 item without comma") 
+my_tuple = "Example" 
+print(my_tuple[0]) #print "E" 
+
+print("\nReal tupla, 1 item with comma") 
+my_tuple = "Example", 
+print(my_tuple[0]) #print "Example" 
+
+print("\nTupla change, new tupla assignment") 
+my_tuple = "one", "two", "three" 
+print(my_tuple[0]) #print "one"
+
+print("\nTupla error, item assignment cannot change") 
+my_tuple[0] = "One" #TypeError 
+
+
+
+# Example:
+my_tup = 5,"red","eggs",7 
+print(my_tup)       # 5,'red','eggs',7 
+# print multiple values 
+print(my_tup[0:4])  # 5,'red','eggs',7 
+# range values 
+print(my_tup[0:3])  # 5,'red','eggs 
+print(my_tup[0:2])  # 5,'red' 
+# you can use this too 
+print(my_tup[0:-1]) # it will print all values except last one 5,'red','eggs
+
+# 1. Tuples are faster than lists and cannot be changed(No reassignment). 
+# 2. If a tuple consists of only a single element,it needed to be end with comma as- t=(1,)
+
+# Example:
+tuple = (1, (1, 2, 3))
+print(tuple[1])
+---------------------------------------
+
+
+# Examples of Each IRL: 
+# tuples 
+seasons = ('spring','summer','fall','winter') 
+# chose seasons cuz names of seasons never change 
+# lists 
+homework = ['math','english']   # Oh no history teacher assigned homework 
+homework.append('history')      # Finally finished homework del homework [2] 
+                                # dog ate my history homework 
+# dictionaries 
+#assigning item ids in rpg 
+swords = {'redblade':18819,'dragontail': 19923,'bubbleangel':19024} 
+# spring event! Time to add a new sword! swords['sakurapiercer'] = 10383
+
+
+
+# The difference between tuples and list
+import sys
+# 1 tuples are immutable unlike lists
+# Example
+print("list")
+
+list = [1,"hello",False]
+tuple = (1,"hello",False)
+print(list)
+
+list[1] = "love you"
+print("after change")
+print(list)
+print("\n \ntuple")
+print(tuple)
+
+try:
+ tuple[1] = "love you"
+ print(tuple)
+ 
+except:
+ print("tuples are immutable")
+ print(tuple)
+ print("\n\n")
+#2 lists take more memory than tuples
+print("the memory differences")
+print("list: " + str(sys.getsizeof(list)))
+print("tuple: " + str(sys.getsizeof(tuple)))
+print("That\'s all i know")
 
 
 
 
-#tuple da liste gibi ama biraz farklı
-list = [1, 2, 3]           #liste tanımlanması
-tuple = (1, 'two', 3)      #paranteze gerek yok ama okunabilirlik için kullan
 
 #bunların tiplerine bakarsak
 print(type(list))
