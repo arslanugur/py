@@ -205,9 +205,13 @@ print(my_tup[0:-1]) # it will print all values except last one 5,'red','eggs
 # 2. If a tuple consists of only a single element,it needed to be end with comma as- t=(1,)
 
 # Example:
-tuple = (1, (1, 2, 3))
-print(tuple[1])
----------------------------------------
+tuple = (1, (1, 2, 3))            # (1) = 0 and (1, 2, 3) = 1 in tuple order. 
+print(tuple[1])       # (1, 2, 3)
+print(tuple[1][0])    # 1
+print(tuple[1][1])    # 2
+print(tuple[1][2])    # 3
+# The following is a reminder of how to print out an element that exists in a sublist/sub-tuple, or a list/tuple WITHIN a list/tuple. 
+
 
 
 # Examples of Each IRL: 
