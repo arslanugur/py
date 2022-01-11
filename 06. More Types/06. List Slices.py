@@ -102,8 +102,49 @@ y = second index
 print(list[x:y])  # prints from index x to index y - 1
 
 
- 
-----------------------------------------
+
+# If the first number in a slice is omitted, it is taken to be the start of the list.
+# If the second number is omitted, it is taken to be the end.
+# Example:
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[:7])     # [0, 1, 4, 9, 16, 25, 36]
+print(squares[7:])     # [49, 64, 81]
+# Slicing can also be done on tuples.
+
+# Notice the colon before and after the 7 
+# Before - means count all before 7 
+# After - means count all after 7
+
+
+# If you use any number biggger than last key, still the result is same
+print(squares[7:100]) # [49,64,81]
+print(squares[7:])    # [49,64,81]
+# Also negatives work just fine till the second key dosn't cross the first key to the left: 
+print(squares[7:-1])  # [49,64]
+print(squares[7:-5])  # []
+
+
+# Why the first index of a list was included and the second was excluded. 
+# Realised that this allows a nice way to recompose the full list: 
+mylist = [0,1,2,3]
+part1 = [:2]
+part2 = [2:]
+print(part1 + part2) # [0,1,2,3]
+
+
+
+------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
 
