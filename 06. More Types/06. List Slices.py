@@ -3,6 +3,7 @@
 # tp = ( )
 
 # List Slicing --> [start:stop:increment/decrement]
+#                  [start: end: stepsize]
 
 # List slices provide a more advanced way of retrieving values from a list. 
 # Basic list slicing involves indexing a list with two colon-separated integers. 
@@ -132,7 +133,62 @@ part2 = [2:]
 print(part1 + part2) # [0,1,2,3]
 
 
+# make list 
+nums = [1, 2, 3, 4, -3] 
+print(nums[::-1])       # [-3, 4, 3, 2, 1] 
+# make tuple 
+nums = (0, 2, 3, 4, -3) 
+print(nums[::-1])       # (-3, 4, 3, 2, 0) 
 
+
+# When the second number in a slice is omitted, it is taken to be the "end", but the last index is included in the slice. 
+# At the other hand, if you write the second number as the last index number, then that index gets excluded from the slice.
+
+
+# So, I'm getting confused a bit with list ranges. 
+# If I have a list with 5 elements (0-4), and I use this notation, 
+# then I'd I use list(2:4) it will actually omit the last element. 
+# If I did list(2:5) I should get index error. 
+# But if I do list(2:) 
+# I'd actually get all elements from index 2 up to and including the last element.
+
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[:-2])
+print(squares[2:-2])
+
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[:7]) 
+print(squares[4:-2])
+
+
+I noticed there are still quite a few questions on this comment thread. 
+Here are some examples I created that helped me understand how slice interacts with list squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+#slice used to return the beginning of the range to the index #before the 7th index in the list print(squares[:7]) print() 
+#slice used to return from the 7th index to end of the range in the list. print(squares[7:]) print() 
+#Using Slice to return an empty sequence. print(squares[10::]) print() 
+#using slice to return a sequence of the complete list print(squares[::]) print() 
+#using slice to return a sequence of the list backwards #note: this doesn't reverse the list in place like 
+#the list.reverse() function would. print(squares[::-1]) print() 
+#using slice in steps(offset) to start at the beginning of the list 
+#and go right by 2 print(squares[::2]) print() 
+#using slice in steps(offset) to start at the end and go left by 2 print(squares[::-2])
+
+
+
+
+Everyone check this out : Serie_A = [['Juventus', 90],['Inter', 88],['Atalanta', 83],['Lazio', 79],['AsRoma', 71],['Napoli', 65],['AcMilan', 61]] 
+Champion = Serie_A[:1]
+Champions_League = Serie_A[:3]
+Cl_Playoffs = Serie_A[4:5]
+Europa=Serie_A[6:]
+Print(Champion) 
+#Champions of Italy Print (Champions_League) 
+#Realm of champions Print (Cl_Playoffs) 
+#Almost there Print (Europa) 
+#Make Italia great again
+  
 ------------------------------
 
 
