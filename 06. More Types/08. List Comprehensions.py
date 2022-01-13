@@ -39,6 +39,10 @@ print(listA)                # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
 # https://en.m.wikipedia.org/wiki/Set-builder_notation
 
 
+# Example:
+
+
+# Section 2
 
 
 
