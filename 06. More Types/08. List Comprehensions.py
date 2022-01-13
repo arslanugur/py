@@ -1,10 +1,44 @@
 # Section 1
 # List comprehensions are a useful way of quickly creating lists whose contents obey a simple rule.
 # For example, we can do the following: 
-cubes = [i**3 for i in range(5)]
+cubes = [i**3 for i in range(5)]                        # HINT: double asterisk ** means to the power of, so 2**3 = 2 x 2 x 2 = 8   --> i**3 =i³
 print(cubes)                    # [0, 1, 8, 27, 64]
 
 # List comprehensions are inspired by set-builder notation in mathematics.
+
+# range 5 means from 0 to 4 giving (0, 1, 2, 3, 4.) making 5 in total. 
+# and the key is x**3. so; 0**3= 0×0×0= 0 1**3= 1×1×1= 1 2**3= 2×2×2= 8 3**3= 3×3×3= 27 4**3= 4×4×4= 64
+
+# cubes = [i**3 for i in range(5)] is the same as:
+# cubes= [] // create empty list
+# for i in range(5): //looping 5 times
+# cubes.append(i**3) //putting new values of i in the list . 
+# If you look closely, you'll find that those two ways contain the same elements, just removed the colon and indentation, and re-arranged them. 
+
+
+# Using list comprehension you can separate a dictionary into two lists one for keys and one for values: 
+dict = {"key1":"value1", "key2":"value2", "key3":"value3",} 
+keyList = [i for i in dict]         # Creates a list of keys 
+valueList = [dict[i] for i in dict] # Creates a list of values
+print(keyList)                      # [“key1”, ”key2”, ”key3”]
+print(valueList)                    # [“value1”, ”value2”, ”value3”] 
+
+# Example:
+def power(a,b): 
+    if b==0: 
+        return 1 
+    else: 
+        return a*power(a,b-1) 
+
+listA=[power(n,3) for n in range(10)] 
+listB=[n for n in range(10)] 
+print(listB)                # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(listA)                # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
+                            # listA would contain the outputs of the function "power" applied on numbers in range from 0 to 10
+        
+# https://en.m.wikipedia.org/wiki/Set-builder_notation
+
+
 
 
 
