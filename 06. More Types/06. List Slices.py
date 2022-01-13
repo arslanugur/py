@@ -427,16 +427,11 @@ Here are some examples I created that helped me understand how slice interacts w
 
 
 
-
-Everyone check this out : Serie_A = [['Juventus', 90],['Inter', 88],['Atalanta', 83],['Lazio', 79],['AsRoma', 71],['Napoli', 65],['AcMilan', 61]] 
-Champion = Serie_A[:1]
-Champions_League = Serie_A[:3]
-Cl_Playoffs = Serie_A[4:5]
-Europa=Serie_A[6:]
-Print(Champion) 
-#Champions of Italy Print (Champions_League) 
-#Realm of champions Print (Cl_Playoffs) 
-#Almost there Print (Europa) 
-#Make Italia great again
-
+# Example:
+serie_A = [['Juventus', 90],['Inter', 88],['Atalanta', 83],['Lazio', 79],['AsRoma', 71],['Napoli', 65],['AcMilan', 61]] 
+champion = serie_A[:1]
+champions_league = serie_A[:3]
+cl_playoffs = serie_A[4:5]
+europa = serie_A[6:]
+print(champion)
 
