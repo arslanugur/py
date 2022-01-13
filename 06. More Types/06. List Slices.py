@@ -2,8 +2,12 @@
 # dict = { }
 # tp = ( )
 
+# THE RULES OF SLICING
 # List Slicing --> [start:stop:increment/decrement]
 #                  [start: end: stepsize]
+#        print(list[start:stop:step]) 
+#        1. If (start<=stop and step is negative, in result is[] . 
+#        2. If (start>=stop and step is positive, in result is []. 
 
 # List slices provide a more advanced way of retrieving values from a list. 
 # Basic list slicing involves indexing a list with two colon-separated integers. 
@@ -253,8 +257,121 @@ print(sqs[1::4])
 # sqs[ 1 : : 4 ] means as per index it starts - index[1] = 1 jump(4) - index[5] = 25 jump(4) - index[9] = 81
 
 
------------------------
-  
+# SECTION: NEGATIVE SLICE
+# Negative values can be used in list slicing (and normal list indexing). 
+# When negative values are used for the first and second values in a slice (or a normal index), they count from the end of the list. 
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[1:-1])                            # [1, 4, 9, 16, 25, 36, 49, 64]
+
+# If a negative value is used for the step, the slice is done backwards.
+# Using [::-1] as a slice is a common and idiomatic way to reverse a list.
+
+# Worth noting is that STRINGS are esentially LISTS in Python, so: 
+# Example: 
+strn = "There can be only one"
+print (strn[::-1])  # output: eno ylno eb nac erehT
+
+# Example:
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[1:-1])                            # [1, 4, 9, 16, 25, 36, 49, 64]
+print(squares[1:-2])                            # [1, 4, 9, 16, 25, 36, 49]
+print(squares[1:-3])                            # [1, 4, 9, 16, 25, 36]
+print(squares[1:-4])                            # [1, 4, 9, 16, 25]
+print(squares[1:-5])                            # [1, 4, 9, 16]
+
+
+# Example:
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[:])   # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[:2])  # [0, 1] 
+print(squares[:3])  # [0, 1, 4] 
+print(squares[:-1]) # [0, 1, 4, 9, 16, 25, 36, 49, 64] 
+print(squares[:-2]) # [0, 1, 4, 9, 16, 25, 36, 49] 
+print(squares[:-3]) # [0, 1, 4, 9, 16, 25, 36] 
+
+
+# Example:
+list = [0,1,2,3,4,5,6,7,8,9] 
+slice= list([A:B:C]) 
+# C should be added to "index A" until it reaches "index B". 
+# But for negetive numbers you need to pay attention to the equivalent positive index (eg: indx -1 = indx 9) 
+# for positive A and B If A<B then C must be positive If A>B then C must be negetive
+# for negetive A and B If A<B then C must be positive If A>B then C must be negetive
+# when A and B are not of the same sign you have to look at the index which they refer to. 
+# Then decide about the sign of the C.
+# Eg1. Slice= List([1:-2:C]) 1 refers to number 1 -2 refers to number 8 of index 8 
+# So moving from index 1 to index 8 requires a positive C 
+# Eg2. Slice= List([8:-3:C]) 8 refers to number 8 -3 refers to number 7 of index 7 
+# So moving from index 8 to index 7 requires a negetive C 
+
+
+# [:1:-1]   -- -1 from last
+
+# Example:
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[7:1:-1]) # print(square[start from 7th index: end at 1 : every 1 step backward])              # output: [49, 36, 25, 16, 9, 4]
+# The end(1 index) would not include in the slice. 
+print(squares[7:1:-2]) # print(square[start from 7th index: end at 1 : every 2 step backward])              # output: [49, 25, 9]
+# The end(1 index) would not include in the output, and the (2 index) not include in the output because of that every -2 steps.
+
+# http://rightfootin.blogspot.com/2006/09/more-on-python-flatten.html
+
+# Example:
+sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(sqs[7:5:-1])                          # [49, 36]
+# Here we have a negative step (-1) - we'll get the elements in reversed order. 
+# So, starting backward (from highest to lowest element's index), 
+# we make the first slice before index 7, 
+# and then the other - before index 5: list 
+# sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+# index  0  1  2  3   4   5 ¦ 6   7 ¦ 8   9 slices 2nd 1st 
+# And we'll get 2 elements between the slices in reversed order: [49, 36]
+    
+
+# We need to start the slicing from index 7 and then continue till index 5 in step of 1. 
+# The index count will always be from the beginning. 
+# Note that we can go in the reverse direction because the step is -1. 
+# Below results will further explain what I am trying to say. 
+sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(sqs[7:6:-1])                          # [49] 
+print(sqs[7:4:-1])                          # [49, 36, 25]
+print(sqs[7:3:-1])                          # [49, 36, 25, 16]
+print(sqs[7:2:-1])                          # [49, 36, 25, 16, 9]
+print(sqs[7:1:-1])                          # [49, 36, 25, 16, 9, 4]
+
+print(square[2:6])                          # Here we make one slice before index 2, and then another - before index 6: 
+# list [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+# index 0  1¦ 2  3   4   5 ¦ 6   7   8   9 slices 1st 2nd 
+# So we'll get 4 elements between the slices: [4, 9, 16, 25]
+
+
+# When working with indices, always consider the cursor point. 
+# Say we have list = [0,1,4,9,16,25,36,49,81]. 
+# If we have to slice list[:4], we can visualize it with the cursor point. 
+# Consider 'll' is the cursor point and it is placed at the beginning of each element, like : [ll0, 1, 4, 9, ll16, 25, 36, 49, 81]. 
+# So to slice, we can move from the 1st cursor point to the 2nd and collect everything in between which would yield [0,1,4,9] in this case. 
+# If negative step is used, then we can just place the cursor point at the end of each element like [0, 1, 4, 9, 16, 25ll, 36, 49ll, 81] 
+# and to slice list[7:5:-1], we can move from the 2nd cursor point to the 1st and collect everything in between in reverse order, which would yield [49, 36] in this case.
+
+
+# Example:
+lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+print(lista[:-3])   # output: [0, 1, 2, 3, 4, 5, 6] --> Creates a list with 3 elements except the end 
+print(lista[::-3])  # output: [9, 6, 3, 0]          --> Creates a reverse list of 3 on 3 starting from the end
+
+
+# Example:
+# Range start = 9 Range end = 0 Count 1 
+sqs = [0,1,2,3,4,5,6,7,8,9]
+print(sqs[9:0:-1])  # output: [9, 8, 7, 6, 5, 4, 3, 2, 1] 
+# Range start = 9 Range end = 5 Count = 1
+sqs = [0,1,2,3,4,5,6,7,8,9]
+print(sqs[10:5:-1]) # output: [9, 8, 7, 6] 
+# If you put -2 will give this output 
+# Range start = 9 Range end = 0 Count = 2 
+sqs = [0,1,2,3,4,5,6,7,8,9]
+print(sqs[10:0:-2]) # [9, 7, 5, 3, 1]
+
 
 
 # Examples:
