@@ -71,6 +71,7 @@ print(squares[1:8:3])         # [1, 16, 49]
 
 
 
+
 # Example:
 my_list = [0, 1, 2, "skip", 6, 7, 8, 9] 
 # you want to fill in the missing numbers in the sequence. 
@@ -125,6 +126,138 @@ print(squares[7:-1])  # [49,64]
 print(squares[7:-5])  # []
 
 
+
+# Examples: Clone Arrays with [:]
+    # A safe way to clone two arrays.
+    # I know a method exists but this seems
+    # like a shorter way.
+
+arr_a = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+arr_b = arr_a
+
+print("Before Change:")
+print(arr_a)
+print(arr_b)
+
+print("\nAfter arr_b[0] is assigned to 2:")
+arr_b[0] = 2
+print("arr_a: %s" % arr_a)
+print("arr_b: %s" % arr_b)
+print("# Both are changed.")
+
+print("\nA safe way to clone array using [:]:")
+arr_b = arr_a[:]
+print("arr_b = arr_a[:]: %s" % arr_b)
+arr_b[1] = 2
+print("arr_b[1] = 2: %s" % arr_b)
+print("arr_a is not affected: %s" % arr_a)
+
+
+# Example: To take the first two elements of the list:
+list = ["a", "b", "c", "d"]
+a = list[0:2]         # [:2]  # slices don't display the last number. [0:1] will display a only. [0:2] will display a,b
+                              # [0:2] means [first index: last index -1] and we get 0,1 if we need "abc" then list[0:3] = 0,1,2
+                              # it's 0:2 Because the CUT its before to the two
+                              # for example, you need the first 2 elements and
+                              # You have list = ["0", "1", "2", "3"] list[0:2] list = [/"0", "1", /"2", "3"] / Its the cut
+#
+
+
+# List slices can also have a third number, representing the step, to include only alternate values in the slice. 
+# Example:
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[::2])         # [0, 4, 16, 36, 64]
+print(squares[2:8:3])       # [4, 25]
+# [2:8:3] will include elements starting from the 2nd index up to the 8th with a step of 3.
+
+
+
+
+# The structure is: print(squares[start, stop, step]) 
+# Example:
+# squares = [1, 3, 4, 7, 9, 2, 5, 11, 12] 
+# The index of the first element in an array is 0 and the index of the last element is numberOfElementsIntheArray-1. 
+# In our case, 1 has the index 0, and 12 has the index 8. 
+# The first element in our array is 1. 
+# 1 -> index = 0 
+# 2 -> index = 5 
+# 3 -> index = 1
+# 4 -> index = 2 
+# 5 -> index = 6 
+# 7 -> index = 3
+# 9 -> index = 4
+# 11 -> index = 7
+# 12 -> index = 8  
+# print(squares[2:6:2]) 
+# start : 2 ; stop : 6 ; step : 2 output:[4, 9] 
+# Steps: 
+# 1) 1st element is 4 ( index = 2 ) 
+# 2) 2nd element is 9 ( index = 4 -> 2(index of the last element)+2(step)=4 ) 
+# 3) the next element should have the index 6 ( index = 6 -> 4+2=6 ), but the last possible element is the element with the index = stop-1. 
+# In our case stop is 6, so the last possible element should have the index 5. 
+# It's like in math...an interval [2,6), but we talk about indexes. 6 not∈ [2,6) 
+# Another example: print(squares[2:8:1] output : [4, 7, 9, 2, 5, 11]
+
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[2:8:3])
+print(squares[2:8])   # Firstly print(squares[2:8]) gives output (4,9,16,25,36,49)
+                      # Then (:3) means (+3rd) elements in result starting from first i.e.(4,25).. 
+                      # Similarly [2:8:2] will give output (4,16,36){(+2nd) elements in result,starting from first}
+
+# print(squares[2:8:3]) - 2 is the starting point,8 is the ending point,3 means that every third element from the first before ,so first,2 squares =4(first one),
+# then select the third element from the 2(which is 5 (2+3)) , 5 squares is 25, 
+# and now we cant get anymore (because 5+3=8(which is the ending point) and the final output will be [4,25]
+
+
+# Example:
+list = [ "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten" ] 
+print(list[::1])          # [ "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten" ] 
+print(list[::2])          # [ "One", "Three", "Five", "Seven", "Nine" ]
+print(list[::3])          # [ "One", "Four", "Seven", "Ten" ]
+# formula: index = element_index + step example: list[ : 10 : 3 ] start = 0 finish = 10 step = 3 index = 0 + 3 = 3 index = 3 + 3 = 6 index = 6 + 3 = 9
+
+# It will take steps wherever it can, by the multiple of the step number. 
+# For example: 
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(squares[0:10:2])    # [0, 4, 16, 36, 64] 
+# This will print from the first number to the last number but "steps over" every second number (the step number is 2) 
+# It won't print 81 because it isn't a multiple of 2 in the list index (it's 9). It also won't print the 10th number because it doesn't exist.
+
+# You can also take a step to backward 
+sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+print(sqs[7:1:-2]) # [49, 25, 9]
+
+
+
+# Example:
+sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(sqs[1::4])                          # [1, 25, 81]
+
+
+# [begining :last :interval] 
+# where 
+# -'begining' is the first value we take 
+# -'last' is the last value which is not included 
+# -'interval' is a number that will send back,from begining to last, every value in its interval. 
+# Example: 
+list = [0,1,2,3,4,5,6] 
+print(list[::2]) # prints every 2 values
+
+
+# Example:
+sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] 
+index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+print(sqs[1::4]) 
+# In this question [ start : stop : jump ] 
+# sqs[ 1 : : 4 ] means as per index it starts - index[1] = 1 jump(4) - index[5] = 25 jump(4) - index[9] = 81
+
+
+-----------------------
+  
+
+
+# Examples:
 # Why the first index of a list was included and the second was excluded. 
 # Realised that this allows a nice way to recompose the full list: 
 mylist = [0,1,2,3]
@@ -188,20 +321,5 @@ Print(Champion)
 #Realm of champions Print (Cl_Playoffs) 
 #Almost there Print (Europa) 
 #Make Italia great again
-  
-------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
