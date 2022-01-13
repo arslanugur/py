@@ -1,3 +1,18 @@
+# Section 1
+# List comprehensions are a useful way of quickly creating lists whose contents obey a simple rule.
+# For example, we can do the following: 
+cubes = [i**3 for i in range(5)]
+print(cubes)                    # [0, 1, 8, 27, 64]
+
+# List comprehensions are inspired by set-builder notation in mathematics.
+
+
+
+
+
+
+
+
 #for döngüsüne alternative olur
 """
 for x in range(10):
