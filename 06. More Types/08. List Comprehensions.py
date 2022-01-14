@@ -1,4 +1,4 @@
-# Section 1
+# SECTION 1
 # List comprehensions are a useful way of quickly creating lists whose contents obey a simple rule.
 # For example, we can do the following: 
 cubes = [i**3 for i in range(5)]                        # HINT: double asterisk ** means to the power of, so 2**3 = 2 x 2 x 2 = 8   --> i**3 =i³
@@ -39,10 +39,142 @@ print(listA)                # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
 # https://en.m.wikipedia.org/wiki/Set-builder_notation
 
 
+# Example: 
+nums = [i*2 for i in range(10)] # This list comprehension create a list of even numbers between 0 and 18
+
+# range(10) refers to ALL numbers from 0(inclusive) to 10(NON-inclusive). 
+# Hence, range(10) REALLY refers to 0,1,2,....,8,9 i*2 just means multiply i by 2 aka double it. 
+# So, i =0 => 0 i =1 => 2 i =2 => 4 .... .... .... i =8 => 16 i =9 => 18 
+# So, nums = [0,2,4,...,16,18].
+
+# 1.) range(10) are numbers from 0 to 9 
+# 2.) i*2 is 2 multiplied by the numbers in the range(10). 
+# That is: 0 * 2 = 0 1 * 2 = 2 2 * 2 = 4 3 * 2 = 6 4 * 2 = 8 5 * 2 = 10 6 * 2 = 12 7 * 2 = 14 8 * 2 = 16 9 * 2 = 18 
+# 3.) print(nums) will print the numbers within the range when multiplied by 2. that is: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+# 10 list items not the final value of 10
+
+
+# SECTION 2
+# A list comprehension can also contain an if statement to enforce a condition on values in the list.
 # Example:
+evens=[i**2 for i in range(10) if i**2 % 2 == 0]
+print(evens)                                        # [0, 4, 16, 36, 64]
+
+# create a LIST called evens which contains elements given by the follow: 
+# i² for EACH i in range(10), 
+# so each i from 0(inclusive) to 10(NON-inclusive), on the CONDITION that the resulting i² MUST have 0 as its remainder when divided by 2.
+
+# You can add as many 'if's as you want! 
+evens=[i**2 for i in range(10) if i**2 % 2 == 0 if i**2 % 3 == 0] 
+print(evens) # output: [0, 36]
+
+# Example:
+evens = [i**2 for i in range(10) if i%2 == 0] 
+# could be written in a longer way like this:
+evens = []
+for i in range(10):
+    i = i**2
+    if i%2 == 0:
+        evens.append(i) 
+#
+# 1- list name, equals, opening square brackets. 
+# 2- name of an imaginary variable (python devs usually use i) 
+# 3- operation to do on the variable. (multiply by 2, or add 2 or something) 
+# 4- for/while loop (to indicate how many times u want to do the previous operation) 
+# 5- any additional conditions (using 'if' statements) 6- closing square brackets.
+
+# Second Way:
+events=[] 
+for i in range(5): 
+    if (i*i) % 2 == 0: 
+        events.append(i*i)
+#
+
+# evens = [i**2 for i in range(0,10,2)] gives the same output as evens = [i**2 for i in range(10) if i**2 % 2 == 0] output >>> [0,4,16,36,64]
 
 
-# Section 2
+# Because: range(10) = range(0, 1, 2, 3, 4, 5, 6, 7, 8, 9) 0**2 = 0 and 0/2 has remainder 0
+# this will print because remainder is 0 1**2 = 1 and ½ has remainder ? 2**2 = 4 and 4/2 has remainder 0 
+# this will print because remainder is 0 3**2 = 9 and 9/2 has remainder 1 4**2 = 16 and 16/2 has remainder 0 
+# this will print because remainder is 0 #and so on up through the 9th index in the range(10) 
+# with all even numbers having remainder of 0 and therefore printed 8**2 = 64 and 64/2 has remainder of 0 
+# this will print because remainder is 0 9**2 = 81 and 81/2 has remainder of 1 We should print: 
+# all of the integers (i.e: i) in the range(10) for which: 
+# when multiplied to the power of 2 (i.e.: **2) have no (i.e.: 0) remainder when divided by 2 (i.e.: %2). 
+# This is why the results are: [0, 4, 16, 36, 64]
+    
+# it could have just add easily been i % 2 == 0 as i**2 % 2 == 0 for the condition. 
+# if an even square has an integer square root then its square root is even ;) 
+
+# To simplify it 
+# First part: i**2 for i in range(10) will print [0,1,4,9,16,25,36,49,64,81] 
+# Second part: i**2 % 2 == 0 
+# This if condition will make sure the values from the first part is only printed when the remainder of it will be zero. 
+# 0%2 =0 - print 0 
+# 1%2 = 0.5 - dont print
+# 4%2 = 0 - print 4 
+# 9%2 = 1 - dont print 
+# 16%2 = 0 - print 16 
+# 25%2 = 1 - dont print 
+# 36%2 - 0 - print 36 
+# 49%2 = 1 - dont print 
+# 64%2 = - print 64 
+# 81%2 = 1 - dont print 
+# Hence the values printed are [0,4,16,36,64]
+
+
+# Section Example: Create a list of multiples of 3 from 0 to 20.
+a = [i for i in range(20) if i% 3 == 0]
+
+evens=[i for i in range(0,20,3) ]
+
+
+
+# Example:
+evens = [i**2 for i in range(10) if i**2%2==0]
+print(evens)                # [0, 4, 16, 36, 64]
+# Create a list where each number within the range 0-9 is squared and then only include the numbers whose remainder is equal to 0 when divided by 2.
+# --- breakdown of the math--- (r=remainder) 
+# i=0 ---> 0**2=0 ---> 0÷2=0.0 (r=0.0)
+# i=1 ---> 1**2=1 ---> 1÷2=0.5 (r=0.5) 
+# i=2 ---> 2**2=4 ---> 4÷2=2.0 (r=0.0)
+# i=3 ---> 3**2=9 ---> 9÷2=4.5 (r=0.5) 
+# i=4 ---> 4**2=16 ---> 16÷2=8.0 (r=0.0)
+# i=5 ---> 5**2=25 ---> 25÷2=12.5 (r=0.5) 
+# i=6 ---> 6**2=36 ---> 36÷2=18.0 (r=0.0)
+# i=7 ---> 7**2=49 ---> 49÷2=24.5 (r=0.5) 
+# i=8 ---> 8**2=64 ---> 64÷2=32.0 (r=0.0)
+# i=9 ---> 9**2=81 ---> 81÷2=40.5 (r=0.5)
+
+# Example:
+evens = [i**2 for i in range(10) if i**2 % 2 == 0] 
+# you can simple write the list comprehensions like this 
+evens = [i**2 for i in range(10) if i%2 == 0] 
+print(evens)
+# you can also use double for like this 
+res = [(i, j) for i in range(5) for j in range(5)] 
+print(res)
+# with the output this [[0,0],[0,1],[0,2],[0,3], [0,4], [1,0],[1,1],[1,2], [1,3], [1,4], 
+#                       [2,0],[2,1],[2,2], [2,3], [2,4], [3,0],[3,1],[3,2], [3,3], [3,4], [4,0],[4,1],[4,2], [4,3], [4,4]]
+
+
+a=[i for i in range(0,20,3)]
+
+
+
+# SECTION 3
+# Trying to create a list in a very extensive range will result in a MemoryError.
+# This code shows an example where the list comprehension runs out of memory.
+even = [2*i for i in range(10**100)]
+# output: No output.
+
+# This issue is solved by generators, which are covered in the next module.
+# Comments
+
+
+
+
+
 
 
 
