@@ -169,13 +169,46 @@ even = [2*i for i in range(10**100)]
 # output: No output.
 
 # This issue is solved by generators, which are covered in the next module.
-# Comments
 
 
+# Example:
+n = 100 
+for m in range(100): 
+    try: 
+        even = [2*i for i in range(10**n)] 
+        print (even) 
+    except MemoryError: 
+        n -= 1
+# Output: No output.
 
 
+# Example:
+for i in range(10): 
+    ans=i*2 
+    if ans%2==0: 
+        print(ans) 
+    else: 
+        print('odd number')
+#                
 
 
+# Example:
+even = [2*i for i in range(89713)] 
+print(len(even))                    # 89713
+print(even[len(even)-1])            # 179424
+
+
+# Example: to create a list of numbers multiplied by 10 in the range of 5 to 9.
+a = [x*10 for x in range(5, 9)]     # generates numbers from 5 to 8 (not to 9).
+
+# let me dissect this one also a = [ x * 10 for x in range(5,9)] now remember the (x) is = 5,9 
+# now lets start from the begining. 0 0 1. 1 2. 2 3. 3 4. 4 5. 6. 7 8 
+# now we gonna start with the #single integers. 5 * 10 = 50 6 * 10 = 60 7 * 10 = 70 8 * 10 = 80 print(a) output:. 50 , 60 , 70 , 80 
+
+# Example:
+import math
+print ("\n".join([["fizzbuzz",["buzz",["fizz",str(n)][math.ceil(n%3/n)]][math.ceil(n%5/n)]][math.ceil(n%15/n)] for n in range(1,100)]))
+# 130 characters
 
 
 
