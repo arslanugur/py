@@ -48,10 +48,18 @@ print(int(msg[9]) + int(msg[11])
 # Btw, you can use strings in the format method, too
 
 
-# Another one variant of str.format: print("MyFourLetters: {0[3]}{0[0]}{1[2]}{1[1]}!".format("Abcd","cat")) and result is: MyFourLetters:dAta!
-# More useful variant: a='Zero'; b='One'; c="Danger "; print("{2}{0[0]}{0[3]}{1[1]}{1[2]}".format(a,b,c)) #Outputs: Danger Zone
-      
+# Another one variant of str.format: 
+print("MyFourLetters: {0[3]}{0[0]}{1[2]}{1[1]}!".format("Abcd","cat")) # MyFourLetters:dAta!
+# More useful variant: 
+a='Zero'; b='One'; c="Danger "; 
+print("{2}{0[0]}{0[3]}{1[1]}{1[2]}".format(a,b,c)) # Danger Zone
+
+# Example: a newer and cleaner version of this called F-strings. 
+x = 12
+y = 5
+print(f"{x} is greater than {y}!") # 12 is greater than 5!
 
 
-      
+
+     
       
