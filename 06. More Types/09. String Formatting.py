@@ -80,7 +80,65 @@ print(msg)  # IndexError
 nums = [1955, 1998, 2003] 
 msg = "Vietnam war: {0} - Kosovo war: {1} - Iraq war: {2}".format(nums[0], nums[1], nums[2]) 
 print(msg)      
-      
-      
-      
-      
+
+# Example:
+nums = [4, 5, 6]
+msg = "Numbers: %s, %s, %s" % (nums[0], nums[1], nums[2])
+print(msg)  # Numbers: 4, 5, 6
+
+
+# Example:
+print("{0}{1}{0}".format("abra", "cad"))  # abracadabra
+
+
+# SECTION 2
+# String formatting can also be done with named arguments.
+# Example:
+a = "{x}, {y}".format(x=5, y=12)
+print(a)                # 5, 12
+
+# Example:
+a = "{0}, {1}, {x}, {y}".format(1, 3, x=5, y=12) 
+print(a)                # 1, 3, 5, 12
+# but: 
+a = "{0}, {1}, {x}, {y}, {2}".format(1, 3, x=5, y=12,15)
+print(a)                # SyntaxError
+
+
+# Example:
+from random import randint 
+greetings = ["Hello","Howdy","You smell funny"] 
+title = ["Human.", "Trump!" , "Maid."] 
+greeting = "{x}, {y}".format(x=greetings[randint(0,2)], y=title[randint(0,2)]) 
+print(greeting)
+
+# Example: possible to use a list as an argument 
+a = "{x[1]}, {y}".format(x=[5,8,11,52], y=12) 
+print(a)                # 8, 12
+
+# Example:
+a = "{x}, {y}".format(x=input(), y=input()) 
+print(a) 
+
+# String formatting with named arguments is much more understandable than with indexes.
+
+# Example One-line Version:
+print("{x}, {y}".format(x=5, y=12)) 
+
+# Example:
+var = 83338 
+str = ("Hello {0}{ex} %s".format("World", ex="!") % (var))
+print(str)        # Hello World! 83338
+
+# Example:
+str="{c}, {b}, {a}".format(a=5, b=9, c=7)             # if str = c,b,a, and c=7, b=9, a=5; str= 7,9,5.
+print(str)        # 7, 9, 5
+
+# Example:
+str="{a},{b},{c}".format(a='python',b='is',c='fun')
+print(str)        # python is fun
+
+
+
+
+
