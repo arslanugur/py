@@ -16,7 +16,7 @@ msg = "Numbers: {0} {1} {3}".format(4,8,3,6)
 print(msg)  # Numbers: 4 8 6
 
 
-# A couple of things to note: 
+# A couple of things to note:
 # You don't always need numbers in the curly brackets. 
 # If you leave them blank, the format items listed are inserted in order, 
 # Example:
@@ -61,5 +61,26 @@ print(f"{x} is greater than {y}!") # 12 is greater than 5!
 
 
 
-     
+# Example: string formatting 
+nums = [4, 5, 6] 
+msg = "Numbers: {0} {1} {2}".format(nums[0], nums[1], nums[2]) 
+print(msg)  # Numbers: 6 6 6
+msg = "Numbers: {0} {1} {2}".format(nums[2], nums[2], nums[2])
+print(msg)  # another way of formating it will show commas - Numbers: 4, 5, 6
+msg = "Numbers: %s, %s, %s" % (nums[0], nums[1], nums[2])
+print(msg)  # Numbers: 5 4 5 6 4 6
+msg = "Numbers: {2} {1} {2} {0} {1} {0}".format(nums[2], nums[0], nums[1])
+print(msg)  # IndexError 
+msg = "Numbers: {3} {4} {5}".format(nums[2], nums[2], nums[2])
+print(msg)  # IndexError
+
+
+
+# Example:
+nums = [1955, 1998, 2003] 
+msg = "Vietnam war: {0} - Kosovo war: {1} - Iraq war: {2}".format(nums[0], nums[1], nums[2]) 
+print(msg)      
+      
+      
+      
       
