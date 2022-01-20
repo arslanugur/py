@@ -24,6 +24,7 @@ print("this is a sentence.".capitalize())           # "This is a sentence."
 
 # https://www.pythonforbeginners.com/dictionary/python-split
 
+
 # These functions need dealing with individually. 
 # At least do specific quizzes for join & split, two very frequently needed functions. Only quizzing on .upper seems odd.
 # Also the all quiz should be easier - by all means do tortuous, tricky tests at the END of a unit, 
