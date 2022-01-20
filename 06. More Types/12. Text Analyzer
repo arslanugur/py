@@ -1,0 +1,14 @@
+# TEXT ANALYZER
+# This is an example project, showing a program that analyzes a sample file to find what percentage of the text each character occupies.
+# This section shows how a file could be open and read.
+# Code:
+filename = input("Enter a filename: ")
+with open(filename) as f:
+   text = f.read()
+print(text)
+"""
+Result:
+Enter a filename: test.txt
+Ornh gvshy vf org
+"""
+
