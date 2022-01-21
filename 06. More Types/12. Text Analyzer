@@ -50,6 +50,30 @@ print(count_char(text, "r"))
 # Enter a fileneme: test.txt
 # 83                       # The character "r" appears 83 times in the file.
 
-# comme..
+# The proper way to utilize Python's built in efficiencies: 
+def count_char(text, char): 
+    return 
+    text.count(char) 
+    print(count_char(text, "r"))
+#
 
+# Example:
+def count_char(text,char): 
+   (text,char) 
+   # text parameter becomes the file opened and available to read "r" becomes that 
+   # char parameter for c in text basically saying for every letter in the text 
+   # apply c to it starting for the first letter if c == char #if c is == to "r" c is standing for the every letter in the text 
+   # if I write text= "hello my name is steve" then for c in text c will first be "h" then "e" then "L" and so on 
+#
+
+
+# Example using List Comprehension:
+def count_char(text, char): 
+   return 
+   sum([c == char for c in text])
+#
+
+
+EllaK
+Here's a different (drier) way of doing it (in this example, with inputted text, but edit the code and it will also wo
 
