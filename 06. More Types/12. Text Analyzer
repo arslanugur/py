@@ -1,4 +1,5 @@
 # TEXT ANALYZER
+# SECTION 1
 # This is an example project, showing a program that analyzes a sample file to find what percentage of the text each character occupies.
 # This section shows how a file could be open and read.
 # Code:
@@ -11,4 +12,44 @@ Result:
 Enter a filename: test.txt
 Ornh gvshy vf org
 """
+
+# Example: to read the contents of a file using the "with" statement.
+with open(filename) as f:
+   text = f.read()
+#
+
+# They used the "with" function, meaning that there is no need to close the file. 
+# But the problem it is that we have stored everything into a variable 
+# and if we don't wan't to use memory, it will be better to delete the variable after using it. 
+# We can always reopen the file if we need it. 
+# If we want just to print what it is inside the file, a better option is: with open(filename) as f: print(f.read())
+
+# Why in this case there is no 'r'ead after the filename? 
+# what if I don't write the , 'r' (or 'w' or 'wb') using 'with'.
+# what's the default (if any) with open("filename", 'r') as f:
+
+
+# SECTION 2
+# This part of the program shows a function that counts how many times a character occurs in a string.
+def count_char(text, char):
+  count = 0
+  for c in text:
+    if c == char:
+      count += 1
+  return count
+#
+# This function takes as its arguments the text of the file and one character, returning the number of times that character appears in the text.
+# Now we can call it for our file.
+filename = input("Enter a filename: ")
+with open(filename) as f:
+  text = f.read()
+#
+print(count_char(text, "r"))
+
+# Output:
+# Enter a fileneme: test.txt
+# 83                       # The character "r" appears 83 times in the file.
+
+# comme..
+
 
