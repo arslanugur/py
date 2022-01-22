@@ -1,6 +1,6 @@
 # list = [ ]
 # dict = { }
-# tp = ( )
+# tp = ( )               a tuple can be sliced
 
 # THE RULES OF SLICING
 # List Slicing --> [start:stop:increment/decrement]
@@ -434,4 +434,32 @@ champions_league = serie_A[:3]
 cl_playoffs = serie_A[4:5]
 europa = serie_A[6:]
 print(champion)
+
+
+
+# Tuples are very similar to lists, BUT they are IMMUTABLE, meaning that they CANNOT be CHANGED at all in anyway whatsoever. 
+# As such, they are faster to deal with for computers as they are STATIC. 
+# Slicing is JUST a means of RETRIEVING values, so just chill, it's not at all there to MODIFY values at all!
+
+# I don't think there was any mention of slicing tuples, and I remembered it being a thing for lists so I got this wrong, I went back to both the tuple lesson and the list slices lesson and couldn't find anything about slicing tuples. At first my code in Code playground didn't seem to work (I think my tuple was too short for the range I set at first) but this code does as I'd expect. I've not tested every list slice variation, but it seems to work with the same syntax as for lists tuple = (1,2,3,4,5) print(tuple[1:-1])
+
+# Example:
+tuple = (0, 1, 4, 9, 16, 25, 36, 49, 64, 81) 
+print(tuple[2:6]) # Result: (4, 9, 16, 25) So, the tuple also can slice.
+
+# https://docs.python.org/3/library/stdtypes.html#typesseq
+
+# list slicing reverses the list 'numbers' --> numbers[::-1]    --> cause it's [index1:index2:step], where index1 is default to 0, index2 is default to last in the list.
+
+# [index of the first object: index of one after the last: step]
+
+# None means EMPTY is returned by functions that dont have a return statement whereas, 0 is a VALUE and False too.
+
+# Example:
+nums = (55, 44, 33, 22)
+print(max(min(nums[:2]), abs(-42))) # 44
+# nums[:2] will print ( 55,44) and min(55,44) will print 44 at last max (44,42) will print 44 so the answer will come out to be 44
+
+
+
 
