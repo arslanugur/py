@@ -145,7 +145,7 @@ for char in "abcdefghijklmnopqrstuvwxyz":
 
 
 
-
+# Example:
 def count_char(text, char): 
    count = 0 
    for c in text: 
@@ -226,7 +226,7 @@ with open(filename) as f:
 # It could severely affect readability if you want to display your results in, for example, a table or list.
    
 
-# 3 Manners of doing the rounding: 
+# 3 Manners of doing the rounding: round is rounding the digits
 # round method 
 print(round(value, 2))                 # 60.57
 # f-string for new versions of Python 
@@ -235,6 +235,7 @@ print(f'{value:.2f}')                  # 60.57
 print('{:.2f}'.format(value))          # 60.57
 
 print(round(2.5623440,2))              # 2.56
+print(round(4.443,2))                  # 4.40
+print(round(3.6489))                   # 3.65
 
 
-med Raouf
