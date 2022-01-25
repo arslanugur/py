@@ -68,6 +68,7 @@ y= lambda x: x**2 # y(2) 4
 # Example: 
 #named function
 def polynomial(x):
+
     return x**2 + 5*x + 4
 print(polynomial(-4))
 
@@ -76,7 +77,58 @@ print((lambda x: x**2 + 5*x + 4) (-4))  # 0, 0
 
 # In the code above, we created an anonymous function on the fly and called it with an argument.
 
-commen
+# Note that a PERFECTLY FINE SUBSTITUTE code for the bit "print(polynomial(-4))" are the following. 
+# Give them a try, and just observe how you'll surely get the exact same output. ;) "print((polynomial) (-4))" OR even: "print((polynomial)(-4))" 
+# So, in the code "print(polynomial(-4))", the "polynomial" part of it may well be surrounded with parentheses, 
+# so "polynomial" becomes "(polynomial)" instead, and yet not affect the output at all. 
+# Now, just compare the following 2 lines: "print((polynomial) (-4))" print((lambda x: x**2 + 5*x + 4) (-4)) 
+# So, (lambda x: x**2 + 5*x + 4) is just a FUNCTION, and its argument is (-4), SIMILAR to how (polynomial) is just a FUNCTION, and its argument is (-4)
+
+# Lambdas are simple one line function code that makes your code simpler for example: 
+# to add two numbers 
+# using function def add(x, y): return (x+y) 
+# using lambda lambda x, y: x+y
+
+# The formula behind the problem is algebraically seen as x² + 5x + 4 
+# It is worked out in the following manner: x**2 + 5*x + 4 where x=(-4) =(-4)**2 + 5*(-4) + 4 =16 + -20 + 4 = 0
+
+# Lambda also works with multiple arguments: 
+#named function 
+def polynomial(x, a, b, c): 
+  return a*x**2 + b*x + c 
+  print(polynomial(6, 3, 4, 5)) 
+
+#lambda 
+print((lambda x, a, b, c: a*x**2 + b*x + c) (6, 3, 4, 5))   # 137
+
+# What's the MEANING/INTERPRETATION of "(lambda x: x**2 + 5*x + 4)"? 
+# Perhaps something like: 
+# An anonymous/TEMPORARY FUNCTION created on the fly (the lambda bit!), which demands just a single argument from you, parameterised by x, such that (the : bit!) 
+# it evaluates and RETURNS the result of the expression x**2 + 5*x + 4, aka x² + 5x + 4 
+
+# Why in the entry example ',' is used and here (). So here my try to explain the differnce in usage. 
+print(my_func(lambda x: 2*x*x, 5)) 
+# used as argument to function 'my_func' so ',' is used print ((lambda x: 2*x*x)(5)) 
+# pass an argument directly to lambda function requires to pass them in own(), no ',' is used here. 
+print((lambda x,y : x*y)(4,5)) 
+# if lambda requires 2 arguments then again ',' is used but in combination with () 
+print(lambda x: 2*x*x) 
+# generates the lambda function 
+A = (lambda x: 2*x*x) 
+# Assign a name to a lambda function print(A(5)) 
+# use it with function call syntax is also possible.
+
+
+# Example:
+print((lambda x: 6*x) 
+print(((lambda y: 3+y) (4))))
+
+# You can also have default values in the parameters (but remember that the default parameters must come after all the non-default parameters), as in: 
+print ((lambda x, y=3: (x*x, y*y)) (2)) # (4, 9) 
+# you can also use other functions inside your lambda, and this is useful 
+# because you do it all in one statement: from math import factorial print ((lambda x: factorial(x)+1) (4)) #outputs 25
+
+# Example: to create a lambda function that returns the square of its argument, and call it for the number 8.
 
 
 
