@@ -4,6 +4,7 @@
 # The same is possible with functions, provided that they are created using lambda syntax. Functions created this way are known as anonymous.
 # This approach is most commonly used when passing a simple function as an argument to another function. 
 # The syntax is shown in the next example and consists of the lambda keyword followed by a list of arguments, a colon, and the expression to evaluate and return.
+# Code:
 def my_func(f, arg):
   return f(arg)
 
@@ -65,15 +66,14 @@ y= lambda x: x**2 # y(2) 4
 # SECTION 2
 # Lambda functions aren't as powerful as named functions.
 # They can only do things that require a single expression - usually equivalent to a single line of code.
-# Example: 
+# Examples: 
 #named function
 def polynomial(x):
-
     return x**2 + 5*x + 4
-print(polynomial(-4))
+print(polynomial(-4)) # 0
 
-#lambda
-print((lambda x: x**2 + 5*x + 4) (-4))  # 0, 0
+#lambda function 
+print((lambda x: x**2 + 5*x + 4) (-4))  # 0
 
 # In the code above, we created an anonymous function on the fly and called it with an argument.
 
@@ -95,10 +95,10 @@ print((lambda x: x**2 + 5*x + 4) (-4))  # 0, 0
 # Lambda also works with multiple arguments: 
 #named function 
 def polynomial(x, a, b, c): 
-  return a*x**2 + b*x + c 
-  print(polynomial(6, 3, 4, 5)) 
+  return a*x**2 + b*x + c
+print(polynomial(6, 3, 4, 5)) # 137
 
-#lambda 
+#lambda function  
 print((lambda x, a, b, c: a*x**2 + b*x + c) (6, 3, 4, 5))   # 137
 
 # What's the MEANING/INTERPRETATION of "(lambda x: x**2 + 5*x + 4)"? 
@@ -120,8 +120,8 @@ A = (lambda x: 2*x*x)
 
 
 # Example:
-print((lambda x: 6*x) 
-print(((lambda y: 3+y) (4))))
+print((lambda x: 6*x))        # <function <lambda> at 0x7f32d580fd30>
+print(((lambda y: 3+y)(4)))   # 7
 
 # You can also have default values in the parameters (but remember that the default parameters must come after all the non-default parameters), as in: 
 print ((lambda x, y=3: (x*x, y*y)) (2)) # (4, 9) 
@@ -129,7 +129,101 @@ print ((lambda x, y=3: (x*x, y*y)) (2)) # (4, 9)
 # because you do it all in one statement: from math import factorial print ((lambda x: factorial(x)+1) (4)) #outputs 25
 
 # Example: to create a lambda function that returns the square of its argument, and call it for the number 8.
+a = (lambda x: x*x) (8)
 
+# "a" is the name of you function. The "(8)" is where you put the variable that your function is using and the middle part defines what the function is supposed to do. 
+# So its X = x * x for x = 8 -> X = 8 * 8 -> X = 64 -> print(a(8)) # Output:64 
+# another example is a= (lambda x: x+x) (2) -> print(a(2)) # Output: 4
+
+# Example:
+a = (lambda x:x*2)(5) 
+print(a) # 10 ---> it means: x=5 and x*2=? it is 10
+
+
+# Some examples:
+def sqr(x): 
+  return x*x 
+print(sqr(2))   # 4
+print((sqr)(3)) # 9 having () doesnt matter new_name = sqr 
+# now we have one more name for sqr
+new_name = lambda x: x*x*x
+print(new_name(4)) # 64
+# now new_name is the name for this lambda function ( x cube ) 
+print(new_name(5)) # 125 
+print((lambda x: x*x)(6))   # 36 here we call this lambda ( x square ) with argument
+
+ş
+# SECTION 3
+# Lambda functions can be assigned to variables, and used like normal functions.
+# Example: 
+double = lambda x: x * 2
+print(double(7))              # 14
+
+# However, there is rarely a good reason to do this - it is usually better to define a function with def instead.
+
+# Examples:
+# lambda with 2 variables 
+sum = lambda x, y: x + y 
+print(sum(7,8))           # 15
+
+# lambda without variables: 
+print((lambda: 5)())      # 5
+
+# lambda with 2 variables: 
+print((lambda x, y: x + y)(1,2))  # 3
+
+
+# Example:
+double = lambda x: x * 2 
+print(double(7)) 
+print((lambda x: x*2) (7)) 
+# BOTH of the above ↑ code blocks give the SAME OUTPUT. 
+# Also, BOTH of the following ↓ code blocks give the SAME OUTPUT. 
+sum = lambda x,y: x+y 
+print(sum(7,8)) 
+print((lambda x,y: x+y) # (7,8)) 
+# I suppose the one line code block in real case is good for those who are lazy and/or want minimal lines of code overall for the sake of clarity/layout.
+
+# lambda can use if within it. 
+mayor = lambda x, y : x if x > y else y 
+print (mayor(5,6)) # 6
+
+# Those who care about efficiency, please keep in mind that "def" functions are very very faster than "lambda" functions, 
+# especially when it comes to parametric integrations and diffrentiations. ✔️ Use def if you care about time.
+
+
+# Lambda with an if statement 
+l = lambda x: 'YES' if x%2 == 0 else 'NO' 
+print (l(10))   # YES 
+print (l(9))    # NO
+
+ 
+# Nested lambda:
+((lambda x:(lambda y: x+y))(9)) (4)
+
+
+# Example:
+double=lambda x:x*2 
+print(double(7))        # 14
+print(lambda x:x*2)     # --> with value x=7
+print(7*2)              # 14
+
+
+# Example:
+triple = lambda x: x * 3
+add = lambda x, y: x + y
+print(add(triple(3), 4))    # 13
+
+# Explanations:
+# First you have triple(3) which means ×*3=3*3=9 so you see add(triple(3),4) will be add(9,4)=x+y=9+4=13
+# triple(3) x : x*3 9 = 3*3 so triple is 9 triple == 9 add (triple, 4) x, y : x + y 9, 4 :9 + 4 9 + 4=13 13
+# triple = 3*3 (9) triple(add = 3 + 9) (13)
+
+# triple = lambda x: x*3 add = lambda x,y: x+y print(add(triple(3), 4)) print((lambda x,y: x+y) ((lambda x: x*3) (3),4)) 
+# BOTH of the above 2 code blocks give. the EXACT SAME output of 13. 
+
+# triple(3) = lambda x: 3*3 = 9 Therefore triple(3) = 9 
+# Print(add (9,4)) add = lambda x,y: x + y Where 9 and 4 are "x" and "y" respectively Therefore Add = lambda x,y : 9+ 4 = 13 The answer is 13
 
 
 
