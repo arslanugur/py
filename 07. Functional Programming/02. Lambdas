@@ -1,1 +1,83 @@
+# SECTION 1
+# Creating a function normally (using def) assigns it to a variable automatically.
+# This is different from the creation of other objects - such as strings and integers - which can be created on the fly, without assigning them to a variable.
+# The same is possible with functions, provided that they are created using lambda syntax. Functions created this way are known as anonymous.
+# This approach is most commonly used when passing a simple function as an argument to another function. 
+# The syntax is shown in the next example and consists of the lambda keyword followed by a list of arguments, a colon, and the expression to evaluate and return.
+def my_func(f, arg):
+  return f(arg)
+
+my_func(lambda x: 2*x*x, 5)
+
+# Lambda functions get their name from lambda calculus, which is a model of computation invented by Alonzo Church.
+
+# lambda -> keyword x -> input argument to the anonymous function. 2*x*x -> the expression to compute. 5 -> the function argument. Passed as x. 
+# So basically we are defining a lambda function and calling it at the same time with the argument 5 I am not thinking too much on the applications of this at this time. 
+
+# lambda is just unnamed funcion. it can be useful to perform any expression 
+# If you dont know value or may be its variable 
+# in this case you can use lambda if you want result of x**2+2*x this expression it can be achieved by lamda without any function.
+
+# We use lambda functions when we require a nameless function for a short period of time. 
+# In Python, we generally use it as an argument to a higher-order function (a function that takes in other functions as arguments). 
+# Lambda functions are used along with built-in functions like filter(), map() etc. 
+# Example of a lambda function: 
+double = lambda x: x*2 print(double(5)) # 10 
+# Example of filter(): 
+my_list = [1, 5, 4, 6, 8, 11, 3, 12] 
+new_list = list(filter(lambda x: (x%2 == 0), my_list)) 
+print(new_list) # [4, 6, 8, 12] 
+# Example of map(): 
+my_list = [1, 5, 4, 6, 8, 11, 3, 12] 
+new_list = list(map(lambda x: x*2, my_list)) 
+print(new_list) # [2, 10, 8, 12, 16, 22, 6, 24]c
+
+# Lambda makes it possible to use small anonymous functions. 
+# Lambdas are throw away functions used where they have been created NB:Lambda Syntax Lambda argument_list: expression. 
+# 1.lists in lambda consists of a number of arguments separated by a comma 
+# 2.expressions refer to the arithmetic expression using the list of arguments. 
+#   Example: f = lambda x,y,: x+y f=(1,1) # 2
+
+# The dfference between normal function and anonymous or lambda function : 
+# 1- In Python, anonymous function (They are also called lambda function)is a function that is defined without a name. 
+# 2- Normal functions are defined using the (def) keyword, Anonymous functions are defined using the lambda . A lambda function in python has the following syntax. 
+# Syntax of Lambda Function: lambda arguments: expression Lambda functions can have any number of arguments but only one expression. 
+# The expression is evaluated and returned. Lambda functions can be used wherever function objects are required. 
+
+# What about comprehension lists using lambdas? 
+# calculate cubes in the list from1 to 20.. 
+cubes = [(lambda x: x**3)(x) for x in range(1, 21)] # [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728, 2197, 2744, 3375, 4096, 4913, 5832, 6859, 8000]
+
+
+# Lambda is a single line function 
+# Example: 
+square = (lambda x: x**2) 
+print(square(2)) # 4 because lambda 2: 2**2
+
+# comparing lambda to a normal function
+def normal(t): 
+  return t**2
+  
+normal(2) # 4 
+y= lambda x: x**2 # y(2) 4 
+
+
+# SECTION 2
+# Lambda functions aren't as powerful as named functions.
+# They can only do things that require a single expression - usually equivalent to a single line of code.
+# Example: 
+#named function
+def polynomial(x):
+    return x**2 + 5*x + 4
+print(polynomial(-4))
+
+#lambda
+print((lambda x: x**2 + 5*x + 4) (-4))  # 0, 0
+
+# In the code above, we created an anonymous function on the fly and called it with an argument.
+
+commen
+
+
+
 
