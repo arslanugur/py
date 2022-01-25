@@ -1,0 +1,101 @@
+# The built-in functions map and filter are very useful higher-order functions that operate on lists (or similar objects called iterables).
+# The function map takes a function and an iterable as arguments, and returns a new iterable with the function applied to each argument.
+# Example:
+def add_five(x):
+    return x + 5
+
+nums = [11, 22, 33, 44, 55]
+result = list(map(add_five, nums))
+print(result)           # [16, 27, 38, 49, 60]
+
+
+# Shorter Way:
+def add_five(x): 
+  return x + 5 
+
+nums = [11, 22, 33, 44, 55] 
+print(list(map(add_five, nums))) # [16, 27, 38, 49, 60]
+
+# We could have achieved the same result more easily by using lambda syntax.
+# Example:
+nums = [11, 22, 33, 44, 55]
+
+result = list(map(lambda x: x+5, nums))
+print(result)           # [16, 27, 38, 49, 60]
+
+# To convert the result into a list, we used list explicitly.
+
+# Example:
+nums = [11, 22, 33, 44, 55] 
+result = [n + 5 for n in nums] 
+print(result)           # [16, 27, 38, 49, 60]
+
+# These all give the same result. I like the last one. 
+nums = [11, 22, 33, 44, 55] 
+# map with named function 
+def add_five(x): 
+  return x + 5 
+  result = list(map(add_five, nums)) 
+  print(result) 
+#
+
+# map with lambda 
+result = list(map(lambda x: x+5, nums)) 
+print(result) # [16, 27, 38, 49, 60]
+
+# list comprehension 
+print([x+5 for x in nums]) # [16, 27, 38, 49, 60]
+
+# In general, I don't like using extra words that aren't necessary, like "list", "map", "lambda" and even here, "result" unless they really improve the code.
+
+
+# 1-line solution of the example: 
+print([n+5 for n in [n*11 for n in range (1,6)]])     # [16, 27, 38, 49, 60]
+
+
+# To convert the result into a list, we used list explicitly.
+# Example: A tuple works as well. but, a tuple is imutable. But if you try to change an element (or more) of a tuple, then it'll produce error message. therefore a list is a need
+nums = [1,2,3,4,5] 
+res = tuple(filter(lambda x:x>3, nums)) 
+print(res) # Result: (4, 5) which is a tuple. This works no matter if the source is a tuple or a list list -> list list -> tuple tuple -> tTuple tuple -> list
+
+# Why use filter and lambda when we have list comprehensions? 
+nums = [1, 2, 3, 4, 5] 
+res = tuple(x for x in nums if x > 3) 
+print(res) # 'res' could be a list or a tuple, if immutability is needed.
+
+
+# Lambda expressions can only take one iterable as an argument, map can take multiple. 
+# So the following example is possible with map, but not lambda 
+def add_numbers(x,y): 
+  return x + y 
+
+nums = [11, 22, 33, 44, 55] 
+result = list(map(add_numbers, nums, nums)) 
+print(result)         # [22, 44, 66, 88, 110]
+
+# what happens if the list contains nested list? does the elements in the inner lists also get added by 5.
+# Just checked with compiler throws error.
+
+# If you wanna know what type Is an object you can always use the type() function. 
+# Example: 
+nums = [11, 22, 33, 44, 55] 
+result = map(lambda x: x+5, nums) 
+print(type(result)) # <class 'map'> # useful for comprehension
+
+
+# You can use map function to convert all elements of a list to another type. 
+numbers = [1,2,3,4,5] 
+numbers = list(map(str,numbers)) # ['1','2','3','4']
+
+# Example:
+import numpy as np 
+nums = np.array([11,22,33,44,55]) 
+result = nums + 5 
+print(result)       # [16 27 38 49 60]
+
+
+# list(map(lambda x: x+5, nums)) == [*map(lambda x: x+5, nums)]
+
+
+questio
