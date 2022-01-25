@@ -12,6 +12,7 @@ my_func(lambda x: 2*x*x, 5)
 
 # Lambda functions get their name from lambda calculus, which is a model of computation invented by Alonzo Church.
 
+
 # lambda -> keyword x -> input argument to the anonymous function. 2*x*x -> the expression to compute. 5 -> the function argument. Passed as x. 
 # So basically we are defining a lambda function and calling it at the same time with the argument 5 I am not thinking too much on the applications of this at this time. 
 
