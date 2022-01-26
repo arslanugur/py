@@ -198,3 +198,80 @@ nums = [11,22,33,44,55]
 res = list(filter(filter_modulo, nums)) 
 print(res)
 
+
+Here's 4 ways to create this [11, 22, 33, 44, 55] with code by using what we've already learned: #1: # Creates a huge list of numbers that ranges from 1-56, # then filters out all the numbers that are not multiples of 11 print(list(filter(lambda i: i % 11 == 0, range(1,56)))) #2: # Creates a huge list of numbers that ranges from 1-56, # uses for loop to check for multiples of 11, # then appends the results to a new list items = list(range(1, 56)) newList = [ ] for i in items: if i % 11 == 0: newList.append(i) print(newList) #3: # Creates a small list of numbers that ranges from 1-6, # then uses the map function to multiply those number by 11 print(list(map(lambda i: i*11, range(1,6)))) #4: # Creates a small list of numbers that ranges from 1-6, # uses a for loop to multiply those indexes by 11, # then appends the results to a new list items2 = list(range(1, 6)) newList2 = [ ] for i in items2: newList2.append(i*11) print(newList2) Output: [11, 22, 33, 44, 55] #(x4)
+
+To filter with strings: list_char = ["David", "John", "Annabelle", "Johnathan","Veronica"] print(list(filter(lambda y: len(y)>=6, list_char)))
+
+Range & filter both require list calls to display all their result in python 3.example list(range(-5,5)) b=list(filter((lambda x:x<0),range(-5,5))) print(b) Program following filter call picks out items in a sequence that are less than zero. Output=[-1,-2,-3,-4,-5]
+
+Same output with variables!!!1 def reu(x): return x%2==0 nums=[11,22,33,44,55,66] result=list(filter(reu,nums)) print(result)
+
+# Example: to extract all items that are less than 5 from the list.
+nums = [1, 2, 5, 8, 3, 0, 7]
+res = list(filter(lambda x: x < 5, nums))           # you need to filter out anything less than 5 so that numbers greater than 4 are printed when you execute print(res)
+print(res)
+
+# Another Way:
+nums = [1, 2, 5, 8, 3, 0, 7] 
+res = [x for x in nums if x < 5] 
+print(res) 
+
+
+Hey friends here is an best example for filter I can give. assume a list name fib = [0,1,1,2,3,5,8,13,21,34,55] Now I want to remove all the even numbers from this list, using filters and lambda function so my code is: result = filter(lambda x: x % 2 == 0, fib) now when I print the result, the output is: print (result) >> [0, 2, 8, 34] This shows that the result is holding all the values that we wanted to remove. Similarly in the given question we want numbers greater than 4 to be removed. so similarly our result will be holding the values which are less than 5 and not greater than 4 so our code will be res = list(filter (lambda x:x <5,nums)) print (res) Here the Best Analogy that you can have is having your own Subset from a Set.
+
+
+# Example:
+#named function
+def polynomial(x):
+    return x**2 + 5*x + 4
+print(polynomial(-4))                   # 0
+
+#lambda
+print((lambda x: x**2 + 5*x + 4) (-4))  # 0
+
+
+
+
+
+# Map and Filter function explanation:
+#map and filter function testing
+def mult(num):
+  return num * 4
+lst = (1,2,3,4,5,6,)
+print (lst)
+print ()#This is just to make it more understandable
+
+#mapping using a defined function
+result = list(map(mult,lst))
+print (result)
+print ()#This is just to make it more understandable
+
+#using list comrehension to map
+z = [i * 4 for i in lst]
+print (z)
+mapping = [mult(i) for i in lst]
+print (mapping)
+print ()#This is just to make it more understandable
+
+#using lambda to map
+print (list(map(lambda x: x * 4,lst)))
+print ()#This is just to make it more understandable
+
+#using lambda to filter
+print (list(filter(lambda x:x % 2 == 0,lst)))
+print ()#This is just to make it more understandable
+
+#using list comprehension to filter
+y = [i for i in lst if i % 2 == 0]
+print (y)
+print ()#This is just to make it more understandable
+
+#to test for your filter function condition
+map_bool = [i % 2 == 0 for i in lst]
+print (map_bool)
+
+
+
+
+
