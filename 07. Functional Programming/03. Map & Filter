@@ -1,3 +1,4 @@
+# SECTION 1: map
 # The built-in functions map and filter are very useful higher-order functions that operate on lists (or similar objects called iterables).
 # The function map takes a function and an iterable as arguments, and returns a new iterable with the function applied to each argument.
 # Example:
@@ -98,4 +99,102 @@ print(result)       # [16 27 38 49 60]
 # list(map(lambda x: x+5, nums)) == [*map(lambda x: x+5, nums)]
 
 
-questio
+# Example: to multiply each item in the list by 2 using lambda syntax.
+nums = [11, 22, 33]
+a = list(map(lambda x: x*2, nums))
+print(a)    # [22, 44, 66]
+
+# As a second way for simple tasks: Prefer the Comprehension: 
+a = [x*2 for x in nums]
+
+# map TAKES in or DEMANDS 1. an ITERABLE (a CONTAINER OBJECT capable of returning its members one at a time) + 2. 
+# a FUNCTION, and RETURNS a (new) ITERABLE 
+# Hence, we MUST use list function in order to actually CONVERT the (new) ITERABLE (a CONTAINER OBJECT) → into a LIST type object.
+
+# map, filter and reduce explained with emoji
+map([🐮, 🍠, 🐔, 🌾], cook) # [🍔, 🍟, 🍗, 🍞] 
+filter([🍔, 🍟, 🍗, 🍞], isVegetarian) # [🍟, 🍞] 
+reduce([🍔, 🍟, 🍗, 🍞], eat) # shit
+
+# Lambda can take as an argument a map function: 
+(lambda x: x*2)(*map(int, input().split())) * is quite similar to map function, it applies to each value in a list, calling them from a list in the order and applying to lambda
+
+# 'map' can make simple calculating through func + nums
+# A lambda function is a small anonymous function.A lambda function can take any number of arguments, but can only have one expression. Ex: x = lambda a : a + 10 print(x(5))
+
+
+
+# SECTION 2: filter
+# The function filter filters an iterable by removing items that don't match a predicate (a function that returns a Boolean).
+# Example:
+nums = [11, 22, 33, 44, 55]
+res = list(filter(lambda x: x%2==0, nums))
+print(res)              # [22, 44]
+
+# Like map, the result has to be explicitly converted to a list if you want to print it.
+
+# The same result with list comprehension:
+nums=[11, 22, 33, 44, 55] 
+print([x for x in nums if x%2==0])  # [22, 44] 
+# new list but not stored in a variable. 
+# If you wanted to store it in a variable just cut everything inside the brackets of print, 
+# paste on a new line just before the print and add the variableName = on the left 
+# you could also write this apps example to not define the res variable by cutting everything to the right of the = on the line defining res, 
+# pasting it into the print instead of res and removing rest of the res = line
+# Another way:
+nums=[11, 22, 33, 44, 55] 
+print([x for x in range(11,56,11) if x%2==0])   # [22, 44]
+
+# Example: the following code gives a list of even numbers from 1 to 100 which are divisible by 3 
+nums = range(1,101) 
+result = list(filter(lambda x: x%3==0 and x%2==0, nums))
+print(result)               # [6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96]
+
+
+# Example:
+def add_five(x): 
+    return x+5
+    
+nums = [11,22,33,44,55] 
+result = list(map(lambda x: x+5, nums))
+res = tuple(filter(lambda x: x%2==0, nums))
+oui = tuple(map(lambda x: x%2==0, nums))
+print(oui)      # (False, True, False, True, False)
+print(res)      # (22, 44)
+print(result)   # [16, 27, 38, 49, 60]
+
+
+# filter and lambda can be replaced with a list comprehension: 
+nums = [11, 22, 33, 44, 55]
+# filter and lambda 
+res = list(filter(lambda x: x % 2 == 0, nums)) # [22, 44]
+print(res)
+# list comprehension 
+print([x for x in nums if x % 2 == 0])         # [22, 44]
+
+
+# 1. nums = [11,22,33,44,55] 
+# 2. res = list(filter(lambda x : x%2 == 0 , nums )) 
+# 3. print(res ) # the way how filter works is, if the condition inside it (as in this case x%2 == 0) evaluates to True, 
+               # it spits out the value of x else no value comes out of it the condition x%2 == 0 evaluates to True if x is even or to False if x is odd. 
+               # as the code stars to run, value of x in first loop becomes 11. 
+               # since 11%2 = 1 the truth value of given condition becomes false and filter spits out nothing In 2nd loop x becomes 22 and as 22%2 =0 
+               # the truth value becomes True eventually the filter function spits the value of x as 22 and 
+               # the function list puts that value in a list same happens with 33,44 and 55
+               # the output list becomes [22,44]
+#
+
+# Example:
+mylist = [1,2,3,4,5] 
+print(list(map(lambda x: x if x>1 else 0, mylist)))     # [0, 2, 3, 4, 5] 
+print(list(filter(lambda x: x if x>1 else 0, mylist)))  # [2, 3, 4, 5]      # the difference that the filter can't return in list Zero(False) value 
+
+
+# Another Way:
+def filter_modulo(x): 
+    return x%2==0 
+
+nums = [11,22,33,44,55] 
+res = list(filter(filter_modulo, nums)) 
+print(res)
+
