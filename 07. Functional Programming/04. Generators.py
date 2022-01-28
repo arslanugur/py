@@ -16,7 +16,6 @@ for i in countdown():
 # The yield statement is used to define a generator, 
 # replacing the return of a function to provide a result to its caller without destroying local variables.
 
-
 # Examples: 
 def countdown(i):
     i = 9
