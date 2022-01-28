@@ -163,7 +163,7 @@ for i in countdown():
      print(i,4*" ",10*"-","o",10*"-")
      
     else:  
-      print (i,14*" ","|")
+      print(i,14*" ","|")
 #      
 
 
@@ -188,6 +188,117 @@ l = primes()
 print(next(l))
 print(next(l))
 print(next(l))
+
+
+How to create a generator in Python? It is fairly simple to create a generator in Python. It is as easy as defining a normal function, but with a yield statement instead of a return statement. If a function contains at least one yield statement (it may contain other yield or return statements), it becomes a generator function. Both yield and return will return some value from a function. The difference is that while a return statement terminates a function entirely, yield statement pauses the function saving all its states and later continues from there on successive calls.
+
+
+# Example:
+def is_prime(num):
+    return [i for i in range(2,num) if num%i == 0] == []
+
+def get_prime():
+    num = 2
+    while True:
+        if is_prime(num):
+            yield num
+            num += 1
+
+for i in get_prime():
+    print(i)
+#
+
+
+# Example: To create a prime number generator, that yields all prime numbers in a loop. (Consider having an is_prime function already defined):
+def get_primes():
+  num = 2
+  while True:
+    if is_prime(num):
+      yield num
+    num += 1
+#
+
+# Example:
+def is_prime(num):
+    for i in range(2,num): 
+        if num % i == 0: 
+            return False 
+            return True     # It returns False if number is not prime, and True if number is prime
+#
+
+# Example:
+def isPrime(n): 
+    for i in range(2,n): 
+        if n%i==0: 
+            return False 
+            return True 
+
+def getPrime(m): 
+    while m<20: 
+        if isPrime(m): 
+            yield m
+            m+=1 
+            print(list(getPrime(7))) 
+# [7,11,13,17,19] 
+# the curious thing is when " if n%i==0: return False return True " When indentation "return True" in line with "if",
+# the result is different as below: [7,9,11,13,15,17,19]
+
+
+# Example:
+def is_prime(num): 
+    return [i for i in range(2,num) 
+    if num%i == 0] == []
+#
+
+
+# Example to edit:
+def isPrime(n): 
+    for i in range(2,n): 
+        if n%i==0:
+            return False 
+            return True 
+
+def getPrime(m): 
+    while m<50: 
+        if isPrime(m): 
+        yield m 
+        m+=1 
+        print(list(getPrime(9))) # [11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47] 
+#
+
+
+# SECTION 3
+# Finite generators can be converted into lists by passing them as arguments to the list function.
+# Example:
+def numbers(x):
+    for i in range(x):
+        if i % 2 == 0:
+            yield i
+
+print(list(numbers(11)))    # [0, 2, 4, 6, 8, 10]
+
+# Using generators results in improved performance, which is the result of the lazy (on demand) generation of values, which translates to lower memory usage. 
+# Furthermore, we do not need to wait until all the elements have been generated before we start to use them. 
+
+# Example: Probably 3 ways of doing this
+def numbers(x): 
+    for i in range(x): 
+        if i % 2 == 0: 
+            yield i 
+
+print(list(numbers(11)))                                # [0, 2, 4, 6, 8, 10]
+print(list([x for x in range(11) if x % 2 == 0]))       # [0, 2, 4, 6, 8, 10]
+print(list(filter((lambda x: x % 2 == 0), range(11))))  # [0, 2, 4, 6, 8, 10]
+print([x for x in range(11) if x%2==0])                 # [0, 2, 4, 6, 8, 10]
+
+
+# "return" vs "yield"
+# They haven't the same purpose and we don't use them in the same way. 
+# 1- yield generalises the list comprehension concept. Let's talk about the lesson's example. With yield, the function produces a generator. No list is actually built. To instantiate the list, we build it outside the function with the builtin function list(). 2- with return, the function produces a "ready to use" object. Here, we should have built the list inside the function. 3- let's use now another simple example. We want to get the square of a number: def sq(x): return x*x or def sq(x): yield x*x In the first case, the function returns a number you can directly use: print("The square of 11 is", sq(11)) In the second case, the function yields a generator that you have to use to build a list containing one number, then index the list to finally get the number: print("The square of 11 is", list (sq(11))[0])
+# 
+
+
+
 
 
 
