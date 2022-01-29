@@ -56,22 +56,54 @@ def print_text():
 decorated = decor(print_text) 
 decorated() 
 
-The above code has the output: ============ Hello world! ============ This, as in the "nice" ;) decoration surrounding "Hello world!", EXISTS due to finishing the ENTIRE code off with the 2 lines: decorated = decor(print_text) decorated()
+# (2): 
+# Also, note that if I simply REPLACE these 2 lines code by just: print_text() Then I end up with only "Hello world!" in output, devoid of ANY decoration whatsoever. 
+# Hence, what it REALLY means, is that the print_text() function ALONE FAILS to give its output of "Hello world!" WITH the DECORATION we desperately wanted. 
+# It wasn't really inclusive. 
+# So, the question is, 
+# HOW do we EXTEND the FUNCTIONALITY of the FUNCTION print_text WITHOUT making any direct modification whatsoever to the function itself? 
+# More clearly, knowing that print_text() outputs just "Hello world!" by itself, 
+# HOW do we make the output ALSO include the DECORATION we're after, WITHOUT any direct modification to the print_text function ITSELF? 
 
-# (2): Also, note that if I simply REPLACE these 2 lines code by just: print_text() Then I end up with only "Hello world!" in output, devoid of ANY decoration whatsoever ;(. Hence, what it REALLY means, is that the print_text() function ALONE FAILS to give its output of "Hello world!" WITH the DECORATION we desperately wanted ;(. It wasn't really inclusive. So, the question is, HOW do we EXTEND the FUNCTIONALITY of the FUNCTION print_text WITHOUT making any direct modification whatsoever to the function itself (see the very top bit of this lesson)? More clearly, knowing that print_text() outputs just "Hello world!" by itself, HOW do we make the output ALSO include the DECORATION we're after, WITHOUT any direct modification to the print_text function ITSELF? 
+# (3): 
+# Answer: by simply RE-ASSIGNING the VARIABLE containing the print_text function. 
+# Hence, print_text = decor(print_text) print_text() we use the 2 above lines of code. 
+# Bit like saying, re-assign the function print_text such that it now would come PRE-DECORATED for us ;) every single time it's called. 
+# Therefore, all of the following code actually gives the DECORATED output of "Hello world!".
 
-# (3): Answer: by simply RE-ASSIGNING the VARIABLE containing the print_text function. Hence, print_text = decor(print_text) print_text() we use the 2 above lines of code. Bit like saying, re-assign the function print_text such that it now would come PRE-DECORATED for us ;) every single time it's called. Therefore, all of the following code actually gives the DECORATED output of "Hello world!".
+# (4): 
+def decor(func): 
+    def wrap(): 
+        print("============") 
+        func() 
+        print("============") 
+    return wrap 
+ 
+ def print_text(): 
+    print("Hello world!") 
+ print_text = decor(print_text) 
+ print_text() 
+ 
+# In fact, what's so nice is that, basically, I can now have LOTS of code blocks following the above, 
+# and then suddenly have "print_text()" all by ITSELF appearing, 
+# and YET be 100% assured that this very simple looking ONE Line of code actually was responsible for not only providing an output of "Hello world!", 
+# BUT ALSO WITH the nice DECORATION to surround it and hence make it look "nice" as we presumably wanted
 
-# (4): def decor(func): def wrap(): print("============") func() print("============") return wrap def print_text(): print("Hello world!") print_text = decor(print_text) print_text() In fact, what's so nice is that, basically, I can now have LOTS of code blocks following the above, and then suddenly have "print_text()" all by ITSELF appearing, and YET be 100% assured that this very simple looking ONE Line of code actually was responsible for not only providing an output of "Hello world!", BUT ALSO WITH the nice DECORATION to surround it and hence make it look "nice" as we presumably wanted
+# Decorators provide a simple syntax for calling higher-order functions. 
+By definition, a decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it. 
+Sounds confusing—but it's really not, especially after we go over a number of examples.
 
-# Decorators provide a simple syntax for calling higher-order functions. By definition, a decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it. Sounds confusing—but it's really not, especially after we go over a number of examples.
+# This was a little easier for me to read. 
+def a(function): def b(): print ("first line") function() print ("last line") return b def c(): print ("middle line") c = a(c) c();
 
-# This was a little easier for me to read. def a(function): def b(): print ("first line") function() print ("last line") return b def c(): print ("middle line") c = a(c) c();
+# The wrap function only exists to allow a return value. 
+Without it the function cannot be assigned to the variable print_text. 
+If you try to assign it, print_text will only receive the default return value of None and attempting to call the function will produce an error. 
 
-The wrap function only exists to allow a return value. Without it the function cannot be assigned to the variable print_text. If you try to assign it, print_text will only receive the default return value of None and attempting to call the function will produce an error. 
 
-
-# The wrap function is confusing. The idea seems to be to show us different possibilities, but the situation chosen is not so realistic. For my first understanding of this lesson, I simplified like this, and the result is the same : def decor(func): print("============") func() print("============") def print_text() print("Hello word!") decor(print_text)
+# The wrap function is confusing. The idea seems to be to show us different possibilities, but the situation chosen is not so realistic. 
+For my first understanding of this lesson, I simplified like this, and the result is the same : 
+def decor(func): print("============") func() print("============") def print_text() print("Hello word!") decor(print_text)
 
 
 # First: I think that it's better to write last two lines in this way: decorated_print_text = decor(print_text) decorated_print_text() 
@@ -82,13 +114,16 @@ The wrap function only exists to allow a return value. Without it the function c
 # Here is a good explanation: https://realpython.com/blog/python/primer-on-python-decorators/
 
 
-def what_to_decorate(your_input): def how_to_decorate(): print("="*len(your_input)) print(your_input) print("="*len(your_input)) return how_to_decorate run_this = what_to_decorate(input()) run_this() if the variable "run_this" is replaced by a REAL function, then the line "print(your_input)" could be it's argument.
+def what_to_decorate(your_input): def how_to_decorate(): print("="*len(your_input)) print(your_input) print("="*len(your_input)) 
+return how_to_decorate run_this = what_to_decorate(input()) run_this() 
+if the variable "run_this" is replaced by a REAL function, then the line "print(your_input)" could be it's argument.
 
 
 # A decorator is a function that modifies another function using functions.*** 
 
 
-I found "decorators wrap a function, modifying its behavior.” Read a great breakdown in this lesson I just discovered: https://realpython.com/primer-on-python-decorators/ 
+I found "decorators wrap a function, modifying its behavior.” 
+Read a great breakdown in this lesson I just discovered: https://realpython.com/primer-on-python-decorators/ 
 
 
 
@@ -211,4 +246,74 @@ print_text2();
 # It turns out that even though you're returning the wrapper, 
 # you also need the inside of the wrapper to return something or you'll end up printing None in addition to your input, 
 # or run code that results in a NoneType error when you attempt to call the function. 
-# Here's what finally worked for me in the Uppercasing challenge: text = input() def uppercase_decorator(func): def wrapper(text): #your code goes here return text.upper() return wrapper @uppercase_decorator def display_text(text): print(text) print(display_text(text))
+# Here's what finally worked for me in the Uppercasing challenge: 
+text = input() 
+def uppercase_decorator(func): 
+    def wrapper(text): 
+    #your code goes here 
+    return text.upper() 
+    return wrapper 
+    
+@uppercase_decorator 
+
+def display_text(text): 
+    print(text) 
+    print(display_text(text))
+#
+
+def decor(func): 
+    def wrap(): 
+        print("====") 
+        func() 
+        print("====") 
+    return wrap         # Instead of: def decor(func): print("====") func() print("====")
+#
+
+# https://jeffknupp.com/blog/2013/11/29/improve-your-python-decorators-explained/
+
+# Example:
+def california(func): 
+    def waves(): 
+        print(44*"-") 
+        func() 
+        print(44*"-")
+    return waves 
+    
+def texas(func): 
+    def guns(): 
+        print(72*"-") 
+        func() 
+        print(72*"-") 
+    return guns 
+    
+@california 
+def surf_report(): 
+    print(" Your are lucky because it is barreling!") 
+    
+@texas 
+def status(): 
+    print(" Your are lucky because you'll get 50% off in all products at Walmart") 
+
+a = input('Where do you want to go? \n' "California or Texas?\n") 
+print("\nAs you chose " + a + "," + "\n") 
+b = str(a) 
+def choices(): 
+    if b == "California": 
+        surf_report(); 
+    else: 
+        if b == "Texas": 
+            status(); 
+        else: 
+            print("you did not choose the right answer. \n \n Try it again!") 
+
+choices();
+
+# Which statement can be used to achieve the same behavior as my_func = my_dec(my_func)?    ---> @my_dec
+
+
+# Just Changed the names from EXAMPLE to be more clear: 1. def easy_decor(func): def my_style(): print("============") func() print("============") return my_style @easy_decor def print_text(): print("Hello world!") print_text(); _________________________________ 2. def easy_decor(func): def my_style(): print("============") func() print("============") return my_style def print_text(): print("Hello world!") print_text = easy_decor(print_text) print_text(); ___________________________________ So as you can see the only difference in these two ways of coding are "@easy_decor" and "print_text = easy_decor(print_text)" hope you got the idea
+
+https://realpython.com/primer-on-python-decorators/
+
+
+
