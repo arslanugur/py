@@ -311,9 +311,34 @@ choices();
 # Which statement can be used to achieve the same behavior as my_func = my_dec(my_func)?    ---> @my_dec
 
 
-# Just Changed the names from EXAMPLE to be more clear: 1. def easy_decor(func): def my_style(): print("============") func() print("============") return my_style @easy_decor def print_text(): print("Hello world!") print_text(); _________________________________ 2. def easy_decor(func): def my_style(): print("============") func() print("============") return my_style def print_text(): print("Hello world!") print_text = easy_decor(print_text) print_text(); ___________________________________ So as you can see the only difference in these two ways of coding are "@easy_decor" and "print_text = easy_decor(print_text)" hope you got the idea
+# First Example Way:
+def easy_decor(func):
+    def my_style(): 
+        print("============") 
+        func() 
+        print("============") 
+    return my_style 
 
-https://realpython.com/primer-on-python-decorators/
+@easy_decor 
+def print_text(): 
+    print("Hello world!") 
+    print_text();
+
+# Second Example Way:
+def easy_decor(func): 
+    def my_style(): 
+        print("============") 
+        func() 
+        print("============") 
+    return my_style 
+
+def print_text(): 
+    print("Hello world!") 
+    print_text = easy_decor(print_text) 
+    print_text(); 
+# So as you can see the only difference in these two ways of coding are "@easy_decor" and "print_text = easy_decor(print_text)"
+
+# https://realpython.com/primer-on-python-decorators/
 
 
 
