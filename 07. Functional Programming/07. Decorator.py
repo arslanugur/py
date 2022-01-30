@@ -145,9 +145,8 @@ run_this()
 
 # A decorator is a function that modifies another function using functions.*** 
 
-
-I found "decorators wrap a function, modifying its behavior.” 
-Read a great breakdown in this lesson I just discovered: https://realpython.com/primer-on-python-decorators/ 
+# Decorators wrap a function, modifying its behavior. 
+# https://realpython.com/primer-on-python-decorators/ 
 
 
 
@@ -268,7 +267,7 @@ print_text2();
 
 
 # It turns out that even though you're returning the wrapper, 
-# you also need the inside of the wrapper to return something or you'll end up printing None in addition to your input, 
+# You also need the inside of the wrapper to return something or you'll end up printing None in addition to your input, 
 # or run code that results in a NoneType error when you attempt to call the function. 
 # Here's what finally worked for me in the Uppercasing challenge: 
 text = input() 
