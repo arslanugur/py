@@ -90,20 +90,37 @@ def decor(func):
 # BUT ALSO WITH the nice DECORATION to surround it and hence make it look "nice" as we presumably wanted
 
 # Decorators provide a simple syntax for calling higher-order functions. 
-By definition, a decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it. 
-Sounds confusing—but it's really not, especially after we go over a number of examples.
+# By definition, a decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it. 
+# Sounds confusing—but it's really not, especially after we go over a number of examples.
 
 # This was a little easier for me to read. 
-def a(function): def b(): print ("first line") function() print ("last line") return b def c(): print ("middle line") c = a(c) c();
+def a(function): 
+    def b(): 
+        print("first line") 
+        function() 
+        print("last line") 
+     return b 
+
+def c(): 
+    print("middle line") 
+c = a(c) 
+c();
 
 # The wrap function only exists to allow a return value. 
-Without it the function cannot be assigned to the variable print_text. 
-If you try to assign it, print_text will only receive the default return value of None and attempting to call the function will produce an error. 
+# Without it the function cannot be assigned to the variable print_text. 
+# If you try to assign it, print_text will only receive the default return value of None and attempting to call the function will produce an error. 
 
 
 # The wrap function is confusing. The idea seems to be to show us different possibilities, but the situation chosen is not so realistic. 
-For my first understanding of this lesson, I simplified like this, and the result is the same : 
-def decor(func): print("============") func() print("============") def print_text() print("Hello word!") decor(print_text)
+# For my first understanding of this lesson, I simplified like this, and the result is the same : 
+def decor(func): 
+    print("============") 
+    func() 
+    print("============") 
+def print_text() 
+    print("Hello word!")
+
+decor(print_text)
 
 
 # First: I think that it's better to write last two lines in this way: decorated_print_text = decor(print_text) decorated_print_text() 
@@ -114,9 +131,16 @@ def decor(func): print("============") func() print("============") def print_te
 # Here is a good explanation: https://realpython.com/blog/python/primer-on-python-decorators/
 
 
-def what_to_decorate(your_input): def how_to_decorate(): print("="*len(your_input)) print(your_input) print("="*len(your_input)) 
-return how_to_decorate run_this = what_to_decorate(input()) run_this() 
-if the variable "run_this" is replaced by a REAL function, then the line "print(your_input)" could be it's argument.
+def what_to_decorate(your_input): 
+    def how_to_decorate(): 
+        print("="*len(your_input)) 
+        print(your_input) 
+        print("="*len(your_input)) 
+    return how_to_decorate 
+
+run_this = what_to_decorate(input()) 
+run_this() 
+# if the variable "run_this" is replaced by a REAL function, then the line "print(your_input)" could be it's argument.
 
 
 # A decorator is a function that modifies another function using functions.*** 
