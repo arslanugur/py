@@ -163,6 +163,97 @@ while len(nums) > 0:
 #
 
 
+# it looks like "pop" always deletes first element, not arbitrary? 
+nums = {1, 2, 1, 3, 1, 4, 5, 6} 
+print(nums)   # {1, 2, 3, 4, 5, 6}
+nums.add(-7) 
+nums.pop() 
+print(nums)   # {2, 3, 4, 5, 6, -7}
+# run code 10 times and pop always delete first element.
+
+# Notice that the add() and remove() methods don't return a new set - they only change the set in place. 
+# Example:
+set_1 = {1, 2, 3} 
+a = set_1.remove(3) 
+print(a) # this doesn't work - the output is 'None' 
+set_1.remove(3) 
+print(set_1) # this works
+
+# You can save the element being popped, but not the one being removed: 
+nums = {1, 2, 3, 4, 5, 6} 
+print(nums) # {1, 2, 3, 4, 5, 6}ş
+a = nums.pop() 
+print(a)    # 1
+b = nums.pop() 
+print(b)    # 2
+print(nums) # {3, 4, 5, 6}
+
+
+# You can add multiple elements to a set by using .update() method. 
+# For instance: 
+nums = set([1, 2, 3]) 
+print(nums)           # {1, 2, 3}
+nums.update([4, 5]) 
+print(nums)           # {1, 2, 3, 4, 5}
+
+
+# There's another difference between sets and lists; 
+# Lists can take any item while sets, as for dictionaries' keys, can only take hashable objects. 
+# What do I mean by hashable objects? Hashable objects are objects which: 
+# - there is a .__hash__() defined for each of them and it is constant throughout the life of their corresponding objects and 
+# - there is also another method called .__eq__(), which simply let us know that these objects can be compared to each other. 
+# For instance, all immutable objects are hashable, likewise consider the following code 
+# a="Hi" b="Hi" print(a.__hash__() == b.__hash__(), a is b) which will print True True due to strings being hashable(a and b are the same thing).
+# x = [] y = [] print(x is y) 
+# This one will print False, which is a hint to show us that lists are indeed nonhashable, so can't be elements of a set. (x and y are not the same thing). 
+
+# Example:
+nums = {7, 5, 6, 8, 2, 1, 4, 1, 4, 5, 6} 
+print(nums)         # {1, 2, 4, 5, 6, 7, 8}
+nums.add(3)
+nums.remove(1)
+print(nums)         # {2, 3, 4, 5, 6, 7, 8}
+print(nums.pop())   # 2
+# which means that sets order "list" and pop() delete and return the smallest element in that "list"
+
+http://www.sololearn.com/app/python/playground/ctn24YbpvR93/ ,
+You can check out this small example. Sets get some kind of random order (not ascending and not the order we wrote it). 
+Pop _usually_ (always in this example) removes "first" element, but we can not be sure which one is first in a set! 
+(See how sets that are considered equal became not equal after "popping" one element in each 'cause they had diferent "order") 
+Only if we check it first, but remember: it's still not guaranteed that same "first_one" will be deleted. 
+Especially if we would be working with parallel processes, multithreading.
+
+This code will explain the .pop() method more: 
+nums = {1, 2, 1, 3, 1, 4, 5, 6} while len(nums)>1: print(nums) nums.pop() print(nums) """ the output is: { 1, 2, 3, 4, 5, 6} { 2, 3, 4, 5, 6} { 3, 4, 5, 6} { 4, 5, 6} { 5, 6} {6} "
+
+
+Would have guessed list would be faster at returning search results than set due to indexing, but there is some logical fallacy in that thought. http://stackoverflow.com/questions/2831212/python-sets-vs-lists
+
+To show that a set can execute the result more faster than a list, this is my try. PS:"I'm a beginner" import time my_list = [1,3,3.14,"Vas","dBy"] tic1 = time.time() #starting time print(3.14 in my_list) tac1 = time.time() #ending time print(tac1 - tic1) #total duration of execution my_set = set(my_list) tic2 = time.time() print(3.14 in my_set) tac2 = time.time() print(tac2 - tic2) OUTPUT True 8.344650268554688e-6 #or something else True 1.430511474609375e-6 So here, set is executing the result much faster than list.
+
+your_set.pop() removes the first element and returns it's value. So, using a set together with your_set.add(x) could be used as a queue of unique values
+
+
+#  create a set, add the letter "z" to it, and print its length.
+
+nums = 
+"a", "b", "c", "d"
+
+
+nums.
+("z")
+
+print(
+(nums))
+
+ 
+  
+    
+
+
+
+
+
 # Example: Pop() not Random for Sets
 # output of these is 1 in each case
 print('These don\'t vary:')
