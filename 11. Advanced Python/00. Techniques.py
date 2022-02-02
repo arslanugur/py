@@ -398,20 +398,20 @@ N = int(input("Number of Terms: "))
 t1 = 1; t2 = 1
 print("\n%d\t%d\t"%(t1, t2), end = ' ')
 for i in range(1, N-1):
-   t3 = t1 + t2; print("%d\t"%t3, end = ' '); t1 = t2; t2 = t3
+  t3 = t1 + t2; print("%d\t"%t3, end = ' '); t1 = t2; t2 = t3
 #
 
 
 # Fibonacci Series
 def fibonacci(k):
-   if (k <= 2):
-      return 1
-   else:
-      return fibonacci(k-1) + fibonacci(k-2)
+  if (k <= 2):
+    return 1
+  else:
+    return fibonacci(k-1) + fibonacci(k-2)
 print("Fibonacci Series\n"); N = int(input("Number of Terms: "))
 for i in range(1, N+1):
-   print("%d\t"%fibonacci(i), end = ' ')
+  print("%d\t"%fibonacci(i), end = ' ')
 #
 
 
-
+# 
