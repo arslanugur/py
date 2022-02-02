@@ -123,5 +123,63 @@ print(set(alpha_nums_num2))                     # {1, ' 12', 11, '1', 'zebra', '
 
 
 # Example:
+letters = {"a", "b", "c", "d"}
+if "e" not in letters:
+  print(1)
+else: 
+  print(2)  # 1, because e is not in letters.
+#    
+
 
 # SECTION 2
+# Sets differ from lists in several ways, but share several list operations such as len.
+# They are unordered, which means that they can't be indexed.
+# They cannot contain duplicate elements.
+# Due to the way they're stored, it's faster to check whether an item is part of a set, rather than part of a list.
+# Instead of using append to add to a set, use add.
+# The method remove removes a specific element from a set; pop removes an arbitrary element.
+# Example:
+nums = {1, 2, 1, 3, 1, 4, 5, 6}
+print(nums)       # {1, 2, 3, 4, 5, 6}
+nums.add(-7)
+nums.remove(3)
+print(nums)       # {1, 2, 4, 5, 6, -7}
+
+# Basic uses of sets include membership testing and the elimination of duplicate entries.
+
+# Example:
+nums = {1, 2, 1, 3, 1, 4, 5, 6} 
+while len(nums) > 0: 
+  nums.pop() 
+  print(nums)
+#   
+# so much for 'arbitrary' 
+# {2, 3, 4, 5, 6}
+# {3, 4, 5, 6}
+# {4, 5, 6}
+# {5, 6}
+# {6}
+# set()
+#
+
+
+# Example: Pop() not Random for Sets
+# output of these is 1 in each case
+print('These don\'t vary:')
+print({1, 2, 3}.pop())
+print({1, 3, 2}.pop())
+print({2, 1, 3}.pop())
+print({2, 3, 1}.pop())
+print({3, 1, 2}.pop())
+print({3, 2, 1}.pop())
+
+# output of these vary each time the code is run
+print('These vary from run to run, but the same element pops for each set:')
+print({'1', '2', '3'}.pop())
+print({'1', '3', '2'}.pop())
+print({'2', '1', '3'}.pop())
+print({'2', '3', '1'}.pop())
+print({'3', '1', '2'}.pop())
+print({'3', '2', '1'}.pop())
+
+scipbel
