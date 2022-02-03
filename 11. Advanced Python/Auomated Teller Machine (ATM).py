@@ -1,6 +1,4 @@
-# Created by Arslan
-
-#for stopping program execution for some time
+# for stopping program execution for some time
 import time
 
 print("Please insert Your CARD")
