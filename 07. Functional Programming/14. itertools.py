@@ -81,37 +81,75 @@ for i in count(3,0.55):
         break   
 # 
 
-# I'm really don't understand for what reason we need to use count. count(start, step) Ok... but we using for. So... what the real difference with range? range(start, stop, step) Only because it can counting for infinite? Or because range default is stop and count default is start? From my point of view it's little useless function. And if we need infinite count we can use generator. So. Can someone give me a good reason to use count?
+# for what reason we need to use count. count(start, step) Ok... but we using for. 
+# So... what the real difference with range? range(start, stop, step) 
+# Only because it can counting for infinite? Or because range default is stop and count default is start? 
+# From my point of view it's little useless function. And if we need infinite count we can use generator. 
+# So. Can someone give me a good reason to use count?
 
 # from itertools import repeat p=0 for i in repeat(3): p=p+1 print(i) if p>=11: break
 
-# same output with the following code. from itertools import count for i in count(3): if i <= 11: print(i)
-    
+# same output with the following code. 
+from itertools import count 
+for i in count(3): 
+    if i <= 11: 
+        print(i)
+#
+
 # https://docs.python.org/3/library/itertools.html
+
+# Example:
+for i in repeat(5,9): 
+    print(i) # output :- 5 5 5 5 5 5 5 5 5 "nine fives"
+#
+
+# This could be a useful reference as we change gears and move from Functional Programming to Object Oriented Programming in the next module. 
+# It also links to itertools. https://docs.python.org/3/howto/functional.html
   
+# Same code can be written with Range function. 
+for i in range(3,12): 
+    print(i)
+# 
+
+# Example: To import the cycle function from the itertools module.
+from itertools import cycle             # from (module name) import (function name)             # Modules are in libraries
+
+# Example:
+for i in "python": 
+    print(i)
+# The above code outputs just the following: p y t h o n 
+# now try cycle infinitely from itertools import cycle for i in cycle("python"): print(i) 
+# Output: p y t h o n p y t h o n  still doing printing infinitely that could be useful 
+# especially if u used break like you define a variable = 0 
+# and u increase the variable with every t in python and when it hits number of repeats you break the for loop
+# wish that helped you understanding the difference
+# or in something like stop=0 for i in cycle("python"): print(i) if stop ==8: break stop =stop+1
+
+# In english readability, this code would mean : 
+# *from* the library itertools, 
+# *import* a function called 'cycle' into my library/code.
+
+
+# Answer: from itertools import cycle 
+# As They Have Said to Only import "cycle" class/function from the itertools module... 
+# importing all function/classes will be: from itertools import * OR, import itertools 
+# Format: import {module-name} or from {module-name} import {class/function}
+
+
+
+https://www.sololearn.com/learning/1073/2466/5117/1
+
+
+
+
 BEGINNER LEVEL PROGRAMMING PROJECTS 
 https://www.sololearn.com/post/4869/?ref=app 
   https://www.sololearn.com/post/4870/?ref=app 
     https://www.sololearn.com/post/4873/?ref=app 
       https://www.sololearn.com/post/4874/?ref=app
 
-for i in repeat(5,9): print(i) output :- 5 5 5 5 5 5 5 5 5 "nine fives"
-
-This could be a useful reference as we change gears and move from Functional Programming to Object Oriented Programming in the next module. 
-It also links to itertools. https://docs.python.org/3/howto/functional.html
-  
-  Same code can be written with Range function. for i in range(3,12): Print (i)
-    
-
-
-https://www.sololearn.com/learning/1073/2466/5116/2
-
-
-
-
-
-
-
+        
+        
 
 
 
