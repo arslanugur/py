@@ -489,10 +489,10 @@ myset = set(mylist)
 
 """
 Rounds:  1
-Lenght List:  2
-Lenght Dict:  2
-Lenght Tuple:  2
-Lenght Set:  2
+Length List:  2
+Length Dict:  2
+Length Tuple:  2
+Length Set:  2
 List Time:   2.7995556592941284e-06
 Dict Time:   1.7993152141571045e-06
 Tuple Time:  1.7005950212478638e-06
