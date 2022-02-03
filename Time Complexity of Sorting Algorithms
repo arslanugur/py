@@ -1,0 +1,26 @@
+# SORTING ALGORITHMS
+  
+  Sort Algorithms: This is used to rearrange arrays or a given list of elements according to a comparison operator function.
+                   The Comparison operator is used to decide the new order of elements.                    
+
+n: Eleman Sayısı
+k: değer aralığı uzunluğu
+d: bir elemanın basamak sayısı
+b: sayı tabanı
+
+                      Sort Algorithms'
+                      Time Complexity
+                      ----------------
+BUBBLE SORT           O(n²)
+INSERTION SORT        O(n²)
+SELECTION SORT        O(n²)
+MERGE SORT            O(nlogn)
+HEAP SORT             O(nlogn)
+QUICK SORT            O(nlogn)          # Ortalama durum
+COUNTING SORT         O(n + k)
+BUCKET SORT           O(n + k)
+RADIX SORT            O(d(n + b))
+SHELL SORT            O(n(logn)²)
+
+
+
