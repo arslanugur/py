@@ -46,3 +46,28 @@ print(list(result)) # [(1, 'one'), (2, 'two'), (3, 'three')]
 
 
 
+# ANY and ALL FUNCTION
+# Example Problem Solution without any and all:
+lst = [-1, -2, -5, -7, 9, -10]
+# Is there any positive number
+isthereanypositive = False
+for i in lst:
+  if i > 0:
+    isthereanypositive = True
+    break
+print(isthereanypositive) # True
+
+# Bir listede pozitif sayı var mı diye bakmak istiyoruz diyelim.
+# İlk akla gelen yöntem yukardaki gibi döngü ile elemanları kontrol etmektir
+# More Rational Ways:
+# any: Öğelerden herhangi biri True ise true döndürür. Boşsa veya tümü yanlışsa False döndürür.
+# all: Tüm öğeler True ise (veya sequence boşsa) true döndürür.
+# Solution with any()
+lst = [-1, -2, -5, -7, 9, -10]
+isthereanypositive = any(i > 0 for i in lst)
+print(isthereanypositive)   # True
+# Solution with all()
+lst = [-1, -2, -5, -7, 9, -10]
+isthereanypositive = not all(i <= 0 for i in lst)
+print(isthereanypositive)   # True
+
