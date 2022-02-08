@@ -435,7 +435,7 @@ def hamming(n):
       return 1
    else:
       return 0
-a = int(input("1'den büyük tam sayı: ")); h = hamming(a)
+a = int(input("Enter an integer greater than 1: ")); h = hamming(a)
 if (h==1):
    print("\nIt is a Hamming number\n")
 else:
@@ -443,4 +443,5 @@ else:
 #
 
 
-# 
+# OKEK-OBEB
+
