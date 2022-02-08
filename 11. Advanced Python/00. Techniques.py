@@ -414,4 +414,12 @@ for i in range(1, N+1):
 #
 
 
-# 
+# Floyd's Triangle
+s = 1; n = int(input("satır sayısı: ")); print("floyd triangle")
+for i in range(1, n+1):
+   for j in range(1, i+1):
+      print("%d\t"%s, end = ' '); s+=1
+   print()
+#
+
+# Hamming Numbers
