@@ -415,11 +415,32 @@ for i in range(1, N+1):
 
 
 # Floyd's Triangle
-s = 1; n = int(input("satır sayısı: ")); print("floyd triangle")
+s = 1; n = int(input("Number of Rows: ")); print("Floyd Triangle")
 for i in range(1, n+1):
    for j in range(1, i+1):
       print("%d\t"%s, end = ' '); s+=1
    print()
 #
 
+
 # Hamming Numbers
+def hamming(n):
+   if (n%2==0):
+      return hamming(n/2)
+   elif (n%3==0):
+      return hamming(n/3)
+   elif (n%5==0):
+      return hamming(n/5)
+   elif (n==1):
+      return 1
+   else:
+      return 0
+a = int(input("1'den büyük tam sayı: ")); h = hamming(a)
+if (h==1):
+   print("\nIt is a Hamming number\n")
+else:
+   print("\nIt is not a Hamming number\n")
+#
+
+
+# 
