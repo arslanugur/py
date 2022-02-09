@@ -415,11 +415,14 @@ for i in range(1, N+1):
 
 
 # Floyd's Triangle
-s = 1; n = int(input("Number of Rows: ")); print("Floyd Triangle")
+s = 1; 
+n = int(input("Number of Rows: ")); 
+print("Floyd's Triangle")
 for i in range(1, n+1):
-   for j in range(1, i+1):
-      print("%d\t"%s, end = ' '); s+=1
-   print()
+    for j in range(1, i+1):
+      print("%d\t"%s, end = ' '); 
+      s+=1
+    print()
 #
 
 
@@ -443,5 +446,10 @@ else:
 #
 
 
-# OKEK-OBEB
+# LCM - Least Common Multiple, Lowest Common Multiple, Least Common Divisor -- En Küçük Ortak Kat - EKOK, Ortak Katların En Küçüğü - OKEK
+# GCD - Greatest Common Divisor -- En Büyük Ortak Bölen - EBOB, Ortak Bölenlerinin En Büyüğü - OBEB (Highest Common Factor)
+
+
+
+
 
