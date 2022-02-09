@@ -1,4 +1,5 @@
-# To differentiate between type() and isinstance()
+# Object Oriented Examples
+# Example: To differentiate between type() and isinstance()
 
 # Difference between type() and instance()
 
