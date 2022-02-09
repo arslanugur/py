@@ -102,11 +102,71 @@ f(2,3) == (lambda x,y: (x + 2*y) / (2*x+y))(2,3)
 # the brackets for the function is closed and the argument placed in its own brackets. 
 # so for variables it is var=(function())(argument)
 
-# Example 4:
+# Example 4: to leave only even numbers in the list.
+nums = [1, 2, 8, 3, 7]
 
-https://www.sololearn.com/learning/1073/2497/5345/2
+res = list(filter(lambda x: x%2==0, nums))
+print(res)    # [2, 8]
+
+# Explanations:
+# Took me a while to remember that this would be "filter". Kept trying to use remove and pop.
+# filter lambda 2 "Leave only " means to FILTER use lambda as its own function Get evens means to be a multiple of 2 
+
+# This could have also been written with a list comprehension: 
+nums = [1, 2, 8, 3, 7] 
+res = [i for i in nums if i%2==0] 
+print(res) # [2, 8]
+
+# Filter method would remove the elements that return true for the given condition. This task shouldnt be to leave all odd numbers in the list.
+
+# filter makes it so any number in the list that has a remainder of 2 would be filtered (they would stay). 
+# Which is also why 2 is needed. and for lambda, its technecly using a define statement in one line.
+
+# Example: to print only the items in the set "a" that are not in the set "b".
+print(a-b)
+
+# Explanations:
+# "|" for collecting items from both groups (similar to OR) 
+# "&" to pick only those, who are at both in same time (similar to AND) "-" is in first, 
+# not in second "^" only in one group, not in both (similar to NOT AND)
+# Examples:
+a = {1,2,3} 
+b = {2,3,4} 
+print(a ^ b) # {1, 4}
+print(a | b) # {1, 2, 3, 4} 
+print(a - b) # {1} 
+print(a & b) # {2, 3}
 
 
+# Example:
+num = int(input()) 
 
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return(fibonacci(n-1) + fibonacci(n-2)) 
+        for i in range(num):
+            print(fibonacci(i))
+#
+
+
+# Example:
+num = int(input()) 
+
+def fibonacci(n,a,b): 
+  if n == 0: 
+    print(a) 
+  elif n == 1: 
+    print(a) 
+    print(b) 
+  elif n > 1: 
+    print(a) 
+    print(b) 
+    
+a += b 
+b += a 
+fibonacci(n-2,a,b) 
+fibonacci(num-1,0,1)
 
 
