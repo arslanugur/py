@@ -67,7 +67,60 @@ stumpy = Cat("brown", 3)
 # Function is a type of method! Because functions are also called as methods.
 # When a function is defined inside a class,it is a method.When defined else where outside a class it is a function.
 
+# The method is a function, but why is such an unrelated issue with a lesson in which there was no mention of it. 
+# It's very inconsistent in my opinion, and this compliance should be done in the future.
 
+# Function and method are same. We say method in Object Oriented Programming languages like python,Java etc while function in procedural programming language like C.
+
+
+# SECTION 2: __init__
+# The __init__ method is the most important method in a class.
+#  This is called when an instance (object) of the class is created, using the class name as a function.
+
+# All methods must have self as their first parameter, although it isn't explicitly passed, Python adds the self argument to the list for you; 
+# you do not need to include it when you call the methods. Within a method definition, self refers to the instance calling the method.
+
+# Instances of a class have attributes, which are pieces of data associated with them.
+# In this example, Cat instances have attributes color and legs. These can be accessed by putting a dot, and the attribute name after an instance.
+# In an __init__ method, self.attribute can therefore be used to set the initial value of an instance's attributes.
+# Example: 
+class Cat:
+    def __init__(self, color, legs):
+        self.color = color
+        self.legs = legs
+
+felix = Cat("ginger", 4)
+print(felix.color)      # ginger
+# In the example above, the __init__ method takes two arguments and assigns them to the object's attributes. The __init__ method is called the class constructor.
+
+# Explanations:
+class Cat: 
+    def __init__(self, color, legs): 
+        self.whichcolor = color 
+        self.howmanylegs = legs 
+ 
+felix = Cat("ginger", 4) 
+print(felix.whichcolor)     # ginger
+print(felix.howmanylegs)    # 4
+        
+# you should know that it is not necessary to write self as a word. 
+# you can write it any thing like you can write instead of self obj or even your name but with one condition Which
+# it has to be the the first argument cause it just a word refers to the object like garfield = Cat('white', 4) 
+# now in the class itself.
+# Example:
+class Cat: 
+    def __init__( myobject, color, legs):   # here garfield is just referring to the object of the class by using myobject so when you say garfield 
+        myobject.catcolor = color           # catcolor it is actually like you are saying get myobject.catcolor 
+        myobject.catlegs = legs
+        
+garfield = Cat("white", 4) 
+print(garfield.catcolor)        # white
+print(garfield.catlegs)         # 4
+
+
+
+https://www.sololearn.com/learning/1073/2467/5126/1
+    comments
 
 
 
