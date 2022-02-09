@@ -1,4 +1,5 @@
-# To get the class name of an instance
+# Object Oriented Examples
+# Example: To get the class name of an instance
 
 # Example 1: Using __class__.__name__
 class Vehicle:
