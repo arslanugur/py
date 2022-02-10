@@ -1,4 +1,4 @@
-# Decision Making and Loops
+# Decision Making and Loops Examples
 # Example: Find the Factorial of a Number
 
 # The factorial of a number is the product of all the integers from 1 to that number.
