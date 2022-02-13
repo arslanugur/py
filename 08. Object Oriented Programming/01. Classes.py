@@ -117,10 +117,136 @@ garfield = Cat("white", 4)
 print(garfield.catcolor)        # white
 print(garfield.catlegs)         # 4
 
+# Methods with double under score at the beginning and at their ends are called Magic Methods, for example, __init__
+
+# Technically, 'self' is just a variable name. 
+# E.g. you could use 'radio' instead, so 
+class Cat: 
+    def __init__(radio, color, legs): 
+        radio.color = color 
+        radio.legs = legs 
+
+felix = Cat("ginger", 4) 
+print(felix.color) # 'ginger', but because 'self' is universally used, it would be bad coding style to use a different variable name.
+# 
 
 
-https://www.sololearn.com/learning/1073/2467/5126/1
-    comments
+# Example:
+# Sometimes 'parameter' gets confused with 'argument'. 
+# A parameter is a variable that is part of the definition of a function/method. 
+# e.g. in 
+def squared(a): 
+    return a * a # a is a parameter. An argument is the actual value of the variable passed to the function when it is called. 
+# e.g. in squared(5) 5 is an argument. 
+# The value of the argument is passed to the parameter and operated on by the function/method. 
+# In this example, the argument value 5 is passed to the parameter a and the function squared() returns 25
+
+# Try changing assignments, like self.color = legs or self.color = "ginger" and run the code. 
+# This helped me understand what was happening. I found the course explanation confusing, this helped clarify.
+
+
+# Example:
+def __init__(self,height,sex,age): 
+    self.myheight = height 
+    self.mysex = sex 
+    self.myage = age
+
+student = me("six feat","male",45) 
+print(student.myheight)             # six feat 
+print(student.mysex)                # male
+print(student.myage)                # 45
+# Think of self as student thus self = student (student is a class object) and remember the above code said whenever there is a self.myheight 
+# it should print height (self.myheight=height) 
+# so in a nut shell self.myheight is the same as student.myheight, therefore the height of the student is printed. 
+# Same thing applies to the rest of the code
+
+
+# Example:
+class Cat: 
+    def __init__(self, color, legs, age): 
+        self.color = color 
+        self.legs = legs 
+        self.age = age 
+        
+boris = Cat("yellow", 4, 25) 
+tom = Cat("red", 3, 16) 
+felix = Cat("ginger", 4, 8) 
+print(felix.legs)               # 4
+print(tom.age)                  # 16
+print(boris.color)              # yellow
+
+
+# Example: to create a class and its constructor, taking one argument and assigning it to the "name" attribute. Then create an object of the class.
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+test = Student("Bob")
+
+
+# Example:
+class Lokh:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+ya = Lokh('Я', 23)
+print(f'{ya.name} же не лох, мне {ya.age} года.')
+
+
+# first I thought it was only a single underscore. vote me up if you thought the same
+class Student:
+    def __init__(self,name): 
+        self.cocojambo = name 
+
+test = Student("Bob") 
+print(test.cocojambo) 
+# It is not mandatory to set self.name inside constructor. 
+# You can use any name for the variable, but for the clarity of the code is good to have the same name as the transmitted argument.
+
+# It would be a good idea (i.e. would make things clearer for the student) 
+# if it was explicitly mentioned in the first lesson that the underscore on each side of the __init__ is actually a double underscore. 
+# That fact is not obvious with the font in which this is usually read; there is no break between the two underscore characters.
+
+# 'self' is a parameter like 'name' in this example. 
+# When the object 'test' is created as a specific instance of the class 'Student', 
+# the argument "Bob" is passed to the parameter 'name' and the argument 'test' is passed to the parameter 'self'. 
+# So when you want to print the 'name' attribute of 'test', you use 'print(test.name)'. 
+# The __init__ function processes self.name = name, so test.name is returned as "Bob".
+
+
+# SECTION 3: METHODS
+class Dog:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+    def bark(self):
+        print("Woof!")
+
+fido = Dog("Fido", "brown")
+print(fido.name)            # Fido Woof!
+fido.bark()
+
+# Classes can also have class attributes, created by assigning variables within the body of the class. These can be accessed either from instances of the class, or the class itself.
+# Example:
+class Dog:
+    legs = 4
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+fido = Dog("Fido", "brown")
+print(fido.legs)            # 4
+print(Dog.legs)             # 4
+# Class attributes are shared by all instances of the class. 
+
+
+https://www.sololearn.com/learning/1073/2467/5127/1
+commment
+
+
+
 
 
 
