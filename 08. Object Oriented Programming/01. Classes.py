@@ -242,15 +242,326 @@ print(Dog.legs)             # 4
 # Class attributes are shared by all instances of the class. 
 
 
-https://www.sololearn.com/learning/1073/2467/5127/1
-commment
+# If the instance fido does not have a variable called legs then it will share with Dog.legs, 
+# but if you later initialize fido.legs with a value then there will be two variables fido.legs and Dog.legs and they're independent. 
+class Dog: 
+    legs = 4 
+    def __init__(self, name, color): 
+        self.name = name 
+        self.color = color
+
+fido = Dog("Fido", "brown") 
+print(fido.legs)            # 4
+fido.legs=7 
+print(fido.legs)            # 7
+print(Dog.legs)             # 4
+Dog.legs=6 
+print(Dog.legs)             # 6
+print(fido.legs)            # 7
+
+
+# Example: With this code you got it easy: 
+class Dog: 
+    legs = 4 
+    def __init__(self, name, color): 
+        self.name = name 
+        self.color = color 
+    def bark(self): 
+        return "woof" 
+
+fido = Dog("Fido", "brown") 
+dado = Dog("toll", "late") 
+print("The " + fido.color + " " + fido.name + " " + fido.bark() + " a lot!")    # The brown Fido woof a lot!
+print("Fido legs before: " + str(fido.legs))                                    # Fido legs before: 4 
+print("Dado legs before: " + str(dado.legs))                                    # Dado legs before: 4 
+fido.legs = 4 
+Dog.legs = 5
+print("Fido legs after: " + str(fido.legs))                                     # Fido legs after: 4
+print("Dado legs after: " + str(dado.legs))                                     # Dado legs after: 5
+                            
+
+# Example:
+class Dog: 
+    legs = 4 
+    def __init__(self, name, color): 
+        self.name = name 
+        self.color = color 
+
+rufus = Dog("Rufus III", "black") 
+print(rufus.name, "is", rufus.color, "and has", Dog.legs, "legs.") # Rufus III is black and has 4 legs.
+
+# Example: to calculate area of rectangle using class. It is working as expected, but don't know how it works
+class rectangle: 
+    def __init__(self, length=0, bredth=0): 
+        self.length = length 
+        self.bredth = bredth 
+    def area(self): 
+        self.length = int(input('Enter Length: ')) 
+        self.bredth = int(input('Enter Bredth: ')) 
+        
+area = self.length * self.bredth 
+print(area) 
+rectangle().area()
+        
+
+# Example:
+class point: 
+    def __init__(self, x=0, y=0): 
+        self.x = x 
+        self.y = y 
+    def distance_from_orizin(self):
+        a = self.x**2
+        b = self.y**2
+        c = .5
+        return((a+b)**c) 
+
+p = point(3,4) 
+q = p.distance_from_orizin() 
+print(q)    # 5.0
+
+
+# Example: to create a class with a method sayHi().
+class Student:
+  def __init__(self, name):
+        self.name = name
+  def sayHi(self):
+    print("Hi from "+ self.name)
+
+s1 = Student("Amy")
+s1.sayHi()
+
+
+# Self must be the first parameter in ever method that you create within the class. 
+# This allows for inheritance -> which allows the class to inherit the properties or methods within it.
+
+# def self self 
+# Explanation: : explains to the program that the class name ends def takes out all the work of declaring variables 3 times within code 
+# self needs to refer to itself self then is reused to print the argument hi 
+
+# so just think of it like when you want to put a function inside of the class you put self as a perimeter for that function 
+# then when you want to plug back into that function you say variable. Function... or print variable. 
+# Perimeter... Etc it's algebraic it's all about associations the terminology will trip you up 
+# I learned all this without understanding what all these terms mean like I just see how it works 
+# but the terms will confuse you and I'm just not the kind of person that learns with terms
+
+# SECTION 4: Classes
+# Trying to access an attribute of an instance that isn't defined causes an AttributeError. This also applies when you call an undefined method.
+# Example:
+class Rectangle: 
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+rect = Rectangle(7, 8)
+print(rect.color)
+
+# why every time we have type like, self.width=width or self.name=name can it be made default inside the program definition? 
+# what is the point of typing? can it be typed in any other ways?
+# You do not have to assign the parameter to self.parameter, 
+# you could assign it an initial value directly: class go(): def __init__(self): self.name="Sam" self.legs=2 print(go.legs) -> 2 
+# Note that when you do this, you must remove these parameters from __init__. 
+# As you can see, when I implement a class, the initial values of name and legs will be Sam and 2 respectively. 
+# By assigning name to self.name 
+# for example, you leave the initial value to be determined when an object of the class is implemented: 
+class go(): 
+    def __init__(self,name,legs): 
+        self.name=name 
+        self.legs=legs 
+        
+man = go("Carson",3) 
+print(man.legs) # 3 --> This creates an object of class go with name Carson and 3 legs and prints the number of legs man has.
+
+
+# I think the self.method line creates a method with name 'method', and this can be called on an object by running object.method. 
+# In the example, .width is a method, and it is assigned to return the value of the first object parameter, here also called width. 
+# They don't have to share a name, but it makes sense if they do. 
+# See the following example in which the method is called breadth instead (but the parameter is still called width). 
+# It is just a question of naming, but I think it makes it a bit clearer as to what each line if the example code does: 
+class Rectangle: 
+    def __init__(self, width, height): 
+        self.breadth = width 
+        self.height = height 
+        
+rect = Rectangle(7, 8) 
+print(rect.breadth) # 7
+
+# Example:
+class Rectangle: 
+    def __init__(self, w, h): 
+        self.width = w 
+        self.height = h 
+        
+rect = Rectangle(7, 8) 
+print(rect.width)   # 7
+
+
+# Example:
+# you could also change to class Rectangle: def __init__(self, w, h): self.w = w self.h = h rect = Rectangle(7, 8) print(rect.w) 
+# the verbose syntax for setting initial attribute values is: 
+# self <which is a placeholder for instance-names> . attribute-name = attribute <parameter of __init__>
+
+# Using single (or even double) letter names might seem tempting, 
+# but are arguably a bad habit to fall into if you are considering taking up programming professionally (or contributing to open source projects online). 
+# Most lint tools require names or identifiers to be 3 characters or longer, and stylistically using full words is considered better practice vs. algebraic symbols. 
+# Just some things to keep in mind. It might not seem like a big deal, but bad programming habits can catch on quickly early on and will be hard to break later.
+
+
+# I think is if you wanted an instance to hold a list of values such as a manager and how many employees he's in charge of 
+class Manager: 
+    def __init__(self, list_emp = None): 
+        if list_emp == None: 
+            self.list_emp = [] 
+         else: 
+            self.list_emp = list_emp # because you don't generally want to pass mutable data types such as a list in the init method.
+#
+
+# Example:
+class Dog:
+    def __init__(self,color_color,name)
+    self.Dogs_color = color_color 
+    self.Dogs_owners_name = name 
+    
+my_class = Dog("white","abby") 
+print(my_class.Dogs_color)
+print(my_class.Dogs_owners_name) # white abby 
+        
+
+# Example:
+class Rectangle: 
+    def __init__(self, width, height, color): 
+        self.width = width 
+        self.height = height 
+        self.color = color 
+        
+rect = Rectangle(7, 8, "blue") 
+print(rect.color)               # blue now it works
+
+
+# Example:
+class Monster(): 
+    def __init__(self): 
+        self.name = "" 
+        self.health = 0 
+        self.weight = 0 
+     def decrease_health(self, amount): 
+        self.health -= amount 
+        if self.health <= 0: 
+            print("Monster died") 
+        else: print("Monster has", self.health, "HP") 
+            
+dranagul = Monster() 
+dranagul.health = 50 
+dranagul.decrease_health(10) 
+dranagul.decrease_health(40) # Output: Monster has 40 HP Monster died
+
+
+# Example:
+class Rectangle: 
+    def __init__(self, width, height): 
+        self.width = width 
+        self.height = height 
+        self.area = width * height 
+        
+rect = Rectangle(7, 8) 
+print(rect.area) # prints 56
+# https://docs.python.org/3/tutorial/classes.html#
+
+# Example:
+class Rectangle: 
+    def __init__(self, width, height): 
+        self.width = width 
+        self.height = height 
+        
+rect = Rectangle(7, 8) 
+rect.color ="Blue" 
+print(rect.color)
+
+
+# Example:
+class Rectangle: 
+    def __init__(self, width, height, color): 
+        self.width = width 
+        self.height = height 
+        self.color = color 
+        try: 
+            rect = Rectangle(7,9) 
+        except: 
+            NameError 
+        try: 
+            rect = Rectangle(rect.color) 
+        except: 
+            AttributeError 
+            
+rect = Rectangle(7,9,"red") 
+print("Rectangle has \nwidth :", rect.width ,"\nheight:", rect.height, "\n""and the color is", rect.color, "It works" )
+
+
+# Example:
+#classes - class means the design of the car 
+# arguments means its specifications, also called attributes or parameters ,here the arguments are colour,variant and no. of seats 
+# objects are created using the class design,they are also called as instances 
+# here 'a','b' and 'c' are three cars of same class i.e, three cars of same design but different specifications 
+# the use of self is explained below. 
+class cars: 
+    def __init__(self,colour,variant,seats=4): 
+        self.colour=colour 
+        self.variant=variant 
+        self.seats=seats 
+     def model(self): 
+        print('convertible') 
+        
+a = cars('red','petrol',4) 
+# here self takes the object name,it refers to the object name everytime you create a new object 
+# self.colour=colour means a.colour=red #self.variant=variant means a.variant=petrol 
+# self.seats=seats means a.seats=4 b=cars('blue','diesel',2) c=cars('yellow','electric') print(a.colour) print(b.variant) print(c.seats) a. Model() 
+# here car 'c' we did not specify the no of seats, so it takes default.
+
+# Example:
+# We can do several things with the attributes: 
+# give them as parameters, use default values if none is pass as an argument, 
+# create them inside the class with a pre-defined value or as the result of a math operation: 
+class Rectangle: 
+    def __init__(self, width=1, height=1): 
+        # Two parameters with 1 as default to both self.width = width 
+        # Value form the argument or 1 self.height = height 
+        # Value form the argument or 1 self.color = 'blue' 
+        # Attribute created with any value self.area = width * height 
+        # Attribute created out of a math formula 
+rect = Rectangle() 
+print(rect.width, rect.height, rect.area, rect.color) 
+rect = Rectangle(5) 
+print(rect.width, rect.height, rect.area, rect.color) 
+rect = Rectangle(5, 2) 
+print(rect.width, rect.height, rect.area, rect.color) 
+            
+
+# Example:
+class square: 
+    def __init__(self,width,height): 
+        self.width = int(input("please enter the width:\n")) 
+        self.height = int(input("please enter the height:\n")) 
+        
+sel.area = width * height 
+print("the area of the square is:\n") 
+print(sel.area)
+
+
+# Example:
+class Rectangle: 
+    def __init__(self, width, height,color): 
+        self.width = width 
+        self.height = height 
+        self.color = color 
+        
+rect = Rectangle(7, 8,"blue") 
+print(rect.color)               # blue
+        
+# AttributeError is caused by trying to access unknown attributes?
 
 
 
 
-
-
-
+    
 #SINIFLAR
 #bi class oluşturcaz
 """
