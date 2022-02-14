@@ -228,7 +228,8 @@ fido = Dog("Fido", "brown")
 print(fido.name)            # Fido Woof!
 fido.bark()
 
-# Classes can also have class attributes, created by assigning variables within the body of the class. These can be accessed either from instances of the class, or the class itself.
+# Classes can also have class attributes, created by assigning variables within the body of the class. 
+# These can be accessed either from instances of the class, or the class itself.
 # Example:
 class Dog:
     legs = 4
@@ -562,42 +563,40 @@ print(rect.color)               # blue
 
 
     
-#SINIFLAR
-#bi class oluşturcaz
-"""
-class Person: #büyük harfle başla
-    pass #pass keywordu yer tutucu olarak kullanılabilir, pass yazmadan geçer 
-    #normalde att ya da met kullanmak gerekli
-    #class kapsamı içinde tanımlayabileceğimiz ifadeler
-    # attributes        # methods
+# CLASSES
+# Example:
+# create a new class
+class Person:   # starts with a capital letter
+    pass        # use to pass without writing as a placeholder 
+                # normally, need to use 'att' or 'met'
+                # Expressions we can define within the scope of the class: attributes, methods
 
-#bi object tanımlayalım
-p1 = Person() #küçük harfle başla
-    #person classını p1 objesini tanımlamak için kullanıcaz #değişken tanımlamaya benziyor 
-p2 = Person() #ikinci bi pbje daha, tipi yine person
-print(p1) #p1e bellek üze bi adres verir #objectin de bi person tipi old söyler
-print(p2) #p1in aksine farklı bi adreste tanımlanır
-print(type(p1)) #tiplerini yazdırırsak class ve person classı olur bu class str ya da int gibi 
-print(p1 == p2) #dersek bunlar farklı old gösteirir False
-"""
+# define an object
+p1 = Person()   # start with small letter
+                # we will use the class 'Person' to define the object 'p1' -- like definition of a variable
+p2 = Person()   # the second object 'p2' as another Person type
+print(p1)       # we will give an address on memory
+print(p2)       # p1 is at a different address, p2 is at a different address
+print(type(p1)) # if we print their types, str, int
+print(p1 == p2) # indicates difference # False
+
 
 # ATTRIBUTES
 # Class Attributes
 class Person:
-    #pass artık ihtiyaç yoksilelim
+    # no need 'pass' more
     address = 'no info' 
 # const içinden o objedeki bilgiyle ilgili bi adres bilgisi eklemek yerine 
-# yani addressi direk class att olarak tanımlayabiliriz çünkü her zman kullanmıyacağız
-#ki gereken bilgileri yani olmazsa olmazları obj att yapmak daha iyi
+# so, we can define address as class att 
+# better define necessary info as 'att' or 'obj'
 
 # Object Attributes
     #constructor method ile obj attr yapıcaz (yapıcı metod)
-    #method tanımlaması yaparsak
-    def __init__(self, name, year): #const örnek init methodu
-#init methdunun parametreleri olacak
-#ilki self isminde bi parametre
-#classdan türettiğimiz p1 ya da p2 objesi burda self 
-#yani obj üzerine bi şey yapılacaksa burda self kullanılacak
+    # definition of method
+    def __init__(self, name, year): # const is an init method
+                                    # parameters for init method: self
+                                    # objects 'p1', 'p2'we derived from class - is 'self' here
+                                    # so, obj üzerine bi şey yapılacaksa burda self kullanılacak
 #diğer özelliklerde self sonrası gelir ,name , age gibi
 #userın gönderdii name ve year bilgileri aktarılacak
         self.name = name
@@ -615,13 +614,13 @@ p2 = Person(name = 'John', year = 2000) #('init metodu çalıştı')
 p1.name = 'George'
 p2.address = 'London'
 
-#p objelerinin değerlerini ekrana yazdırırsak
-#aşağıda yapılan işlemin adı 
-#accessing object attributes
+
+# print the values of the objects 'p'
+# The name of process: Accessing object attributes 
 print(f'p1 name: {p1.name}, year: {p1.year}, address: {p1.address}')
 print(f'p2 name: {p2.name}, year: {p2.year}, address: {p2.address}')
 
-
-
 print(p1)
 print(p2)
+
+
