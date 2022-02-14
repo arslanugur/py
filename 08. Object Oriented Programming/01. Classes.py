@@ -596,8 +596,8 @@ class Person:
     def __init__(self, name, year): # const is an init method
                                     # parameters for init method: self
                                     # objects 'p1', 'p2'we derived from class - is 'self' here
-                                    # so, obj üzerine bi şey yapılacaksa burda self kullanılacak
-#diğer özelliklerde self sonrası gelir ,name , age gibi
+                                    # so, if anything will be done on object, 'self' will be used here
+                                    # diğr özelliklerde self sonrası gelir ,name , age gibi
 #userın gönderdii name ve year bilgileri aktarılacak
         self.name = name
         self.year = year
