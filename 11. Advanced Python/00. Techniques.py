@@ -446,10 +446,41 @@ else:
 #
 
 
-# LCM - Least Common Multiple, Lowest Common Multiple, Least Common Divisor -- En Küçük Ortak Kat - EKOK, Ortak Katların En Küçüğü - OKEK
-# GCD - Greatest Common Divisor -- En Büyük Ortak Bölen - EBOB, Ortak Bölenlerinin En Büyüğü - OBEB (Highest Common Factor)
+# LCM (OKEK/EKOK) - Least Common Multiple, Lowest Common Multiple, Least Common Divisor -- En Küçük Ortak Kat - EKOK, Ortak Katların En Küçüğü - OKEK
+# GCD (OBEB/EBOB) - Greatest Common Divisor -- En Büyük Ortak Bölen - EBOB, Ortak Bölenlerinin En Büyüğü - OBEB (Highest Common Factor)
+# OKEK-OBEB
+a = int(input("First Integer: ")); b = int(input("Second Integer: "))
+for i in range(1, a*b+1):
+   if ((i%a==0) & (i%b==0)):
+      print("\nLCM(%d, %d) = %d\n"%(a, b, i))
+      break
+c = max(a, b)
+for i in range(c, 1, -1):
+   if ((a%i==0) & (b%i==0)):
+      print("GCD(%d, %d) = %d\n"%(a, b, i))
+      break
+
+--- with ready commands/functions
+# OBEB için
+fractions.gcd(a, b)
 
 
 
+# EBOB
+def gcd(x, y):
+   if (y == 0):
+      return x
+   else:
+      return gcd(y, x%y)
+a = int(input("First Integer: ")); b = int(input("Second Integer: "))
+print("\nGCD(%d, %d) = %d" % (a, b, gcd(a, b)))
+
+
+# Bitwise Operations (Bitsel İşlemler)
+a = int(input("Positive Integer: "))
+k = int(input("kaçıncı bit: "))
+print("\nWriting: %d" % (a | (1<<(k-1))))
+print("\nDeletion: %d" % (a & (~ (1<<(k-1)))))
+print("\nTümleme: %d" % (a ^ (1<<(k-1))))
 
 
