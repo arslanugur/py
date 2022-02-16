@@ -33,3 +33,30 @@ print(count)    # Output: {'o': 5, 'i': 3, 'a': 2, 'e': 5, 'u': 3}
 # In each iteration, we check if the character is in the dictionary keys (True if it is a vowel) and increment the value by 1 if true.
 
 
+
+
+# Source Code: Using a list and a dictionary comprehension
+# Using dictionary and list comprehension
+ip_str = 'Hello, have you tried our tutorial section yet?'
+
+# make it suitable for caseless comparisions
+ip_str = ip_str.casefold()
+
+# count the vowels
+count = {x:sum([1 for char in ip_str if char == x]) for x in 'aeiou'}
+
+print(count)
+# The output of this program is the same as above.
+
+# Here, we have nested a list comprehension inside a dictionary comprehension to count the vowels in a single line.
+
+# The dictionary comprehension runs for all vowel characters and the list comprehension inside the dictionary comprehension checks 
+# if any characters in the string match that particular vowel.
+
+# At the end, a list with 1s is generated for the number of each vowel character. 
+# The sum() method is used to calculate the sum of the elements for each list.
+
+# However, this program is slower as we iterate over the entire input string for each vowel.
+
+
+
