@@ -476,15 +476,48 @@ dog_1.move() # moving... dog_1.bark() # barking... dog_1.play_dead() # playing d
 
 
 
-# #Two things I learned here. #1. It doesnt matter if you call the class directly or transform it into a variable first (its just done fore #style reasons iI guess). #2. if you define the same mathods with the same name within a Class these will be used not the one #where the class inherits from . #See example; class A: def method(self): print("A method") class B(A): def another_method(self): print("B method") class C(B): def method(self): print("AA method") def another_method(self): print("BB method") def third_method(self): print("C method") C().method() C().another_method() C().third_method() #giving us the output: AA method BB method C method
+# Two things to learn here. 
+# 1. It doesnt matter if you call the class directly or transform it into a variable first (its just done fore #style reasons iI guess). 
+# 2. if you define the same mathods with the same name within a Class these will be used not the one #where the class inherits from . 
+# See example; 
+class A: 
+    def method(self): 
+        print("A method") 
+        
+class B(A): 
+    def another_method(self): 
+        print("B method") 
+        
+class C(B): 
+    def method(self): 
+        print("AA method") 
+    def another_method(self): 
+        print("BB method") 
+    def third_method(self): 
+        print("C method") 
+        
+C().method() 
+C().another_method() 
+C().third_method()  # giving us the output: AA method BB method C method
 
 # circular inheritance means both classes inheriting one another. means class A inherits B and clasa B inherits A .
 
 # i.e class A inherit class B class B inherit class C class C inherit class A
 
-# it seems that circular inheritance is not allowed from a subclass to superclass, which means that a subclass may inherit from a superclass, however, a superclass cannot inherit back from the same subclass it has been inherited from it
+# it seems that circular inheritance is not allowed from a subclass to superclass, which means that a subclass may inherit from a superclass, 
+# however, a superclass cannot inherit back from the same subclass it has been inherited from it
 
-# below is last question What is the result of this code? class A: def method(self): print(1) class B(A): def method(self): print(2) B().method() when B().method() runs，result is 2 from B AND this example shows c.method runs, result is from class A WHY？thanks for anwser 
+# What is the result of this code? 
+class A: 
+    def method(self): 
+        print(1) 
+        
+class B(A): 
+    def method(self): 
+        print(2) 
+        
+B().method() # when B().method() runs，result is 2 from B AND this example shows c.method runs, result is from class A WHY?
+
 
 # Example:
 class A:
@@ -502,9 +535,203 @@ class C(B):
 c = C()
 c.a()
 
-https://www.sololearn.com/learning/1073/2469/5131/2
-    comments
-    
+# the function in subclass override the one in superclass
+
+# (1): We define the class A which comes equipped with no attributes at all but with the a() method that takes no arguments and prints 1. 
+# Then, we define the class B to inherit A class, so attributes + methods of A class get "copied & pasted" onto B class. 
+# So, class B comes equipped with method a() which takes no arguments and prints 1. 
+# However, we define the class B to have the method a() that takes no arguments and prints 2, 
+# but this certainly OVERRIDES the a() method it had previously received due to inheritance from the A class.
+# (2): Next, we define C class to inherit from B class, so attributes + methods of B class get "copied & pasted" onto C class. 
+# Hence, class C comes equipped with the method a() which takes no arguments and prints 2, as well as the method c() that takes no arguments and prints 3. 
+# We define an an instance of the C class which has no attributes at all, 
+# but because it's an instance of the C class, we certainly are ALLOWED to deploy the ANY of the 2 methods, a() and c(), that come equipped with the C class. 
+# We choose to deploy the a() method with the instance "c" of class C, hence using the a() method of class C actually. Therefore, we get 2 as the output.
+
+
+# SECTION 4
+# The function super is a useful inheritance-related function that refers to the parent class. 
+# It can be used to find the method with a certain name in an object's superclass.
+# Example:
+class A:
+    def spam(self):
+        print(1)
+
+class B(A):
+    def spam(self):
+        print(2)
+        super().spam()
+
+B().spam()
+# super().spam() calls the spam method of the superclass.
+# Output:
+# 2
+# 1
+
+
+# This code modification might make things more clear. And because you can't go wrong with superspam! 
+class A: 
+    def spam(self): 
+        print(1) 
+        
+class B(A): 
+    def spam(self): 
+        print(2) 
+    def superspam(self): 
+        super().spam() 
+
+B().spam() 
+B().superspam()
+
+# Example:
+class Human: 
+    def __init__(self,name,size): 
+        self.name=name 
+        self.size=size 
+    def present(self): 
+        print("{0}: {1} cm".format(self.name,self.size)) 
+        
+class Worker(Human): 
+    def __init__(self,name,size,job): 
+        super().__init__(name,size) 
+        self.job=job 
+    def present(self): 
+        super().present() 
+        print(self.job) 
+        
+w = Worker("Bob",185,"trader") 
+w.present()
+                            
+# Example:
+class A: 
+    def spam(self): 
+        print(1) 
+        
+class B(A): 
+    def spam(self): 
+        print(2) 
+        
+class C(B): 
+    def spam(self): 
+        print(3) 
+        super().spam() 
+        super().super().spam() 
+        
+C().spam() # Output: 3 2 Traceback: <AttributeError> 
+
+# But this does: 
+class A: 
+    def spam(self): 
+        print(1) 
+        
+class B(A): 
+    def spam(self): 
+        print(2) 
+    def getSuper(self): 
+        return super() 
+        
+class C(B): 
+    def spam(self): 
+        print(3) 
+        super().spam() 
+        super().getSuper().spam() 
+        
+C().spam() 
+
+
+# Example:
+# For the people who can't understand why there is a "2" and a "1" printed. 
+# Basically in the end of the code there is a "B().spam()" which makes the "Class B(A)" code run, right? 
+# So if you look it up you will see that it says print (2) first and then ~the trick part~ it shows "super().spam()." 
+# This will make it go to the Class A {the superclass} and run its "print (1)" 
+# because that is what its "def spam" in Class A does, it prints the number
+
+
+# Example:
+class A: 
+    def spam(self): 
+        print(1) 
+        
+class B(A): 
+    def spam(self): 
+        print(2) 
+        super().spam() 
+        
+class C(B): 
+    def spam (self): 
+        print(3) 
+        super().spam() 
+        
+C().spam() # output: 3 2 1 
+
+
+# Example:
+class A: 
+    def spam(self): 
+        print(1) 
+    def parent(self): 
+        print("I am parent") 
+        
+class B(A): 
+    def spam(self): 
+        print(2) 
+        super().spam() 
+        super().parent() 
+        
+c=B() 
+c.spam() # output: 2 1 I am parent
+
+
+# Example:
+class A: 
+    def spam(self): 
+        print(1) 
+        
+class B(A): 
+    def spam(self): 
+        print(2) 
+        super().spam() 
+        
+B().spam() # OUTPUT: 2 1 
+# Second Example:
+class A: 
+    def spam(self): 
+        print(1) 
+
+class B(A): 
+    def spam(self): 
+        print(2) 
+        
+B().spam() # OUTPUT: 2 # It seems like with super(). it calls both of the classes: it prints class A and B, so 2 and 1.
+                                                
+# What is the superclass of a class?    The class it inherits from      # Superclass of a class == Father of a child        
+# A super class is simply what the normal class inherits from. 
+
+# if in the case of the indirect inheritance the superclass was considered the first class to inherit its attributes and methods or the last one to inherit them, 
+# so I ran the following code and that helped me understand the answer to the above question. 
+class A: 
+    def method(self): 
+        print("A method") 
+        
+class B(A): 
+    def method(self): 
+        print("B method") 
+        
+class C(B): 
+    def method(self): 
+        print("C method") 
+        
+class D(C): 
+    def method(self): 
+        print("D method") 
+        super().method() 
+        
+d = D() d.method() # D method C method # as you can see, for this example the superclass for D would be class C
+
+
+# The class from which a class inherits is called the parent or superclass. 
+# A class which inherits from a superclass is called a subclass, also called heir class or child class. 
+# Superclasses are sometimes called ancestors as well.
 
 
 
@@ -512,20 +739,18 @@ https://www.sololearn.com/learning/1073/2469/5131/2
 
 
 
+# Nesne tabanlı prpgramlama  - Kalıtım
+# Classların birbirinden miras almasıyla olan bi durum
 
-
-#Nesne tabanlı prpgramlama  - Kalıtım
-#Classların birbirinden miras almasıyla olan bi durum
-
-#Person class; name, surname, age, eat() metodu, walk() metodu
-#Student ya da Teacher classes; Person class görevlerini bunlara da olmasını isterim
-#Student(Person) , Teacher(Person) tüm özellikler onlarda da var
-#Person için tanımlanan bütün özeelikler attributes ve methods Student ve Teacher parçası olcak
-#yani aynı özellikleri tekrar tekrar oluşturmaya gerek yok
-#Student ya da Teacher classa öğrenci/öğretmen özellikleri de eklenebilcek
-#Person sadece standard yani temel sınıf
-#Animal() --- Dog(Animal), Cat(Animal), Horse(Animal)
-"""
+# Person class; name, surname, age, eat() metodu, walk() metodu
+# Student ya da Teacher classes; Person class görevlerini bunlara da olmasını isterim
+# Student(Person) , Teacher(Person) tüm özellikler onlarda da var
+# Person için tanımlanan bütün özellikler attributes ve methods Student ve Teacher parçası olcak
+# yani aynı özellikleri tekrar tekrar oluşturmaya gerek yok
+# Student ya da Teacher classa öğrenci/öğretmen özellikleri de eklenebilcek
+# Person sadece standard yani temel sınıf
+# Animal() --- Dog(Animal), Cat(Animal), Horse(Animal)
+# Example:
 class Person():
     def __init__(self):
         print('Person Created')
@@ -541,7 +766,8 @@ class Student(Person):
 s1 = Student() #Person Created
 #student objesini çağırmak personın init metodunu tekrar çağırmak demek
 #Studenta bi init metodu eklersek
-"""
+
+
 
 #SECOND PART
 class Person():
