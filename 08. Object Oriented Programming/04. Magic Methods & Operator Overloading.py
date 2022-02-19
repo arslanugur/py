@@ -1,3 +1,10 @@
+# x.__setitem__(y, z) 
+    # x => array -- to affect
+    # __setitem__ => Magic method 
+    # y => index -- to target
+    # z => value -- to assign
+    
+    
 # SECTION 1: Magic Methods
 # Magic methods are special methods which have double underscores at the beginning and end of their names.
 # They are also known as dunders.
@@ -35,6 +42,7 @@ print(result.y)   # 16
 # so it gives you the liberty of designing the operation for the desired class. 
 # I think the most helpful example is the object Vector2D, in which the + symbol is programmed to add the value of the x and y of both items respectively. 
 # Without explicitly telling python what the + means in this case, then it would surely return something that wasn't intended to. 
+
 
 # __methodName__ are mostly used to override operators behaviours. 
 # If you call 21+21 Python calls behind the scene 21.__add__(21). 
@@ -87,6 +95,7 @@ print(result.y)   # 16
 # in, __contains__(self, value), Check membership; 
 # len, __len__(self), The number of elements; 
 # str, __str__(self), The string representation Magic Method. dunders: abbr of double underscores； Operator Overloading: custom class
+
 
 # So I finally understood! sorry if it has been explained before but I just want also confirm I'm right. 
 # The magic method is simply telling the interpreter how to handle the operation between the two objects. 
@@ -252,25 +261,25 @@ print(spam / hello) # output: spam ==== ============ Hello World!
 
 
 # Here is a example of rtruediv: 
-class Pair_of_numbers: 
+class Pair_of_numbers:
     def __init__(self, x, y): 
         self.x = x 
         self.y = y
     def __truediv__ (self, other):
         return Pair_of_numbers(self.x / other.x, self.y / other.y) 
     
-class Pair_of_numbers2: 
-    def __init__(self, x, y): 
-        self.x = x 
-        self.y = y 
+class Pair_of_numbers2:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
     def __rtruediv__ (self, other): 
         return Pair_of_numbers(self.x / other.x, self.y / other.y) 
     
-pair_1 = Pair_of_numbers(10,5) 
-pair_2 = Pair_of_numbers2(2,5) 
-result = pair_1 / pair_2 
-print (result.x) 
-print (result.y) 
+pair_1 = Pair_of_numbers(10,5)
+pair_2 = Pair_of_numbers2(2,5)
+result = pair_1 / pair_2
+print (result.x)
+print (result.y)
 # the result is 0.2 1.0 Because there is no method named __truediv__ in Pair_of_numbers (the method is commented by #)
 # then the pair_1 / pair_2 will do __rtruediv__ : pair_2.__rtruediv__(pair_1) 2/10==0.2 1/1=1.0 
 # If you drop the symbol '#' at the __truediv__ line in the class Pair_of_numbers pair_1 /pair_2 will do pair_1.__truediv(pair_2) 
@@ -511,6 +520,206 @@ new_r = r1+r2 # creates new robot/obj #by combining powers/attribute r1 > r2 # c
 
 # this lessons are very nice and all but not very clear and im no genius but thats why i use this program to try to understand phyton but dont seem to get it
 
-https://www.sololearn.com/learning/1073/2470/5135/2
+
+# What is __le__ a magic method for?    x <= y
+# These magic methods are quite easy to remember. 
+# Use first letters: 
+# < less than __lt__ 
+# <= less or equal __le__ 
+# == equal __eq__ 
+# != not equal __ne__ 
+# > greater than __gt__ 
+# >= greater or equal __ge__
+    
+# SECTION 4
+# There are several magic methods for making classes act like containers.
+# __len__ for len()
+# __getitem__ for indexing
+# __setitem__ for assigning to indexed values
+# __delitem__ for deleting indexed values
+# __iter__ for iteration over objects (e.g., in for loops)
+# __contains__ for in
+
+# There are many other magic methods that we won't cover here, 
+# such as __call__ for calling objects as functions, and __int__, __str__, and the like, for converting objects to built-in types.
+# Example:
+# We have overridden the len()
+import random
+
+class VagueList:
+    def __init__(self, cont):
+        self.cont = cont
+
+    def __getitem__(self, index):
+        return self.cont[index + random.randint(-1, 1)]
+
+    def __len__(self):
+        return random.randint(0, len(self.cont)*2)
+
+vague_list = VagueList(["A", "B", "C", "D", "E"])
+print(len(vague_list))  # 0
+print(len(vague_list))  # 0
+print(vague_list[2])    # D
+print(vague_list[2])    # C
+
+# We have overridden the len() function for the class VagueList to return a random number.
+# The indexing function also returns a random item in a range from the list, based on the expression.
+
+# (1): Recall, the module random contains the function randint which can be used to generate a random integer. 
+# For example, consider the following code and its OUTPUT, where we run it twice. 
+from random import randint 
+for i in range(3): 
+    value = randint(1, 6) 
+    print(value)    # 1st time: 5 5 1
+                    # 2nd time: 5 6 2
+# (2): We create a class called VagueList, defining it have just a single attribute, namely the cont-attribute. 
+# Also, we define the VagueList class to be equipped with 2 customised methods, namely the __getitem__ and __len__ methods. 
+# We set up an instance of the VagueList class, calling such an instance as vague_list. 
+# We make the list of 5 strings given by ["A", "B", "C", "D", "E"] be equal to the cont-attribute of this vague_list instance. 
+# Therefore, vague_list.cont would RETURN this list of 5 strings. Now, consider len(vague_list). 
+# Based on the way we overloaded/overridden the magic method __len__ (the way we customised its definition for the VagueList class), 
+# it seems as if len(vague_list) might be interpreted as follows. 
+# Also, I think we take self as vague_list, so that self.cont becomes vague_list.cont, 
+# hence self.cont is really equal to the list of 5 strings given by ["A", "B", "C", "D", "E"].
+# (3): random.randint(0, len(self.cont)*2) random.randint(0, len(["A", "B", "C", "D", "E"])*2) random.randint(0, 5*2) random.randint(0, 10) 
+# This just gives you a number between 0 and 10 (INCLUSIVE) RANDOMLY. 
+# For the example, it looks as if the len(vague_list) in print(len(vague_list)) had RETURNED 6 
+# FIRST, making 6 be observed in the OUTPUT thanks to the print function applied. 
+# Second time of print(len(vague_list)) looks to have given the OUTPUT of 7 due to 7 being RETURNED the second time we had called len(vague_list). 
+# Once again, this 7, along with the 6 were RANDOM, so if u run it urself, u may get say, 8 and 7, 6 and 5, 9 and 10 etc. 
+# BUT, whatever you get, for sure both of these numbers are restricted due to the condition that they MUST be integers between 0 and 10 (INCLUSIVE).
+# (4): Next, consider vague_list[2]. 
+# Consider the way we had overloaded/overridden the __getitem__ magic method (the way we customised its definition for the VagueList class). 
+# So, it seems as if vague_list[2] might be interpreted as the following. 
+# Also, I reckon that we take self as vague_list and index as 2. 
+# Hence, self.cont equals to vague_list.cont aka the cont-attribute of the instance vague_list, which is the list of 5 strings given by ["A", "B", "C", "D", "E"]. 
+# self.cont[index + random.randint(-1, 1)] ["A", "B", "C", "D", "E"][2 + random.randint(-1, 1)] 
+# May look baffling, but perhaps the following looks clearer. letters_list = ["A", "B", "C", "D", "E"] letters_list[2 + random.randint(-1, 1)]
+# (5): So, we just RETURN the element of letters_list that has its index given by the number 2 + random.randint(-1, 1), 
+# which means 2 + some random integer between -1 and 1 (INCLUSIVE), so index = 2 + (-1,1), hence index = (1,3), so index = 1,2,3. 
+# Thus, a random choice among "B", "C", "D" would be RETURNED by vague_list[2]. 
+# Therefore, a random choice among B, C, D would be printed by print(vague_list[2]). 
+# Also, interesting to see how this held TRUE BOTH times we ran print(vague_list[2]), as we got D followed by C. 
+# I got D followed by B when I personally ran print(vague_list[2]) on Try It Yourself.
+
+# I removed random module to make thia code simpler and easier to understand 
+class VagueList: 
+    def __init__(self, cont): 
+        self.cont = cont 
+    def __getitem__(self, index): 
+        return self.cont[index] 
+    def __len__(self): 
+        return len(self.cont)*2 
+    
+vague_list = VagueList(["A", "B", "C", "D", "E"]) 
+print(len(vague_list)) 
+print(vague_list[2]) 
+print(vague_list[3]) # output would be 10, C, D as length is 5 and with the condition its 5*2 so its 10 where as index 2 lies at C and 3 lies D
+
+# I found this section the weak point in an otherwise superb tutorial app. 
+# Some of the concepts are somewhat complex and the explanation is brief. 
+# http://www.rafekettler.com/magicmethods.html is useful in clarifying. 
+
+# Example:
+def __getitem__(self, index): 
+    return self.cont[index + random.randint(-index, ((len(self.cont)-1) - index))] 
+### __getitem__ seems to generate indices not random enough, so to say. If we ask the program to print vague_list[2], 
+# as in the given example, it won't print any element of the list (there are 5 of them), but rather any of the elements indexed with 1, 2, or 3. 
+# I mean, we will get "B", "C", or"D". 
+
+# Example:
+import random class VagueList: 
+    def __init__(self, cont): 
+        self.cont = cont 
+    def __len__(self): 
+        return (len(self.cont)*random.randint (1,2)) 
+    
+vague_list = VagueList(["A", "B", "C", "D", "E", "F"])
+print(len(vague_list))  # This will return two random results - 6 or 12.
+
+
+# The key is those in those bottom 5 lines: 
+vague_list = VagueList(["A", "B", "C", "D", "E"]) # means that a list with 5 items is created. 
+print(len(vague_list)) # normally prints 5, the length of that list. 
+# However, len was redefined by def __len__(self): return random.randint(0, len(self.cont)*2) 
+# which means that it returns a random number between 0 and the length of the list, 5, times 2, which means a random number between 0 and 10. 
+# As for print(vague_list[2]), normally this prints the item indexed under 2, which would be C. 
+# However, def __getitem__(self, index): return self.cont[index + random.randint(-1, 1)] redefines that retrieval, 
+# and instead gets the index 2 plus or minus 1, getting either index 1, 2, or 3. Thus, it chooses B, C, or D at random.
+
+# Magic methods just add custom functionality to simple operators. 
+# Eg. You would want the multiplication operator (*) to work differently for matrices than for simple numbers. 
+
+
+# Which magic method call is made by x[y] = z? --> x.__setitem__(y, z)
+# https://minhhh.github.io/posts/a-guide-to-pythons-magic-methods
+
+# Example:
+mylist = [1,2,3,4,5,6,7]
+mylist.__setitem__(2,10)
+print(mylist) # [1, 2, 10, 4, 5, 6, 7] 
+# basically x is your iterable, in this case MyList.[1...7] 
+# y is the index position in the iterable. 
+# z is the new values you want to put in the index position specified by y. 
+mylist.__getitem__(2) # 10
+
+
+# Example:
+import random class Any_List: 
+    def __init__(self,list): 
+        self.list=list 
+    def __setitem__(self, index, letter): 
+        self.list[abs(index-random.randint(0,len(self.list)))-1]=letter 
+        
+anylist = Any_List(["a","b","c","d"]) 
+anylist[2] = "z" 
+anylist[3] = "p" 
+anylist[1] = "q" 
+print(anylist.list) 
+# The program receives an index and sets the element assigned to that index in the list. 
+# I made the program to set the elements assigned to indices randomly. 
+
+
+# Array Example:
+# Ages = [a, b, c, g, e, f] #note that our array here is Ages 
+# the magic method we can use to modify elements of Array ages is called __setitems__ 
+# And we wanted to change the element ‘g’ which is at index 3 to ‘d’ 
+# We could say Ages.__setitem__(3, d) 
+# An output of our array will now return Agnes = [a, b, c, d, e, f] 
+# Because element at index 3 is now represented by letter ‘d’ instead of ‘g’ previously
+
+
+
+
+# Example:
+import random
+
+class VagueList:
+    def __init__(self, cont): #создаем тело класса с атрибутом cont
+        self.cont = cont
+
+    def __getitem__(self, index): #метод класса, в теле которого мы должны указать число за место атрибута index
+        return self.cont[index + random.randint(-1, 1)] # берет элемент из cont с индексом, 
+                                                        # равным сумме числа, введённого нами и рандомного числа : -1 или 0. 
+                                                        # То есть, если мы ввели число 3, то индексом cont может быть или 3, или 2.
+
+    def __len__(self):  #метод без атрибутов, который просто выводит что-то на основе заранее определённых данных.
+        return random.randint(0, len(self.cont)*2) #выводится рандомное число из списка из чисел от нуля до двойного числа элементов в cont
+
+vague_list = VagueList(["A", "B", "C", "D", "E"]) #это список букв, над которым возможны манипуляции класса VagueList 
+print(len(vague_list))  #выводится число элементов списка vague_list 
+print(len(vague_list))  #вновь. Но ответы могут быть разными, так как мы, определив метод __len__, 
+                        # сделали так, чтоб выводилось рандомное число из списка (списка не как формата данных, а простого перечисления чисел) от 0 до числа, 
+                        # равного удвоенному числу элементов списка cont (в нашем случае vague_list). 
+                        # Это число может быть больше числа элементов списка, так как максимальное значение - удвоенное количество элементов списка
+print(vague_list[2])    #элемент с индексом 2
+print(vague_list[2])    #вновь. Как сказано выше, может быть стандартным, а может быть на 1 меньше стандарта 
+                        # (стандарт это и есть наше число, которое мы ввели в квадратных скобках). Вот пример на списке с числами, может, тут яснее будет.
+print("~"*10)           #это просто декорация, чтоб была видна граница между ответами, она не несет за собой какой-то кодовый смысл
+num_list = VagueList([1,2,3,4,5,6,7])
+print(len(num_list))
+print(len(num_list))
+print(num_list[3])
+
 
 
