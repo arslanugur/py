@@ -230,9 +230,130 @@ s = Spam()
 # The egg = 7 above is a class variable. This variable is common to ALL INSTANCES of the class Spam. 
 # So if you do s1 = Spam() s2 = Spam() s1.egg and s2.egg will both be 7. 
 # You can also access egg with Spam.egg, or s1.egg or s2.egg. It's all the same egg.
+# (2): The other thing to note is that if you try to access an INSTANCE method or variable and python doesn't find one, 
+# it'll look at the CLASS dictionary to see if there's a CLASS method or variable of THAT name. 
+# Which is why self.egg works here. So one of reasons you'd need an initializer method is to initialize instance members of a class. 
+# There are none here, just a variable belonging to the class. 
+# Q: Please can you explain last paragraph further? 
+# We've got the class Spam here, and s=Spam(), as well as s1=Spam() and s2=Spam(), would be all INSTANCES of the class Spam, 
+# but all without any attributes whatsoever according to my understanding. 
+# Aren't these 3 instance members of the class Spam? 
+# A: Those 3 (s, s1, and s2) are instances of Spam. However they have no instance attributes defined in the initializer of Spam.
+# (3): Ok let's use better python terminology. I use multiple languages daily any my terminology gets jumbled. 
+# Look at this example: 
+class SomeClass: 
+    count = 5 # this is class attribute 
+    def __init__(self,x): 
+        self.count = x; # this is an instance attribute 
+        
+    def print_instance_variable(self): 
+        print(self.count) 
+        @classmethod 
+        
+    def print_class_variable(cls): 
+        print(cls.count)
+        
+if __name__ == '__main__':
+    s = SomeClass(1) 
+    s.print_instance_variable() # 1 
+    s.print_class_variable() # 5 
+    print(SomeClass.count) # 5 
+    print(s.count) # 1 
+    s2 = SomeClass(2) s2.print_class_variable() #5 
+    s2.print_instance_variable() #2 
+    print(s2.count) #2 
+# The COMMENTS are what gets OUTPUT.
+# (4): So when you have a definition like this class SomeClass: count = 5 you're defining an attribute that belongs to the entire class. 
+# Every instance of SomeClass will have count == 5. When you get to the initializer def __init__(self,x): self.count = x; 
+# this is an instance attribute self.count defines an instance attribute. 
+# This will defer among every instance of SomeClass, depending on what you provide as a parameter. 
+# In the above example, we first have a self.count of 1. Notice how this is different from the class attribute, despite them sharing a name.
+# (5): So now even though we have two separate instances of SomeClass, which we call s and s2, 
+# and s and s2 have different values for their instance attributes, they still share the same class attribute count. 
+# On lines 19 and 20 we access them directly. Notice how print(s.count) Prints 1, because it's accessing the instance attribute count. 
+# And print(SomeClass.count) Prints 5, because it's accessing the class attribute count.
+# (6): Also, print(s2.count) Prints 2. 
+# Remember, you can name class attributes and instance attributes the same thing, in which case you have to access them properly with the proper scope. 
+# Also, if you define a class attribute you can access it from an instance of a class, provided there are no instance attributes of the same name. 
+# I kind of dislike this feature, since it tends to confuse people learning.
+
+
+# Example:
+class Spam: 
+    __egg = 7 
+    _egg = 14 
+    egg = 21 
+    def print_egg(self): 
+        print(self.__egg) 
+        print(self._egg) 
+        print(self.egg) 
+        
+s1= Spam() 
+s1.print_egg() # 7 /n 14 /n 21 
+print(s1.__egg)# Attribute error 
+print(s1._egg) # 14 
+print(s1.egg) # 21 So how to get (__egg)and why is attribute error? It is because of double underscore. 
+# To get __egg, try this way out:- 
+print(s1._Spam__egg) #7
+        
+
+# Let me explain on my behalf as i am doing python not from so long , but i will answer this very simply. 
+class Spam: 
+    __egg = 7 #__egg=7 is a class variable can be accessed in class anywhere and mentioned strongly private 
+    def print_egg(self): 
+        print(self.__egg) #intance attribute access __egg because its inside the class 
+        
+s = Spam() 
+s.print_egg() #not a private method, hence accessible 
+print(s._Spam__egg) #__egg is accessible when _single underscore used with classname 
+print(s.__egg) #not accessible because it kept private with __underscore but can be accessible when calling with _singleunderscore with classname and __egg with double only. 
+# similarly if we will define print_egg method as strongly private then it can not accessible outside directly
+# Example:
+class Spam: 
+    __egg = 7 
+    def __print_egg(self): 
+        print(self.__egg) 
+        
+s = Spam() 
+s.__print_egg() # will produce an attribute error because method is kept private but s._Spam__print_
+
+# They are three methods 
+# 1.public:public method hasn't underscore.we can access any ware 
+# 2._protected:single underscore methods. we can also access from outside 
+# 3.__private:a method has double underscore.we can't possible to access outside of the class.if we want to access we should use. 
+# Single underscore with class name and private method _classname__method name that's simple no need to feel confusion here
+
+
+# Example:
+# даже просто по выводу этот код делает тему намного яснее, чем ее объяснили даже сами сололерны. В общем, тут мы видим, как...
+# мы создали класс
+class Spam:
+    #создали переменную __egg с двойным подчёркиванием. То есть имя 'искажено', как в теме сказали.
+    __egg = 7
+    # я решил сделать ещё одну переменную, чтоб вы увидели, в чем разница.
+    egg = 8
+    # этот метод применим как к первой, так и ко второй переменной. Он...
+    def print_egg(self):
+        # ... выводит на экран значение переменной.
+        print(self.egg)     # 8
+# создаем экземпляр
+s = Spam()
+# это выведет нам вторую переменную...
+s.print_egg()
+# а это первую, потому что мы ее вызвали чуть другим способом, как указано в уроке.
+print(s._Spam__egg)         # 7
+print('Надеюсь, помогло :)')# Надеюсь, помогло :)
+
+# How would the attribute __a of the class b be accessed from outside the class? _b__a
+# For those who didn't get the logic: 
+# In theory section, it is mentioned that strongly private attributes have "double underscore" 
+# hence it is __a and the class name is b 
+# The format for this question is: _classname__attribute (remember: 
+# This double underscore is the part of attributes which makes them strongly private) 
+# Hence answer should be: _classname__attribute _b__a
+
+# in given data b is class and a is attribute(privatemethod) and it accessed by externally as.. _class__attribute _b__a
 
 
 
-https://www.sololearn.com/learning/1073/2471/5141/1
-Krishna Limani
-(2): 
+
