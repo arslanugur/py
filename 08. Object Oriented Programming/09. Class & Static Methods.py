@@ -226,5 +226,15 @@ ingredients = ["cheese", "onions", "spam"]
 # if there is no pineapple in the ingredients it will return true . 
 # so as we know that if true: #then it will execute whatever is present under this "if" condition.
   
-https://www.sololearn.com/learning/1073/2473/5143/1
-amor enew
+# Example:
+# Class Method friend = Friend.new_friend("Tamer", 32) friend.hello() 
+# Static Method Friend.new_friend_job("Programmer") 
+# classmethod return instance object but static method doesn't return instance object
+
+# static methods simply belong to the class and not an instance of it. you use keyword static in other languages to declare it. 
+# A popular and easy example to ununderstand what is static: A class called items and a static attribute called total.
+# You increment total every time you instantiate an object. 
+
+
+
+
