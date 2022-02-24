@@ -1,5 +1,4 @@
-# This is an improvement to the SoloLearn OOP module... 
-# under "simple game"". 
+# This is an improvement to OOP module under "simple game"". 
 # Their code had a few bugs and for learners was a bit complicated. 
 # Feel free to go through this code and ask questions in the comments. 
 # You can improve upon this code. Cheers! Python rocks
