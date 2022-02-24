@@ -1,4 +1,11 @@
-# SECTION 1
+"""
+Method are three types: 
+    1- Instance method 
+    2- Class method 
+    3- Static method
+"""
+
+# SECTION 1: Class Method
 # Methods of objects we've looked at so far are called by an instance of a class, which is then passed to the self parameter of the method.
 # Class methods are different - they are called by a class, which is passed to the cls parameter of the method.
 # A common use of these are factory methods, which instantiate an instance of a class, using different parameters than those usually passed to the class constructor.
@@ -100,7 +107,7 @@ class Person:
 # https://realpython.com/instance-class-and-static-methods-demystified/        
 
 
-# SECTION 2
+# SECTION 2: Static method
 # Static methods are similar to class methods, except they don't receive any additional arguments; they are identical to normal functions that belong to a class.
 # They are marked with the staticmethod decorator.
 # Example:
@@ -119,8 +126,19 @@ ingredients = ["cheese", "onions", "spam"]
 if all(Pizza.validate_topping(i) for i in ingredients):
     pizza = Pizza(ingredients)
 #
-
 # Static methods behave like plain functions, except for the fact that you can call them from an instance of the class. 
+
+# Which of these is most likely to be a static method? --- def spam(x, y):
+# Which of these is most likely to be a normal method? --- def spam(self, x, y):
+# Which of these is most likely to be a class method? --- def spam(cls, x, y):
+# static methods doesn't require additional arguments, parameter. so it does not need self or cls
+# Static methods behave like normal functions and functions take values @staticmethod def validate(x,y)
+# https://lifecs.likai.org/2014/03/really-understanding-python.html
+
+# Object Method needs additional argument ("self" parameter) to refer to instance of Class. 
+# Class Method needs additional argument ("cls" parameter) to refer back to Class directly. 
+# Static Method does not need any additional arguments (it is unchanging).
+# static methods don't need self, always remember
 
 # @classmethod and @staticmethod allow the use of defined in the class methods without creating an object of that class
 
@@ -169,7 +187,8 @@ print(mustang.wheels) # 4 print Car.wheels # 4 A Car always has four wheels, reg
 # myInstance001.myStaticMethod( arg1, arg2, ... ) - no silent pass # myClass.myStaticMethod( arg1, arg2, ... ) - no silent pass 
 
 
-# On a separate note - given that __init__ is executed only when an instance (object) is created, you can use it to strictly separate class from instance attributes and methods. 
+# On a separate note - given that __init__ is executed only when an instance (object) is created, 
+# you can use it to strictly separate class from instance attributes and methods. 
 # For example, if you do this: class myClass: attr1 = "abc" ...then the class and all instances will have an attribute called attr1. 
 # But if you do this: class myClass: def __init__( self ): self.attr1 = "abc" ...then only instances will have an attribute called attr1. 
 # Same can be done for methods: 
@@ -232,9 +251,29 @@ ingredients = ["cheese", "onions", "spam"]
 # classmethod return instance object but static method doesn't return instance object
 
 # static methods simply belong to the class and not an instance of it. you use keyword static in other languages to declare it. 
-# A popular and easy example to ununderstand what is static: A class called items and a static attribute called total.
+# A easy example to understand what is static: A class called items and a static attribute called total.
 # You increment total every time you instantiate an object. 
 
+# Example:
+class Pizza: 
+    def __init__(self, toppings): 
+        self.toppings = toppings 
+        @staticmethod 
+    def validate_topping(topping): 
+        if topping == "pineapple": 
+            raise ValueError("No pineapples!") 
+        else: return True 
+        
+ingredients = ["cheese", "onions", "spam"] 
+if all(Pizza.validate_topping(i) 
+       for i in ingredients):
+
+pizza = Pizza(ingredients) 
+print(pizza.toppings) 
+# here first we are first giving elements to the list named "ingredients " 
+# then next we are checking whether is there any pineapple in the ingredients through 
+# if all(Pizza.validate_topping(i) for i in ingredients ) in this after checking everything if nothing matches with pineapple. 
+# then it will execute the next code of instruction (i.e., pizza=Pizza(ingredients ))
 
 
 
