@@ -91,17 +91,89 @@ while True:
 # So when print(verb(noun_word)) is called its actually calling say("hello")
 
 
+# What does the split method called on the input do?  -- Divides the input into separate words
+# https://www.pythonforbeginners.com/dictionary/python-split
+# https://pythonproject.files.wordpress.com/2014/05/split_method.jpg
+# "Split" separate the words from space between them and put them into a list.  
 
-https://www.sololearn.com/learning/1073/2474/5146/2
+# Split a string into a list where each word is a list item: 
+txt = "welcome to the jungle" 
+x = txt.split() 
+print(x) # ['welcome', 'to', 'the', 'jungle']
 
+
+# SECTION 2
+# A Simple Game
+# The next step is to use classes to represent game objects.
+class GameObject:
+  class_name = ""
+  desc = ""
+  objects = {}
+
+  def __init__(self, name):
+    self.name = name
+    GameObject.objects[self.class_name] = self
+    # This puts an instance (self, so the whole object, or more exactly, a reference to where that object lies in the memory) 
+    # of the class Goblin in the GameObject.objects{} map, 
+    # with the key ”Goblin” (the name of the class to which that instance belongs to, its inherited attribute class_name). 
+    # Problem is, I think, you cannot instantiate more than one Goblin as the map won't admit more than one ”Goblin” key. 
+    # The code is horrible,, and not only this, and though it's just trying to show some things, it should note which are not the way of doing things. 
+    # they could even point that those if could be a mapping through a map, 
+    # one line of code and as many different messages as you want just adding them to the map, 
+    # which is as clear to read even could be given to non-programmers to mantain, translate, ... being read from a plain text file.
+
+  def get_desc(self):
+   return self.class_name + "\n" + self.desc
+
+
+class Goblin(GameObject):
+  class_name = "goblin"
+  desc = "A foul creature"
+
+goblin = Goblin("Gobbly")
+
+def examine(noun):
+  if noun in GameObject.objects:
+    return GameObject.objects[noun].get_desc()
+  else:
+    return "There is no {} here.".format(noun)  
+#
+
+# We created a Goblin class, which inherits from the GameObjects class.
+# We also created a new function examine, which returns the objects description.
+# Now we can add a new "examine" verb to our dictionary and try it out! 
+verb_dict = {
+  "say": say,
+  "examine": examine,
+}
+
+# Combine this code with the one in our previous example, and run the program.
+>>>
+: say Hello!
+You said "Hello!"
+
+: examine goblin
+goblin
+A foul creature
+
+: examine elf
+There is no elf here.
+:
+
+# Explanation of GameObject.objects[self.class_name]=self : 
+# When goblin object(of class Goblin) is created, __init__ method gets called(as Goblin is inherited from GameObject class) Self is nothing but name of the object. so, goblin.name=Gobbly LHS =GameObject.objects[self.class_name] // self is nothing but object name = GameObject.objects[goblin.class_name] // replaced self word with goblin = GameObject.objects[goblin] // goblin.class_name means we are referencing Goblin class through its object goblin. goblin.class_name=goblin RHS = self = goblin // as said, self is object name Hence, GameObject.objects[goblin]=goblin. This made the dictionary objects = {"goblin" : goblin}
+
+# objects = {} # creates a dictonary in the class "GameObject" To have access to the dictionary, the code is: "GameObject.objects" ... 
+# In fact, if you digit this code, you will have an empty brackets >>> GameObject.objects {} There are no elements in it. 
+# With the next code you create a key “elf” with a value elf (notice that elf is the label of an object) 
+# GameObject.objects["elf"] = elf to do so in the class in a generic way (for every istance you will create later), 
+# there is that line: GameObject.objects[self.class_name] = self 
+# So let's see the key first: 
+# self.class_name self is the name of the istance you create (goblin in the code) class_name is the string "goblin" created when the istance is created 
+# The instance is > goblin = Goblin("Gobbly") goblin is the istance made using the blueprint of Goblin Goblin (the class) creates 2 attributes of goblin (the instance) one of this is the class_name = "goblin"
+
+
+Krishna Limani
+7
+https://www.sololearn.com/learning/1073/2474/5147/1
   
-  
-  # SECTION 2
-  
-  
-
-    
-
-
-
-
