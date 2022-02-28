@@ -256,3 +256,10 @@ def examine(noun):
     return "There is no {} here.".format(noun)
   
 # It help: ========== GameObject.objects[noun].get_desc() == superclass.object.method_of_object() Which an error we get use object.method()
+
+
+
+
+https://www.sololearn.com/learning/1073/2474/5147/1
+
+kr_andrew
