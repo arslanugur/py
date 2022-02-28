@@ -148,6 +148,7 @@ verb_dict = {
 }
 
 # Combine this code with the one in our previous example, and run the program.
+"""
 >>>
 : say Hello!
 You said "Hello!"
@@ -159,9 +160,14 @@ A foul creature
 : examine elf
 There is no elf here.
 :
-
+"""
 # Explanation of GameObject.objects[self.class_name]=self : 
-# When goblin object(of class Goblin) is created, __init__ method gets called(as Goblin is inherited from GameObject class) Self is nothing but name of the object. so, goblin.name=Gobbly LHS =GameObject.objects[self.class_name] // self is nothing but object name = GameObject.objects[goblin.class_name] // replaced self word with goblin = GameObject.objects[goblin] // goblin.class_name means we are referencing Goblin class through its object goblin. goblin.class_name=goblin RHS = self = goblin // as said, self is object name Hence, GameObject.objects[goblin]=goblin. This made the dictionary objects = {"goblin" : goblin}
+# When goblin object(of class Goblin) is created, __init__ method gets called(as Goblin is inherited from GameObject class) Self is nothing but name of the object. 
+# so, goblin.name=Gobbly LHS =GameObject.objects[self.class_name] 
+# self is nothing but object name = GameObject.objects[goblin.class_name] 
+# replaced self word with goblin = GameObject.objects[goblin] 
+#  goblin.class_name means we are referencing Goblin class through its object goblin. goblin.class_name=goblin RHS = self = goblin
+# as said, self is object name Hence, GameObject.objects[goblin]=goblin. This made the dictionary objects = {"goblin" : goblin}
 
 # objects = {} # creates a dictonary in the class "GameObject" To have access to the dictionary, the code is: "GameObject.objects" ... 
 # In fact, if you digit this code, you will have an empty brackets >>> GameObject.objects {} There are no elements in it. 
@@ -170,10 +176,83 @@ There is no elf here.
 # there is that line: GameObject.objects[self.class_name] = self 
 # So let's see the key first: 
 # self.class_name self is the name of the istance you create (goblin in the code) class_name is the string "goblin" created when the istance is created 
-# The instance is > goblin = Goblin("Gobbly") goblin is the istance made using the blueprint of Goblin Goblin (the class) creates 2 attributes of goblin (the instance) one of this is the class_name = "goblin"
+# The instance is > goblin = Goblin("Gobbly") goblin is the istance made using the blueprint of Goblin 
+# Goblin (the class) creates 2 attributes of goblin (the instance) one of this is the class_name = "goblin"
 
+(1): class GameObject: class_name = "" desc = "" objects = {} def __init__(self, name): self.name = name GameObject.objects[self.class_name] = self def get_desc(self): return self.class_name + "\n" + self.desc class Goblin(GameObject): class_name = "goblin" desc = "A foul creature" goblin = Goblin("Gobbly")
+(2): def get_input(): command = input(": ").split() verb_word = command[0] if verb_word in verb_dict: verb = verb_dict[verb_word] else: print("Unknown verb {}".format(verb_word)) return if len(command) >= 2: noun_word = command[1] print(verb(noun_word)) else: print(verb("nothing")) def say(noun): return 'You said "{}"'.format(noun) def examine(noun): if noun in GameObject.objects: return GameObject.objects[noun].get_desc() else: return "There is no {} here.".format(noun) verb_dict = { "say": say, "examine": examine, } while True: get_input() OUTPUT: >>> : say Hello! You said "Hello!" : examine goblin goblin A foul creature : examine elf There is no elf here. : 
+(3): Let's go through the OUTPUT. First block was already covered in last lesson. So, I'll go through the second block of OUTPUT. I suppose the following interpretations get made. command = input(": ").split() command = "examine goblin".split() command = ["examine", "goblin"] verb_word = command[0] verb_word = "examine" if verb_word in verb_dict: verb = verb_dict[verb_word] Remember that verb_dict ={"say": say, "examine": examine}. Hence if True: verb = verb_dict["examine"] verb = verb_dict["examine"] verb = examine                              
+(4): if len(command) ≥ 2: noun_word = command[1] print(verb(noun_word)) Remember that command = ["examine", "goblin"], so command had 2 elements, and hence its length is 2. if True: noun_word = "goblin" print(examine("goblin")) So, all that gets executed is really just the following. print(examine("goblin")) So, let's figure out what gets RETURNED by the code examine("goblin") def examine(noun): if noun in GameObject.objects: return GameObject.objects[noun].get_desc def examine("goblin"): if "goblin" in GameObject.objects: return GameObject.objects["goblin"].get_desc
+(5): Now, consider the following code. class GameObject: class_name = "" desc = "" objects = {} def __init__(self, name): self.name = name GameObject.objects[self.class_name] = self def get_desc(self): return self.class_name + "\n" + self.desc class Goblin(GameObject): class_name = "goblin" desc = "A foul creature" goblin = Goblin("Gobbly") The class Goblin INHERITS from the class GameObject. Hence, the class methods, attributes and variable of class GameObject get "copied and pasted" onto the class Goblin. But bare in mind that the variable class_name of the class Goblin gets re-assigned to the string "goblin" from the (empty) string "". Also, the variable desc gets re-assigned to the string "A foul creature" from the (empty) string "".
+(6): An instance, named goblin (= self), of the Goblin class gets created, with its name-attribute equal to the string "Gobbly". So, goblin.name = "Gobbly". Remember GameObject.objects = {}, an empty DICTIONARY. Consider what goblin.class_name is equal to. Also, since the goblin INSTANCE has NOT got a class_name attribute, we see if its CLASS, namely Goblin, possesses this class_name attribute. Clearly this holds, and so goblin.class_name = "goblin" Read comment of @Martin Cura Seems as if __init__ RUNS right after the instance goblin got created. Hence        
+(7): def __init__(self, name): self.name = name GameObject.objects[self.class_name] = self Take self = goblin, and so self.class_name = goblin.class_name = "goblin". Also, GameObject.objects = {} is a (empty) dictionary. GameObject.objects["goblin"] = goblin ??? So hard to understand this. Feel free to reply back to this comment as for what this code actually DOES to the GameObject.objects = {} (empty) dictionary. I personally THINK what happens is that a new element gets added to the GameObject.objects={} dictionary which has its Key: Value as equal to "goblin": goblin. See the following code perhaps to help you. F_dic = {} print(F_dic) F_dic["huri"] = 7 print(F_dic) print(F_dic["huri"]) OUTPUT: >>> {} {'huri': 7} 7 >>>
+(8): So now I guess GameObject.objects={"goblin": goblin} Going back, we were trying to see what gets RETURNED by examine("goblin"), since we had print(examine("goblin")). def examine("goblin"): if "goblin" in GameObject.objects: return GameObject.objects["goblin"].get_desc Clearly, in the dictionary GameObject.objects = {"goblin": goblin}, the string "goblin" certainly EXISTS as a Key. So, examine("goblin") would RETURN whatever is given by the following. GameObject.objects["goblin"].get_desc goblin.get_desc
+(9): Now, consider the definition is the get_desc method. goblin.class_name + "\n" + goblin.desc "goblin" + "\n" + "A foul creature" "goblin A foul creature" Hence, examine("goblin") would RETURN this ☝ 2 line string, and so print(examine("goblin")) would OUTPUT the 2 lines ☝ (without the quotation marks of course). Clearly, this certainly occurred as we can see.
 
-Krishna Limani
-7
-https://www.sololearn.com/learning/1073/2474/5147/1
   
+  
+# Combine this code with the one in our previous example 
+class GameObject: 
+  class_name = "" desc = "" objects = {} 
+  def __init__(self, name): 
+    self.name = name GameObject.objects[self.class_name] = self 
+    
+  def get_desc(self): 
+    return self.class_name + "\n" + self.desc 
+  
+class Goblin(GameObject): 
+  class_name = "goblin" 
+  desc = "A foul creature" 
+  goblin = Goblin("Gobbly") 
+  def examine(noun): 
+    if noun in GameObject.objects 
+      return GameObject.objects[noun].get_desc() 
+    else: 
+      return "There is no {} here.".format(noun) 
+  
+  def get_input(): 
+    command = input(": ").split() 
+    verb_word = command[0] 
+    if verb_word in verb_dict: 
+      verb = verb_dict[verb_word] 
+    else: 
+      print("Unknown verb {}".format(verb_word)) 
+      return 
+    if len(command) >= 2: 
+      noun_word = command[1] 
+      print(verb(noun_word)) 
+    else: 
+      print(verb("nothing")) 
+      
+  def say(noun): 
+    return 'You said "{}"'.format(noun) 
+  
+verb_dict = { "say": say, "examine": examine, } 
+while True: get_input()
+
+
+# Example:
+# Object-Oriented Programming 
+# A Simple Game # The second example, combined with 1st example. 
+# Define a function to get input from user. def get_input(): 
+# Enter command string, and split it into a list of words, using WHITESPACE as the separator. 
+# e.g. "say Python".split() 
+# output: ['say', 'Python'] command = input("Enter your command: ").split() 
+# Get the first element from the list, assgin to 'verb_word' 
+# for instance: verb_word = 'say' verb_word = command[0] 
+# If the 'verb_word' is a key of 'verb_dict', then get its value. 
+# So, in here, 'verb' is assigned to say function. if verb_word in verb_dict: verb = verb_dict[verb_word] else: print("Unknown verb {}". format(verb_word)) return 
+# If the 'command' list has more than two elements, then get the 2nd element, and assigns to 'noun_word' if len(command) >= 2: 
+# Here: noun_word = 'Python' noun_word = command[1] 
+# Call 'verb' function, here is say() 
+
+# Just in case you’re really trying to run it on your own device using IDLE (or something else), 
+# to make this all work, you need to put the code in this part BEFORE the “while True: get_input()” 
+
+def examine(noun): 
+  if noun in GameObject.objects: 
+    return GameObject.objects[noun].get_desc() 
+  else: 
+    return "There is no {} here.".format(noun)
+  
+# It help: ========== GameObject.objects[noun].get_desc() == superclass.object.method_of_object() Which an error we get use object.method()
