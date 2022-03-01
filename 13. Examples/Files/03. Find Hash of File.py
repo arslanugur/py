@@ -1,5 +1,6 @@
 # Files Examples
 # Example: to Find the Hash of a File and display it
+# Topics: Python Functions, Python User-defined Functions, Python File I/O
 
 # Hash functions take an arbitrary amount of data and return a fixed-length bit string. The output of the function is called the digest message.
 
