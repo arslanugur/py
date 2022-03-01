@@ -8,10 +8,10 @@
 # For this example, we will create directories as shown in the image below.
 
 # Directory Structure:
-# /root
-#   |--/dirA
-#   |     |--/dirB
-#   |     |
+#        /root
+#          |--/dirA
+#          |     |--/dirB
+#          |     |
 
 
 # Example 1: Using pathlib.Path.mkdir
