@@ -258,8 +258,130 @@ def examine(noun):
 # It help: ========== GameObject.objects[noun].get_desc() == superclass.object.method_of_object() Which an error we get use object.method()
 
 
+# I don't understand if class_name, desc and objects are class properties or instance properties. 
+# When I run this sample code: 
+class aClass: 
+  name = "aaa" 
+  p = aClass() 
+  pp = aClass() 
+  ppp = aClass() 
+  print(p.name) 
+  print(pp.name) 
+  print(ppp.name) 
+  print(aClass.name) 
+  print("======")
+  
+aClass.name = "sss" 
+print(p.name) 
+print(pp.name) 
+print(ppp.name) 
+print(aClass.name) 
+print("======") 
+p.name = "ddd" 
+print(p.name) 
+print(pp.name) 
+print(ppp.name) 
+print(aClass.name) 
+print("======") 
+aClass.name = "fff" 
+print(p.name) 
+print(pp.name) 
+print(ppp.name) 
+print(aClass.name) 
+print("======") 
+# Output: aaa aaa aaa aaa ====== sss sss sss sss ====== ddd sss sss sss ====== ddd fff fff fff ====== 
+# In the beginning name is class property. After assigning p.name = "ddd" name becomes property of instance p while for all others it is still class property.
+
+# Full Code:
+class GameObject: 
+  class_name = "" 
+  desc = "" 
+  objects = {} 
+  def __init__(self, name): 
+    self.name = name 
+    
+GameObject.objects[self.class_name] = self 
+def get_desc(self): 
+  return self.class_name + "\n" + self.desc 
+
+class Goblin(GameObject): 
+  class_name = "goblin" 
+  desc = "A foul creature" 
+  goblin = Goblin("Gobbly") 
+  def examine(noun): 
+    if noun in GameObject.objects: 
+      return GameObject.objects[noun].get_desc() 
+    else: 
+      return "There is no {} here.".format(noun) 
+  def get_input(): 
+    command = input(": ").split() 
+    verb_word = command[0] 
+    if verb_word in verb_dict: 
+      verb = verb_dict[verb_word] 
+    else: 
+      print("Unknown verb {}". format(verb_word)) 
+      return 
+    if len(command) >= 2: 
+      noun_word = command[1] 
+      print(verb(noun_word)) 
+    else: 
+      print(verb("nothing")) 
+   def say(noun): 
+    return 'You said "{}"'.format(noun) 
+  
+verb_dict = { "say": say, "examine": examine } 
+while True: 
+  get_input()
+#
+
+# Why does Goblin inherit from GameObject?  Goblin is a kind of GameObject
+# Globin is a subclass, not an instance. The answer should replace "a kind of GameObject" with "a subclass of GameObject"
 
 
-https://www.sololearn.com/learning/1073/2474/5147/1
 
-kr_andrew
+# SECTION 3
+# This code adds more detail to the Goblin class and allows you to fight goblins.
+class Goblin(GameObject):
+  def __init__(self, name):
+    self.class_name = "goblin"
+    self.health = 3
+    self._desc = " A foul creature"
+    super().__init__(name)
+
+  @property
+  def desc(self):
+    if self.health >=3:
+      return self._desc
+    elif self.health == 2:
+      health_line = "It has a wound on its knee."
+    elif self.health == 1:
+      health_line = "Its left arm has been cut off!"
+    elif self.health <= 0:
+      health_line = "It is dead."
+    return self._desc + "\n" + health_line
+
+  @desc.setter
+  def desc(self, value):
+    self._desc = value
+
+def hit(noun):
+  if noun in GameObject.objects:
+    thing = GameObject.objects[noun]
+    if type(thing) == Goblin:
+      thing.health = thing.health - 1
+      if thing.health <= 0:
+        msg = "You killed the goblin!"
+      else: 
+        msg = "You hit the {}".format(thing.class_name)
+  else:
+    msg ="There is no {} here.".format(noun) 
+  return msg
+#
+
+# This was just a simple sample.
+# You could create different classes (e.g., elves, orcs, humans), fight them, make them fight each other, and so on.
+
+
+
+
+
