@@ -261,11 +261,39 @@ for i in re.finditer(seq, "spamspamspamspamspam"):
   print((i.start(), i.group())) # This is an example for re.finditer()
 #
 
+# match= compare the first character between two word in pattern and re.match search= find any where in re.search, 
+# similar word or character findall = this is bigger than search , it find all similar words in the re.findall
 
-https://www.sololearn.com/learning/1073/2475/5157/1
-  
-Hassan Ally
-match= c
+# re.match Vs re.search re.match() function will match with whole string. 
+# Example- re.match(r"p", "spam") It will return >>> No match. 
+# Because p will not match with whole string. 
+# You can understand like this- "spam" is not equal to "p" but "spam" is equal to "spam". re.search(r"p", "spam") 
+# It will return- >>> Match found. Because it will search the letter p inside the string.
+
+# Which of these is not a function in the re module?  -- findlist
+# search, findall
+
+# Example:
+def searching(pattern): 
+    search_list = dir(re) 
+    if pattern in search_list: 
+        print("yes") 
+    else: 
+        print("no") 
+        
+searching("findlist")
+# 
+
+
+# https://docs.python.org/3/library/re.html
+# https://docs.python.org/3/howto/regex.html
+
+# SECTION 4
+
+
+
+
+
 
 
 
