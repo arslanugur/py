@@ -366,7 +366,7 @@ if match:
 
 # CLARIFICATION import re pattern = r"pam" match = re.search(pattern, "eggspamsausage") if match: print(match.group()) print(match.start()) print(match.end()) print(match.span()) OUTPUT pam 4 7 (4, 7) >>>> Pam(string matched) is printed because it's found in the string "eggspamsausage" , done by the .group() method >>>>4 Is printed because, it's the start position of the string matched (pam), done by the .start() method >>>> 7 Is printed because it's the end position of the string matched ( pam), done by the .end() method >>>> lastly, (4,7) is printed because the .span() method brings out the start and end positions respectively of the string matched ( Pam ) as a tuple( unchangeable ordered sequence of values)
 
-
+https://www.sololearn.com/learning/1073/2475/5158/1
 
 
 
