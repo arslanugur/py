@@ -289,7 +289,82 @@ searching("findlist")
 # https://docs.python.org/3/howto/regex.html
 
 # SECTION 4
+# The regex search returns an object with several methods that give details about it.
+# These methods include group which returns the string matched, 
+# start and end which return the start and ending positions of the first match, 
+# and span which returns the start and end positions of the first match as a tuple.
+# Example:
+import re
 
+pattern = r"pam"
+
+match = re.search(pattern, "eggspamsausage")
+if match:
+    print(match.group())    # pam
+    print(match.start())    # 4
+    print(match.end())      # 7
+    print(match.span())     # (4, 7)
+#
+
+# how the ending position will be 7, in the above program I this it will be 6, becos 'm' is in the index of 6th position 
+
+# Example:
+import re 
+base_pattern = r"spam" 
+def re_methods(): 
+    re_string = "eggspamsausagespam" 
+    re_search_state = re.search(base_pattern, re_string) 
+    base_message_search = "found" 
+    if re_search_state: 
+        print("{1} {0} in '{2}'".format(base_message_search, re_search_state.group(), re_string)) 
+        print("start position: {}".format(re_search_state.start())) 
+        print("end position: {}".format(re_search_state.end())) 
+        print("range: {}".format(re_search_state.span())) 
+        print("all findings: {}".format(re.findall(base_pattern, re_string))) 
+     else: 
+        print("{} {}".format(base_message_search, re_search_state)) 
+        
+re_methods()
+
+# Example:
+import re 
+pattern = r"pam" 
+match = re.search(pattern, "eggspamsausage") 
+if match: 
+    print("string matched: " + '' + match.group()) 
+    print("string start position: {}".format(match.start())) 
+    print("string end position: {}".format(match.end())) 
+    print("string span => start&end: {}".format(match.span())) 
+#result string matched: pam string start position: 4 string end position: 7 string span => start&end: (4, 7)
+
+
+# Example: Return Probels
+import re
+# change pattern
+pattern = r"gspams"
+
+match = re.search(pattern, "eggspamsausagchbvvgbcdgnmke")
+def probels():
+    nums = len(match.group() )
+    p = " " * (nums-2)
+    return p
+    
+if match:
+    print(match.group())
+    print(str( match.start() ) + probels() + str( match.end() ) )
+    
+    print(type(match.group   ))
+    print(type(match.group() ))
+    print(type(match.start   ))
+    print(type(match.start() ))
+    print(type(match.end     ))
+    print(type(match.end()   ))
+    
+    print( match.span() )
+#
+
+
+# CLARIFICATION import re pattern = r"pam" match = re.search(pattern, "eggspamsausage") if match: print(match.group()) print(match.start()) print(match.end()) print(match.span()) OUTPUT pam 4 7 (4, 7) >>>> Pam(string matched) is printed because it's found in the string "eggspamsausage" , done by the .group() method >>>>4 Is printed because, it's the start position of the string matched (pam), done by the .start() method >>>> 7 Is printed because it's the end position of the string matched ( pam), done by the .end() method >>>> lastly, (4,7) is printed because the .span() method brings out the start and end positions respectively of the string matched ( Pam ) as a tuple( unchangeable ordered sequence of values)
 
 
 
