@@ -1,5 +1,6 @@
 # Introduction Examples
-# To convert Celsuis to Fahrenheit and display it
+# Example: to convert Celsuis to Fahrenheit and display it
+# Topics: Python Input, Output and Import, Python Data Types, Python Operators
 
 # In the program below, we take a temperature in degree Celsius and convert it into degree Fahrenheit. 
 # They are related by the formula:
