@@ -1,4 +1,8 @@
 # Introduction Examples
+# Example: to calculate the area of a triangle and display it
+# Topics: Python Input, Output and Import, Python Data Types, Python Operators
+
+
 # If a, b and c are three sides of a triangle. Then,
 # s = (a+b+c)/2
 # area = √(s(s-a)*(s-b)*(s-c))
