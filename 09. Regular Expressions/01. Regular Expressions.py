@@ -364,14 +364,176 @@ if match:
 #
 
 
-# CLARIFICATION import re pattern = r"pam" match = re.search(pattern, "eggspamsausage") if match: print(match.group()) print(match.start()) print(match.end()) print(match.span()) OUTPUT pam 4 7 (4, 7) >>>> Pam(string matched) is printed because it's found in the string "eggspamsausage" , done by the .group() method >>>>4 Is printed because, it's the start position of the string matched (pam), done by the .start() method >>>> 7 Is printed because it's the end position of the string matched ( pam), done by the .end() method >>>> lastly, (4,7) is printed because the .span() method brings out the start and end positions respectively of the string matched ( Pam ) as a tuple( unchangeable ordered sequence of values)
+# CLARIFICATION 
+import re 
+pattern = r"pam" 
+match = re.search(pattern, "eggspamsausage") 
+if match: 
+    print(match.group())        # pam 
+    print(match.start())        # 4 
+    print(match.end())          # 7
+    print(match.span())         # (4, 7) 
+# pam(string matched) is printed because it's found in the string "eggspamsausage" , done by the .group() method 
+# 4 Is printed because, it's the start position of the string matched (pam), done by the .start() method 
+# 7 Is printed because it's the end position of the string matched ( pam), done by the .end() method 
+# lastly, (4,7) is printed because the .span() method brings out the start 
+# and end positions respectively of the string matched ( Pam ) as a tuple( unchangeable ordered sequence of values)
 
-https://www.sololearn.com/learning/1073/2475/5158/1
+
+# The indexing is best visualized this way: 
+#       | e | g | g | s | p | a | m | s | a | 
+#         0   1   2   3   4   5   6   7   8   9 
+#   -10  -9  -8  -7  -6  -5  -4  -3  -2  -1
+
+# Example:
+import re 
+base_pattern = r"spam" 
+def re_methods(): 
+    re_string = "eggspamsausagespam" 
+    
+re_search_state = re.search(base_pattern, re_string) 
+base_message_search = "found" 
+
+if re_search_state: 
+    print("{1} {0} in '{2}'".format(base_message_search, re_search_state.group(), re_string)) 
+    print("start position: {}".format(re_search_state.start())) 
+    print("end position: {}".format(re_search_state.end())) 
+    print("range: {}".format(re_search_state.span())) 
+    print("all findings: {}".format(re.findall(base_pattern, re_string))) 
+else: 
+    print("{} {}".format(base_message_search, re_search_state)) 
+    
+re_methods()
+
+
+# Example:
+import re 
+pattern = r"pam" 
+match = re.search( pattern,"eggspamsausage") 
+if match: 
+    print(match.group()) 
+    print(match.start()) 
+    print(match.end()) 
+    print(match.span()) 
+# so here we can see that the regex function is imported which in short we call it import re. Then this re.search method require two arguments. 
+# The first argument is the search term and after comma it takes second argument which is bigger argument, in which it searches. 
+# We can write two arguments itself in function or we can write arguments first and assign variables to it, like here pattern is the variable. 
+# So re.search method takes both search term and data in which it will make search. Now we use if statement.
+# This if statement basically says that if there is search result obtained then give result for the below described methods which come under regex code block.
+# We shoupd use re methods inside the code block regex statement which can he achieved using if statement
+    
+# Example: to print the starting and ending positions of the match
+import re
+
+pattern = r"test"
+match = re.search(pattern, "some test")
+print(match.start())
+print(match.end())
+
+
+# SECTION 5: Search & Replace ***
+# One of the most important re methods that use regular expressions is sub.
+# Syntax:
+re.sub(pattern, repl, string, count=0)
+
+# This method replaces all occurrences of the pattern in string with repl, substituting all occurrences, unless count provided. 
+# This method returns the modified string.
+# Example:
+import re
+
+str = "My name is David. Hi David."
+pattern = r"David"
+newstr = re.sub(pattern, "Amy", str)
+print(newstr)   # My name is Amy. Hi Amy.
+
+# Another Way:
+import re 
+
+str = "My name is David. Hi David." 
+pattern = r"David" 
+newstr = re.sub(pattern, "Amy", str, 1) 
+print(newstr) # My name is Amy. Hi David.
+
+
+# Example:
+import re 
+def re_search_replace(): 
+    phrase_list = [ "Hi <name>!", "My name is <name>)" ] 
+    name_pattern = r"<name>" 
+    persons_dict = { 0: "Ben", 1: "Maya" } 
+    
+for phrase in phrase_list: 
+    sequence = phrase_list.index(phrase) 
+
+print("{}".format(re.sub(name_pattern, persons_dict[sequence], phrase))) # Hi Ben! 
+re_search_replace() # My name is Maya
+
+
+# The substitution result is returned by the function. 
+# Thus, the substitution result can be assigned to another variable.
+import re
+str = "My name is David. Hi David."
+pattern = r"David"
+newstr = re.sub(pattern, "Amy", str)
+print(newstr)   # My name is Amy. Hi Amy.
+print(str)      # My name is David. Hi David. 
+# If you want to change the initial string, just do the following: > str = re.sub(pattern, "Amy", str) > print(str) > > OUTPUT: > >>> My name is Amy. Hi Amy.
+
+# Example:
+import re 
+str = "My name is David. Hi David.David " 
+pattern = r"David" 
+newstr = re.sub(pattern, "Amy", str ,3) 
+print(newstr) 
+
+import re 
+str = "My name is David. Hi David. David" 
+pattern = r"David" 
+newstr = re.sub(pattern, "Amy", str, 2) 
+print(newstr) # My name is Amy. Hi Amy. Amy My name is Amy. Hi Amy. David
+
+
+# if string have double zero initially then 00 should we convert in + otherwise string should be print as it is . import re str=input() 
+# your code goes here if str[:2]=='00': print(re.sub(r'00',"+",str)) else: print(str)
+
+# Example: For regexp 'search & replace' module
+# The 'max' kwarg should be 'count': unknown_max_kwarg_for_re_sub.py
+import re
+
+str = "My name is David. Hi David."
+pattern = r"David"
+
+# The following chokes
+# newstr = re.sub(pattern, "Amy", str, max=1)
+
+# Use this instead
+newstr = re.sub(pattern, "Amy", str, count=1)
+
+print(newstr)   # My name is Amy. Hi David.
 
 
 
+# Example: to replace all 9s in the string with 0s.
+import re
 
+num = "07987549836"
+pattern = r"9"
+num = re.sub(pattern, "0", num)
+print(num)
 
+# We are going to substitute the occurrence of 9 with 0 and reassign it back to num, 
+# hence:- num = re.sub( pattern, "0", num ); ↙ ⬇ ↘ Regex replace target pattern with string
 
+# import re txt = "1235nnn4567" # txt is a variable name replace = re.sub("n","0",txt) print(replace) o/p : 12350004567 # n is replaced with 0.
+
+# this IS how to sub many patterns 
+# you can Do all that in three lines: #--import re #--phrase="the phrase of you're choice" 
+#--print(re.sub(..,..,re.sub(..,..,phrase)) #y=re.sub("pattern2","subtitute2" ,phrase) #x= re.sub("pattern1","subtitute1",y) 
+#import re, then define an object phrase of you're choice, then print(x), and play with agruments to understand. 
+#in the example, the if statement is to avoid confusion between patterns ans substitutes 
+#in the example subtitutes are defined by what you input, so you can try the code 
+# import re phrase = "My name is David. hi David" pattern1= r"name" pattern2 = r"David" subtitute1 =input("") subtitute2 =input("") 
+#------ if subtitute2 != pattern1 : print (re.sub(pattern1,subtitute1,re.sub(pattern2,subtitute2,phrase))) else: 
+# print (re.sub(pattern2,subtitute2,re.sub(pattern1,subtitute1,phrase)))
 
 
