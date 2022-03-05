@@ -1,5 +1,6 @@
 # Introduction Examples
-# To print output without a newline.
+# Example: to print output without a newline.
+# Topics: Python Input, Output and Import
 
 # Using end keyword
 
