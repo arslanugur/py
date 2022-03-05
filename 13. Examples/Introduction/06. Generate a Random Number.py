@@ -1,5 +1,6 @@
 # Introduction Examples
-# To generate random number in Python, randint() function is used. This function is defined in random module.
+# Example: To generate random number in Python, randint() function is used. This function is defined in random module.
+# Topics: Python Input, Output and Import, Python Random Module
 
 # Source Code
 # Program to generate a random number between 0 and 9
