@@ -1,9 +1,9 @@
 # Introduction Examples
-# Solve Quadratic Equation
-# This program computes roots of a quadratic equation when coefficients a, b and c are known. 
+# Example: Solve Quadratic Equation: This program computes roots of a quadratic equation when coefficients a, b and c are known
+# Topics: Python Input, Output and Import, Python Data Types, Python Operators
+
 
 # The standard form of a quadratic equation is:
-
 # ax2 + bx + c = 0, where
 # a, b and c are real numbers and
 # a ≠ 0
