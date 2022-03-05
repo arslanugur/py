@@ -1,4 +1,6 @@
 # Introduction Examples
+# Topics: Python Input, Output and Import, Python Data Types, Python Operators
+
 # Example 1: Add Two Numbers
 # This program adds two numbers
 num1 = 1.5
