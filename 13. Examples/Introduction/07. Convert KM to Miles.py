@@ -1,6 +1,6 @@
 # Introduction Examples
-# Example: Kilometers to Miles
-# To convert kilometers to miles and display it.
+# Example: to convert kilometers to miles and display it.
+# Topics: Python Input, Output and Import, Python Random Module
 
 # Taking kilometers input from the user
 kilometers = float(input("Enter value in kilometers: "))
