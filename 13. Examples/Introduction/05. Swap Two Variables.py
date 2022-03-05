@@ -1,6 +1,7 @@
 # Introduction Examples
-# Swap Two Variables
-# In this example, you will learn to swap two variables by using a temporary variable and, without using temporary variable.
+# Example: to swap two variables by using a temporary variable and, without using temporary variable.
+# Topics: Python Input, Output and Import, Python Data Types, Python Operators
+
 
 # Source Code: Using a temporary variable
 # Python program to swap two variables
