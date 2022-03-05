@@ -1,4 +1,4 @@
-# SECTION 1
+# SECTION 1: Metacharacters
 # Metacharacters are what make regular expressions more powerful than normal string methods.
 # They allow you to create regular expressions to represent concepts like "one or more repetitions of a vowel".
 
