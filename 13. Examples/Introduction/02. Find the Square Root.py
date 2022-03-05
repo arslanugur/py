@@ -1,7 +1,10 @@
 # Introduction Examples
+# Example: to find the square root of a number using exponent operator and cmath module
+# Topics: Python Input, Output and Import, Python Data Types, Python Operators
+
+
 # Example: For positive numbers
 # Python Program to calculate the square root
-
 # Note: change this value for a different result
 num = 8 
 
