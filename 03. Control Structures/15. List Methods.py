@@ -1,3 +1,9 @@
+# LIST METHODS
+# list.append()         list.clear()        list.copy()         list.count()
+# list.extend()         list.pop()          list.index()        list.sorted()
+# list.remove()         list.reserve()      list.insert()       list.sort()
+
+
 numbers = [2, 3, 7, 1, 98, 67]
 letters = ['a', 's', 'z', 'e', 'r', 'u']
 
