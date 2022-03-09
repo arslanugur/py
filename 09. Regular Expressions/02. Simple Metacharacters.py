@@ -2,11 +2,26 @@
 # Metacharacters are what make regular expressions more powerful than normal string methods.
 # They allow you to create regular expressions to represent concepts like "one or more repetitions of a vowel".
 
+# All of the metacharacters are： . ^ $ * + ? { [ ] \ | ( ) }
+
 # The existence of metacharacters poses a problem if you want to create a regular expression (or regex) that matches a literal metacharacter, such as "$". 
 # You can do this by escaping the metacharacters by putting a backslash in front of them.
 # However, this can cause problems, since backslashes also have an escaping function in normal Python strings. 
 # This can mean putting three or four backslashes in a row to do all the escaping.
+
 # To avoid this, you can use a raw string, which is a normal string with an "r" in front of it. We saw usage of raw strings in the previous lesson.
 
 
-https://www.sololearn.com/learning/1073/2476/5159/1
+# To avoid sth like this: str = "/p///$" 
+# They do this: str = r"p/$" 
+# That's what I understand. Maybe not an applicable example but illustrates the concept 
+
+# The backslash (\) is used as a escape character. 
+# For instance, you can use it to create a newline using “\n”. 
+# For you actually to print a “\” string you need to add a 2nd backslash “\\”. 
+# Now imagine you are printing a Windows path “C:/user/documents/file”, 
+# you would have to add a 2nd backslash wherever a backslash appears: “C://user//documents//file”. 
+# That can be a bit messy... Lucky, with r we can create a raw string... path = r”C:/user/documents/file” Now the backslash will not be escaped 
+
+# https://www.sololearn.com/learning/1073/2476/5159/2
+
