@@ -1,3 +1,7 @@
+# Metacharacters
+# 1 * 0 = 0 ====> Means * : 0 or more. 
+# 1 + 0 = 1 ====> Means+ : 1 or more.
+
 # SECTION 1
 # Some more metacharacters are * + ? { and }.
 # These specify numbers of repetitions.
@@ -113,4 +117,170 @@ else:
 
 # SECTION 2
 # The metacharacter + is very similar to *, except it means "one or more repetitions", as opposed to "zero or more repetitions".
-Example:
+# Example:
+import re
+
+pattern = r"g+"
+
+if re.match(pattern, "g"):
+    print("Match 1")                    #
+
+if re.match(pattern, "gggggggggggggg"):
+    print("Match 2")                    #
+
+if re.match(pattern, "abc"):
+    print("Match 3")
+#    
+# To summarize:
+# * matches 0 or more occurrences of the preceding expression.
+# + matches 1 or more occurrence of the preceding expression.
+# So "(sth)+" is equivalent to "sth(sth)*" -- The latter expression is used in languages that do not support the '+' regex.
+
+# The example is not good at all because it confuses. 
+# I have to combine both examples and re-read and re-try several times. 
+# Try this code to see the difference between "+" and "*", it's quite simple: 
+import re 
+pattern = r"^a(g)+" 
+if re.match(pattern, "aga"): 
+    print("Match +1") 
+if re.match(pattern, "abcg"): 
+    print("Match +2") 
+if re.match(pattern, "a"): 
+    print("Match +3") 
+if re.match(pattern, "gggabc"): 
+    print("Match +4") 
+
+pattern = r"^a(g)*" 
+if re.match(pattern, "aga"): 
+    print("Match *1") 
+if re.match(pattern, "abcg"): 
+    print("Match *2") 
+if re.match(pattern, "a"): 
+    print("Match *3") 
+if re.match(pattern, "gggabc"): 
+    print("Match *4") # output is +1, *1, *2, *3. And the difference is: "+" - must be at least once; "*" - may by present or may be not.
+#
+
+
+# " starts with 'ag' " and then " starts with 'a' ", so this code is equivalent: 
+import re 
+pattern = r"^ag" 
+if re.match(pattern, "aga"): 
+    print("Match +1") 
+if re.match(pattern, "abcg"): 
+    print("Match +2") 
+if re.match(pattern, "a"): 
+    print("Match +3") 
+if re.match(pattern, "gggabc"): 
+    print("Match +4") 
+pattern = r"^a" 
+if re.match(pattern, "aga"): 
+    print("Match *1") 
+if re.match(pattern, "abcg"): 
+    print("Match *2") 
+if re.match(pattern, "a"): 
+    print("Match *3") 
+if re.match(pattern, "gggabc"): 
+    print("Match *4") # Result: Match +1 Match *1 Match *2 Match *3 the (g)+ and (g)* 
+#
+
+# [^a] means match any character other than a. ^a means the first character must be a. ^a is mostly applicable if you use re.search. 
+# For re.match, it's needless to include "^" since re.match always matches the first character in the text.
+
+# The code below is a much better example. This is the first example and only change the * to +. 
+# It shows the difference between the metacharacters. 
+# The string has to start with egg and spam has to occur at least once afterwards. 
+import re 
+pattern = r"egg(spam)+" 
+if re.match(pattern, "egg"): 
+    print("Match 1") 
+if re.match(pattern, "eggspamspamegg"): 
+    print("Match 2")                    # 
+if re.match(pattern, "spam"): 
+    print("Match 3")
+#
+
+# Check this out: 
+import re 
+pattern = r"^a(g)+" 
+if re.match(pattern, "aga"): 
+    print("Match +1")           #
+if re.match(pattern, "abcg"): 
+    print("Match +2") 
+if re.match(pattern, "a"): 
+    print("Match +3") 
+if re.match(pattern, "gggabc"): 
+    print("Match +4") 
+
+pattern = r"^a(g)*" 
+if re.match(pattern, "aga"): 
+    print("Match *1")           #
+if re.match(pattern, "abcg"): 
+    print("Match *2")           #
+if re.match(pattern, "a"): 
+    print("Match *3")           #
+if re.match(pattern, "gggabc"): 
+    print("Match *4") 
+#            
+
+
+# Example:
+# * means always match zero/more occurrences of what is before. This code confirms that. 
+# The teaching after magic methods has become incomprehensible until you try things out elsewhere. 
+import re 
+pattern = r"g*" 
+if re.match(pattern, "g"): 
+    print("Match 1 *") 
+if re.match(pattern, "gggggggggggggg"): 
+    print("Match 2 *") 
+if re.match(pattern, "abc"): 
+    print("Match 3 *") 
+    
+pattern = r"g+" 
+if re.match(pattern, "g"): 
+    print("Match 1 +") 
+if re.match(pattern, "gggggggggggggg"): 
+    print("Match 2 +") 
+if re.match(pattern, "abc"): 
+    print("Match 3 +")
+#
+
+# tried comparing * and + 1--> For * 
+import re 
+pattern = r"g*" 
+if re.match(pattern, "g"): 
+    print("Match 1") 
+    print(re.match(pattern, "gggggggggggggg")) 
+    print(re.match(pattern, "abc")) # Output #Match1 #match at span (0-14) #match at span (0,0) 
+# for + 
+import re 
+pattern = r"g+" 
+if re.match(pattern, "g"): 
+    print("Match 1") 
+    print(re.match(pattern, "gggggggggggggg")) 
+    print(re.match(pattern, "abc")) # Output #match1 #match at span (0-14) # no output
+#
+
+
+# Example: 
+import re 
+pattern_1 = r"(spam)+egg" 
+if re.match(pattern_1,"spamspamspamegg"): 
+    print('match_1') 
+
+pattern_2 = r"(spam)egg" 
+if re.match(pattern_2,"spamegg"): 
+    print('match_2') 
+if re.match(pattern_2,"spamspamegg"): 
+    print('match_3')
+#
+
+
+# Example: To create a pattern that matches strings that contain one or more 42s -- r"(42)+$"
+# $ is in the end is because it matches the last character of the string,
+# * is used to match zero or more occurence of characters + Is used to match one or more occurence of characters.. So answer is +
+# The r"(42)+$" means it matches that ends with 42 for search method but for match method it should start with 42 and with 42 this was the use of $ in raw string
+
+
+# SECTION 3
+https://www.sololearn.com/learning/1073/2477/5167/1
