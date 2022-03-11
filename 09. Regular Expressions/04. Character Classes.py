@@ -247,24 +247,126 @@ if re.search(pattern, "123459"):
 
 # What would [1-5][0-9] match? -- Any two-digit number from 10 to 59
 
+# The answer to this is a little tricky but easy when you get it The first letter is from 1-5 
+# And the second one from 0-9 (the 0 can represent numbers like 10/20/30/40/50) Not above 50 because the highest first digit possible is 5 
 
-The answer to this is a little tricky but easy when you get it The first letter is from 1-5 And the second one from 0-9 (the 0 can represent numbers like 10/20/30/40/50) Not above 50 because the highest first digit possible is 5 So hope I helped abit 
+# [1-5] Min value:1 Max value:5 [0-9] Min value:0 Max value:9 Valid number range: 10 to 59
 
-[1-5] Min value:1 Max value:5 [0-9] Min value:0 Max value:9 Valid number range: 10 to 59
+# Example:
+import re 
+pattern = r"[10-59]" 
+if re.search(pattern, "62"): 
+    print("Match") # OUTPUT: Match
+#
 
-                    Why is it printed??? import re pattern = r"[10-59]" if re.search(pattern, "62"): print("Match") # OUTPUT: Match
-  
-  [1-5] means 1 2 3 4 5 [0-9] means 0 1 2 3 4 5 6 7 8 9 So answer is any two digits number # from 10 to 59
-  
-[1-5][0-9] Number first digit 1 to 5 and second digit is 0 to 9 means 10,11,......,19 20,21,...,28,29 ...... 50,51,...,58,59 so it means 10-59 numbers 
-  
-import re pattern = r"[1-5][0-9]" if re.search(pattern, "10"): print("Match 1") if re.search(pattern, "59"): print("Match 2") if re.search(pattern, "1100"): print("Match 3") The output of this code is Match1 Match2 Match3 So I would like to conclude that the range is not fixed our first 2 digits matches with criteria, the range can be anything for e g. 1100, 5917, 4809 etc. 
-            
-            
+# [1-5] means 1 2 3 4 5 [0-9] means 0 1 2 3 4 5 6 7 8 9 So answer is any two digits number # from 10 to 59
+
+# [1-5][0-9] Number first digit 1 to 5 and second digit is 0 to 9 means 10,11,......,19 20,21,...,28,29 ...... 50,51,...,58,59 so it means 10-59 numbers
+
+# Example:
+import re 
+pattern = r"[1-5][0-9]" 
+if re.search(pattern, "10"): 
+    print("Match 1") 
+if re.search(pattern, "59"): 
+    print("Match 2") 
+if re.search(pattern, "1100"): 
+    print("Match 3") 
+#
+# The output of this code is Match1 Match2 Match3 
+# So I would like to conclude that the range is not fixed our first 2 digits matches with criteria, 
+# the range can be anything for e g. 1100, 5917, 4809 etc. 
+
+
+
 # SECTION 3
+# Place a ^ at the start of a character class to invert it.
+# This causes it to match any character other than the ones included.
+# Other metacharacters such as $ and ., have no meaning within character classes.
+# The metacharacter ^ has no meaning unless it is the first character in a class.
+# Example:
+import re
+pattern = r"[^A-Z]"
+if re.search(pattern, "this is all quiet"):
+    print("Match 1")                        #
 
-https://www.sololearn.com/learning/1073/2478/5164/1
+if re.search(pattern, "AbCdEfG123"):
+    print("Match 2")                        #
+
+if re.search(pattern, "THISISALLSHOUTING"):
+    print("Match 3")
+#
+
+# The pattern [^A-Z] excludes uppercase strings.
+# Note, that the ^ should be inside the brackets to invert the character class.
+
+# [a-z]: 1 lower case letter 
+# [A-Z]: 1 upper case letter 
+# [A-Z]{3}: 3 consecutive upper case letters 
+# [A-Z]{3}[a-z][A-Z]{3}: 3 upper case letters + 1 lower case letter + 3 upper case letters 
+# [^A-Z]: any character BUT an upper case letter 
+# [^A-Z]+: at least one such character 
+# [^A-Z]+[A-Z]{3}[a-z][A-Z]{3}[^A-Z]+: something else before and after our patter(AAAbCCC) 
+# so there's no more than 3 consecutive upper case letters on each side
+
+# Example:
+import re 
+pattern = r"[^A-Z]+" 
+if re.search(pattern, "THaNK YoU!") 
+print(Match)    #
+
+
+# Example: what if I invert a lowercase alphabet? 
+import re 
+pattern = r"[^a-z]" 
+if re.search(pattern, "this is all quiet"): 
+    print("Match 1") 
+if re.search(pattern, "AbCdEfG123"): 
+    print("Match 2") 
+if re.search(pattern, "THISISALLSHOUTING"): 
+    print("Match 3")    # OUTPUT: >>> Match 1 Match 2 Match 3 Why does it match all? I thought it will only match the "Match 2" and "Match 3"
+#
+
+# [^A-Z] triggered by anything other than upper case letters. 
+# This includes line breaks (\n) and other escape characters: 
+import re 
+pattern = r"[^A-Z]" 
+str = "ASDF\nGFFG" 
+match = re.search(pattern, str) 
+if match: 
+    print(repr("Match: {}".format(match.group()))) 
+else: 
+    print("No match") # output: Match: \n
+#            
+
+# Example: to show how ^ works: 
+import re 
+pattern = r"[^(0-9)]" 
+if re.search(pattern, input("please enter your age: ")): 
+    print("you are child, welcome!") 
+else: 
+    print("you are too old!; you are not allowed here")
+#
+
+# [^A-Z] means any char except A-Z So it "Match 1" because all are small char at "this is all quiet" and "Match 2" 
+# because we have some numbers at this strange and some small char "AbCdEfG123" and not "Match 3" 
+# because all in capital letter with this string THISISALLSHOUTING"
+                        
+# For those who confusing about the result of Match 1 and Match 2, 
+# The ^A-Z is work like moving on target string to check the first character char by char, 
+# if the whole string are in upper case it will return false and skip it like in Match 3: "THISISALLSHOUTING", 
+# otherwise once it found any first char except upper case like a-z or 0-9 it will match and return true! 
+# like in Match 1: "this is all quiet" here the string is already in lower case as well as the first char not upper, 
+# and in Match 2: "AbCdEfG123" the string is in upper case but the first chart after upper char contain number 0-9 which is not in A-Z.
+
+# Example: To match strings that are not entirely composed of digits
+import re 
+pattern = r"[^0-9]"
+m = re.search(pattern, "Hi there!")
+
+# In case anyone else has trouble with the logic here: 
+# The ^ inverts the class, not the statement of the regex. 
+# The class "zero to nine" becomes the class "something other than zero to nine". 
+# Thus, "contains zero to nine" becomes "contains something other than zero to nine."
     
-    
-    
-  
+
