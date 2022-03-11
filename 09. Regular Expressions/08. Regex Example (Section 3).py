@@ -22,3 +22,4 @@ if re.search(pattern, "4242"):  print("Search found D") #
 if re.search(pattern, "24242"): print("Search found E") #
 if re.search(pattern, "42424"): print("Search found F")
 
+
