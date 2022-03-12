@@ -283,4 +283,23 @@ if re.match(pattern_2,"spamspamegg"):
 
 
 # SECTION 3
-https://www.sololearn.com/learning/1073/2477/5167/1
+# The metacharacter ? means "zero or one repetitions".
+# Example:
+import re
+
+pattern = r"ice(-)?cream"
+
+if re.match(pattern, "ice-cream"):
+    print("Match 1")                # 1
+
+if re.match(pattern, "icecream"):
+    print("Match 2")                # 2
+
+if re.match(pattern, "sausages"):
+    print("Match 3")
+
+if re.match(pattern, "ice--ice"):
+    print("Match 4")
+#
+
+https://www.sololearn.com/learning/1073/2477/5167/1   comments
