@@ -287,7 +287,7 @@ if re.match(pattern_2,"spamspamegg"):
 # Example:
 import re
 
-pattern = r"ice(-)?cream"
+pattern = r"ice(-)?cream"           # This search pattern looks for a string with "ice", 0 or 1( -) hyphens, and "cream". Without any spaces
 
 if re.match(pattern, "ice-cream"):
     print("Match 1")                # 1
@@ -301,5 +301,41 @@ if re.match(pattern, "sausages"):
 if re.match(pattern, "ice--ice"):
     print("Match 4")
 #
+ 
 
-https://www.sololearn.com/learning/1073/2477/5167/1   comments
+To be more istructive in the last line of the code one would write "ice--cream" instead of "ice--ice"
+
+As "-" is only a single character the parentheses aren't actually needed. pattern = r"ice-?cream"
+
+* = 0 or more + = 1 or more ? = 0 or 1
+
+# Using character class: 
+import re 
+pattern = r"ice[- ]?cream" 
+if re.match(pattern, "ice-cream"): 
+    print("Match 1")            # 
+if re.match(pattern, "icecream"): 
+    print("Match 2")            #
+if re.match(pattern, "ice cream"): 
+    print("Match 3")            #
+if re.match(pattern, "ice--cream"): 
+    print("Match 4")
+#
+
+
+Round brackets have not been introduced yet. Either the module "Groups" should come before this module, or the round bracket should be ommited, as it is not really necessary here (see comment by Christian Fiebig)
+
+#Nice Example: import re pattern_1=r"(spam)?egg" if re.match(pattern_1,"spamspamspamegg"): print('match_1') if re.match(pattern_1,"spamegg"): print('match_2') if re.match(pattern_1,"egg"): print('match_3')
+
+it looks for the words :' ice' and 'cream' where they are joined once with a dash (-) or without it.
+    
+import re pattern=r"egg(spam)?" if re.match(pattern, "eggspamspam") : print("match found") else: print("No match") #output :match found pattern=r"egg(spam)?bacon" if re.match(pattern, "eggspamspambacon") : print("match found") else: print("No match") #output :No match
+        
+what is the difference between * and ? both are used for zero or more repeatation.. then what's the need of two different options? I thought * is used at end where as ? should be used at in between string.
+
+
+my example: ic = r'(ice)?cream' if re.match(ic, 'iceicecream'): print("found") if re.match(ic, 'icecream'): print("found")
+            
+https://www.sololearn.com/learning/1073/2477/5167/2      
+
+        
