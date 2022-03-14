@@ -465,14 +465,43 @@ else:
 #
 
 # Example:
-import re pattern = r"9{3,4}$" if re.match(pattern, "9"): print("Match 1") if re.match(pattern, "999"): print("Match 2") if re.match(pattern, "9999"): print("Match 3") Match 2 Match 3
-            
-It should be pointed out that re.match implies that the whole string should match, not just a part of it. Previous examples used re.search, for which 9{1,3}$ would also match the last example, since "999$" is a sub string of "9999".
+import re 
+pattern = r"9{3,4}$" 
+if re.match(pattern, "9"): 
+    print("Match 1") 
+if re.match(pattern, "999"): 
+    print("Match 2") #
+if re.match(pattern, "9999"): 
+    print("Match 3") #
+#
 
-"9999" it is not match because match function go only first match and than match stop searching. re.search(pattern,"9999") it is match because search go end of the string. re.search(pattern,"993") it not match because it end with 3 not in repetition of 9
+# It should be pointed out that re.match implies that the whole string should match, not just a part of it. 
+# Previous examples used re.search, for which 9{1,3}$ would also match the last example, since "999$" is a sub string of "9999".
+
+# "9999" it is not match because match function go only first match and than match stop searching. 
+# re.search(pattern,"9999") it is match because search go end of the string. 
+# re.search(pattern,"993") it not match because it end with 3 not in repetition of 9
 
 
-# 
+# Which of these is the same as the metacharacter '+' ? ---> {1,}
+# * matches 0 or more occurrences of the preceding expression. 
+# + matches 1 or more occurrences of the preceding expression. 
+# So, the metacharacter + is actually SAME as {1, ∞} which in turn is SAME as {1,}
+# Explanations:
+# {1,} this is equalent to + {0,}this is equalent to * {0,1}this is equalent to ?
+# https://www.tutorialspoint.com/python/python_reg_expressions.htm 
 
+
+# The use of the $ sign what really is its implication 
+# for example the code below seems to be in contradiction with what was taught in the previous class. 
+import re 
+pattern = r"u{0,1}" 
+if re.match(pattern, "jjjuuu"): 
+    print("match1") # we get match1 as an outcome 
+#
+pattern1 = r"u{0,1}$" 
+if re.match(pattern, "jlluuu"): 
+    print("match2") # won't get match2 and yet $ seems to be pointing the end of a string
+#
 
 
