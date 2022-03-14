@@ -322,20 +322,157 @@ if re.match(pattern, "ice--cream"):
     print("Match 4")
 #
 
+# Round brackets have not been introduced yet. 
+# Either the module "Groups" should come before this module, or the round bracket should be ommited, as it is not really necessary here 
 
-Round brackets have not been introduced yet. Either the module "Groups" should come before this module, or the round bracket should be ommited, as it is not really necessary here (see comment by Christian Fiebig)
+# Example:
+import re 
+pattern_1 = r"(spam)?egg" 
+if re.match(pattern_1,"spamspamspamegg"): 
+    print('match_1') 
+if re.match(pattern_1,"spamegg"): 
+    print('match_2') 
+if re.match(pattern_1,"egg"): 
+    print('match_3')
+#
 
-#Nice Example: import re pattern_1=r"(spam)?egg" if re.match(pattern_1,"spamspamspamegg"): print('match_1') if re.match(pattern_1,"spamegg"): print('match_2') if re.match(pattern_1,"egg"): print('match_3')
-
-it looks for the words :' ice' and 'cream' where they are joined once with a dash (-) or without it.
+# it looks for the words: ' ice' and 'cream' where they are joined once with a dash (-) or without it.
     
-import re pattern=r"egg(spam)?" if re.match(pattern, "eggspamspam") : print("match found") else: print("No match") #output :match found pattern=r"egg(spam)?bacon" if re.match(pattern, "eggspamspambacon") : print("match found") else: print("No match") #output :No match
-        
-what is the difference between * and ? both are used for zero or more repeatation.. then what's the need of two different options? I thought * is used at end where as ? should be used at in between string.
+# Example:
+import re 
+pattern = r"egg(spam)?" 
+if re.match(pattern, "eggspamspam"): 
+    print("match found") 
+else: 
+    print("No match") # output: match found
+    
+pattern = r"egg(spam)?bacon" 
+if re.match(pattern, "eggspamspambacon"):
+    print("match found")
+else:
+    print("No match") # output: No match
+#
+
+# what is the difference between * and ? both are used for zero or more repeatation.. then what's the need of two different options? 
+# I thought * is used at end where as ? should be used at in between string.
+
+# Example:
+ic = r'(ice)?cream' 
+if re.match(ic, 'iceicecream'): 
+    print("found") 
+if re.match(ic, 'icecream'): 
+    print("found")
+#
 
 
-my example: ic = r'(ice)?cream' if re.match(ic, 'iceicecream'): print("found") if re.match(ic, 'icecream'): print("found")
+# Example: To match both 'color' and 'colour'. pattern = r"colo(u)?r"
+# (Funfact: British English says "colour" and American English says "color") 
+# In order to accept both Colour and Color, writing "Colo(u)?r" we tell python to accept "(u)?" Either once or zero times. 
+# Because the ? Character tells that the u (in paranthesis) can be used Zero or one time.. This builds the both words "colour" and "color"
+
+# Example:
+# we can drop parenthesis and it works as well: 
+import re 
+pattern = r"colou?r" 
+if re.match(pattern, "color"): 
+    print("Match 1") #
+if re.match(pattern, "colour"): 
+    print("Match 2") #
+#
+
+
+# SECTION 4: Curly Braces
+# Curly braces can be used to represent the number of repetitions between two numbers.
+# The regex {x,y} means "between x and y repetitions of something".
+# Hence {0,1} is the same thing as ?.
+# If the first number is missing, it is taken to be zero. If the second number is missing, it is taken to be infinity.
+# Example:
+import re
+pattern = r"9{1,3}$"    # $ stands for not just end of a string., it says "it should end with 9 itself" otherwise 9996 should've matched.
+                        # When you remove the ‘$’, re.match matches the first 3 9’s (you can verify using group() method) 
+                        # but with the ‘$’ it can’t match like that as the third 9 isn’t the end of the string.
+if re.match(pattern, "9"):
+    print("Match 1")            #
+
+if re.match(pattern, "999"):
+    print("Match 2")            #
+
+if re.match(pattern, "9999"):
+    print("Match 3")
+#
+# "9{1,3}$" matches string that have 1 to 3 nines.
+# Info box is wrong: "that have 1 to 3 nines at the end" this pattern would be: ".*9{1,3}$" the right text: "that have 1 to 3 nines"
+# I think the info box should be changed to "that have 1 to 3 nines at the beginning of the string" 
+# because: 
+# - they use re.match() which searches only at the beginning 
+# - they use $ with re.match() which will tell the function to search for a string that ENDS in 1 to 3 nines 
+# but this group has to be at the BEGINNING of the string :) 
+# So if you have 9999 like in the last 'if' the group of nines will end in more that 3 nines at the beginning. 
+# e.g: (999)9 -> doesn't match OR If you take the '$' out of the expression the output will be Match1, Match2, Match3 
+# Does this make sense ? It is pretty complex I think they should find a more straightforward example that just demonstrates the use of { }
+
+# The difference between match and search functions is that match starts from beginning of string. 
+# So if you use start of line anchor ^ in pattern, search & match are equivalent. 
+# Example: 
+import re 
+pattern = r"9{1,3}$" # original script 
+if re.match(pattern, "9"): # match 
+    print("Match 1") 
+if re.match(pattern, "999"): # match 
+    print("Match 2") 
+if re.match(pattern, "9999"): # no match 
+    print("Match 3")
+
+pattern = r"^9{1,3}$" # add ^ at beginning of string # use search instead of match 
+if re.search(pattern, "9"): # match 
+    print("Match 1") 
+if re.search(pattern, "999"): # match 
+    print("Match 2") 
+if re.search(pattern, "9999"): # no match 
+    print("Match 3")
+#    
+
+# You can notice that: {,} and {0,} are the same as * {1,} is the same thing as + {,1} and {0,1} are the same as ? 
+
+# Also, a single number in curly braces means exactly that many repetitions. For example, r"9{3}" would match *only* the second example.
+
+# Some fun password authenicator code with the mandatory requirement of at least one uppercase and one number 
+import re 
+password = input() #your code goes here 
+format1 = r"[a-z]*" 
+format2 = r"[0-9]+" 
+format3 = r"[A-Z]+" 
+if re.search(format1, password): 
+if re.search(format2, password):
+if re.search (format3, password): 
+    print ("Password created") 
+else: 
+    print("Wrong format") 
+else: 
+    print("Wrong format")
+else:
+    print("Wrong format")
+#
+
+# Example:
+import re 
+password = input() 
+pattern1 = r'.*[A-Z]+.*[0-9]+' 
+if re.match(pattern1, password): 
+    print('Password created') 
+else: 
+    print('Wrong format')
+#
+
+# Example:
+import re pattern = r"9{3,4}$" if re.match(pattern, "9"): print("Match 1") if re.match(pattern, "999"): print("Match 2") if re.match(pattern, "9999"): print("Match 3") Match 2 Match 3
             
-https://www.sololearn.com/learning/1073/2477/5167/2      
+It should be pointed out that re.match implies that the whole string should match, not just a part of it. Previous examples used re.search, for which 9{1,3}$ would also match the last example, since "999$" is a sub string of "9999".
 
-        
+"9999" it is not match because match function go only first match and than match stop searching. re.search(pattern,"9999") it is match because search go end of the string. re.search(pattern,"993") it not match because it end with 3 not in repetition of 9
+
+
+# 
+
+
+
