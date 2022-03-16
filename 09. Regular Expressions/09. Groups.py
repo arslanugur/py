@@ -79,9 +79,10 @@ if match:
 #    
 
 
-https://www.sololearn.com/learning/1073/2480/5170/1 coomentsa
-    
+https://www.sololearn.com/learning/1073/2480/5170/1 comments     
 
+swarthofole
+@Murgu he created a new pattern, he was not using the pattern in example. his example is very close to the one of sololearn, but NOT the same. pattern = r"a(bc)(f(g)h)(de)i" so 1st Group = bc 2nd Group = fgh 3rd Group = g (which is a subgroup of "fgh") 4th Group = de like he stated in the first place.
 
 
 
