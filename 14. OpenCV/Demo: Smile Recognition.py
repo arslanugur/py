@@ -4,8 +4,8 @@ _faceCascade = cv2.CascadeClassifier(
 _smileCascade = cv2.CascadeClassifier(
   'Cascades/haarcascade_smile.xml')
 _camera = cv2.VideoCapture(1)
-_camera.set(3,1280)           # genişlik  # 640
-_camera.set(4,720)            # yükseklik # 480
+_camera.set(3,1280)           # length  # 640
+_camera.set(4,720)            # height # 480
 _fileName = None              # 'smile_recognition.mp4'
 _recorder = None
 while True:
@@ -36,5 +36,14 @@ while True:
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")      # .mp4
     _recorder = cv2.VideoWriter(_fileName, fourcc, 24.0, (_square.shape[1], _square.shape[0], True)
   if _recorder is not None:
-                                
+    _recorder.write(_square)
+    k = cv2.waitKey(10) & 0xff
+    if k==27 or k==ord('q'):         # press 'ESC' or 'q' to quit
+      break
+_camera.release()
+if _recorder:
+  _recorder.release()
+cv2.destroyAllWindows()
 
+                                
+                                
