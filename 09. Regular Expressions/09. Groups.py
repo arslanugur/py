@@ -569,11 +569,22 @@ if match:
           
 # What regex is not equivalent to the others? ---> [1-6]          
           
-          
-          
-          
-          
-          
+# [12345] AND (1|2|3|4|5) say: ANY number from 1 to 5 (inclusive), so EITHER 1 OR 2 OR 3 OR 4 OR 5 
+# However, [1-6] says: ANY number from 1 to 6 (inclusive), so EITHER 1 OR 2 OR 3 OR 4 OR 5 OR 6 
+# Hence, the regex [1-6] is NOT equivalent to the other two regex...
+
+# be careful with the parentheses () and square brackets [], because () denotes the group and [] denotes the single character (char).
+
+# The [12345] is not equivalent to (1|2|3|4|5) because the first one doesn't create a capturing group while the later does. It would be equivalent to (?:1|2|3|4|5).          
+
+# 1|2|3|4|5 simply means that either 1 or 2 or 3 or 4 or 5, it is a group because of the parentheses, 
+# but as for [12345],this takes it as a single character but as for [1-6],you will have 6 as a character which doesn't go with the others
+
+# First, square brackets differ from parenthesis. [] means character class while () means group, [] means character classes. 
+# Character classes provide a way to match only one of a specific set of characters.
+# So, [12345] means only one number from these will match. Just revise lesson 3 (1 or 2 or 3 or 4 or 5) has the same meaning exactly. 
+# It also means that only one number from these will match.
+
 
 # Example: MetaCharacter - or ( | )
 import re
@@ -592,4 +603,6 @@ match = re.match(pattern, "griy")
 if match:
      print ("Match 3")  #
 #
+
+
 
