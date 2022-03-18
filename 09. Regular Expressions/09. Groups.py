@@ -335,8 +335,9 @@ print(re.match(pattern2, "abcde").groups()) # ('a', 'bcde', 'd')
 
 # Example:
 import re
-mails = ['maria@gmail.com','paulo.guedes@gov.com.br', 'Keosvokiz_kaisaz@outlook.com', 'viktorlenz@solomail.com','hi,iamAnInvalid@mail@gmail.com','aaa@invalid.domain.com']
-
+mails = ['maria@gmail.com','paulo.guedes@gov.com.br', 
+         'Keosvokiz_kaisaz@outlook.com', 'viktorlenz@solomail.com','hi,iamAnInvalid@mail@gmail.com','aaa@invalid.domain.com']
+#
 pattern = r"^(?P<name>[^@]+)(?:@)(?P<domain>[^@\.]+)(?:\.com(\.[a-z][a-z])?)$"
 name = []
 domain = []
@@ -380,14 +381,215 @@ import re
 pattern = r"(?P<first>gol)(?:dys)(ran)" 
 match = re.match(pattern, "goldysran") 
 if match: print(match.group("first")) 
-    print(match.groups()) # gol ('gol', 'ran') 
+    print(match.groups()) # gol ('gol', 'ran')
+#
 # in simple words ?:.... skips the word but numbring remains same as you can see in the the given example(dys) skipped.... 
 
 
 
-https://www.sololearn.com/learning/1073/2480/5171/2 
+# What would be the result of len(match.groups()) of a match of (a)(b(?:c)(d)(?:e))? ---> 3
+# Group 1 - (a)
+# Group 2 - (bd)
+# Group 3 - (d) 
+# Length of Groups = 3
+
+# The full code would be: 
+import re 
+pattern = r"(a)(b(?:c)(d)(?:e))" 
+match = re.match(pattern, "abcde")
+if match: Len(match.groups())          
+
+import re 
+pattern=r"(a)(b (?:c)(d)(?:e))" 
+match=re.match(pattern,"abcde") 
+if match: 
+    x=len(match.groups())
+print(x)                    # 3
+print(match.groups())       # ('a', 'bcde', 'd')
+
+# Code2
+import re
+pattern = r"(abc)(?:huri)(ghi)" 
+match = re.match(pattern, "abchurighi")
+if match: 
+    print(match.groups()) # ('abc', 'ghi')
+#
+
+import re 
+pattern = r"(a)(b(?:c)(d)(?:e))" 
+match = re.match(pattern, "abcde") 
+if match: 
+    print(match.groups())       # ('a', 'bcde', 'd') 
+    print(len(match.groups()))  # 3
+#
+
+# Seems to me as if, say you've got a non-capturing group, so of form (?:....), 
+# then IF it's a GROUP, then it'll remain HIDDEN, in the sense that the .group() and .groups() methods will NOT detect it. 
+# However, IF it's a SUB-group in some sense, so the (?:...) is actually CONTAINED within some other parenthesis (), 
+# then it'll remain VISIBLE rather than hidden, and so the .group() and .groups() methods WILL detect it.          
+          
+# 3 - ('a', 'bcde', 'd')
+import re 
+pattern = r"(a)(b(?:c)(d)(?:e))" 
+match = re.match(pattern, "abcde")
+if match:
+print(match.groups())
+          
+# without "?:" pattern has 5 groups 
+# 1. (a) 
+# 2. (b(c)(d)(e)) 
+# 3. (c) 
+# 4. (d) 
+# 5. (e) but the 3rd group is marked as non capturing as (?:c) 
+# so it is removed from group count and thus (d) becomes 3rd group and (e) becomes 4th group. 
+# but (e) too is marked as non capturing as (?:e) so it too is removed from group count and no. of groups remained are 3 
+# 1. (a) 
+# 2. (b(?:c)(d)(?:e)) 
+# 3. (d) kindly note that the second group is the complete string mentioned and not (bd) as many have mentioned. 
+# One can verify it by printing group 2 as print(match.group(2)) and one will get the answer as "bcde". 
+# A string like "abcde" will match all 5 (without "?:") groups in the pattern, 
+# but since 2 groups are marked as non capturing hence len(match.groups()) would give 3 as the answer.
+
+
+# you have the following groups: 
+# 1. (a) 
+# 2. (b) 
+# 3. (d) the group (c) and (e) are so called "non-capturing" and therefore do not affect the numbering. 
+
+# without "?:" pattern has 5 groups 1. (a) 2. (b(c)(d)(e)) 3. (c) 4. (d) 5. (e) 
+# but the 3rd group is marked as non capturing as (?:c) 
+# so it is removed from group count and thus (d) becomes 3rd group and (e) becomes 4th group. 
+# but (e) too is marked as non capturing as (?:e) so it too is removed from group count and no. of groups remained are 3 1. (a) 2. (b(?:c)(d)(?:e)) 3. (d)         
+ 
+# With... pattern = r"(a)(b(?:c)(d)(?:e))?" 
+# At first the groups seemed surprising: ('a','bcde','d') 
+# On closer scrutiny I see that these follow the standard 'last opened, first closed' rule of parentheses. 
+# Consider (1)(2(p)(3)(q)) = 1 x (2x(px3xq). The ? at the end of the pattern refers to 0-1 repeats of the second group. 
+match = re.match(pattern, "adfg") 
+if match: 
+    print(len(match.groups()))      # 3
+    print(match.groups())           # ('a','None','None') 
+#
+# The answer doesn't change, the results do! 
+# Although there is no 'bcde' group the ? still allows a match (only 'a' is required for a match). 
+# The (d) group will only match if it is within a (bcde) group. 
+
+
+
+# SECTION 4
+import re
+
+pattern = r"gr(a|e)y"                       # (a|e) is equivalent to the class [ae]
+
+match = re.match(pattern, "gray")
+if match:
+    print ("Match 1")               #
+#
+match = re.match(pattern, "grey")
+if match:
+    print ("Match 2")               #
+#
+match = re.match(pattern, "griy")
+if match:
+     print ("Match 3")
+#
+
+# look at this prototype(sorry for my english) 
+inp = input("Your mail: ")
+pattern = r"^.+@(g)?mail\.(com|ru|by|eu)$" 
+if re.match(pattern, inp): 
+    print("True mail") 
+else:
+    print("Alert!!!!!!") 
+#
+
+# check this out 
+import re 
+pattern = r"gr(a|e)y" 
+match = re.match(pattern, "gray") 
+if match: 
+    print("that's it 1")
+match = re.match(pattern, "graey")
+if match:
+    print("that's it 2") 
+match = re.match(pattern, "griy")
+if match: 
+    print("that's it 3") # that's it 1. 
+#
+# observation: a|e strictly means a or e and fails in cases where " a" and "e" appears together as in "ae" or "ea" in a given string.
+
+
+# The "|" metacharachter aka "or" is actually one of my favorites to use all across all the different languages. 
+# Very practical to use. The use of these group formulas I see in responsive user input Q&A programs 
+# or maybe you want to build some sort of movement system for a game and the game compares your movement to in game responses. 
+# maybe you enter a certain area and an Easter egg activates. It can be simple or complicated. 
+# Either way here is my code: 
+import re 
+pattern = r"red|white|blue" 
+match = re.match(pattern, "red") 
+if match: 
+    print("Match 1")
+match = re.match(pattern, "white")
+if match: 
+    print("Match 2") 
+match = re.match(pattern, "blue") 
+if match: 
+    print("Match 3")
+match = re.match(pattern, "green") 
+if match: 
+    print("Match 4")
+if not match: 
+    print("The Murican flag doesnt have green in it silly!")
+#
+
+# Example:
+import re 
+pattern = r"colo(u|)r"
+match = re.match(pattern, "colour") 
+if match: 
+    print("Match 1")
+match = re.match(pattern, "color")
+if match: 
+    print ("Match 2")
+#
+
+# Example:
+import re 
+pattern = r"gr(a|e|i)y"
+match = re.match(pattern, "gray")
+if match:
+    print("Match 1")                # 
+match = re.match(pattern, "grey")
+if match:                           # 
+    print("Match 2")
+match = re.match(pattern, "griy")
+if match:
+    print ("Match 3")               #
+#
+          
+# What regex is not equivalent to the others? ---> [1-6]          
           
           
           
           
           
+          
+
+# Example: MetaCharacter - or ( | )
+import re
+
+pattern = r"gr(a|e|i)y"
+
+match = re.match(pattern, "gray")
+if match:
+    print ("Match 1")   # 
+
+match = re.match(pattern, "grey")
+if match:
+    print ("Match 2")   # 
+
+match = re.match(pattern, "griy")
+if match:
+     print ("Match 3")  #
+#
+
