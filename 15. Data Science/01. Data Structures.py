@@ -1,14 +1,12 @@
 # SECTION 1: LIST
 # Liste veri yapısı oluşturma
 list_= [10,20,30,40,50]
-print(list_)
-# Output: [10,20,30,40,50]
+print(list_)          # Output: [10,20,30,40,50]
 
 # Listenin birinci elemanına ulaşmak için
 list_[0]
 # Listenin birinci elemanının değerini değiştirme
-list_[0] = 5
-# Output: [5,20,30,40,50]
+list_[0] = 5          # Output: [5,20,30,40,50]
 
 # Listenin uzunluğunu öğrenmek için
 len(list_)
@@ -20,8 +18,7 @@ list_.append(120)         # Ekleme işlemi tırnak paranteziyle yapılır
 # Listeye farklı bir liste eklemek için
 list_1 = ['A','B','C']          # Metinsel bir veri içeren liste
 list_= [10,20,30,40,50, list_1]
-print(list_)
-# Output: [5,20,30,40,50, ['A','B','C']]
+print(list_)          # Output: [5,20,30,40,50, ['A','B','C']]
 
 
 # Listenin birden çok elemanına erişmek için
@@ -40,11 +37,11 @@ list_2[4:9:2]           # [a:b:k]     --> k: liste elemanlarını yazdırırken 
 
 # listedeki bir elemanın index numarasını bulmak için
 names = ["A","B","C","D","E","F"]
-names.index("B")        # 1             # index metodu kullanılır.
+names.index("B")            # 1             # index metodu kullanılır.
 
 # Listede index numarası girilen elemanı silmek için
 names.pop(1)
-print(names)      # Output: ["A","C","D","E","F"]
+print(names)                # Output: ["A","C","D","E","F"]
 
 
 # Listeden del() ve .remove() metodu ile eleman silmek içim
@@ -71,7 +68,7 @@ print(temperature_values)       # Output: [27, 23, 20, 23, 27, 18, 25, 23, 22]
 
 
 
-# SECTION 2: TUPLE, SET, DICT
+# SECTION 2: TUPLE
 # Tuple oluşturmak için
 tuple1 = (3.14,2.78,5.67,78.9)            # Float tipinde bir tuple
 tuple2 = ("A","B","C","D",98,65,43)       # String ve Integer tipinde tuple
@@ -93,7 +90,7 @@ a,b,c = tuple4
 print(a,b,c)    # Output: 12 14 18
 
 
-# SET
+# SECTION 3: SET
 # Küme oluşturma örneği
 my_set1 = {1,2,3,4,5}
 
@@ -117,17 +114,64 @@ shopping.update(market_list2)
 print(shopping)                                 # Output: {"apple","milk","cheese","oil","bread","drink","yoghurt","eggs","lemon","meat"}
 
 
-49
+shopping.discard("meat")      # Kümeden öğe çıkarmak için method
+shopping.pop()                # Kümeden ilk ve sonuncu eleman dışında rasgele öğe silmek için method
 
 
 
+# SECTION 4: DICT
+# {key:value}
+# Sözlük oluşturma işlemi için
+model = ["A","B","C","D","E"]                 # generate a list
+price = [15.70, 19.59, 25.70, 17.15, 23.45]   # generate a second list
+modelprice_dict = {'A':15.7, 'B':19.59, 'C':25.70, 'D':17.15, 'E':23.45}
+type(modelprice)      # Output: dict
+
+modelprice_dict2 = ([('A', 15.7), ('B', 19.59), ('C', 25.70), ('D', 17.15), ('E', 23.45)])
+print(modelprice_dict2)       # Output: {'A':15.7, 'B':19.59, 'C':25.70, 'D':17.15, 'E':23.45}
 
 
+# Sözlük elemanlarına erişmek için
+# Bir sözlük verisinden key'leri öğrenmek için .keys() metodu
+# Sözlük değerlerini görmek için .values() metodu kullanılır.
+dict1 = {"number":50, "text":["A","B","C"], "dictionary":{"A":100}}
+print(dict1)        # Output: {"number":50, "text":["A","B","C"], "dictionary":{"A":100}}
+
+print(dict1["dictionary"])    # Output: {"A":100}
+
+dict1.keys()          # Anahtar kelimelerini öğrenmek için
+# Output: dict_keys(['number','text','dictionary'])
+dict1.values()        # Değerleri öğrenmek için
+# Output: dict_values([50, ['A','B','C'], {'A':100}])
 
 
+# Sözlük elemanlarında değişiklik ve Güncelleme yapmak için
+# .update metodu kullanılır
+dict2 = {"key1":1100,"key2":"A"}  # Generate a new dict
+dict2["key2"] = "S"               # Change the second key's value
+print(dict2)                      # Output: {"key1": 1100, "key2": "S"}
+
+dict3 = {"house1":300,"house2":350,"house3":400}
+print(dict3)                      # Output: {"house1": 300, "house2": 350, "house3": 400}
+new_house = {"house4":375,"house5":450}
+dict3.update(new_house)
+print(dict3)                      # Output: {"house1": 300, "house2": 350, "house3": 400, "house4": 375, "house5": 450}
 
 
+# Other Methods for Dict
+# .clear()      .items()      .popitem()      .pop()
+new_house2 = {"house6":475,"house7":550}
 
+new_house2.items()                # Sözlüğün anahtar ve değer elemanlarını görüntüler
+# Output: dict_items([('house6',475), ('house7', 550)])
 
+new_house2.popitem()      # Sözlüğün son anahtarını ve değerlerini siler
+print(new_house2)         # {'house6': 475}
+
+new_house2.pop("house6")  # Anahtar değeri girilen sözlük elemanını siler
+print(new_house2)         # {'house7': 550}
+
+new_house2.clear()        # Sözlüğün tüm içeriğini siler
+print(new_house2)         # {}
 
 
