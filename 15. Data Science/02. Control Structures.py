@@ -270,3 +270,27 @@ for tamsayilar in randint(0,10,20):
 #
 
 # Zip Metodu
+# Tuple verilerin zip() fonksiyonu ile birleşmesi
+name1 = ("Z","H","M")
+name2 = ("M Z","N")
+name3 = ("A S","F","T")
+zip(name1,name2,name3)              
+
+# zip() fonksiyonla Tuple nesnesine dönüştürmek için
+tuple(zip(name1,name2,name3))
+
+# Tuple verilerinin Sözlük nesnesine dönüştürülmesi
+currency = ('Dollar','Euro','Pound','Ruble')
+country = ('America','Europe','England','Russia')
+dict(zip(currency,country))
+# Output: {'Dollar':'America','Euro':'Europe','Pound':'England','Ruble':'Russia'}
+
+# Liste verilerinin Küme veri yapısına dönüştürülmesi
+sport_name = ["football","swimming","tennis","basketball"]
+calorie_amounts = [400, 300, 350, 375]
+days = ["Mon","Tues","Thurs","Fri"]
+newList = set(zip(sport_name, calorie_amounts, days))
+print(newList)
+# {('basketball', 375, 'Fri'), ('tennis', 350, 'Thurs'), ('swimming', 300, 'Tues'), ('football', 400, 'Mon')}
+
+
