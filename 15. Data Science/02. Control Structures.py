@@ -219,8 +219,54 @@ while True:
 # Continue anahtar komutu
 # Continue, Break döngü kontrol komutunun tam tersidir.
 # Döngüyü bir sonraki yinelemeyi devam ettirmeye veya yürütmeye zorlar.
-87
+myList = [15,20,25,30,35,40,45,50]
+print("-"*5,"Birinci Örneğimizin Çıktısı","-"*5)
+for numbers in myList:
+    print(numbers, end=" ")
+#
+myList = [15,20,25,30,35,40,45,50]
+print("-"*5,"İkinci Örneğimizin Çıktısı","-"*5)
+for numbers in myList:
+    if numbers == 30:
+        continue            # 30 sayısına gelince bir sonraki sayıya atlanacak
+    print(numbers, end=" ")
+#
 
 
+# Range Metodu
+# Bu metodu belli bir sayı aralığı girilir ve bu sayı aralığının içerisinde liste elemanları otomatik oluşturulur
+# List ve String gibi veri yapılarında for ve while döngüsü ile birlikte kullanılır.
+
+# range(stop)
+for numbers in list(range()):
+    print(numbers, end=" ")
+# range(start,stop)
+for numbers in list(range(5, 20)):
+    print(number, end=" ")
+# range(start, stop, step)              
+for numbers in list(range(5, 20)):
+    print(numbers, end=" ")
+# range(start, stop, step)
+for numbers in list(range(5,20,3)):
+    print(numbers, end=" ")
+#
 
 
+# Random Metodu
+# Rastgele Float tipinde sayı üretmek için
+import random
+random.random()
+
+# Rastgele Integer tipinde sayı üretmek için
+import random
+print("1 ile 100 arasında bir sayıüretelim.")
+number1 = random.randint(1, 100)
+print("Üretilen Integer Sayı: ", number1)
+              
+# Belli bir aralıkta istenen sayıda rastgele tamsayı dizisi oluşturmak için
+from numpy.random import randint
+for tamsayilar in randint(0,10,20):
+    print(tamsayilar, end=" ")
+#
+
+# Zip Metodu
