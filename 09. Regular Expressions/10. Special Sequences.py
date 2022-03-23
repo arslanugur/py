@@ -386,7 +386,7 @@ pattern = r"^(\D+\d)"
 # beginning right from the start, successfully meets the criteria outlined by the pattern. 
 # So, let's actually go through each and every pattern given, and get our head around what they're all saying. 
 # [1-6!] ~ a character class consisting of the numbers 1 to 6 (inclusive) as well the ! character. 
-# So, this pattern would be MATCHED by a string only if the string's very FIRST character was either a 1-6 (inclusive) digit OR an exclamation mark ! character. 
+# So, this pattern would be MATCHED by a string only if the string's very FIRST character was either a 1-6 (inclusive) digit OR an exclamation mark ! character
 # Clearly, this is true since the first character of the string is a digit between 1 and 6 (inclusive), 
 # namely 1. Hence, the pattern "criteria" got successfully MATCHED by the string in question.
 # (2): (\d*\W)+ ~ 1 or more occurrences OF 0 or more digits FOLLOWED by ★any★ character that's just NOT a word character. 
@@ -399,7 +399,8 @@ pattern = r"^(\D+\d)"
 # (3): (\D+\s?)+ 💀💀💀💀💀💀💀💀💀💀 ~ 1 or more occurrences OF 1 or more NON-digits FOLLOWED by 0 or 1 whitespace characters. 
 # This pattern clearly is NOT at all exhibited by the string "123!456!". 
 # The string ★BEGINS★ off with a DIGIT, not a non-digit character. 
-# Hence, the pattern criteria isn't met, and so the pattern 💀FAILS💀 to MATCH the string, making it being the answer that you're meant to choose in the question
+# Hence, the pattern criteria isn't met, and so the pattern 💀FAILS💀 to MATCH the string, 
+# making it being the answer that you're meant to choose in the question
 
 
 # Actually, “123!456!” matches the entire string as the “+” allows “(\d*\W)(\d*\W)” for a pattern to work. 
@@ -425,7 +426,8 @@ pattern = r"^(\D+\d)"
 # SECTION 3
 # Additional special sequences are \A, \Z, and \b.
 # The sequences \A and \Z match the beginning and end of a string, respectively.
-# The sequence \b matches the empty string between \w and \W characters, or \w characters and the beginning or end of the string. Informally, it represents the boundary between words.
+# The sequence \b matches the empty string between \w and \W characters, or \w characters and the beginning or end of the string. 
+# Informally, it represents the boundary between words.
 # The sequence \B matches the empty string anywhere else.
 # Example:
 import re
@@ -445,6 +447,104 @@ if match:
 #
 # \b(cat)\b" basically matches the word "cat" surrounded by word boundaries.
 
+# Explanation:
+# Explanation of \A \Z \b \A is an anchor that says "the string starts here" 
+# so in other words no characters may occur before \A \Z is an anchor that says "the string ends here" 
+# so in other words no characters may occur after \Z \b matches 1 or more spaces and 0 or more letters (words). 
+# So in other words there must be at least 1 word to the left of \b and at least 1 word to the right of \b.
 
-https://www.sololearn.com/learning/1073/2479/5175/1 comments
+# Also, would it be accurate to state that using \B is equivalent to using re.search? 
+# Example, are these the same (assume that the text your searching is "whateveryourtextishere"? 
+pattern = r"\B(cat)\B" 
+re.search(“cat”,"whateveryourtextishere")
+
+# The “+” is unnecessary in the pattern r”\b+” as if \b matches, any number of empty string boundaries will match (basically \b\b\b\b will match too
+
+# Example:
+pattern = r"\b(cat)\b" 
+match = re.search(pattern, "cat") 
+# It still matches! There’s no word to the left and right of \b
+
+
+# You haven't described what "empty string" is (and what it is NOT). 
+# That's why the following question is confusing to some learners. 
+# You should've written something like '\b itself doesn't match "c", "t", or spaces. 
+# It matches an imaginary point between \w and \W. 
+# Do you remember ^ ? It matches the beginning position, rather than the first character. \b is similar to that.'
+
+# I've got the following off somewhere else. \b matches a word boundary. 
+# That is defined as the transition from a word character to a non-word character, or vice versa. 
+# It's a zero-width match (just like \A and\Z and various other constructs) which means it matches the gap between two characters.
+# (1): I suspect the following. 
+# WORD CHARACTERS are represented by [a-zA-Z0-9], so includes all alphabetic letters, BOTH UPPER and lower case, as well as all 0-9 digits.
+# \b = WORD CHARACTER BOUNDARY, i.e. the space/gap character that you've got just AFTER some WORD CHARACTER and just before whatever you're interested in. 
+# So, for example, consider the following code. Observe how for the FIRST \b, the word character in all cases is the e from the word "The". 
+# Also, the corresponding space/gap characters for the FIRST \b are, in order: white space, ,, /, *, ★, <, ≤ and lastly }. 
+# However, for the SECOND \b, the word character in all cases is the c from the word "cur". 
+# Additionally, the corresponding space/gap characters for the SECOND \b are, in order: white space, -, ., †, >, ≥, { and finally !.
+# (2): import re pattern = r"\b(huri)\b" match = re.search(pattern, "The huri cur") if match: print("Match 1") 
+# match = re.search(pattern, "The,huri-cur") if match: print("Match 2") match = re.search(pattern, "The/huri.cur") 
+# if match: print("Match 3") match = re.search(pattern, "The*huri†cur") if match: print("Match 4") match = re.search(pattern, "The★huri>cur") 
+# if match: print("Match 5") match = re.search(pattern, "The<huri≥cur") if match: print("Match 6") match = re.search(pattern, "The≤huri{cur") 
+# if match: print("Match 7") match = re.search(pattern, "The}huri!cur") if match: print("Match 8") 
+# OUTPUT: >>> Match 1 Match 2 Match 3 Match 4 Match 5 Match 6 Match 7 Match 8 >>>
+
+# Example:
+import re 
+pattern = r"\b(huri)\b" 
+match = re.search(pattern, "The huri cur") 
+if match: 
+  print("Match 1") 
+match = re.search(pattern, "The,huri-cur") 
+if match: 
+  print("Match 2") 
+match = re.search(pattern, "The/huri.cur") 
+if match: 
+  print("Match 3") 
+match = re.search(pattern, "The*huri†cur") 
+if match: 
+  print("Match 4") 
+match = re.search(pattern, "The★huri>cur") 
+if match: 
+  print("Match 5") 
+match = re.search(pattern, "The<huri≥cur") 
+if match: 
+  print("Match 6") 
+match = re.search(pattern, "The≤huri5{cur") 
+if match: 
+  print("Match 7") 
+match = re.search(pattern, "The}huri!cur") 
+if match: 
+  print("Match 8")
+#
+match = re.search(pattern, "The _huri_ cur") 
+if match: 
+  print("Match 9")                            # No match!
+#
+Imagine if we wrote English without spaces or punctuation (Ancient Sanskrit was written that way). So one writes "boyijustwokeupandiamsohungrydoistillhavebread" Your brain will see an implied /b 15 times. The spaces and punctuation are bonuses that make it easier to read but they're not really the word boundaries. Python allows you to break down both levels in regex depending on what's more effective to your needs.
+  
+\A and \Z differs from ^ and $ only in multiline mode string = 'my\nname\nis\njmin' pattern1=re.compile('\A(name)\Z', re.MULTILINE) pattern2=re.compile('^(name)$', re.MULTILINE) re.search(pattern1, string) None re.search(pattern2, string).group() 'name'
+
+
+simple explanation: \b(cat)\b = ( any non-alphanumeric value )cat(any non-alphanumeric value) alphanumeric numbers consists of characters [A-Z|a-z] and integers. you have to put any other value at the end and begining of string to match it with regex. e.g. \b(cat)\b = " cat " # matched \b(cat)\b = "\cat\" # matched \b(cat)\b = "*cat^"....... etc for \B : \B(cat)\B = (any alpha-numeric value)cat(any alpha-numeric value) e.g. \B(cat)\B = "advocate" # matched
+
+Is there a difference between '^' and '\A' (also between '$' and '\Z')?!
+
+
+\A and \Z differs from ^ and $ only in multiline mode string = 'my\nname\nis\njmin' pattern1=re.compile('\A(name)\Z', re.MULTILINE) pattern2=re.compile('^(name)$', re.MULTILINE) re.search(pattern1, string) None re.search(pattern2, string).group() 'name'
+
+ ^ can match at the start of the string and after each line break. \A only ever matches at the start of the string $ can match at the end of the string and before each line break. \Z only ever matches at the end of the string. - Stack Overflow
+  
+First off, these sequences are "zero-width" sequences, meaning all are not looking for a specific character in the string, but the boundary between two characters, or a character and a boundary of the string. This is what is meant by matching an empty string. \A matches at the start of the string. This differs from ^ because ^ also matches to the zero-width space just after the newline character in multi-line mode (i.e. the start of a new line). \A only matches to the start of the string as a whole. \Z matches at the end of the string and differs from $ in the same way \A differs from ^. \b matches between a word character (anything in \w) and a non-word character (anything in \W), or between a word character and the start or end of the string. \B is the opposite of \b. It matches anywhere a word character (\w) is on both sides of the boundary, a non-word character (\W) is on both sides of the boundary, or the boundary is between a non-word character and the start or end of the string.
+
+I think the following example would clearly explain the /b regex: from re import * a = [' cat ', 'cat ', 'scat ', 'scatk', '^cati', 'icat*', '*cat()', ' this is nice cat*'] b = r"\b(cat)\b" for i in a: if search(b, i): print("This works: ", i) else: print("This doesn't work: ", i) Output: This works: cat This works: cat This doesn't work: scat This doesn't work: scatk This doesn't work: ^cati This doesn't work: icat* This works: *cat() This works: this is nice cat*
+
+"\b(cat)\b" basically matches the word "cat" surrounded by word boundaries. This was confusing me at first, but now I understand. Here are some more strings that will return a match: "the cat in the hat" "con-cat-enate" "C:¥cat¥stuff" "cat" "peg+cat" "cat 9 cables" For comparison, here are some strings that will NOT return a match: "The Cat in the Hat" "concatenate" "C:¥catstuff" "Cat" "pegpluscat" "cat9 cables" In conclusion, a word boundary is any non-alphanumeric character, such as a symbol or space, or the beginning or end of the string. And in this case the string to be matched (cat) is lowercase, so we need to fulfill that criteria too. By this logic we should be able to convert a string to all lowercase before it is evaluated and get a match that way too: match = re.search(pattern, "Cat".lower()) Yep, this also works!
+
+The only difference I can notice between \b and \W is that a pattern like r"\b(cat)\b" matches the string "cat", while r"\W(cat)\W" don't, if more differences do exist, please someone clarify this to me! And I can't see any differences between \B and \w, please someone help me, is something line-based like the difference between \A and ^? All the ambiguity from this entire Regex section have came into this very lesson!
+
+Make no mistake, \w and \W are much different from \b and \B! \w and \W represent characters, while \b and \B represent the "zero-width space" between two characters in a string. To answer your first question, \W is looking for a specific character, while \b is looking for the boundary between two characters or between a character and the edge of the string, making it a "zero-width" sequence (this is what empty string refers to). \b is actually looking for the zero-width space between a \W character and a \w character, as well as the space between a \w and the start or end of the string. The fact it matches "cat" is because it can match the start or end of a string next to a \w character. \B is looking for the zero-width space between a \W and a \W or between a \w and a \w, as well as between a \W and the start or end of a string.
+
+# Which pattern would match 'SPAM!' in a search? ---> \AS...\b.\Z
+https://www.sololearn.com/learning/1073/2479/5175/2  COOMENTS
 
