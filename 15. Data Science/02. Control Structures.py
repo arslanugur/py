@@ -386,4 +386,11 @@ newList = set(zip(sport_name, calorie_amounts, days))
 print(newList)
 # {('basketball', 375, 'Fri'), ('tennis', 350, 'Thurs'), ('swimming', 300, 'Tues'), ('football', 400, 'Mon')}
 
+# Example:
+names = ["C", "H", "K", "Z"]
+age = [40, 25, 35, 17]
+nameage=list(zip(name, age))
+print(nameage)              # [('C', 40), ('H', 25), ('K', 35), ('Z', 17)]
+
+
 
