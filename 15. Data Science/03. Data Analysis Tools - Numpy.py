@@ -93,5 +93,31 @@ series2 = np.array([[1,2,3,4,5],[6,7,8,9,10]])
 print(series2[0,0])   # 1
 print(series2[1,2])   # 8
 print(series2[1,0])   # 6
+              # satır
+                # sütun
+
+# Example:
+import numpy as np
+np.array([[20,40,15],[90,70,85]])
+
+# Example:
+np.arange(4)  # 0 1 2 3
+
+
+# Example:
+y = np.array([15,25,74,64,38,92])
+print(y[2:5:2]) # 74 38
+
+# Example:
+x = np.array([25,45,14,66,81,93])
+print(x[1:5:])                    # [45 14 66 81]
+# Numpy dizilerinde de index 0'dan başlar.
+
+# Example:
+import numpy as np
+#                       0          1
+#                    0  1  2    0  1  2
+matrix = np.array([[20,40,15],[90,70,85]])
+print(matrix[1,2])  # 85
 
 
