@@ -1,15 +1,15 @@
 # Control Structures: 
 # Sıralı, Seçimli, Tekrarlı olarak üçe ayrılır.
+
 # Sıralı Kontrol Yapıları
     # Herhangi bir karşılaştırma işlemi olmaz
-
 # Seçimli Kontrol Yapıları
     # Dallanma, iki ya da daha fazla alternatif yol arasından seçim yapma durumunda olan problemlerin çözümünde kullanılır.
     # if, if...else
-
 # Tekrarlı Kontrol Yapıları
     # Döngü için kullanılan bu yapı, bir kodu arka arkaya bir çok kez çalıştırır.
     # for loop, while loop
+
 
 # SECTION 1: IF
 # Sonuç açısından iki durum varsa
@@ -18,6 +18,14 @@ if point>85:
   print("Pass")
 else:
   print("Fail")     #
+#
+
+# Example:
+age = 18
+if age > 18:
+    print("driving licence")
+else:
+    print("no driving licence")
 #
 
 # Sonuç açısından ikiden fazla durum varsa
@@ -34,6 +42,18 @@ else:
   grade = "F"
 
 print(grade)
+
+# Example:
+number = 3
+if number == 1:
+    day = "mon"
+elif number == 2
+    day = "tue"
+elif number == 3
+    day = "wed"
+elif number == 4
+    day = "thu"
+print(day)
 
 
 # Example:
@@ -62,6 +82,14 @@ if (90 in myList):
     print("Girilen değer listenin içinde var.")
 else:
     print("Girilen değer listenin içinde yok.")     # False sonucu üretir.
+#
+
+# Example:
+names = ["A","W","R","S","D","G"]
+if ("D" in names):
+    print("yes")        #
+else:
+    print("no")
 #
 
 
@@ -105,11 +133,24 @@ for letter in myWord:
     print(letter)
 #
 
-# Example 6: Harfleri tek bir satırda yazdırmak
+# Example 6:
+teams = ["G","F","B","R"]
+for numbers in teams:
+    print(numbers)
+#
+
+# Example 7: Harfleri tek bir satırda yazdırmak
 myWord="Data Science"
 for letter in myWord:
     print(letter, end==" ")     # end=" ", ifadesi karakterlerin tek satırda yazdırılmasını sağlar.
 #
+
+# Example 8:
+word="word"
+for x 
+
+
+
 
 # For Döngüsünün Py veri yapıları ile kullanımı
 # Example 1: Küme Veri Yapısının Kullanımı
