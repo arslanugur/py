@@ -1,38 +1,42 @@
 # SECTION 1: LIST
 # Liste veri yapısı oluşturma
-list_= [10,20,30,40,50]
-print(list_)          # Output: [10,20,30,40,50]
+list1= [10,20,30,40,50]
+print(list1)          # Output: [10,20,30,40,50]
 
 # Listenin birinci elemanına ulaşmak için
-list_[0]
+list1[0]
 # Listenin birinci elemanının değerini değiştirme
-list_[0] = 5          # Output: [5,20,30,40,50]
+list1[0] = 5          # Output: [5,20,30,40,50]
 
 # Listenin uzunluğunu öğrenmek için
-len(list_)
+len(list1)
 
 # Listeye yeni bir eleman eklemek için
-list_.append(120)         # Ekleme işlemi tırnak paranteziyle yapılır
+list1.append(120)         # Ekleme işlemi tırnak paranteziyle yapılır
 # Output: [5,20,30,40,50,120]
 
 # Listeye farklı bir liste eklemek için
-list_1 = ['A','B','C']          # Metinsel bir veri içeren liste
-list_= [10,20,30,40,50, list_1]
-print(list_)          # Output: [5,20,30,40,50, ['A','B','C']]
+list2 = ['A','B','C']          # Metinsel bir veri içeren liste
+list2= [10,20,30,40,50, list_2]
+print(list2)          # Output: [5,20,30,40,50, ['A','B','C']]
 
 
 # Listenin birden çok elemanına erişmek için
-list_[1:4]      # [20,30,40]
-list_[1:5]      # [20,30,40,50]
+list2[1:4]      # [20,30,40]
+list2[1:5]      # [20,30,40,50]
+# Example:
+list20 = [11,12,13,14,15,16]
+print(list20[1:4])          # 12,13,14
+
 
 # Başlangıç ve bitiş index'i belirtilmeden istenen sayıda elemana erişmek için
-list_[:3]       # [5,20,30,40]          # Başlangıç değeri 0'dır.
-list_[2:]       # [30,40,50,120]
+list2[:3]       # [5,20,30,40]          # Başlangıç değeri 0'dır.
+list2[2:]       # [30,40,50,120]
 
 
 # Atlama aralığı ile liste elemanlarını yazdırmak için
-list_2=[12,34,83,94,384,623,808,1029,3812,8637]
-list_2[4:9:2]           # [a:b:k]     --> k: liste elemanlarını yazdırırken atlanılacak aralık değerlerini belirtir
+list3=[12,34,83,94,384,623,808,1029,3812,8637]
+list3[4:9:2]           # [a:b:k]     --> k: liste elemanlarını yazdırırken atlanılacak aralık değerlerini belirtir
                         # a ile başlar, fakat b-1 ile biten elemanları gösterir.
 
 # listedeki bir elemanın index numarasını bulmak için
@@ -48,9 +52,15 @@ print(names)                # Output: ["A","C","D","E","F"]
 final = [60,70,80,45,55,77]
 del(final[2])               # Index değeri 1 olan elemanı del komutu ile silinir
 print(final)                # Output: [60,80,45,55,77]
+# Example:
+list10 = [11,12,13,14,15,16,17]
+print(del(list10[4]))       # 15 silinir.
 
 final.remove(1)     
 print(final)                # Output: [60,80,45,55,77]
+# Example:
+list30 = [11,12,13,14,15,16]
+print(list30.remove(14))    # 11,12,13,15,16
 
 
 # Listede yer alan elemanları sıralamak için        .sorted()     metodu kullanılır.
@@ -69,12 +79,16 @@ print(temperature_values)       # Output: [27, 23, 20, 23, 27, 18, 25, 23, 22]
 
 
 # SECTION 2: TUPLE
-# Tuple oluşturmak için
+# Tuple (Demet) oluşturmak için
 tuple1 = (3.14,2.78,5.67,78.9)            # Float tipinde bir tuple
 tuple2 = ("A","B","C","D",98,65,43)       # String ve Integer tipinde tuple
 # Tuple öğelerine erişmek için
 tuple2[0]        # Output: 'A'
+# Example:
+tuple10 = (20,30,40,50,60,70,80,90,100)
+print(tuple10[8])   # 100
 
+# Tuple elemanları değiştirilemez
 # Mutable:    Programın çalışması sırasında değiştirilebilir    ---> Tuple nesnelerine veri eklemek ve veri silmek işlemi gerçekleşmez. Hata verir
 # Immutable:  Programın çalışması sırasında değiştirilemez      ---> List, Dict, Set
 
@@ -84,6 +98,10 @@ tuple3 = (3.14,2.78)
 pi,e = tuple3
 print(pi)       # Output: 3.14
 print(e)        # Output: 2.78
+# Example:
+tuple20 = (12,13,14,15)
+tuple20 = x,y,z,k
+print(tuple20)      # z = 14
 
 tuple4 = (12,14,18)
 a,b,c = tuple4
@@ -113,7 +131,7 @@ market_list2["eggs","lemon","meat"]
 shopping.update(market_list2)
 print(shopping)                                 # Output: {"apple","milk","cheese","oil","bread","drink","yoghurt","eggs","lemon","meat"}
 
-
+###
 shopping.discard("meat")      # Kümeden öğe çıkarmak için method
 shopping.pop()                # Kümeden ilk ve sonuncu eleman dışında rasgele öğe silmek için method
 
@@ -157,9 +175,14 @@ new_house = {"house4":375,"house5":450}
 dict3.update(new_house)
 print(dict3)                      # Output: {"house1": 300, "house2": 350, "house3": 400, "house4": 375, "house5": 450}
 
+# Example:
+l = {"name1": "C", "name2": "D", "name": "E"}
+# C'yi, M olarak değiştirmek için
+l["name1"] = "M"
+print(l)
 
 # Other Methods for Dict
-# .clear()      .items()      .popitem()      .pop()
+### .clear()      .items()      .popitem()      .pop()
 new_house2 = {"house6":475,"house7":550}
 
 new_house2.items()                # Sözlüğün anahtar ve değer elemanlarını görüntüler
