@@ -222,6 +222,21 @@ while y<5:
 #
 
 # Example 3:
+k = 3
+while k<7:
+    print("how many?")  # 4
+    k = k+1
+#
+
+# Example 4:
+n = 14
+while n>10:
+    print("number=", n)
+    n = n-1
+#
+
+
+# Example 5:
 myList = [2,4,6,8,10]
 t = 1
 while 6 in myList:
@@ -230,6 +245,13 @@ while 6 in myList:
                             # t=2 de 8'i siler, t=3 te 6'yı siler.
     t = t+1
 #
+
+# Example 4:
+z = 12
+while z<15:
+    print(z,end=" ")
+    z = z+1
+# Output: 12 13 14
 
 # Break: Şart ifadesinin True olduğu anda geçerli döngüyü sonlandırır,
        # Şart ifadesi gerçekleşmediği sürece False döngü içindeki ifadeler yürütülmeye devam eder.
@@ -251,6 +273,22 @@ for numbers in myList:
     if numbers == 30:
         break
     print(numbers*5)
+#
+
+# Example 3:
+n = [12,13,14,15,16]
+for i in n:
+    if i==15:
+        break
+    print(i, end=" ")
+# Output: 12 13 14
+
+# Example 4:
+cities = ["S","T","M","A","E"]
+for city in cities:
+    if city == "T":
+        continue
+    print(city, end=" ")
 #
 
 # Example:
@@ -298,12 +336,19 @@ for numbers in list(range(5, 20)):
 for numbers in list(range(5,20,3)):
     print(numbers, end=" ")
 #
+# Example:
+list(range(4,15))   # Output: 4 5 6 7 8 9 10 11 12 13 14
 
 
 # Random Metodu
 # Rastgele Float tipinde sayı üretmek için
 import random
 random.random()
+
+# Example
+import random
+g = random.randint(12,15)   # 12 13 14 15
+
 
 # Rastgele Integer tipinde sayı üretmek için
 import random
