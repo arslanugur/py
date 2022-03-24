@@ -1,4 +1,5 @@
 # SECTION 1: NUMPY
+import numpy as np
 # Diziler, bir ya da daha fazla boyuta sahip olabilen öğeler/değerler koleksiyonudur.
 # Vektör, tek boyutlu bir dizi
 # Matris, iki boyutlu bir dizi
@@ -33,8 +34,10 @@ print(mean)
 # nparray ile integer tipinde elemanları olan bir dizi üretilir.
 #             float tipinde elemanları olan bir dizi üretmek için dtype komutu dtype=np.float biçiminde kullanılır.
 # Float tipinde Numpy dizisi oluşturmak için
+import numpy as np
 series = np.array([1,2,3,4,5])
 series = np.array([1,2,3,4,5], dtype=np.float)
+print(series)
 
 
 # İki boyutlu Numpy dizisi (matris) oluşturmak için
@@ -68,6 +71,7 @@ print(twoto10)              # [2 4 6 8]
 # Ayrıca adım boyutunu seçerek de bir parça alınabilir. [start: end: step-size]
 # Örneğin adım boyutunu 2 almak demek, öğeyi mevcut indexten 2 basamak uzağa almak demektir.
 # Example 1:
+import numpy as np
 series1 = np.array([1,2,3,4,5,6,7,8,9,10])
 print(series1[1:9:2])
 
@@ -85,7 +89,7 @@ print(series1[1:11:])   # [ 2  3  4  5  6  7  8  9 10]
 # Matrisin sıfır indexli satır ve sütun elemanı, sonra satır indexi bir, sütun index değeri iki olan eleman; 
 # daha sonra satır indexi bir ve sütun indexi sıfır olan matris elemanları dilimlenerek ekrana yazdırıldı
 import numpy as np
-series2 = np.array([[1,2,3,4,5][6,7,8,9,10]])
+series2 = np.array([[1,2,3,4,5],[6,7,8,9,10]])
 print(series2[0,0])   # 1
 print(series2[1,2])   # 8
 print(series2[1,0])   # 6
