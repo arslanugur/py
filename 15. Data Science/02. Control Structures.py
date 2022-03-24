@@ -21,7 +21,7 @@ else:
 #
 
 # Example:
-age = 18
+age = 19            ###
 if age > 18:
     print("driving licence")
 else:
@@ -147,9 +147,9 @@ for letter in myWord:
 
 # Example 8:
 word="word"
-for x 
-
-
+for x in word:
+    print(x, end=" ")
+# output: w o r d
 
 
 # For Döngüsünün Py veri yapıları ile kullanımı
@@ -186,6 +186,13 @@ print("-"*5, "Üçüncü Örneğin Sonucu","-"*5)
 for (key, value) in dict1.items():
     print(key,": ",value)
 #
+
+# Example 4:
+myList = {("A",20),("B",21),("C",22)}
+for names in myList:
+    print(names)
+#
+
 
 # For döngüsünün iç içe kullanımı
 # Example:
