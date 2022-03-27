@@ -246,8 +246,20 @@ match = re.findall(pattern, str)
 if match: 
   for Jesus in match: 
     print(Jesus[0] + "@" + Jesus[1] + Jesus[2]) # info@gmail.com or han.solo@rebells.org and amatias16@alustudent.com for
+#
 
+# Question:
 # Backslash character can be used to escape the metacharacter in the pattern to treat is as a literal.     
+# The example contains 4 dots The 1st, 2nd and 4th dot are inside a character class [ ] so they need NO escape. 
+# Only the 3rd needs the \. escape sequence because it shall match literally (and not as special character)
+
+# Other metacharacters such as $ and . (dot) have no special meaning within character classes. 
+# The metacharacter ^ has no meaning unless it is the first character in a class. 
+# A backslash before . (dot) would have been needed if the regex used parentheses (group).
+
+# ...Some characters can't be directly included in a string. 
+# For instance, double quotes can't be directly included in a double quote string; this would cause it to end prematurely. 
+# Characters like these must be escaped by placing a backslash before them...
 
 
 
