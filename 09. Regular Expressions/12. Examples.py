@@ -32,16 +32,26 @@ else:
 #
 
 
-# Question: How many groups are in the regex (ab)(a(d(e)f))(g)? ---> 5
+# Question: How many groups are in the regex (ab)(c(d(e)f))(g)? ---> 5        Count the number of opening brackets, 
+
+in case anybody wonders about this one: number of opening parentheses equals numer of groups.
+  
+.group(1) = (ab) .group(2) = (cdef) .group(3) = (def) .group(4) = (e) .group(5) = (g)
+
+Group(0)= abcdefg Group(1)= ab Group(2)= cdef Group(3)= def Group(4)= e Group(5)= g
 
 
+Why is group 0 not taken into Account? It is a group, after all, so when asking for the number of groups, it should be counted. The question was not "what is the highest group-index" -in which case 5 would be right, as pointed out above.
 
+ab cdef def e g = 5groups
 
+Why is group 0 not taken into Account? It is a group, after all, so when asking for the number of groups, it should be counted. The question was not "what is the highest group-index" -in which case 5 would be right, as pointed out above.
 
+group(0) is same as group()
 
+Group 0 isn't really a group, just like the Earth isn't a continent/country/city.
 
-
-
+Too much if this coding instruction misses adding critical information the student needs to know in order to even understand the question let alone answer. it would be nice if the developers made the lessons looking at things from the viewpoint of someone who has no idea what's going on.
 
 
 
