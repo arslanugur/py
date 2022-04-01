@@ -484,3 +484,16 @@ print("\nDeletion: %d" % (a & (~ (1<<(k-1)))))
 print("\nTümleme: %d" % (a ^ (1<<(k-1))))
 
 
+
+# Dikdörtgenler Yöntemi
+def y(x):
+   return 3*x*x+2*x
+t=0; a=eval(input("Aralığın alt sınırı: "))
+b=eval(input("Parça sayısı: ")); h=(b-a)/n
+for k in range(1, n+1):
+   t+=h*y(a+k*h)
+print("\nBelirli integral: %0.10f"%t)
+
+
+
+
