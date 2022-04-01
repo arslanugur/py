@@ -495,5 +495,23 @@ for k in range(1, n+1):
 print("\nBelirli integral: %0.10f"%t)
 
 
+# Yarılama yöntemi
+def f(x):
+   return x**3-6*x*x-4*x+24
+a=eval(input("Aralığın alt sınırı: "))
+b=eval(input("Aralığın üst sınırı: "))
+h=eval(input("Hassasiyet değeri: "))
+x0=(a+b)/2
+while (abs(f(x0))>h):
+   if (f(a)*f(x0)<0):
+      b=x0
+   else:
+      a=x0
+   x0=(a+b)/2
+print("\nKök: %0.10f"%x0)
 
+
+
+# Newton-Raphson yöntemi
+def f(x):
 
