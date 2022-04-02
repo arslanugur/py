@@ -533,6 +533,16 @@ x0=eval(input("İterasyon başlangıç değeri: "))
 print("\nkök: %0.10f"%spop.newton(f,x0))
 
 
+# Euler yöntemi
+x0=eval(input("x(0): ")); y0=eval(input("y(0): "))
+h=eval(input("Adım değeri: ")); n=int(input("Değer sayısı: "))
+X=x0; y=y0; print("\nSonuçlar (x,y)"); print("%f\t%f"%(x,y))
+for i in range(n):
+   y+=h*(-y/(2+x)); x+=h; print("%f\t%f"%(x,y))
+
+
+
+# 3. Derece Runge-Kutta yöntemi
 
 
 
