@@ -512,6 +512,29 @@ print("\nKök: %0.10f"%x0)
 
 
 
-# Newton-Raphson yöntemi
+# Newton-Raphson yöntemi, 1. Yol
 def f(x):
+   return x**3-6*x*x-4*x+24
+def f1(x):
+   return 3*x*x-12*x-4
+x0=eval(input("İterasyon başlangıç değeri: "))
+h=eval(input("Hassasiyet değeri: "))
+x1=x0-f(x0)/f1(x0)
+while (abs(f(x1))>h):
+   x0=x1
+   x1=x0-f(x0)/f1(x0)
+print("\nkök: %0.10f"%x1)
+
+# Newton-Raphson yöntemi 2. Yol
+import scipy.optimize as spop
+def f(x):
+   return x**3-6*x*x-4*x+24
+x0=eval(input("İterasyon başlangıç değeri: "))
+print("\nkök: %0.10f"%spop.newton(f,x0))
+
+
+
+
+
+
 
