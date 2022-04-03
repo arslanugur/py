@@ -552,8 +552,19 @@ for i in range(n):
    k1=f(x,y); k2=f(x+h/2, y+h*k1/2); k3=f(x+h,y-h*k1+2*h*k2)
    y=y+h*(k1+4*k2+k3)/6; x=x+h; print("%f\t%f"%(x,y))
 
+# 4. Derece Runge-Kutta yöntemiyle diferansiyel denklem sistemi çözümü
 
 
 
 
+# BİR BOYUTLU DİZİ UYGULAMALARI
+# Dizi elemanlarını girmek için
+a=[]
+n=int(input("Dizinin eleman sayısını giriniz: "))
+for i in range(0,n)
+   print("a(%d)= "%(i+1), end=' ')
+   a.append(int(input()))
+
+
+# Dizi elemanlarını yazdırmak için
 
