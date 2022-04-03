@@ -543,6 +543,15 @@ for i in range(n):
 
 
 # 3. Derece Runge-Kutta yöntemi
+def f(a,b):
+   return -b/(2+a)
+x0=eval(input("x(0): ")); y0=eval(input("y(0): "))
+h=eval(input("Adım değeri: ")); n=int(input("Değer sayısı: "))
+x=x0; y=y0; print("\nSonuçlar (x,y)"); print("%f\t%f"%(x,y))
+for i in range(n):
+   k1=f(x,y); k2=f(x+h/2, y+h*k1/2); k3=f(x+h,y-h*k1+2*h*k2)
+   y=y+h*(k1+4*k2+k3)/6; x=x+h; print("%f\t%f"%(x,y))
+
 
 
 
