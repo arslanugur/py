@@ -567,4 +567,17 @@ for i in range(0,n)
 
 
 # Dizi elemanlarını yazdırmak için
+for i in range(0,n):
+   print("a(%d)=%d"%(i+1,a[i]))
+
+
+# Dizi elemanlarını toplamak için
+a=[]; n=int(input("Dizinin eleman sayısı: "))
+for i in range(0,nn):
+   print("A(%d)= "%i, end=' '); a.append(int(input()))
+print("\nDizinin elemanları toplamı: %d"%sum(a))
+
+
+# Polinom değeri hesaplama
+
 
