@@ -578,6 +578,15 @@ for i in range(0,nn):
 print("\nDizinin elemanları toplamı: %d"%sum(a))
 
 
-# Polinom değeri hesaplama
+# Polinom değeri hesaplama, Code 1
+import numpy as np
+a=[]; n=int(input("y(x) polinom derecesi: "))
+for i in range(n+1):
+   print("x^%d nin katsayısı: "%i,end=' '); a.append(eval(input())
+a.reverse(); b=eval(input("Hesaplanacak x değeri: "))
+print("\ny(%0.3f)=%0.5f"%(b,np.polyval(a,b)))
+
+
+# Polinom değeri hesaplama, Code 2
 
 
