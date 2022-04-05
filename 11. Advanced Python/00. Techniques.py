@@ -588,5 +588,17 @@ print("\ny(%0.3f)=%0.5f"%(b,np.polyval(a,b)))
 
 
 # Polinom değeri hesaplama, Code 2
+import numpy as np
+print("Polinom katsayılarını birer birer boşluk bırakarak en yüksek dereceden itibaren giriniz!)
+a=[eval(x) for x in input().split()]
+b=eval(input("Hesaplanacak x değeri: "))
+print("\ny(%0.3f)=%0.5f"%(b,np.polyval(a,b)))
+
+
+
+# Konvolüsyon
+
+
+
 
 
