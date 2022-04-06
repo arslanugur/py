@@ -12,43 +12,35 @@
 
 # However, whitespace should not be overused. For instance, avoid having any space directly inside any type of brackets.
 
-# (1):
-# 
-# - modules should have short, all-lowercase names;
-# e.g. import re, import random, import math
-
-# - class names should be in CapWords style;
-# e.g. class Dog back in OOP
-
-# - most variables and function names should be lowercase_with_underscores;
-# e.g. consider the following bad_dict variable and add_five function.
-bad_dict = {
-    [1, 2, 3]: "one two three",
-}
-
+# (1): - modules should have short, all-lowercase names; 
+# e.g. import re, import random, import math - class names should be in CapWords style; 
+# e.g. class Dog back in OOP - most variables and function names should be lowercase_with_underscores; 
+# e.g. consider the following bad_dict variable and add_five function. bad_dict = { [1, 2, 3]: "one two three", } 
 # As a quick reminder for WHY exactly this is a BAD dictionary, the Key [1, 2, 3] is a LIST, and so is mutable (vulnerable to being changed), 
-# so it CANNOT be used as a dictionary Key. After all, lists + dictionaries are mutable. BUT ONLY immutable objects are allowed to be Keys in a dictionary.
+# so it CANNOT be used as a dictionary Key. After all, lists + dictionaries are mutable. BUT ONLY immutable objects are allowed to be Keys in a dictionary. 
 # Example:
 def add_five(x):
     return x + 5
 #
 
-# (2): Also, regarding the last 2 bits of the lesson, I suspect a hopefully decent example is the following.
-# x = (5*2) is BETTER than x = ( 5 * 2 ) 
+# (2): Also, regarding the last 2 bits of the lesson, I suspect a hopefully decent example is the following. 
+# x = (5*2) is BETTER than x=( 5 * 2 ) 
+# Clearly, the FIRST has better readability, for 2 reasons I believe: whitespace surrounding the = operator, 
+# BUT whitespace is NOT overused since inside the parenthesis () BRACKETS, whitespace has been 100% COMPLETELY avoided😀.
 
-# Clearly, the FIRST has better readability, for 2 reasons I believe:
+# There should be spaces around operator. x = (5 * 2)
 
-# whitespace surrounding the = operato,
-# BUT whitespace is NOT overused since inside the parenthesis () BRACKETS, whitespace has been 100% COMPLETELY avoided.
+# As already mentioned, whitespace can, and should be, around operators, regardless of parentheses. The best solution is therefore x = (5 * 2).
 
-# This site lets you Check your code for PEP8 requirements.  Just paste your code and it will check it for PEP8 requirements.  http://pep8online.com/
+# This site lets you Check your code for PEP8 requirements. Just paste your code and it will check it for PEP8 requirements.  http://pep8online.com/
 
 # Also, Google has their own Python guide.
 
 # https://github.com/google/styleguide/blob/gh-pages/pyguide.md
 
-# never use character :--
-# Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as single character variable names.
+
+# never use character : 
+# -- Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as single character variable names.
 
 # package and module name :--
 # Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. ( e.g._socket ).
@@ -78,5 +70,13 @@ KT_contra = TypeVar('KT_contra', contravariant=True)
 # This way you will always create readable, consistent and nice code without thinking about how to do it.
 # See more at https://pypi.org/project/autopep8/
 
+# Use pylint to check your code is correct https://www.pylint.org
+
+# Use Auto Pep to clean up your code automatically https://pypi.python.org/pypi/autopep8 and Pylint to pick up and coding issues https://www.pylint.org/
+
+# Which choice is PEP 8-compliant as the name of a class? --- MyClassName
+
+
+# https://www.sololearn.com/learning/1073/2483/5187/2 comments
 
 
