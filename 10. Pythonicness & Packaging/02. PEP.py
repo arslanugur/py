@@ -26,7 +26,8 @@ bad_dict = {
     [1, 2, 3]: "one two three",
 }
 
-# As a quick reminder for WHY exactly this is a BAD dictionary, the Key [1, 2, 3] is a LIST, and so is mutable (vulnerable to being changed), so it CANNOT be used as a dictionary Key. After all, lists + dictionaries are mutable. BUT ONLY immutable objects are allowed to be Keys in a dictionary.
+# As a quick reminder for WHY exactly this is a BAD dictionary, the Key [1, 2, 3] is a LIST, and so is mutable (vulnerable to being changed), 
+# so it CANNOT be used as a dictionary Key. After all, lists + dictionaries are mutable. BUT ONLY immutable objects are allowed to be Keys in a dictionary.
 # Example:
 def add_five(x):
     return x + 5
