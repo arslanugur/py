@@ -597,6 +597,25 @@ print("\ny(%0.3f)=%0.5f"%(b,np.polyval(a,b)))
 
 
 # Konvolüsyon
+import numpy as np
+print("Giriş işaretini birer boşluk bırakarak giriniz!")
+x=[eval(i) for i in input().split()]
+print("Birim dürtü cevabını birer boşluk bırakarak giriniz!")
+h=[eval(i) for i in input().split()]
+print("\nÇıķış işareti: ",end=' ')
+print(np.convolve(x,h))
+
+
+# Dizinin en büyük-en küçük elemanları
+A=[]; N=int(input("Dizinin eleman sayısını giriniz: "))
+for i in range(N):
+   print(A(%d)= "%(i+1),end=' ')
+   A.append(eval(input()))
+print("\nDizinin en büyük elemanı: %d"%max(A))
+print("Dizinin en küçük elemanı: %d"%min(A))
+
+
+# Cümle-Harf
 
 
 
