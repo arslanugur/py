@@ -15,10 +15,11 @@ function(1, 2, 3, 4, 5)
 # Example:
 def my_func(x, *args): 
   print(x) 
-  print(args) 
+  print(args)
 
 my_func(8) # 8 ()
-# 8 is a named argument so it is passing directly to function.... and bcz while calling the function no value is passing to *args thats why it will print an empty tuple
+# 8 is a named argument so it is passing directly to function.... 
+# and bcz while calling the function no value is passing to *args thats why it will print an empty tuple
 
 # Example:
 # You need to put the individual team names in quotation marks to make them strings. 
@@ -277,7 +278,242 @@ func(x,y,food='samosa'): ✅
 func(x,food='samosa',y): ❌
 
 
-https://www.sololearn.com/learning/1073/2484/5190/2
+# What is wrong with this function definition? -- A non-default argument follows a default argument.
+def function(x, y = 7, z, *argums): 
+# *args is called *argums, *argums is the last argument
+
+
+# There is two use case for this: 
+# 1. Suppose *args is passed after default argument. 
+# 2. Suppose non-default argument is passed as well after default one. 
+# 1. if we use *args after default arguments. 
+def function(x,y,food="spam", *args): 
+    print("food : ",food) 
+    print("args : ",args)
+function(1,2) 
+function(3,4,"egg") 
+function(3,4,5) 
+function(3,4,"egg",5,6) 
+function(3,4,"egg","bread",6) 
+"""
+Output:
+food :  spam
+args :  ()
+food :  egg
+args :  ()
+food :  5
+args :  ()
+food :  egg
+args :  (5, 6)
+food :  egg
+args :  ('bread', 6)
+"""
+
+# 2. Suppose non-default argument is passed as well after default one. 
+def function(x,y,food="spam",z,*args): 
+    print(food) 
+function(1,2) 
+function(3,4,"egg") 
+function(3,4,5) 
+function(3,4,"egg",5,6) 
+function(3,4,"egg","bread",6) # Output: File "named_func.py", line 1 def function(x,y,food="spam",z,*args): 
+                              #         SyntaxError: non-default argument follows default argument
+#
+
+
+# Example:
+def function1(named_arg, food = "spam", *args): 
+    print(named_arg) 
+    print(food) 
+    print(args) 
+    
+function1(1, 2, 3, 4, 5, "egg") # Output: 1 2 (3,4,5,egg) 
+
+def function2(named_arg, food = "spam", *args): 
+    print(named_arg) 
+    print(food) 
+    print(args) 
+    
+function2(1, 2, 3, 4, 5, food = "egg") # Output: TypeError: function2() got multiple values for argument 'food' 
+def function3(named_arg, *args, food = "spam"): 
+    print(named_arg) 
+    print(food) 
+    print(args) 
+    
+function3(1, 2, 3, 4, 5,"egg") # Output: 1 spam (2,3,4,5,egg) 
+
+def function4(named_arg, *args, food = "spam"): 
+    print(named_arg) 
+    print(food) 
+    print(args) 
+    
+function4(1, 2, 3, 4, 5,food = "egg") # Output: 1 egg (2,3,4,5)
+
+
+# Example: Non default arg cannot follow a default arg ! 
+def fun1(a="who is you", b="True", x, y): 
+    print(a,b,x,y) # File "<stdin>", line 1 SyntaxError: non-default argument follows default argument
+#
+
+
   
-  
-# SECTION 3
+# SECTION 3: Function Arguments
+# **kwargs (standing for keyword arguments) allows you to handle named arguments that you have not defined in advance.
+# The keyword arguments return a dictionary in which the keys are the argument names, and the values are the argument values.
+# Example:
+def my_func(x, y=7, *args, **kwargs):
+    print(kwargs)                       # {'a': 7, 'b': 8}
+
+my_func(2, 3, 4, 5, 6, a=7, b=8)
+
+# a and b are the names of the arguments that we passed to the function call.
+# The arguments returned by **kwargs are not included in *args.
+
+# Example:
+def my_func(x, y=7, *args, **kwargs): 
+    print(x)        # 2
+    print(y)        # 3
+    print(args)     # (4, 5, 6)
+    print(kwargs)   # {'a': 7, 'b': 8}
+    
+my_func(2, 3, 4, 5, 6, a=7, b=8)
+
+# Example:
+# The only way to print the Y's default value is to pass only one argument to this function. 
+def my_func(x, y=7, *args, **kwargs): 
+    print(x) 
+    print(y) 
+    print(args) 
+    print(kwargs) 
+    
+my_func(2) # Then you will see: 2 7 [] {} 
+
+# Example:
+# You can use only one print function: 
+def my_func(x, y=7, *args, **kwargs): 
+    print("x = {}, y = {}, args = {}, kwargs = {}".format(x, y, args, kwargs)) 
+    
+my_func(2, 3, 4, 5, 6, a=7, b=8)
+
+
+# Example:
+def my_func(x,*args,y=7, **kwargs): 
+    print(x) 
+    print(args) 
+    print(y) 
+    
+my_func(2,3,4,5) # OUTPUT: 2 (3,4,5) 7 # default value of y
+
+
+# Its very useful when you want to call a function and dont remember where to put what as a parameter. 
+# Eg suppose there is a function (myFunc) expecting a boolean, an integer and a string. 
+# Now you can use **kwargs and pass them as : myFunc(my_str='CD', my_bool=True, my_int=5). The names will follow a standard convention.
+
+# https://stackoverflow.com/questions/37909719/understanding-function-arguments-in-python/37910898#37910898
+
+# ⭐args & ⭐⭐kwargs: Demystified https://realpython.com/python-kwargs-and-args/
+
+
+# Use of *args 
+def use_of_args(arg1, arg2, arg3): 
+    print("arg1:", arg1) 
+    print("arg2:", arg2)
+    print("arg3:", arg3) 
+    
+args = ("TWO", 3) 
+use_of_args(1, *args) # Output : arg1: 1 arg2: TWO arg3: 3 
+
+# Use of **kwargs 
+def use_of_kwargs(arg1, arg2, arg3): 
+    print("arg1:", arg1) 
+    print("arg2:", arg2) 
+    print("arg3:", arg3)
+# 
+kwargs = {"arg2": "TWO", "arg3": 3} 
+# you can pass this too, order doesn't matter. 
+kwargs = {"arg3": 3, "arg2": "TWO"} 
+use_of_kwargs(1, **kwargs) # Output : arg1: 1 arg2: TWO arg3: 3
+
+
+# Example:
+def function(*args, **kwargs): 
+    print(args) 
+    print(kwargs) 
+    
+function() 
+function(1, a=1) 
+function(1,2, a=1,b=2) # e.t.c output: () {} (1,) {'a': 1} (1, 2) {'a': 1, 'b': 2}
+
+
+# Example:
+def my_func(x, y=6, *args, **kwargs): 
+    print(x) 
+    print(y) 
+    print(args) 
+    print(kwargs) 
+    
+my_func(48, g=0) # OUTPUT: 48 6 () {'g': 0}
+
+# Example:
+def my_func(x, y= 7, *args, **kwargs): 
+    print("x= {}".format(x)) 
+    print("y= {}".format(y)) 
+    print("args= {}".format(args)) 
+    print("kwargs= {}".format(kwargs)) 
+    
+my_func(2, 3, 4, 5, 6, a= 7, b= 8) # OUTPUT: x= 2 y= 3 args= (4, 5, 6) kwargs= {'b': 8, 'a': 7}
+
+# In case you don't want to change the value of y; 
+def my_func(x, *args, y=7, **kwargs): 
+    print(x) 
+    print(y) 
+    print(args) 
+    print(kwargs) 
+    
+my_func(2, 3, 4, 5, 6, a=7, b=8) # 2 7 (3, 4, 5, 6) {'a': 7, 'b': 8}
+
+
+# Example:
+def my_func(*args, **kwargs): 
+    print(*args)    # (2, 3, 4, 5, 6)
+    print(kwargs)   # {'a': 7, 'b': 8}
+
+my_func(2, 3, 4, 5, 6, a=7, b=8)
+
+
+# What kind of object is kwargs?  -- a dictionary
+# *args --> tuple 
+# **kwargs --> dictionary
+
+# Example:
+def function(*args, **kwargs): 
+    print(args)     # ()
+    print(kwargs)   # {}
+    
+function()
+
+# Example:
+def my_func(x, y=7, *args, **kwargs): 
+    print(x) 
+    print(y) 
+    print(args) 
+    print(kwargs) 
+    
+my_func(2, 3, 4, 5, 6, a=7, b=8) # 2 3 (4, 5, 6) {'a': 7, 'b': 8} 
+# **kwargs is actually one of the PARAMETERS of the my_func function. 
+# However, from the above ☝👆 it's clear that print(kwargs) OUTPUTS the DICTIONARY {'a': 7, 'b': 8}. 
+# Hence, the code kwargs itself RETURNS a DICTIONARY. So, kwargs is really a DICTIONARY.
+
+# Recap: A single asterisk (*) - *args is a 'Tuple' argument A double asterisk (**) - **kwargs is a 'dictionary' KeywordArgument
+
+
+# Example:
+def my_func(x, y=7, *args, **kwargs): 
+    print(kwargs) 
+    print(*kwargs) 
+    
+my_func(2, 3, 4, 5, 6, a=7, b=8) # {'a': 7, 'b': 8} a b
+
+
+
+
