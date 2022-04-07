@@ -616,8 +616,15 @@ print("Dizinin en küçük elemanı: %d"%min(A))
 
 
 # Cümle-Harf
+import re
+a=input("Cümleyi giriniz => "); b=input("Harfi giriniz => ")
+c=[i.start() for i in re.finditer(b,a)]
+print("\nBelirtilen harften %d tane vardır.\nYerleri:"%len(c))
+print([x+1 for x in c])
 
 
-
+# Cümlenin tersten yazdırılması
+a=input("Cümleyi giriniz: ")
+print("\Cümlenin tersten yazımı:\n%s"%a[::-1])
 
 
