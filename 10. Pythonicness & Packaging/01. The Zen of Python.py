@@ -32,9 +32,15 @@ Namespaces are one honking great idea -- let's do more of those!
 
 # https://github.com/amontalenti/elements-of-python-style#a-little-zen-for-your-code-style
 
-Here are some more... >>> import __hello__ Hello world... >>> >>> import antigravity >>> (opens a comic website) >>> from __future__ import braces File "<stdin>", line 1 SyntaxError: not a chance >>> >>> love=this >>> this is love True >>> love is True False >>> >>> love is False False >>> >>> love is not True or False; love is love True True >>>
+# Here are some more... >>> import __hello__ Hello world... >>> 
+# >>> import antigravity >>> (opens a comic website) 
+# >>> from __future__ import braces File "<stdin>", line 1 SyntaxError: not a chance >>> 
+# >>> love=this >>> this is love True >>> love is True False >>> >>> love is False False >>> >>> love is not True or False; love is love True True >>>
 
-"this" is a self-referring key word in many languages- like "self" in Pyhton. And he used it here as self-referring to the zen-essence of the language. oh, this Dutch people, practical, progressive, clear, wise and stingy (read: non-wasteful) : no wonder, such small nation, on such small land has commanded so much of the (past) and current wealth, yet have remained relatively unbombastic.
+# "this" is a self-referring key word in many languages- like "self" in Pyhton. 
+# And he used it here as self-referring to the zen-essence of the language. 
+# oh, this Dutch people, practical, progressive, clear, wise and stingy (read: non-wasteful) : no wonder, such small nation, on such small land has commanded 
+# so much of the (past) and current wealth, yet have remained relatively unbombastic.
 
 # SECTION 2
 # Some lines in the Zen of Python may need more explanation.
