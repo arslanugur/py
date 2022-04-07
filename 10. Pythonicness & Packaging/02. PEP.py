@@ -76,7 +76,64 @@ KT_contra = TypeVar('KT_contra', contravariant=True)
 
 # Which choice is PEP 8-compliant as the name of a class? --- MyClassName
 
+# From Wikipedia: "As the first letter of a compound word in camel case may or may not be capitalized, 
+# there is no consensus on whether the term "camel case" implies an uppercase or lowercase initial letter. 
+# For clarity, this article calls the two alternatives upper camel case (initial upper case letter, 
+# also known as Pascal Case) and lower camel case (initial lower case letter). 
+# Some people and organizations, notably Microsoft, use the term camel case only for lower camel case." https://en.m.wikipedia.org/wiki/Camel_case
+        
+# never use character :-- 
+# Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as single character variable names. 
+# package and module name :-- Modules should have short, all-lowercase names. 
+# Underscores can be used in the module name if it improves readability. ( e.g._socket ). 
+# class name :-- 
+# class names should be in the CapWords style ( ex. MyClassName ) variable 
+# and function name :-- most variables and function names should be lowercase_with_underscores 
+# Examples: 
+from typing import TypeVar 
+VT_co = TypeVar('VT_co', covariant=True) 
+KT_contra = TypeVar('KT_contra', contravariant=True) 
+constant name :-- written in all capital letters with underscores separating words. 
+# Examples include MAX_OVERFLOWand TOTAL . and for more better to understand goto - https://www.python.org/dev/peps/pep-0008/#names-to-avoid
 
-# https://www.sololearn.com/learning/1073/2483/5187/2 comments
+
+# The earliest use of the name "CamelCase" occurs in 1995, in a post by Newton Love.[18] 
+# Love has since said, "With the advent of programming languages having these sorts of constructs, 
+# the humpiness of the style made me call it HumpyCase at first, before I settled on CamelCase. I had been calling it CamelCase for years. ... 
+# The citation above was just the first time I had used the name on USENET."[19]
+
+# https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/CamelCase.svg/368px-CamelCase.svg.png
+
+# There are two kinds of CamelCase: 1- UpperCamelCase -> PascalCase 2-lowerCamelCase
+
+
+# SECTION 3
+# Other PEP 8 suggestions include the following:
+# - lines shouldn't be longer than 80 characters;
+# - 'from module import *' should be avoided;
+# - there should only be one statement per line.
+
+# It also suggests that you use spaces, rather than tabs, to indent. 
+# However, to some extent, this is a matter of personal preference. 
+# If you use spaces, only use 4 per line. It's more important to choose one and stick to it.
+
+# The most important advice in the PEP is to ignore it when it makes sense to do so. 
+# Don't bother with following PEP suggestions when it would cause your code to be less readable; inconsistent with the surrounding code; or not backwards compatible.
+# However, by and large, following PEP 8 will greatly enhance the quality of your code.
+# Some other notable PEPs that cover code style:
+# PEP 20: The Zen of Python
+# PEP 257: Style Conventions for Docstrings
+
+# What is the recommended length limit for a line of code? -- 79-80 --> PEP 8 recommends 80         --> It's just a suggestion to make it more readable and clean
+# http://stackoverflow.com/questions/88942/why-does-python-pep-8-specify-a-maximum-line-length-of-79-characters/88948#88948
+# Terminals usually had 80 characters wide. In the old D.O.S., screens in text mode has 80x24 characters.
+# According to Stack overflow: 
+# Keeping your code human readable not just machine readable. A lot of devices still can only show 80 characters at a time. 
+# Also it makes it easier for people with larger screens to multi-task by being able to set up multiple windows to be side by side. 
+# Readability is also one of the reasons for enforced line indentation.
+
+# https://softwareengineering.stackexchange.com/questions/148677/why-is-80-characters-the-standard-limit-for-code-width
+
+
 
 
