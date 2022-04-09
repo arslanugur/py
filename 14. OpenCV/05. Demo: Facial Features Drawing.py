@@ -12,7 +12,7 @@ camera_.set(3,640)
 camera_.set(4,480)
 while True:
   _, square_ = camera_.read()
-  gray_ = cv2.cvtColor(square_, cv2.COLOR_BGR2RAY)
+  gray_ = cv2.cvtColor(square_, cv2.COLOR_BGR2GRAY)
   blur = cv2.GaussianBlur(gray_, (7,7), 0)
   canny = cv2.Canny(blur, 30, 50)
   canny = cv2.bitwise_not(canny)
