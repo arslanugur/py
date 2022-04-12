@@ -12,7 +12,8 @@
 
 # A number of third-party modules are available that make it much easier to carry out scientific and mathematical computing with Python.
 # The module matplotlib allows you to create graphs based on data in Python.
-# The module NumPy allows for the use of multidimensional arrays that are much faster than the native Python solution of nested lists. It also contains functions to perform mathematical operations such as matrix transformations on the arrays.
+# The module NumPy allows for the use of multidimensional arrays that are much faster than the native Python solution of nested lists. 
+# It also contains functions to perform mathematical operations such as matrix transformations on the arrays.
 # The library SciPy contains numerous extensions to the functionality of NumPy.
 
 # Python can also be used for game development.
