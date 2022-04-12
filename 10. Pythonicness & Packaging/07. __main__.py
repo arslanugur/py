@@ -152,6 +152,172 @@ help(type)
 # which accounts from the __name__ attribute of the file is default value "__main__" while modules have its own name for this attribute. 
 # Technically, the if statement judged as what the .py file is treated and so you can make things work differently.
 
+# Question
+# Which variable couldn't be accessed if this code was imported as a module?
+x = 1
+y = x 
+if __name__=="__main__":
+    z = 3
+# z
 
-https://www.sololearn.com/learning/1073/2488/5199/2
+# https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+
+# SECTION 2
+# If we save the code from our previous example as a file called codeexample.py, 
+# we can then import it to another script as a module, using the name codeexample.
+# codeexample.py
+def function():
+    print("This is a module function")
+
+if __name__=="__main__":
+    print("This is a script")   #
+#
+
+# some_script.py
+import codeexample
+
+codeexample.function()          # This is a module function
+
+# Basically, we've created a custom module called as codeexample, and then used it in another script.
+
+
+# __name__ is just a global environmental variable, which equals "__main__" 
+# when your code is used as a main program or equals module's name when your code is used as a module imported by another code
+
+
+# Example:
+file = "module.py" 
+f = open(file, 'w+') 
+text = ''' # A Python Module def up():
+            print("This is a module function") 
+            if __name__=="module":
+            print("This is a script inside module because __name__ is equal of file") 
+            if __name__=="__main__": 
+            print("This is a script that will not be printed") ''' 
+f.write(text) 
+f.close() 
+import codeexample
+codeexample.up()
+
+
+# __name__ holds the name of python script currently running.. 
+# And if __name__ == __main__ 
+# if the current file is the main file ( i.e. NOT BEING IMPORTED)
+
+
+# (1): For the next quiz, seems to important to know what's going on behind the scenes. 
+# Remember 1st lesson, end bit of lesson I'm the yellow-shaded box. 
+# Recall the following code. 
+def function(): 
+    print("This is a module function") 
+    
+if __name__=="__main__": 
+    print("This is a script") # See the 2nd code block, what it's saying to you, just an if statement, right? 
+    # IF the (special) VARIABLE __name__ is an EXACT MATCH with the string "__main__", 
+    # THEN print the string "This is a script". That's all. 
+    # Because the Python INTERPRETER is RUNNING the code, I believe it had INTERPRETED the above code as follows.
+#
+
+# (2): 
+def function(): 
+    print("This is a module function") 
+    
+if "__main__"=="__main__": 
+    print("This is a script") 
+    # Observe how the special variable __name__ had its VALUE suddenly SET as equal to the string "__main__". 
+    # Why??? Because we RAN THIS .py file (/MODULE/SOURCE FILE) itself as the (main) program. 
+    # See 1st lesson, end bit, yellow-shaded box. Clearly, the if statement if True, so print("This is a script") gets executed...
+#
+
+# (3): Alternatively, IF this .py file gets IMPORTED into another script as a module, then __name__ becomes equal to the module's name instead. 
+# For instance, consider the example of this 2nd lesson right here. 
+import codeexample codeexample.function() Gets perhaps INTERPRETED as follows. 
+def function(): 
+    print("This is a module function")
+    
+if __name__=="__main__": 
+    print("This is a script") 
+    
+codeexample.function()
+#
+
+# (4): 
+def function(): 
+    print("This is a module function") 
+if codeexample=="__main__": 
+    print("This is a script") 
+function() # Hence, you get the OUTPUT of "This is a module function".
+#
+
+
+# "__main__" here represents the name used to save the file being run. 
+# if the file is being run directly as a script i.e you write some code and try to run it, 
+# the name used to save the file will replace "__main__" and the if condition will check. 
+# for example, if the file is saved as file1, and the script is being run directly, 
+# the interpreter sees is as __name__="file1" and since we are indeed dealing with the file named file1, the code under the if condition will run. 
+# Now let's create a new file say file2. if file1 is imported as a module into file2, __name__="file1", still holds 
+# but now we are running from 'file2' which means that the line of code if __name__=="__main__": will not run 
+# because now we are in file2 and __name__=!"file1"
+
+# in Java any script code is written in the main function. 
+# In python it's just written in the file.__name__=__main__ is used to find out if the code is being imported as a module or just being run
+
+# Example: to print “Welcome” if the script is imported, and “Hi” if it is not imported
+if __name__== “__main__”:           # if not imported __main__ will be the entry point (like Main in C#) main
+    print(“Hi”)                     # and True print("hi") # and "hi" will print. 
+else:                               # if it is imported __main__ shell become a variable taking the name of the Module and the if statement above will be Not true or False
+    print(“Welcome")                # and therefore, print("welcome") else will print "Welcome". 
+#
+# The screwy part for me was that the questions starts with what happens 
+# when Its imported (the False and printing "welcome") while the second part else (the False, is actually after the True, that is first). 
+# So the re-arrangement had to be done. Just a bit tricky. 
+# Point to remember: __main__ becomes the name of the Module IF imported and therefore its Not anymore __main__. 
+# Then the "if statement: if __name__== "_main_": becomes False and it goes to the Else. 
+# If must be True or __main__ must stay and be __main__ for If to be True. 
+
+# Explanation:
+# The if condition checks whether this is the " __main__ program or not. 
+# If it's a main program ( not a imported one), print the corresponding statment. Else, ( if it's imported), print "Welcome"
+
+
+
+# Example:
+          if __name__ == "__main__":
+  def inside_function():
+    print ("this means that we are in the main file (where the variable '__name__' is set to the name of the file we are currently in, and the same filename == '__main__') \n")
+    
+else:
+  def outside_function():
+    print("This message is available as imported only when you are in another file")
+
+try:
+  print(1)
+  inside_function()
+except:
+  print("This is not the main file")
+
+try:
+  print(2)
+  outside_function()
+except:
+  print("this is only available when we are in another file") 
+#
+
+
+# One need to study this question carefully for a clearer understanding: 
+# It says: print "Welcome" if the script is imported or print "Hi" if it's not imported. 
+# If the script __name__ has not been saved as a file. 
+# it doesn't exist and nothing was imported into __main__. "Hi" will be displayed if it's true 
+# line 1. if __name__=="__main__" 
+# line 2. print ("Hi") #it is not imported line 
+# 3. else line 4 print ("Welcome") #it is imported. 
+# Assuming the source file with the script __name__ was saved as name.py and has the following code. 
+# For instance: def function (): print (this is a module function) 
+# The code will print "Welcome" in this order if the file name.py exist. 
+# line 1. if __name__=="__main__" 
+# line 2. print ("Welcome") #it is imported 
+# line 3. else line 4 print ("Hi") #it is not imported.
+
+
+
 
