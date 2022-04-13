@@ -65,11 +65,5 @@ setup(
 # What is the command used for bulding a source distribution? --> python setup.py sdist
 
 
-https://www.sololearn.com/learning/1073/2490/5204/2 comments
-   
-   
-   
-
-
 
 
