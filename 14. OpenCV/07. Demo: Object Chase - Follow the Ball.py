@@ -1,4 +1,3 @@
-# Following the ball
 import cv2
 import imutils
 import sys
