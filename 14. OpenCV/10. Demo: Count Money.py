@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 square_ = cv2.imread('pictures/money.jpeg')
-cember = true
+cember = True
 blur = cv2.GaussianBlur(square_,(11,11),0)
 gray = cv2.cvtColor(blur, cv2.COLOR_BGR2GRAY)
 cv2.imshow('gray', gray)
