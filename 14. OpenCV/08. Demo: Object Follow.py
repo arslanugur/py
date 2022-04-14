@@ -1,3 +1,4 @@
+# Nesne Takibi: Kuyruklu Top
 import cv2
 import imutils
 from collections import deque
@@ -7,8 +8,6 @@ fileName = ' ' # 'videos/ab03.mp4'
 width = 800       # Genişlik
 NOKTA_SAYISI = 100
 
-
-....
 
 green = ((29, 86, 6), (64, 255, 255))
 red = ((139, 0, 0), (255, 160, 122))
@@ -39,21 +38,27 @@ while True:
   copy_ = mask.copy()
   
   contours = cv2.findContours(copy_, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
-  if len(contours)>0:
-    for contour in contours:
-      cmax = max(contours, key=cv2.contourArea)
-      if sadece_max:
-        (x,y), yaricap = cv2.minEnclosingCircle(cmax)
-      else:
-        (x,y), yaricap = cv2.minEnclosingCircle(contour)
-      if yaricap >= 10:
-        cv2.circle(square_, (int(x), int(y)), int(yaricap), (0, 0, 255), 4)
-        
+  center_ = None
+  if len(contours) > 0:
+    cmax = max(contours, key = cv2.contourArea)
+    for ctr in contours:
+      (x,y), yaricap = cv2.minEnclosingCircle(cmax)
+      mts = cv2.moments(cmax):
+      center_ = int(mts['m10']/mts['m00']), int(mts['m01']/mts['m00'])
+      if yaricap >= 30:
+        cv2.circle(square_, (int(x), int(y)), int(yaricap), (255, 255, 0), 4)
+      points_.appendleft(center_)
+      for i in range(1,len(points_)):
+        if points_[i] and points[i-1]:
+          # cizgi_kal = int(np.sqrt(NOKTA_SAYISI/float(i+1)) * 1.5) # 5.1
+          cizgi_kal=2
+          cv2.line(square_,points_[i-1], points_[i], (0,255,255),cizgi_kal)
   cv2.imshow("square_", square_)
-  cv2.imshow("mask", mask)
-  
-  k = cv2.waitKey(4) & 0xFF
-  if k==ord('q') or k==27:
+  key = cv2.waitKey(10) & 0xFF
+  if key == ord('q') or k==27:
     break
 camera_.release()
 cv2.destroyAllWindows()
+
+
+
