@@ -28,7 +28,7 @@ for contour in contours:
     (x, y, w, h) = cv2.boundingRect(contour)
     cv2.rectangle(square_, (x,y), (x + w, y + h), (0, 255, 0), 2)
     if cember:
-      (x, y), ycap = cv2,minEnclosingCircle(contour)
+      (x, y), ycap = cv2.minEnclosingCircle(contour)
       center_ = (int(x), int(y))
       ycap = int(ycap)
       img = cv2.circle(square_, center_, ycap, (255,0,0),2)
