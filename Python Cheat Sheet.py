@@ -1,5 +1,9 @@
 # https://www.practicepython.org/
 
+# Must Learn Py Libraries
+pygame, random, numpy, os, collections, subprocess, functools, itertools, multiprocessing
+
+
 # REMOVE & DEL statement
 # Remove() function is used to delete a specific object in the list
 list1 = [1,2,3,4,5,6]
@@ -85,9 +89,34 @@ def calculate(a, b):
 calculate(**dictionary)  # output: 13
 
 
-# Trick 7: One-Liners
-# Swap Two Variables
+# ONE-LINERS
+# 01. To Swap Numbers
 a, b = b, a
+
+# 02. Reverse a String
+mystring[::-1]
+
+# 03. String Palindrome
+mystring = mystring[::-1]
+
+# 04. Palindrome Python One Liner
+phrase.find(phrase[::-1])
+
+# 05. Factorial of a number
+fact = lambda n:[1,0][n>1] or Fact(n-1)*n
+
+# 06. Factorial of a Number
+reduce(lambda x,y:x*y, range(1,n+1))
+
+# 07. Fibonacci Sequence
+fib = lambda x: x if x<=1 else fib(x-1) + fib(x-2)
+
+# 08. Read a File
+[line.strip() for line in open(filename)]
+
+
+
+
 
 # Trick 8: Assign Value to Multiple Variables in one line
 # Stop doing below
@@ -100,18 +129,6 @@ print(a, b, c)  # a 1 ('c', 'd')
 list1 = ["a", 1, ("c", "d")] 
 a, b, c = list1
 print(a, b, c)  # a 1 ('c', 'd')
-
-# Palindrome Python One Liner
-phrase.find(phrase[::-1])
-
-# Read a File
-[line.strip() for line in open(filename)]
-
-# Factorial of a Number
-reduce(lambda x,y:x*y, range(1,n+1))
-
-# Fibonacci Sequence
-lambda x: x if x <=1 else fib(x-1) + fib(x-2)
 
 
 
