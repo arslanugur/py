@@ -1,5 +1,9 @@
+# Websites:
 # https://www.practicepython.org/
-
+# https://www.tiobe.com/tiobe-index/
+# https://www.practicepython.org/exercises/
+  
+  
 # Must Learn Py Libraries
 pygame, random, numpy, os, collections, subprocess, functools, itertools, multiprocessing
 
