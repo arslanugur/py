@@ -1,4 +1,18 @@
 # https://www.practicepython.org/
+
+# REMOVE & DEL statement
+# Remove() function is used to delete a specific object in the list
+list1 = [1,2,3,4,5,6]
+list1.remove(2)  # [1,2,4,5,6]
+
+# DEL or POP
+# Used to delete an object at a specific location (index) in the list
+list1 = [1,2,3,4,5,6]
+del list1[2]  # [1,2,4,5,6]
+
+
+
+
 ###### TRICKS
 # Trick 1: Lambda Function vs. Regular Function
 # This is a regular function
