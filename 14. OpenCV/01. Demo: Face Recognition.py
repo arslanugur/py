@@ -1,3 +1,4 @@
+# pip install opencv-python
 import cv2
 
 faceCascade_ = cv2.CascadeClassifier('Cascades/haarcascade_frontalface_default.xml')
