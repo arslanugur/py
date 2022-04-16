@@ -18,4 +18,13 @@ else:
   print("not Anagram")
 #
 
+"""
+Logic:
+s   l
+i   i
+l   s
+e   t
+n   e
+t   n
+"""
 
