@@ -1,3 +1,45 @@
+# Problem: Meta and Microsoft Interview
+# Question: An encoded string (s) is given, the task is to decode it.
+#           The pattern in which the strings were encoded were as follows
+#           original string: abbbababbbababbbab
+#           encoded string: 3[a3[b]1[ab]]
+# Example:
+# Input: s = 3[b2[ca]]
+# Output: bcacabcacabcaca  
+# Explanation: 2[ca] means 'ca' is repeated twice which is 'caca' which concatenated with 'b' becomes 'bcaca'.
+#              This string repeated thrice becomes the output 
+
+
+# Problem: Amazon Interview Challenge
+# Given an array, X, of N integers, calculate and print the respective mean, median, and mode on separate lines.
+# If your array contains more than one modal value, choose the numerically smallest one.
+n=6
+x=[1,2,3,4,5,5]
+# the mean is 20/6 = 3.3
+# the median is (3+4)/2 = 3.5
+# the mode is 5 because 5 occurs most frequently
+# Complexity: try to do it in O(N) time
+
+
+
+# Problem: Amazon Interview Challenge
+# You are given N dice, each having m faces(from 1 to m)
+# Find probability of getting sum of the numbers on dice as X assuming all the dice are thrown together exactly once.
+# (n <= <= m * n)
+n=3
+m=6
+x=8
+# answer 5/36
+# Expected time complexity: O(n*x)
+# Bonus: Try to extend the solution for finding probabilities for getting sum >=x and <x as well
+
+
+
+
+
+
+
+
 # Check if list contains integer x
 lst = [3, 3, 4, 5, 2, 111, 5]
 print(111 in lst) # True
