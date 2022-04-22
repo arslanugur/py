@@ -1,5 +1,5 @@
 # Kütüphaneyi kurmak için   pip install detect
 from langdetect import detect
 
-print(detect("one two three"))  # tr
-print(detect("ein zwein drei")) # en
+print(detect("one two three")) # en
+print(detect("ein zwei drei")) # ge
