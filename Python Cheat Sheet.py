@@ -175,6 +175,40 @@ import sys
 year = 2020
 print(sys.getsizeof(year))  # 28
 
+# Bir objenin hafıza kullanımına bakmak için
+import sys
+x = 1
+print(sys.getsizeof(x))
+
+
+
+# In-Place - Yer değiştirmek için
+x, y = 10, 20
+print(x,y) # 10, 20
+x, y = y, x
+print(x, y) # 20, 10
+
+
+# Bir listenin elemanlarından string oluşturmak için
+str = ["Come", "and", "See"]
+print(" ".join(string))
+
+
+# Import edilen modüllerin dizinlerini ekrana yazdırmak için
+import os
+import socket
+
+print(os)
+print(socket)
+
+
+# Bir Fonksiyonda birden fazla veri döndürmek için
+def func():
+  return 1, 2, 3, 4
+  
+a, b, c, d = func()
+print(a, b, c, d)     # 1, 2, 3, 4
+
 
 # Birden fazla değer dönmek: Py'daki fonksiyonlar, tuple'lar yardımıyla birden fazla değişken döndürülebilir
 def double(a, b):
