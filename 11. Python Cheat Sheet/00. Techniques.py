@@ -8,6 +8,9 @@ age = t.year - int(b)
 print("\nHi " + a + "\nYour Age: " + str(age))
 
 
+#-------------------------------------------------#
+
+
 # Print - 1
 print("abc")                                            # abc
 print('abc')                                            # abc
@@ -62,6 +65,9 @@ print(a.rjust(11, ":"));    # :::::London
 print(b.zfill(11))          # 00000000101
 
 
+#-------------------------------------------------#
+
+
 # For Loop - 1
 a = "London"
 for i in a:
@@ -71,7 +77,8 @@ for i in a:
 a = ["Berlin", "Amsterdam", "London", "Madrid", "Miami", "Los Angeles"]
 for i in a:
   print(i + " ** ", end = "")
-  
+# Berlin ** Amsterdam ** London ** Madrid ** Miami ** Los Angeles ** 
+
 # For Loop - 3
 for i in range(10):
   print("%d\t"%i, end = "")
@@ -87,6 +94,8 @@ for i in range(10, 0, -2):
 print()                     # 10	8	6	4	2
 
 
+#-------------------------------------------------#
+
 
 # While Loop - 1
 s = 0
@@ -96,6 +105,9 @@ while s < 5:
 else:
   print("loop condition not met.", s,"= 5")
 #
+
+
+#-------------------------------------------------#
 
 
 # Decision Structure - 1
@@ -114,6 +126,9 @@ x = -1 * a if (a > 0) else a
 print(x)
 
 
+#-------------------------------------------------#
+
+
 # Triangle Area - 1
 a = float(input("Enter the side length (cm): "))
 h = float(input("Enter the height (cm): "))
@@ -129,6 +144,9 @@ area =  a * b * math.sin(math.radians(angle)) / 2
 print("\nTriangle Area (cm²): {:.2f}\n".format(area))
 
 
+#-------------------------------------------------#
+
+
 # Odd - Even
 a = int(input("Enter an integer: "))
 if (a % 2 == 0):
@@ -138,6 +156,9 @@ else:
 #
 
 
+#-------------------------------------------------#
+
+
 # Perfect Divisors
 a = int(input("Positive Integer: "))
 print("%d \nInteger's perfect divisors:"%a)
@@ -145,6 +166,9 @@ for i in range(1, a+1):
   if (a%i==0):
     print("%d"%i)
 #
+
+
+#-------------------------------------------------#
 
 
 # Sums
@@ -164,6 +188,9 @@ for i in range(2, n+1, 2):
 print("\nSum of numbers from 1 to %d:"%n, t1)  
 print("\nSum of odd numbers from 1 to %d:"%n, t2)
 print("\nSum of numbers from 2 to %d:"%n, t3)
+
+
+#-------------------------------------------------#
 
 
 # Combination
@@ -191,6 +218,9 @@ x = (c-b) / a
 print("\n%0.2fx+%0.2f=%0.2f root of the equation: %0.3f\n"%(a,b,c,x))
 
 
+#-------------------------------------------------#
+
+
 # Roots of Quadratic Equation 
 import math
 import cmath
@@ -216,6 +246,9 @@ else:
 #
 
 
+#-------------------------------------------------#
+
+
 # Piecewise Function
 x = eval(input("enter point x: "))
 if (x<0):
@@ -227,6 +260,9 @@ elif ((2 <= x) & (x <= 4)):
 else:
   y = 4-x
 print("At point x = %0.2f, the value of the function = %0.2f\n"%(x, y))
+
+
+#-------------------------------------------------#
 
 
 # Unit Conversion
@@ -244,6 +280,9 @@ elif (sec == 4):
 else:
   b = 0
 print("\nResult: %0.5f"%b)
+
+
+#-------------------------------------------------#
 
 
 # Ideal Weight
@@ -265,6 +304,9 @@ else:
 #
 
 
+#-------------------------------------------------#
+
+
 # Multiple of 5 
 import math
 s = eval(input("Integer: ")); print(math.floor((s * 2) / 10)* 5));
@@ -279,6 +321,8 @@ for a in range(0, s + 1):
       print("%d-%d"%(a,b))
 #
 
+#-------------------------------------------------#
+
 
 # Factorial
 def factorial(k):
@@ -287,6 +331,9 @@ def factorial(k):
   else:
     return k * factorial(k - 1)
 a = int(input("Positive Integer: ")); print("\n%d!=%d"%(a, factorial(a)))
+
+
+#-------------------------------------------------#
 
 
 # McCarthy 91
@@ -299,6 +346,9 @@ n = int(input("Value: "))
 print("\nMcCarthy 91 function value: %d\n"%mc91(n))
 
 
+#-------------------------------------------------#
+
+
 # Hanoi Towers
 def hanoi(n, k, y, h):
   if (n == 1):
@@ -307,6 +357,9 @@ def hanoi(n, k, y, h):
     hanoi(n-1, k, h, y); print("%d. disk: %s -> %s"%(n, k, h))
     hanoi(n-1, y, k, h)
 s = int(input("Disk Number: ")); hanoi(s, "Source", "Helper", "Goal")
+
+
+#-------------------------------------------------#
 
 
 # Cosine
@@ -318,6 +371,9 @@ for i in range(1, n):
   t += (-1)**i*x**(2*i) / math.factorial(2*i)
 print("\nValue calculated by Series Expansion: %0.5f"%t)
 print("Value calculated by Command: %0.5f"%math.cos(x))
+
+
+#-------------------------------------------------#
 
 
 # Number Guess Game
@@ -333,6 +389,9 @@ while (guess != bs):
 print("\nYou made %d guesses"%s)  
 
 
+#-------------------------------------------------#
+
+
 # above e
 import math
 n = int(input("Number of Terms: "))
@@ -343,17 +402,26 @@ print("\nx value above e with Series Expansion: %0.5f"%t)
 print("\nx value above e by Command: %0.5f"%math.exp(x))
 
 
+#-------------------------------------------------#
+
+
 # above e
 print("exp(x) =  lim(1+x/n)^n\n")
 x = eval(input("x: ")); n = eval(input("n: "))
 result = (1 + x / n) ** n; print("\nexp(%f)=%f"%(x, result))
 
- 
+
+#-------------------------------------------------#
+
+
 # Square Root (2)
 t = 1; n = eval(input("Number of Division: "))
 for i in range(n):
   t = 2 + 1 / t
 print("Square Root (2) = %f"%(1+1/t))
+
+
+#-------------------------------------------------#
 
 
 # Prime Numbers
@@ -369,7 +437,6 @@ for i in range(2, n + 1):
 #
 
 
-
 # Prime Multipliers
 a = int(input("Positive Integer: ")); b = 2
 while (a > 1):
@@ -378,6 +445,9 @@ while (a > 1):
   else:
     b += 1
 #
+
+
+#-------------------------------------------------#
 
 
 # Perfect Number 
@@ -390,6 +460,9 @@ if (s == t):
 else:
   print("Not Perfect Number")
 #
+
+
+#-------------------------------------------------#
 
 
 # Fibonacci Series
@@ -414,6 +487,9 @@ for i in range(1, N+1):
 #
 
 
+#-------------------------------------------------#
+
+
 # Floyd's Triangle
 s = 1; 
 n = int(input("Number of Rows: ")); 
@@ -424,6 +500,9 @@ for i in range(1, n+1):
       s+=1
     print()
 #
+
+
+#-------------------------------------------------#
 
 
 # Hamming Numbers
@@ -444,6 +523,9 @@ if (h==1):
 else:
    print("\nIt is not a Hamming number\n")
 #
+
+
+#-------------------------------------------------#
 
 
 # LCM (OKEK/EKOK) - Least Common Multiple, Lowest Common Multiple, Least Common Divisor -- En Küçük Ortak Kat - EKOK, Ortak Katların En Küçüğü - OKEK
@@ -476,6 +558,9 @@ a = int(input("First Integer: ")); b = int(input("Second Integer: "))
 print("\nGCD(%d, %d) = %d" % (a, b, gcd(a, b)))
 
 
+#-------------------------------------------------#
+
+
 # Bitwise Operations (Bitsel İşlemler)
 a = int(input("Positive Integer: "))
 k = int(input("kaçıncı bit: "))
@@ -483,6 +568,8 @@ print("\nWriting: %d" % (a | (1<<(k-1))))
 print("\nDeletion: %d" % (a & (~ (1<<(k-1)))))
 print("\nTümleme: %d" % (a ^ (1<<(k-1))))
 
+
+#-------------------------------------------------#
 
 
 # Dikdörtgenler Yöntemi
@@ -613,6 +700,9 @@ for i in range(N):
    A.append(eval(input()))
 print("\nDizinin en büyük elemanı: %d"%max(A))
 print("Dizinin en küçük elemanı: %d"%min(A))
+
+
+#-------------------------------------------------#
 
 
 # Cümle-Harf
