@@ -3,21 +3,6 @@
 # https://www.tiobe.com/tiobe-index/
 # https://www.practicepython.org/exercises/
   
-# Python Data Type Cheatsheet
-# String                    List                      Tuple                     Set                         Dict
-# -----------------------------------------------------------------------------------------------------------------------------------
-# immutable                 mutable                   immutable                 mutable                     mutable
-# ordered/indexed           ordered/indexed           ordered/indexed           unordered                   unordered
-# allows duplicate members  allows duplicate members  allows duplicate members  not allow duplicate members not allow duplicate keys
-empty_string=""             empty_list=[]             empty_tuple=()            empty_set=set()             empty_dict={}
-str_w_single_element="h"    list_w_single_item=["h"]  tup_w_single_item=("h")   set_w_single_item={"h"}     dict_w_single_item={"h":1}
-
-# list, can store any data types str, list, set, tuple, int and dict
-# tuple, can store any data types str, list, set, tuple, int and dict
-# set, can store data types (str, int, tuple) but not (list, set, dict)
-# dict, inside of dict key can be int, str, and tuple only values can be of any data type int, str, list, set and dict.
-
-
 
 # Must Learn Py Libraries
 pygame, random, numpy, os, collections, subprocess, functools, itertools, multiprocessing
