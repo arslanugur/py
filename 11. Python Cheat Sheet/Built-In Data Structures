@@ -1,8 +1,0 @@
-                    Indexing      Ordered     Mutable     Duplicate
-List        []         V             V           V            V         
-Tuple       ()         V             V           X            V
-Set         {}         X             X           X            X              
-Dictionary  {K:V}      X             V           V            X
-
-                    Python sets are mutable because the set itself may be modified, but the elements contained in the set must be of an immutable type.
-                    
