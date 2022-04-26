@@ -1,3 +1,5 @@
+https://bilkav.com/makine-ogrenmesi-egitimi/
+
 Section 2:
           Verilerin Yüklenmesi
           Kütüphanelerin yüklenmesi
@@ -101,11 +103,35 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 2.3 Verinin Python'dan Yüklenmesi ve içeri alınması (data import)
+# veri yükleme
 veriler = pd.read_csv("../../veriler.csv")
 
-
+# veri ön işleme
+# cx = veriler[['columnx']]
+# cxandcy = veriler[['columnx','columny']]
 
 2.4 Python ve Nesne Yönelimli Programlama
+# how to define a class and a function
+class man:                    # man = object
+    height = 180
+    def run(self, b):         # man runs
+        return b + 10
+ 
+jack = man()                  # jack is a man object --> define an object
+print(jack.height)
+print(jack.run(20))           # b = 20 ---> output: 3O
+
+# Mathematical Way
+# y = f(x)
+# f(x) = x+10                 # x olarak aldığı parametriyi 10 fazlasıyla döndürüyor
+
+# how to define a list
+l = [1,3,4]
+
+
+
+
+
 2.5 Eksik Veriler (Missing Values)
 2.6 Kategorik Veriler
 2.7 Verilerin Birleştirilmesi ve DataFrame Oluşturulması
