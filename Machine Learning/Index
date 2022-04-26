@@ -1,3 +1,53 @@
+Section 2:
+          Verilerin Yüklenmesi
+          Kütüphanelerin yüklenmesi
+          Verilerin içeri Alınması (data import)
+          Py: Object Oriented Programming
+          Eksik veriler
+          Kategorik veriler
+          Veri kümesinin eğitim ve test olarak bölünmesi
+          öznitelik ölçekleme
+          veri ön işleme şablonu
+          quiz 1: veri ön işleme
+          
+Section 3: Tahmin (Prediction) 
+Section 3.1: Basit Doğrusal
+          Veri kümesi
+          Veri ve problem Tanımı
+          Doğrusal Regrasyon Probleminin py ile uygulaması
+          quiz 2: Basit doğrusal regresyon
+Section 3.2: Çoklu Doğrusal
+          Veri kümesi
+          Veri kümesi ve problemin tanımı
+          Çoklu Doğrusal regresyonun py ile uygulaması
+          P-Value
+          Geri Eleme (Backward Elimination)
+          Ödev 1: Çoklu Doğrusal Regresyon
+          Ödev 1: Çözümü
+          quiz 3: Çoklu Doğrusal Regresyon
+Section 3.3: Polinomal Regresyon
+          veri kümesi
+          polinom regresyonun py ile uygulaması
+          py ile polinom regresyon şablonu
+Section 3.4: Destek Vektör ile tahmin (support verctor regression, SVR)
+                veri kümesi
+                py ile SVR uygulaması
+              Karar ağacı ile tahmin
+                veri kümesi
+                karar ağacı regresyonun py ile uygulaması
+              Rassal ağaç ile tahmin (Random Forest)
+                veri kümesi
+                py ile rassal agaç regresyonu
+              Regression modellerinin karşılaştırılması
+                R-kare ölçümü
+                Düzeltilmiş R-kare
+                Doğrusal regresyon parametrelerinin py ile uygulaması
+Section 4: Sınıflandırma
+          Sınıflandırma problemlerine genel bakış
+
+------------------------------------
+
+
 Machine Learning
   - Computer Vision
   - Object Detection
@@ -21,148 +71,174 @@ Machine Learning
   
 Curriculum
 1. Python ile Makine Öğrenmesi Tanıtım
-1.1_Makine Öğrenmesinin Uygulamaları
-1.2_Makine Öğrenmesi ve Geleceğin Dünyası
-1.3_Python ve Anaconda'nın kurulması
-1.4_Dersler ile ilgili önemli notlar
+1.1 Makine Öğrenmesinin Uygulamaları
+1.2 Makine Öğrenmesi ve Geleceğin Dünyası
+1.3 Python ve Anaconda'nın kurulması
+1.4 Dersler ile ilgili önemli notlar
+      Metodoloji: CRISP-DM (Cross Industry Standard Process for Data Mining)
+          Business Understanding - Problemin Tanınması
+          Data Understanding
+          Data Preparation
+          Modeling
+          Evaluation -- if not, check data ---> Business Understanding
+          Deployment
+       
+        Tahmin - Prediction
+        Sınıflandırma - Classification
+        Bölütleme/Kümeleme - Clustering
+        Birlikte Kural Çıkarımı - ARM 
+        Pekiştirmeli Öğrenme - Reinforced Learning 
+        Doğal Dil İşleme ve Metin İşleme - Text Processing
+        Derin Öğrenme - Deep Learning
+        Boyut İndirgeme ve Veri dönüştürme
+  
 
 2.Veri Analizi Proje Yönetimi ve Problem Tipleri
-2.1_Veri Kaynağı ve Dersin Web Sitesi
-2.2_Kütüphanelerin Yüklenmesi
-2.3_Verinin Python'dan Yüklenmesi ve içeri alınması (data import)
-2.4_Python ve Nesne Yönelimli Programlama
-2.5_Eksik Veriler (Missing Values)
-2.6_Kategorik Veriler
-2.7_Verilerin Birleştirilmesi ve DataFrame Oluşturulması
-2.8_Veri Kümesinin Eğitim ve Test olarak bölünmesi
-2.9_Öznitelik Ölçekleme
-2.10_Veri Ön işleme Şablonu
+2.1 Verilerin Hazırlanması: Veri Kaynağı ve Dersin Web Sitesi
+2.2 Verilerin Hazırlanması: Kütüphanelerin Yüklenmesi
+import pandas as pd             # veriyi yüklemek için kullanılır
+import numpy as np
+import matplotlib.pyplot as plt
+
+2.3 Verinin Python'dan Yüklenmesi ve içeri alınması (data import)
+veriler = pd.read_csv("../../veriler.csv")
 
 
+
+2.4 Python ve Nesne Yönelimli Programlama
+2.5 Eksik Veriler (Missing Values)
+2.6 Kategorik Veriler
+2.7 Verilerin Birleştirilmesi ve DataFrame Oluşturulması
+2.8 Veri Kümesinin Eğitim ve Test olarak bölünmesi
+2.9 Öznitelik Ölçekleme
+2.10 Veri Ön işleme Şablonu
+
+
+Veriyi Modelleme:
 3.Tahmin (Prediction) #1: Basit Doğrusal Regresyon (Simple Linear Regression)
-3.1_Tahmin (Prediction) Problemlerine Giriş
-3.2_Veri Kümesinin İndirilmesi
-3.3_Basit Doğrusal Regresyon (Simple Linear Regression)
-3.4_Veri Yükleme ve Ön İşleme Şablonunun Kullanılması ve Regresyona Hazırlık
-3.5_Python ile Basit Doğrusal Regresyon Model İnşası
-3.6_Python ile Basit Doğrusal Regresyon Uygulaması
-3.7_Basit Doğrusal Regresyon Görselleştirilmesi
+3.1 Tahmin (Prediction) Problemlerine Giriş
+3.2 Veri Kümesinin İndirilmesi
+3.3 Basit Doğrusal Regresyon (Simple Linear Regression)
+3.4 Veri Yükleme ve Ön İşleme Şablonunun Kullanılması ve Regresyona Hazırlık
+3.5 Python ile Basit Doğrusal Regresyon Model İnşası
+3.6 Python ile Basit Doğrusal Regresyon Uygulaması
+3.7 Basit Doğrusal Regresyon Görselleştirilmesi
 
 4.Tahmin (Prediction) #2: Çoklu Doğrusal Regresyon (Multiple Linear Regression)
-4.1_Veri Kümesi ve Problemin Tanınması
-4.2_Çoklu Doğrusal Regresyon (Multiple Linear Regression) Kavramına Giriş
-4.3_Kukla Değişken ve Tuzağı (Dummy Variable Trap)
-4.4_P-Value (Olasılık Değeri)
-4.5_Çok Değişkenli Modellerde, Değişken Seçimi
-4.6_Çoklu Değişken için Veri Hazırlama (Python Kodu)
-4.7_Çoklu Değişken Linear Model Oluşturma Python Kodlaması ve Model
-4.8_Python ile Geri Eleme (Backward Elimination)
-4.9_Ödev 1: Veri Kümesi ve Ödevin Açıklaması
-4.10_Ödev 1: Çözüm 1. Parça: Verinin hazırlanması ve Çoklu Doğrusal Regresyon
-4.11_Ödev 1: Çözüm 2. Parça: Geri Eleme (Backward Elimination)
+4.1 Veri Kümesi ve Problemin Tanınması
+4.2 Çoklu Doğrusal Regresyon (Multiple Linear Regression) Kavramına Giriş
+4.3 Kukla Değişken ve Tuzağı (Dummy Variable Trap)
+4.4 P-Value (Olasılık Değeri)
+4.5 Çok Değişkenli Modellerde, Değişken Seçimi
+4.6 Çoklu Değişken için Veri Hazırlama (Python Kodu)
+4.7 Çoklu Değişken Linear Model Oluşturma Python Kodlaması ve Model
+4.8 Python ile Geri Eleme (Backward Elimination)
+4.9 Ödev 1: Veri Kümesi ve Ödevin Açıklaması
+4.10 Ödev 1: Çözüm 1. Parça: Verinin hazırlanması ve Çoklu Doğrusal Regresyon
+4.11 Ödev 1: Çözüm 2. Parça: Geri Eleme (Backward Elimination)
 
 
 5.Tahmin (Prediction) #3: Polinom Regresyon (Polynomial Regression)
-5.1_Veri Kümesi, Kavramın ve Problemin Tanımı
-5.2_Polinomal Regresyonun Python ile Uygulama kodu
-5.3_Python ile Doğrusal Olmayan Şablon (Polinomial Regression Python Template)
+5.1 Veri Kümesi, Kavramın ve Problemin Tanımı
+5.2 Polinomal Regresyonun Python ile Uygulama kodu
+5.3 Python ile Doğrusal Olmayan Şablon (Polinomial Regression Python Template)
 
 6.Tahmin (Prediction) #4: Destek Vektör (Support Vector Regression)
-6.1_SVR Tanımı ve Problem
-6.2_Python ile Support Vector Tahmini Uygulaması
+6.1 SVR Tanımı ve Problem
+6.2 Python ile Support Vector Tahmini Uygulaması
 
 7.Tahmin (Prediction) #5: Karar Ağacı (Decision Tree)
-7.1_Karar Ağacı kullanarak tahmin yöntemi
-7.2_Python ile karar ağacı kullanarak tahmin
+7.1 Karar Ağacı kullanarak tahmin yöntemi
+7.2 Python ile karar ağacı kullanarak tahmin
 
 
 8.Tahmin (Prediction) #6: Rassal Ağaçlar (Random Forest) ile Tahmin
-8.1_Rassal Ağaç (Random Forest) Algoritması ve Tahmin
-8.2_Python ile Rassal Ağaç kullanarak Tahmin
+8.1 Rassal Ağaç (Random Forest) Algoritması ve Tahmin
+8.2 Python ile Rassal Ağaç kullanarak Tahmin
 
 9.Tahmin (Prediction) #7: Değerlendirme ve Metotların Karşılaştırılması
-9.1_R2 Hesaplanması
-9.2_Düzeltilmiş R2 Hesaplaması (Adjusted R2)
-9.3_Python ile R2 hesaplama ve Algoritmaların Karşılaştırılması
-9.4_Ödev 2: Ödevin tanımı ve veri kümesi
-9.5_Ödev 2: Çözümü
-9.6_ÖZET : Tahmin Metotlarının Karşılaştırılması
+9.1 R2 Hesaplanması
+9.2 Düzeltilmiş R2 Hesaplaması (Adjusted R2)
+9.3 Python ile R2 hesaplama ve Algoritmaların Karşılaştırılması
+9.4 Ödev 2: Ödevin tanımı ve veri kümesi
+9.5 Ödev 2: Çözümü
+9.6 ÖZET : Tahmin Metotlarının Karşılaştırılması
 
 10.Sınıflandırma #1: Giriş ve Temel Kavramlar
-10.1_Sınıflandırma ve Temel Kavramlar, Problemin Algısı
-
+10.1 Sınıflandırma ve Temel Kavramlar, Problemin Algısı
+ 
 11.Sınıflandırma #2: Lojistik Regresyon (Logistic Regression)
-11.1_Lojistik Regresyon Kavramı ve Algoritmanın Teorisi
-11.2_Python ile Logistic Regression Uygulaması
-11.3_Confusion Matrix (Karmaşıklık Matrisi) ve Sınıflandırma Şablonu
+11.1 Lojistik Regresyon Kavramı ve Algoritmanın Teorisi
+11.2 Python ile Logistic Regression Uygulaması
+11.3 Confusion Matrix (Karmaşıklık Matrisi) ve Sınıflandırma Şablonu
 
 12.K-NN (K En Yakın Komşu)
-12.1_K-NN (K Nearest Neighborhood) algoritmasına giriş
-12.2_Python ile KNN Kodlaması
+12.1 K-NN (K Nearest Neighborhood) algoritmasına giriş
+12.2 Python ile KNN Kodlaması
 
 13.Support Vector Machine (SVM) ile Sınıflandırma
-13.1_SVM algoritmasının çalışması ve detayları
-13.2_SVM Algoritmasının Python ile kodlanması
+13.1 SVM algoritmasının çalışması ve detayları
+13.2 SVM Algoritmasının Python ile kodlanması
 
 14.SVM ve Çekirdek Hilesi (Kernel Trick)
-14.1_Kernel Trick (Çekirdek Hilesi)
-14.2_Python ile Çekirdek Hilesi Kodlama
+14.1 Kernel Trick (Çekirdek Hilesi)
+14.2 Python ile Çekirdek Hilesi Kodlama
 
 15.Naif Bayes (Naive Bayes)
-15.1_Naif Bayes (Naive Bayes)
-15.2_Python Kodu : Naive Bayes ve GaussianNB, MultinominalNB, BernolliNB
+15.1 Naif Bayes (Naive Bayes)
+15.2 Python Kodu : Naive Bayes ve GaussianNB, MultinominalNB, BernolliNB
 
 16.Karar Ağacı ile Sınıflandırma (Decision Tree)
-16.1_Karar ağacı ile sınıflandırmaya giriş
-16.2_Python ile Karar Ağacı Sınıflandırma Kodu
+16.1 Karar ağacı ile sınıflandırmaya giriş
+16.2 Python ile Karar Ağacı Sınıflandırma Kodu
 
 17.Rassal Orman (Random Forest)
-17.1_Rassal Orman ile Sınıflandırma
-17.2_Python Kodu: Rassal orman ile sınıflandırma
+17.1 Rassal Orman ile Sınıflandırma
+17.2 Python Kodu: Rassal orman ile sınıflandırma
 
 
 18.Sınıflandırma Bölüm Sonu
-18.1_Confusion Matris
-18.2_Flase Positive ve False Negative Kavramları
-18.3_Netlik/doğruluk (accuracy) paradoksu
-18.4_ROC Eğrisi
-18.5_AUC Değeri
+18.1 Confusion Matris
+18.2 Flase Positive ve False Negative Kavramları
+18.3 Netlik/doğruluk (accuracy) paradoksu
+18.4 ROC Eğrisi
+18.5 AUC Değeri
 
 
 19.Sınıflandırma Algoritmalarının Değerlendirilmesi
-19.1_Sınıflandırma Şablonu
-19.2_Ödev 3: Iris veri kümesi ve sınıflandırma algoritmaları
-19.3_Ödev 3 : Çözümü
+19.1 Sınıflandırma Şablonu
+19.2 Ödev 3: Iris veri kümesi ve sınıflandırma algoritmaları
+19.3 Ödev 3 : Çözümü
 
 20.Bölütleme / Kümeleme (Clustering)
-20.1_Gözetimsiz Öğrenmeye Giriş (Unsupervised Learning)
+20.1 Gözetimsiz Öğrenmeye Giriş (Unsupervised Learning)
 
 21.K-Means (K-Ortalama) Algoritması
-21.1_Algoritmaya ve Kavramlara Giriş
-21.2_Rassal Başlangıç Tuzağı
-21.3_Küme / Bölüt sayısına karar vermek
-21.4_Python ile K-Means Kodlaması
+21.1 Algoritmaya ve Kavramlara Giriş
+21.2 Rassal Başlangıç Tuzağı
+21.3 Küme / Bölüt sayısına karar vermek
+21.4 Python ile K-Means Kodlaması
 
 22.Hiyerarşik Bölütleme (Clustering)
-22.1_Kavrama ve Algoritmaya Giriş
-22.2_Hiyerarşik Bölütleme ve Dendogram Kavramı
-22.3_Hiyerarşik Bölütleme / Kümeleme ve Dendogramların kullanılması
+22.1 Kavrama ve Algoritmaya Giriş
+22.2 Hiyerarşik Bölütleme ve Dendogram Kavramı
+22.3 Hiyerarşik Bölütleme / Kümeleme ve Dendogramların kullanılması
 
 23.APriori Algoritması
-23.1_Birliktelik Kural Çıkarımı Problemlerine Giriş
-23.2_Python ile Apriori Algoritmasının Kodlanması
+23.1 Birliktelik Kural Çıkarımı Problemlerine Giriş
+23.2 Python ile Apriori Algoritmasının Kodlanması
 
 24.Eclat Algoritması
-24.1_Eclat Algoritmasının Çalışması
+24.1 Eclat Algoritmasının Çalışması
 
 25.Pekiştirmeli / Takviyeli Öğrenme (Reinforced Learning)
-25.1_Reinforced Learning Kavramına Giriş
-25.2_A/B Testi, Tek Kollu Canavar ve Reinforced Learning kullanım alanları
+25.1 Reinforced Learning Kavramına Giriş
+25.2 A/B Testi, Tek Kollu Canavar ve Reinforced Learning kullanım alanları
 
 26.UCB (Üst Güven Aralığı) Yaklaşımı ve Kodlaması
-26.1_UCB (Upper Confidence Bound, Üst Güven Sınırı)
-26.2_Python ile Rasgele Yaklaşımın Kodlanması
-26.3_Python ile UCB kodlama
+26.1 UCB (Upper Confidence Bound, Üst Güven Sınırı)
+26.2 Python ile Rasgele Yaklaşımın Kodlanması
+26.3 Python ile UCB kodlama
 
 
 27.Thompson Örneklemesi (Thompson Sampling) Yaklaşımı ve Kodlaması
@@ -170,57 +246,57 @@ Curriculum
 27.1_Thompson Yaklaşımı ve Çalışması
 
 28.Doğal Dil İşleme
-28.1_Kavramlara ve DDİ Dünyasına giriş
-28.2_Kodlama Öncesi Genel DDİ Problemleri ve Yaklaşımları
-28.3_Veri Kümesi ve Bazı Kaynaklar
-28.4_Python ilk Problemler : Sparce Matrix ve imla işaretleri
-28.5_Python, 2. Problem: Büyük / Küçük Harfler
-28.6_Python 3. Problem: Stop Words
-28.7_Python 4. Kelime Gövdeleri (Stemmer)
-28.8_Python 5. Kelime Vektörü Sayaç kullanımı (CountVectorizer)8 dk
-28.9_Python 6. Makine öğrenmesi ve Sınıflandırma Kısmı10 dk
+28.1 Kavramlara ve DDİ Dünyasına giriş
+28.2 Kodlama Öncesi Genel DDİ Problemleri ve Yaklaşımları
+28.3 Veri Kümesi ve Bazı Kaynaklar
+28.4 Python ilk Problemler : Sparce Matrix ve imla işaretleri
+28.5 Python, 2. Problem: Büyük / Küçük Harfler
+28.6 Python 3. Problem: Stop Words
+28.7 Python 4. Kelime Gövdeleri (Stemmer)
+28.8 Python 5. Kelime Vektörü Sayaç kullanımı (CountVectorizer)8 dk
+28.9 Python 6. Makine öğrenmesi ve Sınıflandırma Kısmı10 dk
 
 29.Derin Öğrenme
-29.1_Yapay Sinir Ağlarına ve Nöron Yapısına Giriş
-29.2_Aktivasyon Fonksiyonları (Activation Functions)
-29.3_Katman Kavramı ve Çalışan bir Yapay Sinir Ağı
-29.4_XOR Problemi ve Çözüm olacak YSA tasarımı
-29.5_YSA Nasıl Öğrenir ? : Perceptron (Algılayıcı) kavramı
-29.6_Gradyan Alçalış (Gradient Descendent)
-29.7_Stokastik (Stochastic) , Yığın (Batch) ve Mini Yığın Gradyan Alçalışlar
-29.8_YSA Öğrenme Algoritması ve İleri/Geri Yayılım (Backpropagation/Forwardpropagatio)
-29.9_Derin Öğrenme Kütüphaneleri
-29.10_Derin Öğrenme Kütüphanelerinin Kurulması
-29.11_Problemin Tanımı ve Veri Kümesi
-29.12_YSA Kodlamasına Giriş ve Keras ile Tanışma
-29.13_Keras'a gizli katman eklemek ve bir Keras Bug'ı
-29.14_Yapay Sinir Ağını Derlemek, Eğitmek çalıştırmak ve başarısı
+29.1 Yapay Sinir Ağlarına ve Nöron Yapısına Giriş
+29.2 Aktivasyon Fonksiyonları (Activation Functions)
+29.3 Katman Kavramı ve Çalışan bir Yapay Sinir Ağı
+29.4 XOR Problemi ve Çözüm olacak YSA tasarımı
+29.5 YSA Nasıl Öğrenir ? : Perceptron (Algılayıcı) kavramı
+29.6 Gradyan Alçalış (Gradient Descendent)
+29.7 Stokastik (Stochastic) , Yığın (Batch) ve Mini Yığın Gradyan Alçalışlar
+29.8 YSA Öğrenme Algoritması ve İleri/Geri Yayılım (Backpropagation/Forwardpropagatio)
+29.9 Derin Öğrenme Kütüphaneleri
+29.10 Derin Öğrenme Kütüphanelerinin Kurulması
+29.11 Problemin Tanımı ve Veri Kümesi
+29.12 YSA Kodlamasına Giriş ve Keras ile Tanışma
+29.13 Keras'a gizli katman eklemek ve bir Keras Bug'ı
+29.14 Yapay Sinir Ağını Derlemek, Eğitmek çalıştırmak ve başarısı
 
 
 30.Boyut İndirgeme (Dimension Reduction)
-30.1_PCA (Principal Component Analysis) Birncil Bileşen Analizi
-30.2_PCA, Python ile kodlanması
-30.3_LDA: Linear Discriminant Analysis
-30.4_LDA: Python ile kodlaması
+30.1 PCA (Principal Component Analysis) Birncil Bileşen Analizi
+30.2 PCA, Python ile kodlanması
+30.3 LDA: Linear Discriminant Analysis
+30.4 LDA: Python ile kodlaması
 
 
 31.Model Seçimi
-31.1_Model Değerlendirmesi : k-fold Cross Validation
-31.2_Model Seçimi : GridSearchCV
+31.1 Model Değerlendirmesi : k-fold Cross Validation
+31.2 Model Seçimi : GridSearchCV
 
 32.Bonus: XGBoost
-32.1_XGBoost : Giriş, Özellikleri ve Kaynaklar
-32.2_XGBoost: Kurulum ve Python Kodlaması
+32.1 XGBoost : Giriş, Özellikleri ve Kaynaklar
+32.2 XGBoost: Kurulum ve Python Kodlaması
 
 33.Bonus: Soru Cevap
-33.1_KNN'deki K değeri neye göre alınır?
-33.2_Modelinin Kaydedilmesi ve Tekrar kullanılması (Pickle Kütüphanesi)
+33.1 KNN'deki K değeri neye göre alınır?
+33.2 Modelinin Kaydedilmesi ve Tekrar kullanılması (Pickle Kütüphanesi)
 
 34.Bonus: CNN (Convolutional Neural Networks)
-34.1_CNN (Convolutional Neural Networks) Giriş
-34.2_Uçtan Uca CNN Çalışması
-34.3_CNN Görsel Uygulama ve Düzleştirme (Flattening)
-34.4_CNN : Python ile Kodlama
+34.1 CNN (Convolutional Neural Networks) Giriş
+34.2 Uçtan Uca CNN Çalışması
+34.3 CNN Görsel Uygulama ve Düzleştirme (Flattening)
+34.4 CNN : Python ile Kodlama
 
 
 
