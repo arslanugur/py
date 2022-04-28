@@ -1,3 +1,4 @@
+# PART I
 # Check if list contains integer x
 lst = [3, 3, 4, 5, 2, 111, 5]
 print(111 in lst) # True
@@ -114,6 +115,11 @@ def get_permutations(w):
 print(get_permutations("nan"))  # {'ann', 'nna', 'nan'}
 
 
+
+
+
+
+# PART II
 # String Triangle
 my_string = "angle"
 x = 0
