@@ -20,7 +20,7 @@ volMin, volMax = volume.GetVolumeRange()[:2]
 
 
 while True:
-  success, ing = cap.read()
+  success, img = cap.read()
   ingRGB = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
   results = hands.process(imgRGB)
 
@@ -28,7 +28,7 @@ lmlist = []
 if results.multi_hand_landmarks:
   for handlandmark in results.multi_hand_landmarks:
     for id, lm in enumerate(handlandmark.landmark):
-      h,w,_ = ing.shape
+      h,w,_ = img.shape
       cx,cy int(lm.x*w), int(lm.y*h)
       lmList.append([id,cx,cy])
     mpdraw.draw_landmarks(img, handlandmark, mpHands.HAND_CONNECTIONS)
