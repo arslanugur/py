@@ -152,6 +152,181 @@ def Delete(head, position):
     return head
 
 
-# 06. 
+# 06. Print the Elements of a Linked List in Reverse
+"""
+ Print elements of a linked list in reverse order as standard output
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+ 
+"""
+
+def ReversePrint(head):
+    if head is None:
+        return
+    else:
+        out = []
+        node = head
+        
+        while node != None:
+            out.append(node.data)
+            node = node.next
+            
+        print("\n".join(map(str, out[::-1])))
+  
+
+# 07. Reverse a Linked List
+"""
+ Reverse a linked list
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+ return back the head of the linked list in the below method.
+"""
+
+def Reverse(head):
+    prev = None
+    node = head
+    while node is not None:
+        buf = node.next
+        node.next = prev
+        prev = node
+        node = buf
+        
+    head = prev
+    return head
+
+
+# 08. Compare Two Linked Lists
+"""
+ Merge two linked list
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+ return back the head of the linked list in the below method.
+"""
+
+def CompareLists(headA, headB):
+    if headA is None and headB is None:
+        return 0
+    else:
+        nodeA = headA
+        nodeB = headB
+        while nodeA and nodeB:
+            if nodeA.data != nodeB.data:
+                return 0
+            nodeA = nodeA.next
+            nodeB = nodeB.next
+        
+        if nodeA is None and nodeB is None:
+            return 1
+        else:
+            return 0
+
+
+
+# 09. Merge Two Sorted Linked Lists
+"""
+ Merge two linked lists
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+ return back the head of the linked list in the below method.
+"""
+
+def Insert(head, data):
+    node = head
+    if head is None:
+        head = Node(data)
+        return head
+    
+    while node.next is not None:
+        node = node.next
+    
+    node.next = Node(data)
+    
+    return head
+
+def MergeLists(headA, headB):
+    list_out = Node()
+    node_a = headA
+    node_b = headB
+    
+    while node_a and node_b:
+        if node_a.data < node_b.data:
+            list_out = Insert(list_out, node_a.data)
+            node_a = node_a.next
+        else:
+            list_out = Insert(list_out, node_b.data)
+            node_b = node_b.next
+    
+    last_node = list_out
+    while last_node.next is not None:
+        last_node = last_node.next
+    
+    if node_a:
+        last_node.next = node_a
+    elif node_b:
+        last_node.next = node_b
+        
+    return list_out.next
+
+
+
+# 10. Get the Value of the Node at a Specific Position from the Tail
+#Body
+"""
+ Get Node data of the Nth Node from the end.
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+ return back the node data of the linked list in the below method.
+"""
+
+def GetNode(head, position):
+    node = head
+    list_len = 0
+    
+    while node != None:
+        node = node.next
+        list_len += 1
+        
+    node = head
+    for _ in range(list_len - position - 1):
+        node = node.next
+    
+    return node.data
+  
+  
+# 11.
+
+
+  
+  
 
 
