@@ -389,5 +389,102 @@ def FindMergeNode(headA, headB):
     return res
     
   
-# 13.
+# 13. Insert a Node into a Sorted Doubly Linked List
+"""
+ Insert a node into a sorted doubly linked list
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None, prev_node = None):
+       self.data = data
+       self.next = next_node
+       self.prev = prev_node
+ return the head node of the updated list 
+"""
+
+def SortedInsert(head, data):
+    if head == None:
+        return Node(data=data, next_node=None, prev_node=None)
+    
+    node = head
+    while node.next != None and node.next.data <= data:
+        node = node.next
+    
+    node.next = Node(data=data, next_node=node.next, prev_node=node)
+    
+    return head
+   
+   
+# 14. Reverse a Doubly Linked List
+"""
+ Reverse a doubly linked list
+ head could be None as well for empty list
+ Node is defined as
+ 
+ class Node(object):
+ 
+   def __init__(self, data=None, next_node=None, prev_node = None):
+       self.data = data
+       self.next = next_node
+       self.prev = prev_node
+ return the head node of the updated list 
+"""
+
+def Reverse(head):
+    prev = None
+    node = head
+    
+    while node is not None:
+        buf = node.next
+        node.next = prev
+        prev = node
+        node = buf
+        
+    head = prev
+    return head
+  
+
+# 15. Detect Whether a Linked List contains a Cycle
+"""
+Detect a cycle in a linked list. Note that the head pointer may be 'None' if the list is empty.
+A Node is defined as: 
+ 
+    class Node(object):
+        def __init__(self, data = None, next_node = None):
+            self.data = data
+            self.next = next_node
+"""
+
+
+def has_cycle(head):
+    cnt = 0
+    node = head
+    
+    if head is None:
+        return 0
+    
+    while node != None:
+        node = node.next
+        cnt += 1
+        if cnt > 100:
+            return 1
+    
+    return 0
+   
+   
+
+   
+
+
+
+
+
+
+
+
+
+
+
 
