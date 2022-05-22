@@ -1,10 +1,51 @@
 #!/bin/python3
 
 # 01. Tree: Preorder Traversal
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)
+"""
+
+
+def preOrder(root):
+    print root.data,
+    if root.left is not None:
+        preOrder(root.left)
+    if root.right is not None:
+        preOrder(root.right)
+        
 
 # 02. Tree: Postorder Traversal
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)
+"""
+def postOrder(root):
+    if root is not None:
+        postOrder(root.left)
+        postOrder(root.right)
+        print root.data,
+
+
 
 # 03. Tree: Inorder Traversal
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)
+"""
+def inOrder(root):
+    if root is not None:
+        inOrder(root.left)
+        print root.data,
+        inOrder(root.right)
+
+
 
 # 04. Tree: Height of a Binary Tree
 
