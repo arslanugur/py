@@ -89,10 +89,84 @@ def topView(root):
         
 
 # 06. Tree: Level Order Traversal
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)
+"""
+
+def height(root):
+    if root is not None:
+        return max(1 + height(root.left), 1 + height(root.right))
+    else:
+        return -1
+
+def _levelOrder(root, level):
+    if root is not None:
+        if level == 0:
+            print root.data,
+        else:
+            _levelOrder(root.left, level - 1)
+            _levelOrder(root.right, level - 1)
+        
+
+def levelOrder(root):
+    for level in range(height(root)+1):
+        _levelOrder(root, level)
+        
 
 # 07. Binary Search Tree : Insertion
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)"""
+
+def insert(root, val):
+    if root is None:
+        root = Node(data=val)
+        return root
+    
+    current = root
+    while True:
+        if current.data > val:
+            if current.left is not None:
+                current = current.left
+            else:
+                current.left = Node(data=val)
+                break
+        else:
+            if current.right is not None:
+                current = current.right
+            else:
+                current.right = Node(data=val)
+                break
+    
+    return root
+    
 
 # 08. Binary Search Tree : Lowest Common Ancestor
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)
+"""
+
+def lca(root , v1 , v2):
+    vals = sorted([v1, v2])
+    v1, v2 = vals[0], vals[1]
+    node = root
+    while True:
+        if v1 < v2 < node.data:
+            node = node.left
+        if v1 > v2 > node.data:
+            node = node.right
+        if v1 <= node.data <= v2:
+            break
+    return node
+        
 
 # 09. Tree: Huffman Decoding
 
