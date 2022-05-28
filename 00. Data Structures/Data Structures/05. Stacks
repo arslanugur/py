@@ -50,9 +50,99 @@ if __name__ == "__main__":
 
 
 # 03. Balanced Brackets
+#!/bin/python3
+
+import sys
+
+def isBalanced(s):
+    stack = []
+ 
+    for letter in s:
+        if letter == '{':
+            stack.append(1)
+        elif letter == '[':
+            stack.append(2)
+        elif letter == '(':
+            stack.append(3)
+        elif letter == '}':
+            if len(stack) == 0:
+                return False
+            if stack.pop() != 1:
+                return False
+        elif letter == ']':
+            if len(stack) == 0:
+                return False
+            if stack.pop() != 2:
+                return False
+        elif letter == ')':
+            if len(stack) == 0:
+                return False
+            if stack.pop() != 3:
+                return False
+ 
+    return len(stack) == 0
+
+if __name__ == "__main__":
+    t = int(input().strip())
+    for a0 in range(t):
+        s = input().strip()
+        result = isBalanced(s)
+        if result is True:
+            print('YES')
+        else:
+            print('NO')
+
+
 
 # 04. Game of Two Stacks
+#!/bin/python3
 
+import sys
+
+
+g = int(input().strip())
+for a0 in range(g):
+    n,m,x = input().strip().split(' ')
+    n,m,x = [int(n),int(m),int(x)]
+    a = list(map(int, input().strip().split(' ')))
+    b = list(map(int, input().strip().split(' ')))
+    
+    a = a[::-1]
+    b = b[::-1]
+    
+    handy_stack = []
+    el_count = 0
+    total = 0
+    
+    while len(a) > 0:
+        if total + a[-1] <= x:
+            temp = a.pop()
+            handy_stack.append(temp)
+            total += temp
+            el_count += 1
+        else:
+            break
+            
+    
+    total_b = 0
+    while len(b) > 0:
+        if total_b + b[-1] <= x:
+            if total + b[-1] <= x:
+                temp = b.pop()
+                total += temp
+                total_b += temp
+                el_count += 1
+            else:
+                temp = b.pop()
+                total = total - handy_stack.pop() + temp
+                total_b += temp
+        else:
+            break
+            
+    print(el_count)
+                
+            
+        
 # 05. Largest Rectangle
 
 # 06. Simple Text Editor
