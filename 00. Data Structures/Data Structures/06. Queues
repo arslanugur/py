@@ -95,7 +95,91 @@ if __name__ == "__main__":
 
 
 # 03. Down to Zero II
+#!/bin/python3
+
+import sys
+
+def generate_seive():
+    limit = pow(10, 6) + 1
+    seive = [-1]* limit
+    seive[0], seive[1], seive[2], seive[3] = 0, 1, 2, 3
+    
+    for iind in range(limit):
+        if seive[iind] == -1 or seive[iind] > seive[iind-1] + 1:
+            seive[iind] = seive[iind-1] + 1
+            
+        jind = 1
+        while jind <= iind and jind * iind < limit:
+            if seive[jind * iind] == -1 or seive[jind * iind] > seive[iind] + 1:
+                seive[jind * iind] = seive[iind] + 1
+            jind += 1
+    
+    return seive
+
+if __name__ == "__main__":
+    Q = int(input().strip())
+    seive = generate_seive()
+    for a0 in range(Q):
+        N = int(input().strip())
+        print(seive[N])
+
+
 
 # 04. Truck Tour
+#!/usr/bin/env python3
+
+import queue
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    res = 0
+    tank = 0
+    q = queue.Queue()
+
+    
+    for ind in range(n):
+        petr, dist = [int(arg) for arg in input().strip().split()]
+        tank += petr
+        
+        if dist <= tank:
+            tank -= dist
+        else:
+            tank = 0
+            res = ind+1
+            
+        q.put((petr, dist))
+            
+    print(res)
+
+
 
 # 05. Queries with Fixed Length
+#!/usr/bin/env python3
+
+if __name__ == "__main__":
+    n, q = [int(x) for x in input().strip().split()]
+    arr = [int(x) for x in input().strip().split()]
+    
+    for _ in range(q):
+        d = int(input().strip())
+        maxes = []
+        was_first = False
+        
+        for i in range(n - d + 1):
+            if i == 0 or was_first == True:
+                #print(arr[i:i+d])
+                maxes.append(max(arr[i:i+d]))
+            else:
+                #print("max({}, {})".format(maxes[-1], arr[i+d-1]))
+                maxes.append(max(maxes[-1], arr[i+d-1]))
+                
+            if maxes[-1] == arr[i]:
+                was_first = True
+            else:
+                was_first = False
+            
+        print(min(maxes))
+            
+
+
+
