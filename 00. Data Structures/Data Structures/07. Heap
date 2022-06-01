@@ -1,4 +1,131 @@
 # 01. QHEAP1
+#!/usr/bin/env python3
+
+import heapq as hq
+from bisect import insort
+
+if __name__ == "__main__":
+    t = int(input().strip())
+    q = []
+    
+    for _ in range(t):
+        args = input().strip().split()
+        if args[0] == '1':
+            insort(q, int(args[1]))
+            #hq.heappush(q, int(args[1]))
+        elif args[0] == '2':
+            q.remove(int(args[1]))
+            #hq.heapify(q)
+        elif args[0] == '3':
+            print(q[0])
+            
+
+
+
+
 # 02. Jesse and Cookies
+#!/usr/bin/env python3
+
+import heapq as hq
+
+if __name__ == "__main__":
+    n, k = map(int, input().strip().split(' '))
+    candies = list(map(int, input().strip().split(' ')))
+    q = []
+    res = 0
+    
+    for el in candies:
+        hq.heappush(q, el)
+    
+    while any(c < k for c in q) and len(q) > 1:
+        last = hq.heappop(q)
+        prelast = hq.heappop(q)
+        
+        new = last + 2*prelast
+        
+        hq.heappush(q, new)
+        res += 1
+        
+    if all(c >= k for c in q):
+        print(res)
+    else:
+        print(-1)
+        
+
+
+
+
 # 03. Find the Running Median
+#!/usr/bin/env python3
+
+import heapq as hq
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    minq = []
+    maxq = []
+    median = int(input().strip())
+    hq.heappush(maxq, -median)
+    print("{:.1f}".format(float(median)))
+    
+    for _ in range(n-1):
+        getnew = int(input().strip())
+        
+        if getnew >= median:
+            hq.heappush(minq, getnew)
+        else:
+            hq.heappush(maxq, -getnew)
+            
+        if len(minq) - len(maxq) > 1:
+            hq.heappush(maxq, -hq.heappop(minq))
+        elif len(maxq) - len(minq) > 1:
+            hq.heappush(minq, -hq.heappop(maxq))
+        
+        if len(maxq) == len(minq):
+            median = (minq[0] - maxq[0])/2
+        else:
+            if len(minq) > len(maxq):
+                median = minq[0]
+            else:
+                median = -maxq[0]
+        
+        print("{:.1f}".format(median))
+        
+
+
+
+
 # 04. Minimum Average Waiting Time
+#!/usr/bin/env python3
+
+import heapq as hq
+
+if __name__ == "__main__":
+    cms_cnt = int(input().strip())
+    q = []
+    t_finished = 0
+    wait_times = []
+    customers = []
+    
+    for _ in range(cms_cnt):
+        customers.append([int(x) for x in input().strip().split()])
+    customers = sorted(customers, key = lambda x: -x[0])
+        
+    cur_time = 0
+    while customers or q:
+        while customers and cur_time > customers[-1][0]:
+            hq.heappush(q, customers.pop()[::-1])
+        
+        if q:
+            newcms = hq.heappop(q)
+            cur_time += newcms[0]
+            wait_times.append(cur_time - newcms[1])
+        else:
+            hq.heappush(q, customers.pop()[::-1])
+            cur_time = q[0][1]
+    
+    print(sum(wait_times)//cms_cnt)
+        
+
+
+
