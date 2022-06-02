@@ -1,4 +1,110 @@
+# 01. Mr. X and His Shots
+#!/usr/bin/env python3
 
-Mr. X and His Shots
-Jim and the Skyscrapers
-Find Maximum Index Product
+n,m = map(int, input().split())
+
+t1 = [0] * 100010
+t2 = [0] * 100010
+tt = int(0)
+
+for i in range(n):
+    l,r = map(int, input().split())
+    t1[l] += 1
+    t2[r+1] -= 1
+
+for i in range(1,100010):
+    t1[i] += t1[i-1]
+    t2[i] += t2[i-1]
+
+for i in range(m):
+    l,r = map(int, input().split())
+    tt += t1[r] + t2[l]
+
+print(tt)
+
+
+
+
+# 02. Jim and the Skyscrapers
+#!/usr/bin/env python3
+
+import sys
+
+def solution(arr):
+    res = 0
+    st = []
+    
+    for ind in range(len(arr)):
+        while st and st[-1][0] < arr[ind]:
+            st.pop()
+        if st and arr[ind] == st[-1][0]:
+            res += st[-1][1]
+            st[-1][1] += 1
+        else:
+            st.append([arr[ind], 1])
+    
+    return 2*res
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    arr = [int(x) for x in input().strip().split()]
+    print(solution(arr))
+    
+
+
+# 03. Find Maximum Index Product
+#!/usr/bin/env python3
+
+import sys
+
+def find_left(arr):
+    lstack = [1]
+    output = []
+    
+    for ind in range(1, len(arr)-1):
+        while lstack and arr[lstack[-1]-1] <= arr[ind]:
+            lstack.pop()
+        
+        left = lstack[-1] if lstack else 0
+        lstack.append(ind+1)
+        output.append(left)
+    
+    return output
+
+def find_right(arr):
+    arr_len = len(arr)
+    rstack = [1]
+    output = []
+    
+    for ind in range(1, len(arr)-1):
+        while rstack and arr[rstack[-1]-1] <= arr[ind]:
+            rstack.pop()
+        
+        right = arr_len - rstack[-1] + 1 if rstack else 0
+        rstack.append(ind+1)
+        output.append(right)
+        
+    return output[::-1]
+    
+
+def solution(arr):
+    res = 0
+    
+    left = find_left(arr)
+    right = find_right(arr[::-1])
+    
+    #print("left: {}".format(left))
+    #print("rigt: {}".format(right))
+    
+    for el in zip(left, right):
+        res = max(res, el[0]*el[1])
+        
+    return res
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    arr = [int(x) for x in input().strip().split()]
+    
+    print(solution(arr))
+
+
