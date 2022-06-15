@@ -88,12 +88,52 @@ for i in range(thickness):
 
 
 # 08. Text Wrap
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+
+
 
 # 09. Designer Door Mat
+N, M = map(int,input().split()) # More than 6 lines of code will result in 0 score. Blank lines are not counted.
+for i in range(1, N, 2): 
+    print((i*".|.").center(3*N, "-"))
+print ("-WELCOME-".center(3*N, "-"))
+for i in range(N - 2, -1, -2): 
+    print((i*".|.").center(3*N, "-"))
+
+
 
 # 10. String Formatting
+def print_formatted(number):
+    align = len(bin(number)[2:])
+    for num in range(1, number + 1):
+        n_dec = str(num)
+        n_oct = oct(num)[2:]
+        n_hex = hex(num)[2:].upper()
+        n_bin = bin(num)[2:]
+        print(n_dec.rjust(align), n_oct.rjust(align), n_hex.rjust(align), n_bin.rjust(align))
+
+
+
 
 # 11. Alphabet Rangoli
+import string
+alpha = string.ascii_lowercase
+
+def print_rangoli(size):
+    lines = []
+    for row in range(size):
+        to_print = "-".join(alpha[row:size])
+        lines.append(to_print[::-1] + to_print[1:])
+    width = len(lines[0])
+    
+    for row in range(size-1, 0, -1):
+        print(lines[row].center(width, '-'))
+        
+    for row in range(size):
+        print(lines[row].center(width, '-'))
+
+
 
 # 12. Capitalize!
 
