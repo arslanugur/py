@@ -136,7 +136,55 @@ def print_rangoli(size):
 
 
 # 12. Capitalize!
+ (4 sloc)  130 Bytes
+def capitalize(string):
+    for word in string.split():
+        string = string.replace(word, word.capitalize())
+    return string
+
+
 
 # 13. The Minion Game
+vowels = ['A', 'E', 'I', 'O', 'U']
+
+def minion_game(string):
+    score_kevin = 0
+    score_stuart = 0
+    
+    for ind in range(len(string)):
+        if string[ind] in vowels:
+            score_kevin += len(string) - ind
+        else:
+            score_stuart += len(string) - ind
+    
+    if score_kevin > score_stuart:
+        print("Kevin {}".format(score_kevin))
+    elif score_kevin < score_stuart:
+        print("Stuart {}".format(score_stuart))
+    else:
+        print("Draw")
+    
+
 
 # 14. Merge the Tools!
+def merge_the_tools(string, k):
+    block_cnt = len(string)//k
+    output_t = []
+    output_u = []
+    
+    #print("{}/{} = {}".format(len(string), k, block_len))
+    for ind in range(0, len(string) - k + 1, k):
+        output_t.append(string[ind:ind + k])
+    
+    for block in output_t:
+        for char in block:
+            char_count = block.count(char)
+            if char_count > 1:
+                block = block[::-1]
+                block = block.replace(char, '', char_count - 1)
+                block = block[::-1]
+        output_u.append(block)
+                
+    print("\n".join(map(str, output_u)))
+
+
