@@ -90,3 +90,26 @@ opr.add_method (10, 12)  # 22
 
 
 
+
+
+
+Methods: List
+    sort(), copy(), clear(), count(), index(), insert(), extend(), remove(), reverse(), append()
+Methods: String
+    join(), find(), title(), count(), lower(), upper(), replace(), swapcase(), casefold(), capitalize()
+Methods: Set
+    add(), pop(), copy(), clear(), union(), remove(), issubset(), isdisjoint(), setdiscard(), intersection()
+Methods: Dict
+    get(), pop(), copy(), clear(), items(), keys(), values(), update(), popitem(), setdefault()
+
+    
+
+
+
+
+
+
+
+
+
+
